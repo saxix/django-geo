@@ -1,0 +1,10 @@
+include README
+include AUTHORS
+include LICENSE
+include MANIFEST.in
+include setup.py
+include requirements.txt
+recursive-include geo *.py
+recursive-include geo/fixtures *.json
+recursive-include geo/templates *.html
+
