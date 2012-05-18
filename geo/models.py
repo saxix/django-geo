@@ -21,7 +21,6 @@ class Currency(models.Model):
 
     class Meta:
         app_label = 'geo'
-        get_latest_by = 'since'
         ordering = ['code', ]
 
 
