@@ -20,7 +20,7 @@ class Currency(models.Model):
     symbol = models.CharField(max_length=5)
 
     class Meta:
-        app_label = 'core'
+        app_label = 'geo'
         get_latest_by = 'since'
         ordering = ['code', ]
 
