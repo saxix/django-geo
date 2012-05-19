@@ -9,6 +9,7 @@ from django.db import models
 from django.db.models.manager import Manager
 from django.utils.translation import gettext_lazy as _
 import logging
+from mptt.managers import TreeManager
 from mptt.models import MPTTModel, TreeForeignKey
 
 logger = logging.getLogger("geo")
@@ -22,7 +23,6 @@ class Currency(models.Model):
     class Meta:
         app_label = 'geo'
         ordering = ['code', ]
-
 
 CONTINENTS = (
     ('AF', _('Africa')),
@@ -58,6 +58,9 @@ class CountryManager(Manager):
     def antartica(self):
         return self._by_continent('AN')
 
+    def get_by_natural_key(self, iso_code):
+        return self.get(ISO_code=iso_code)
+
 
 class Country(models.Model):
     """ Model for the country of origin """
@@ -86,6 +89,11 @@ class Country(models.Model):
         return (self.ISO_code,)
 
 
+class AdministrativeAreaTypeManager(TreeManager):
+    def get_by_natural_key(self, iso_code, name):
+        return self.get(country__ISO_code=iso_code, name=name)
+
+
 class AdministrativeAreaType(MPTTModel):
     name = models.CharField(_('Name'), max_length=100, db_index=True)
     country = models.ForeignKey(Country)
@@ -104,8 +112,7 @@ class AdministrativeAreaType(MPTTModel):
     def natural_key(self):
         return self.country.natural_key() + (self.name, )
 
-    def save(self, force_insert=False, force_update=False, using=None):
-        super(AdministrativeAreaType, self).save(force_insert, force_update, using)
+    natural_key.dependencies = ['geo.country']
 
     def clean(self):
         if self.parent == self:
@@ -132,6 +139,8 @@ class AdministrativeArea(MPTTModel):
     def natural_key(self):
         return self.country.natural_key() + (self.name, )
 
+    natural_key.dependencies = ['geo.country']
+
 
 class Location(models.Model):
     """ Geographical location ( city, place everything with a name and Lat/Lng"""
@@ -152,11 +161,8 @@ class Location(models.Model):
         )
 
     country = models.ForeignKey(Country, db_index=True)
-
     area = models.ForeignKey(AdministrativeArea, db_index=True, blank=True, null=True)
     type = models.IntegerField(choices=TYPE, default=CITY)
-
-    #
     is_capital = models.BooleanField(default=False,
         help_text="True if is the capital of `country`")
 
@@ -182,3 +188,4 @@ class Location(models.Model):
 
     def natural_key(self):
         return self.country.natural_key() + (self.name, str(self.lat), str(self.lng))
+    natural_key.dependencies = ['geo.country']

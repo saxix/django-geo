@@ -8,7 +8,7 @@
             "region":3,
             "num_code":"004",
             "ISO_code":"AF",
-            "fullname":"Afghanistan, Islamic Republic of\n",
+            "fullname":"Afghanistan, Islamic Republic of",
             "ISO3_code":"AFG",
             "continent":"AS"
         }
@@ -18,12 +18,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"\u00c5land Islands\n",
+            "name":"\u00c5land Islands",
             "region":null,
             "num_code":"248",
 
             "ISO_code":"AX",
-            "fullname":"\u00c5land Islands\n",
+            "fullname":"\u00c5land Islands",
             "ISO3_code":"ALA",
             "continent":"EU"
         }
@@ -38,7 +38,7 @@
             "num_code":"008",
 
             "ISO_code":"AL",
-            "fullname":"Albania, Republic of\n",
+            "fullname":"Albania, Republic of",
             "ISO3_code":"ALB",
             "continent":"EU"
         }
@@ -52,7 +52,7 @@
             "region":1,
             "num_code":"012",
             "ISO_code":"DZ",
-            "fullname":"Algeria, People's Democratic Republic of\n",
+            "fullname":"Algeria, People's Democratic Republic of",
             "ISO3_code":"DZA",
             "continent":"AF"
         }
@@ -62,12 +62,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"American Samoa\n",
+            "name":"American Samoa",
             "region":null,
             "num_code":"016",
 
             "ISO_code":"AS",
-            "fullname":"American Samoa\n",
+            "fullname":"American Samoa",
             "ISO3_code":"ASM",
             "continent":"OC"
         }
@@ -82,7 +82,7 @@
             "num_code":"020",
 
             "ISO_code":"AD",
-            "fullname":"Andorra, Principality of\n",
+            "fullname":"Andorra, Principality of",
             "ISO3_code":"AND",
             "continent":"EU"
         }
@@ -96,7 +96,7 @@
             "region":1,
             "num_code":"024",
             "ISO_code":"AO",
-            "fullname":"Angola, Republic of\n",
+            "fullname":"Angola, Republic of",
             "ISO3_code":"AGO",
             "continent":"AF"
         }
@@ -106,12 +106,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Anguilla\n",
+            "name":"Anguilla",
             "region":null,
             "num_code":"660",
 
             "ISO_code":"AI",
-            "fullname":"Anguilla\n",
+            "fullname":"Anguilla",
             "ISO3_code":"AIA",
             "continent":"NA"
         }
@@ -121,12 +121,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Antarctica (the territory South of 60 deg S)\n",
+            "name":"Antarctica (the territory South of 60 deg S)",
             "region":null,
             "num_code":"010",
 
             "ISO_code":"AQ",
-            "fullname":"Antarctica (the territory South of 60 deg S)\n",
+            "fullname":"Antarctica (the territory South of 60 deg S)",
             "ISO3_code":"ATA",
             "continent":"AN"
         }
@@ -141,7 +141,7 @@
             "num_code":"028",
 
             "ISO_code":"AG",
-            "fullname":"Antigua and Barbuda\n",
+            "fullname":"Antigua and Barbuda",
             "ISO3_code":"ATG",
             "continent":"NA"
         }
@@ -156,7 +156,7 @@
             "num_code":"032",
 
             "ISO_code":"AR",
-            "fullname":"Argentina, Argentine Republic\n",
+            "fullname":"Argentina, Argentine Republic",
             "ISO3_code":"ARG",
             "continent":"SA"
         }
@@ -170,7 +170,7 @@
             "region":3,
             "num_code":"051",
             "ISO_code":"AM",
-            "fullname":"Armenia, Republic of\n",
+            "fullname":"Armenia, Republic of",
             "ISO3_code":"ARM",
             "continent":"AS"
         }
@@ -180,12 +180,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Aruba\n",
+            "name":"Aruba",
             "region":null,
             "num_code":"533",
 
             "ISO_code":"AW",
-            "fullname":"Aruba\n",
+            "fullname":"Aruba",
             "ISO3_code":"ABW",
             "continent":"NA"
         }
@@ -200,7 +200,7 @@
             "num_code":"036",
 
             "ISO_code":"AU",
-            "fullname":"Australia, Commonwealth of\n",
+            "fullname":"Australia, Commonwealth of",
             "ISO3_code":"AUS",
             "continent":"OC"
         }
@@ -215,7 +215,7 @@
             "num_code":"040",
 
             "ISO_code":"AT",
-            "fullname":"Austria, Republic of\n",
+            "fullname":"Austria, Republic of",
             "ISO3_code":"AUT",
             "continent":"EU"
         }
@@ -229,7 +229,7 @@
             "region":3,
             "num_code":"031",
             "ISO_code":"AZ",
-            "fullname":"Azerbaijan, Republic of\n",
+            "fullname":"Azerbaijan, Republic of",
             "ISO3_code":"AZE",
             "continent":"AS"
         }
@@ -244,7 +244,7 @@
             "num_code":"044",
 
             "ISO_code":"BS",
-            "fullname":"Bahamas, Commonwealth of the\n",
+            "fullname":"Bahamas, Commonwealth of the",
             "ISO3_code":"BHS",
             "continent":"NA"
         }
@@ -259,7 +259,7 @@
             "num_code":"048",
 
             "ISO_code":"BH",
-            "fullname":"Bahrain, Kingdom of\n",
+            "fullname":"Bahrain, Kingdom of",
             "ISO3_code":"BHR",
             "continent":"AS"
         }
@@ -273,7 +273,7 @@
             "region":3,
             "num_code":"050",
             "ISO_code":"BD",
-            "fullname":"Bangladesh, People's Republic of\n",
+            "fullname":"Bangladesh, People's Republic of",
             "ISO3_code":"BGD",
             "continent":"AS"
         }
@@ -288,7 +288,7 @@
             "num_code":"052",
 
             "ISO_code":"BB",
-            "fullname":"Barbados\n",
+            "fullname":"Barbados",
             "ISO3_code":"BRB",
             "continent":"NA"
         }
@@ -303,7 +303,7 @@
             "num_code":"112",
 
             "ISO_code":"BY",
-            "fullname":"Belarus, Republic of\n",
+            "fullname":"Belarus, Republic of",
             "ISO3_code":"BLR",
             "continent":"EU"
         }
@@ -318,7 +318,7 @@
             "num_code":"056",
 
             "ISO_code":"BE",
-            "fullname":"Belgium, Kingdom of\n",
+            "fullname":"Belgium, Kingdom of",
             "ISO3_code":"BEL",
             "continent":"EU"
         }
@@ -333,7 +333,7 @@
             "num_code":"084",
 
             "ISO_code":"BZ",
-            "fullname":"Belize\n",
+            "fullname":"Belize",
             "ISO3_code":"BLZ",
             "continent":"NA"
         }
@@ -347,7 +347,7 @@
             "region":1,
             "num_code":"204",
             "ISO_code":"BJ",
-            "fullname":"Benin, Republic of\n",
+            "fullname":"Benin, Republic of",
             "ISO3_code":"BEN",
             "continent":"AF"
         }
@@ -357,12 +357,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Bermuda\n",
+            "name":"Bermuda",
             "region":null,
             "num_code":"060",
 
             "ISO_code":"BM",
-            "fullname":"Bermuda\n",
+            "fullname":"Bermuda",
             "ISO3_code":"BMU",
             "continent":"NA"
         }
@@ -376,7 +376,7 @@
             "region":3,
             "num_code":"064",
             "ISO_code":"BT",
-            "fullname":"Bhutan, Kingdom of\n",
+            "fullname":"Bhutan, Kingdom of",
             "ISO3_code":"BTN",
             "continent":"AS"
         }
@@ -390,7 +390,7 @@
             "region":2,
             "num_code":"068",
             "ISO_code":"BO",
-            "fullname":"Bolivia, Republic of\n",
+            "fullname":"Bolivia, Republic of",
             "ISO3_code":"BOL",
             "continent":"SA"
         }
@@ -400,12 +400,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Bosnia and Herzegovina\n",
+            "name":"Bosnia and Herzegovina",
             "region":null,
             "num_code":"070",
 
             "ISO_code":"BA",
-            "fullname":"Bosnia and Herzegovina\n",
+            "fullname":"Bosnia and Herzegovina",
             "ISO3_code":"BIH",
             "continent":"EU"
         }
@@ -420,7 +420,7 @@
             "num_code":"072",
 
             "ISO_code":"BW",
-            "fullname":"Botswana, Republic of\n",
+            "fullname":"Botswana, Republic of",
             "ISO3_code":"BWA",
             "continent":"AF"
         }
@@ -430,12 +430,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Bouvet Island (Bouvetoya)\n",
+            "name":"Bouvet Island (Bouvetoya)",
             "region":null,
             "num_code":"074",
 
             "ISO_code":"BV",
-            "fullname":"Bouvet Island (Bouvetoya)\n",
+            "fullname":"Bouvet Island (Bouvetoya)",
             "ISO3_code":"BVT",
             "continent":"AN"
         }
@@ -450,7 +450,7 @@
             "num_code":"076",
 
             "ISO_code":"BR",
-            "fullname":"Brazil, Federative Republic of\n",
+            "fullname":"Brazil, Federative Republic of",
             "ISO3_code":"BRA",
             "continent":"SA"
         }
@@ -460,12 +460,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"British Indian Ocean Territory (Chagos Archipelago)\n",
+            "name":"British Indian Ocean Territory (Chagos Archipelago)",
             "region":null,
             "num_code":"086",
 
             "ISO_code":"IO",
-            "fullname":"British Indian Ocean Territory (Chagos Archipelago)\n",
+            "fullname":"British Indian Ocean Territory (Chagos Archipelago)",
             "ISO3_code":"IOT",
             "continent":"AS"
         }
@@ -475,12 +475,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"British Virgin Islands\n",
+            "name":"British Virgin Islands",
             "region":null,
             "num_code":"092",
 
             "ISO_code":"VG",
-            "fullname":"British Virgin Islands\n",
+            "fullname":"British Virgin Islands",
             "ISO3_code":"VGB",
             "continent":"NA"
         }
@@ -495,7 +495,7 @@
             "num_code":"096",
 
             "ISO_code":"BN",
-            "fullname":"Brunei Darussalam\n",
+            "fullname":"Brunei Darussalam",
             "ISO3_code":"BRN",
             "continent":"AS"
         }
@@ -510,7 +510,7 @@
             "num_code":"100",
 
             "ISO_code":"BG",
-            "fullname":"Bulgaria, Republic of\n",
+            "fullname":"Bulgaria, Republic of",
             "ISO3_code":"BGR",
             "continent":"EU"
         }
@@ -524,7 +524,7 @@
             "region":1,
             "num_code":"854",
             "ISO_code":"BF",
-            "fullname":"Burkina Faso\n",
+            "fullname":"Burkina Faso",
             "ISO3_code":"BFA",
             "continent":"AF"
         }
@@ -534,12 +534,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Burma\n",
+            "name":"Burma",
             "region":null,
             "num_code":"000",
 
             "ISO_code":"BU",
-            "fullname":"Burma\n",
+            "fullname":"Burma",
             "ISO3_code":"000",
             "continent":"AS"
         }
@@ -553,7 +553,7 @@
             "region":1,
             "num_code":"108",
             "ISO_code":"BI",
-            "fullname":"Burundi, Republic of\n",
+            "fullname":"Burundi, Republic of",
             "ISO3_code":"BDI",
             "continent":"AF"
         }
@@ -567,7 +567,7 @@
             "region":3,
             "num_code":"116",
             "ISO_code":"KH",
-            "fullname":"Cambodia, Kingdom of\n",
+            "fullname":"Cambodia, Kingdom of",
             "ISO3_code":"KHM",
             "continent":"AS"
         }
@@ -581,7 +581,7 @@
             "region":1,
             "num_code":"120",
             "ISO_code":"CM",
-            "fullname":"Cameroon, Republic of\n",
+            "fullname":"Cameroon, Republic of",
             "ISO3_code":"CMR",
             "continent":"AF"
         }
@@ -596,7 +596,7 @@
             "num_code":"124",
 
             "ISO_code":"CA",
-            "fullname":"Canada\n",
+            "fullname":"Canada",
             "ISO3_code":"CAN",
             "continent":"NA"
         }
@@ -610,7 +610,7 @@
             "region":1,
             "num_code":"132",
             "ISO_code":"CV",
-            "fullname":"Cape Verde, Republic of\n",
+            "fullname":"Cape Verde, Republic of",
             "ISO3_code":"CPV",
             "continent":"AF"
         }
@@ -620,12 +620,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Cayman Islands\n",
+            "name":"Cayman Islands",
             "region":null,
             "num_code":"136",
 
             "ISO_code":"KY",
-            "fullname":"Cayman Islands\n",
+            "fullname":"Cayman Islands",
             "ISO3_code":"CYM",
             "continent":"NA"
         }
@@ -639,7 +639,7 @@
             "region":1,
             "num_code":"140",
             "ISO_code":"CF",
-            "fullname":"Central African Republic\n",
+            "fullname":"Central African Republic",
             "ISO3_code":"CAF",
             "continent":"AF"
         }
@@ -653,7 +653,7 @@
             "region":1,
             "num_code":"148",
             "ISO_code":"TD",
-            "fullname":"Chad, Republic of\n",
+            "fullname":"Chad, Republic of",
             "ISO3_code":"TCD",
             "continent":"AF"
         }
@@ -668,7 +668,7 @@
             "num_code":"152",
 
             "ISO_code":"CL",
-            "fullname":"Chile, Republic of\n",
+            "fullname":"Chile, Republic of",
             "ISO3_code":"CHL",
             "continent":"SA"
         }
@@ -683,7 +683,7 @@
             "num_code":"156",
 
             "ISO_code":"CN",
-            "fullname":"China, People's Republic of\n",
+            "fullname":"China, People's Republic of",
             "ISO3_code":"CHN",
             "continent":"AS"
         }
@@ -693,12 +693,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Christmas Island\n",
+            "name":"Christmas Island",
             "region":null,
             "num_code":"162",
 
             "ISO_code":"CX",
-            "fullname":"Christmas Island\n",
+            "fullname":"Christmas Island",
             "ISO3_code":"CXR",
             "continent":"AS"
         }
@@ -708,12 +708,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Cocos (Keeling) Islands\n",
+            "name":"Cocos (Keeling) Islands",
             "region":null,
             "num_code":"166",
 
             "ISO_code":"CC",
-            "fullname":"Cocos (Keeling) Islands\n",
+            "fullname":"Cocos (Keeling) Islands",
             "ISO3_code":"CCK",
             "continent":"AS"
         }
@@ -727,7 +727,7 @@
             "region":2,
             "num_code":"170",
             "ISO_code":"CO",
-            "fullname":"Colombia, Republic of\n",
+            "fullname":"Colombia, Republic of",
             "ISO3_code":"COL",
             "continent":"SA"
         }
@@ -742,7 +742,7 @@
             "num_code":"174",
 
             "ISO_code":"KM",
-            "fullname":"Comoros, Union of the\n",
+            "fullname":"Comoros, Union of the",
             "ISO3_code":"COM",
             "continent":"AF"
         }
@@ -756,7 +756,7 @@
             "region":1,
             "num_code":"180",
             "ISO_code":"CD",
-            "fullname":"Congo, Democratic Republic of the\n",
+            "fullname":"Congo, Democratic Republic of the",
             "ISO3_code":"COD",
             "continent":"AF"
         }
@@ -770,7 +770,7 @@
             "region":1,
             "num_code":"178",
             "ISO_code":"CG",
-            "fullname":"Congo, Republic of the\n",
+            "fullname":"Congo, Republic of the",
             "ISO3_code":"COG",
             "continent":"AF"
         }
@@ -785,7 +785,7 @@
             "num_code":"184",
 
             "ISO_code":"CK",
-            "fullname":"Cook Islands\n",
+            "fullname":"Cook Islands",
             "ISO3_code":"COK",
             "continent":"OC"
         }
@@ -800,7 +800,7 @@
             "num_code":"188",
 
             "ISO_code":"CR",
-            "fullname":"Costa Rica, Republic of\n",
+            "fullname":"Costa Rica, Republic of",
             "ISO3_code":"CRI",
             "continent":"NA"
         }
@@ -815,7 +815,7 @@
             "num_code":"191",
 
             "ISO_code":"HR",
-            "fullname":"Croatia, Republic of\n",
+            "fullname":"Croatia, Republic of",
             "ISO3_code":"HRV",
             "continent":"EU"
         }
@@ -829,7 +829,7 @@
             "region":2,
             "num_code":"192",
             "ISO_code":"CU",
-            "fullname":"Cuba, Republic of\n",
+            "fullname":"Cuba, Republic of",
             "ISO3_code":"CUB",
             "continent":"NA"
         }
@@ -844,7 +844,7 @@
             "num_code":"196",
 
             "ISO_code":"CY",
-            "fullname":"Cyprus, Republic of\n",
+            "fullname":"Cyprus, Republic of",
             "ISO3_code":"CYP",
             "continent":"AS"
         }
@@ -859,7 +859,7 @@
             "num_code":"203",
 
             "ISO_code":"CZ",
-            "fullname":"Czech Republic\n",
+            "fullname":"Czech Republic",
             "ISO3_code":"CZE",
             "continent":"EU"
         }
@@ -874,7 +874,7 @@
             "num_code":"384",
 
             "ISO_code":"CI",
-            "fullname":"Cote d'Ivoire, Republic of\n",
+            "fullname":"Cote d'Ivoire, Republic of",
             "ISO3_code":"CIV",
             "continent":"AF"
         }
@@ -889,7 +889,7 @@
             "num_code":"208",
 
             "ISO_code":"DK",
-            "fullname":"Denmark, Kingdom of\n",
+            "fullname":"Denmark, Kingdom of",
             "ISO3_code":"DNK",
             "continent":"EU"
         }
@@ -903,7 +903,7 @@
             "region":1,
             "num_code":"262",
             "ISO_code":"DJ",
-            "fullname":"Djibouti, Republic of\n",
+            "fullname":"Djibouti, Republic of",
             "ISO3_code":"DJI",
             "continent":"AF"
         }
@@ -918,7 +918,7 @@
             "num_code":"212",
 
             "ISO_code":"DM",
-            "fullname":"Dominica, Commonwealth of\n",
+            "fullname":"Dominica, Commonwealth of",
             "ISO3_code":"DMA",
             "continent":"NA"
         }
@@ -933,7 +933,7 @@
             "num_code":"214",
 
             "ISO_code":"DO",
-            "fullname":"Dominican Republic\n",
+            "fullname":"Dominican Republic",
             "ISO3_code":"DOM",
             "continent":"NA"
         }
@@ -948,7 +948,7 @@
             "num_code":"530",
 
             "ISO_code":"AN",
-            "fullname":"Netherlands Antilles\n",
+            "fullname":"Netherlands Antilles",
             "ISO3_code":"ANT",
             "continent":"NA"
         }
@@ -962,7 +962,7 @@
             "region":2,
             "num_code":"218",
             "ISO_code":"EC",
-            "fullname":"Ecuador, Republic of\n",
+            "fullname":"Ecuador, Republic of",
             "ISO3_code":"ECU",
             "continent":"SA"
         }
@@ -976,7 +976,7 @@
             "region":1,
             "num_code":"818",
             "ISO_code":"EG",
-            "fullname":"Egypt, Arab Republic of\n",
+            "fullname":"Egypt, Arab Republic of",
             "ISO3_code":"EGY",
             "continent":"AF"
         }
@@ -990,7 +990,7 @@
             "region":2,
             "num_code":"222",
             "ISO_code":"SV",
-            "fullname":"El Salvador, Republic of\n",
+            "fullname":"El Salvador, Republic of",
             "ISO3_code":"SLV",
             "continent":"NA"
         }
@@ -1005,7 +1005,7 @@
             "num_code":"226",
 
             "ISO_code":"GQ",
-            "fullname":"Equatorial Guinea, Republic of\n",
+            "fullname":"Equatorial Guinea, Republic of",
             "ISO3_code":"GNQ",
             "continent":"AF"
         }
@@ -1019,7 +1019,7 @@
             "region":1,
             "num_code":"232",
             "ISO_code":"ER",
-            "fullname":"Eritrea, State of\n",
+            "fullname":"Eritrea, State of",
             "ISO3_code":"ERI",
             "continent":"AF"
         }
@@ -1034,7 +1034,7 @@
             "num_code":"233",
 
             "ISO_code":"EE",
-            "fullname":"Estonia, Republic of\n",
+            "fullname":"Estonia, Republic of",
             "ISO3_code":"EST",
             "continent":"EU"
         }
@@ -1048,7 +1048,7 @@
             "region":1,
             "num_code":"231",
             "ISO_code":"ET",
-            "fullname":"Ethiopia, Federal Democratic Republic of\n",
+            "fullname":"Ethiopia, Federal Democratic Republic of",
             "ISO3_code":"ETH",
             "continent":"AF"
         }
@@ -1058,12 +1058,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Falkland Islands (Malvinas)\n",
+            "name":"Falkland Islands (Malvinas)",
             "region":null,
             "num_code":"238",
 
             "ISO_code":"FK",
-            "fullname":"Falkland Islands (Malvinas)\n",
+            "fullname":"Falkland Islands (Malvinas)",
             "ISO3_code":"FLK",
             "continent":"SA"
         }
@@ -1073,12 +1073,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Faroe Islands\n",
+            "name":"Faroe Islands",
             "region":null,
             "num_code":"234",
 
             "ISO_code":"FO",
-            "fullname":"Faroe Islands\n",
+            "fullname":"Faroe Islands",
             "ISO3_code":"FRO",
             "continent":"EU"
         }
@@ -1093,7 +1093,7 @@
             "num_code":"242",
 
             "ISO_code":"FJ",
-            "fullname":"Fiji, Republic of the Fiji Islands\n",
+            "fullname":"Fiji, Republic of the Fiji Islands",
             "ISO3_code":"FJI",
             "continent":"OC"
         }
@@ -1108,7 +1108,7 @@
             "num_code":"246",
 
             "ISO_code":"FI",
-            "fullname":"Finland, Republic of\n",
+            "fullname":"Finland, Republic of",
             "ISO3_code":"FIN",
             "continent":"EU"
         }
@@ -1118,12 +1118,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Finland     \n",
+            "name":"Finland     ",
             "region":null,
             "num_code":"444",
 
             "ISO_code":"SF",
-            "fullname":"Finland     \n",
+            "fullname":"Finland     ",
             "ISO3_code":"444",
             "continent":"EU"
         }
@@ -1138,7 +1138,7 @@
             "num_code":"250",
 
             "ISO_code":"FR",
-            "fullname":"France, French Republic\n",
+            "fullname":"France, French Republic",
             "ISO3_code":"FRA",
             "continent":"EU"
         }
@@ -1153,7 +1153,7 @@
             "num_code":"254",
 
             "ISO_code":"GF",
-            "fullname":"French Guiana\n",
+            "fullname":"French Guiana",
             "ISO3_code":"GUF",
             "continent":"SA"
         }
@@ -1163,12 +1163,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"French Polynesia\n",
+            "name":"French Polynesia",
             "region":null,
             "num_code":"258",
 
             "ISO_code":"PF",
-            "fullname":"French Polynesia\n",
+            "fullname":"French Polynesia",
             "ISO3_code":"PYF",
             "continent":"OC"
         }
@@ -1178,12 +1178,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"French Southern Territories\n",
+            "name":"French Southern Territories",
             "region":null,
             "num_code":"260",
 
             "ISO_code":"TF",
-            "fullname":"French Southern Territories\n",
+            "fullname":"French Southern Territories",
             "ISO3_code":"ATF",
             "continent":"AN"
         }
@@ -1198,7 +1198,7 @@
             "num_code":"266",
 
             "ISO_code":"GA",
-            "fullname":"Gabon, Gabonese Republic\n",
+            "fullname":"Gabon, Gabonese Republic",
             "ISO3_code":"GAB",
             "continent":"AF"
         }
@@ -1213,7 +1213,7 @@
             "num_code":"270",
 
             "ISO_code":"GM",
-            "fullname":"Gambia, Republic of the\n",
+            "fullname":"Gambia, Republic of the",
             "ISO3_code":"GMB",
             "continent":"AF"
         }
@@ -1227,7 +1227,7 @@
             "region":3,
             "num_code":"268",
             "ISO_code":"GE",
-            "fullname":"Georgia\n",
+            "fullname":"Georgia",
             "ISO3_code":"GEO",
             "continent":"AS"
         }
@@ -1242,7 +1242,7 @@
             "num_code":"276",
 
             "ISO_code":"DE",
-            "fullname":"Germany, Federal Republic of\n",
+            "fullname":"Germany, Federal Republic of",
             "ISO3_code":"DEU",
             "continent":"EU"
         }
@@ -1256,7 +1256,7 @@
             "region":1,
             "num_code":"288",
             "ISO_code":"GH",
-            "fullname":"Ghana, Republic of\n",
+            "fullname":"Ghana, Republic of",
             "ISO3_code":"GHA",
             "continent":"AF"
         }
@@ -1266,12 +1266,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Gibraltar\n",
+            "name":"Gibraltar",
             "region":null,
             "num_code":"292",
 
             "ISO_code":"GI",
-            "fullname":"Gibraltar\n",
+            "fullname":"Gibraltar",
             "ISO3_code":"GIB",
             "continent":"EU"
         }
@@ -1286,7 +1286,7 @@
             "num_code":"300",
 
             "ISO_code":"GR",
-            "fullname":"Greece, Hellenic Republic\n",
+            "fullname":"Greece, Hellenic Republic",
             "ISO3_code":"GRC",
             "continent":"EU"
         }
@@ -1296,12 +1296,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Greenland\n",
+            "name":"Greenland",
             "region":null,
             "num_code":"304",
 
             "ISO_code":"GL",
-            "fullname":"Greenland\n",
+            "fullname":"Greenland",
             "ISO3_code":"GRL",
             "continent":"NA"
         }
@@ -1316,7 +1316,7 @@
             "num_code":"308",
 
             "ISO_code":"GD",
-            "fullname":"Grenada\n",
+            "fullname":"Grenada",
             "ISO3_code":"GRD",
             "continent":"NA"
         }
@@ -1326,12 +1326,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Guadeloupe\n",
+            "name":"Guadeloupe",
             "region":null,
             "num_code":"312",
 
             "ISO_code":"GP",
-            "fullname":"Guadeloupe\n",
+            "fullname":"Guadeloupe",
             "ISO3_code":"GLP",
             "continent":"NA"
         }
@@ -1341,12 +1341,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Guam\n",
+            "name":"Guam",
             "region":null,
             "num_code":"316",
 
             "ISO_code":"GU",
-            "fullname":"Guam\n",
+            "fullname":"Guam",
             "ISO3_code":"GUM",
             "continent":"OC"
         }
@@ -1360,7 +1360,7 @@
             "region":2,
             "num_code":"320",
             "ISO_code":"GT",
-            "fullname":"Guatemala, Republic of\n",
+            "fullname":"Guatemala, Republic of",
             "ISO3_code":"GTM",
             "continent":"NA"
         }
@@ -1375,7 +1375,7 @@
             "num_code":"831",
 
             "ISO_code":"GG",
-            "fullname":"Guernsey, Bailiwick of\n",
+            "fullname":"Guernsey, Bailiwick of",
             "ISO3_code":"GGY",
             "continent":"EU"
         }
@@ -1389,7 +1389,7 @@
             "region":1,
             "num_code":"324",
             "ISO_code":"GN",
-            "fullname":"Guinea, Republic of\n",
+            "fullname":"Guinea, Republic of",
             "ISO3_code":"GIN",
             "continent":"AF"
         }
@@ -1403,7 +1403,7 @@
             "region":1,
             "num_code":"624",
             "ISO_code":"GW",
-            "fullname":"Guinea-Bissau, Republic of\n",
+            "fullname":"Guinea-Bissau, Republic of",
             "ISO3_code":"GNB",
             "continent":"AF"
         }
@@ -1418,7 +1418,7 @@
             "num_code":"328",
 
             "ISO_code":"GY",
-            "fullname":"Guyana, Co-operative Republic of\n",
+            "fullname":"Guyana, Co-operative Republic of",
             "ISO3_code":"GUY",
             "continent":"SA"
         }
@@ -1432,7 +1432,7 @@
             "region":2,
             "num_code":"332",
             "ISO_code":"HT",
-            "fullname":"Haiti, Republic of\n",
+            "fullname":"Haiti, Republic of",
             "ISO3_code":"HTI",
             "continent":"NA"
         }
@@ -1442,12 +1442,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Heard Island and McDonald Islands\n",
+            "name":"Heard Island and McDonald Islands",
             "region":null,
             "num_code":"334",
 
             "ISO_code":"HM",
-            "fullname":"Heard Island and McDonald Islands\n",
+            "fullname":"Heard Island and McDonald Islands",
             "ISO3_code":"HMD",
             "continent":"AN"
         }
@@ -1457,12 +1457,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Holy See (Vatican City State)\n",
+            "name":"Holy See (Vatican City State)",
             "region":null,
             "num_code":"336",
 
             "ISO_code":"VA",
-            "fullname":"Holy See (Vatican City State)\n",
+            "fullname":"Holy See (Vatican City State)",
             "ISO3_code":"VAT",
             "continent":"EU"
         }
@@ -1476,7 +1476,7 @@
             "region":2,
             "num_code":"340",
             "ISO_code":"HN",
-            "fullname":"Honduras, Republic of\n",
+            "fullname":"Honduras, Republic of",
             "ISO3_code":"HND",
             "continent":"NA"
         }
@@ -1491,7 +1491,7 @@
             "num_code":"344",
 
             "ISO_code":"HK",
-            "fullname":"Hong Kong, Special Administrative Region of China\n",
+            "fullname":"Hong Kong, Special Administrative Region of China",
             "ISO3_code":"HKG",
             "continent":"AS"
         }
@@ -1506,7 +1506,7 @@
             "num_code":"348",
 
             "ISO_code":"HU",
-            "fullname":"Hungary, Republic of\n",
+            "fullname":"Hungary, Republic of",
             "ISO3_code":"HUN",
             "continent":"EU"
         }
@@ -1521,7 +1521,7 @@
             "num_code":"352",
 
             "ISO_code":"IS",
-            "fullname":"Iceland, Republic of\n",
+            "fullname":"Iceland, Republic of",
             "ISO3_code":"ISL",
             "continent":"EU"
         }
@@ -1535,7 +1535,7 @@
             "region":3,
             "num_code":"356",
             "ISO_code":"IN",
-            "fullname":"India, Republic of\n",
+            "fullname":"India, Republic of",
             "ISO3_code":"IND",
             "continent":"AS"
         }
@@ -1549,7 +1549,7 @@
             "region":3,
             "num_code":"360",
             "ISO_code":"ID",
-            "fullname":"Indonesia, Republic of\n",
+            "fullname":"Indonesia, Republic of",
             "ISO3_code":"IDN",
             "continent":"AS"
         }
@@ -1563,7 +1563,7 @@
             "region":4,
             "num_code":"364",
             "ISO_code":"IR",
-            "fullname":"Iran, Islamic Republic of\n",
+            "fullname":"Iran, Islamic Republic of",
             "ISO3_code":"IRN",
             "continent":"AS"
         }
@@ -1577,7 +1577,7 @@
             "region":4,
             "num_code":"368",
             "ISO_code":"IQ",
-            "fullname":"Iraq, Republic of\n",
+            "fullname":"Iraq, Republic of",
             "ISO3_code":"IRQ",
             "continent":"AS"
         }
@@ -1592,7 +1592,7 @@
             "num_code":"372",
 
             "ISO_code":"IE",
-            "fullname":"Ireland\n",
+            "fullname":"Ireland",
             "ISO3_code":"IRL",
             "continent":"EU"
         }
@@ -1602,12 +1602,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Isle of Man\n",
+            "name":"Isle of Man",
             "region":null,
             "num_code":"833",
 
             "ISO_code":"IM",
-            "fullname":"Isle of Man\n",
+            "fullname":"Isle of Man",
             "ISO3_code":"IMN",
             "continent":"EU"
         }
@@ -1622,7 +1622,7 @@
             "num_code":"376",
 
             "ISO_code":"IL",
-            "fullname":"Israel, State of\n",
+            "fullname":"Israel, State of",
             "ISO3_code":"ISR",
             "continent":"AS"
         }
@@ -1637,7 +1637,7 @@
             "num_code":"380",
 
             "ISO_code":"IT",
-            "fullname":"Italy, Italian Republic\n",
+            "fullname":"Italy, Italian Republic",
             "ISO3_code":"ITA",
             "continent":"EU"
         }
@@ -1652,7 +1652,7 @@
             "num_code":"388",
 
             "ISO_code":"JM",
-            "fullname":"Jamaica\n",
+            "fullname":"Jamaica",
             "ISO3_code":"JAM",
             "continent":"NA"
         }
@@ -1667,7 +1667,7 @@
             "num_code":"392",
 
             "ISO_code":"JP",
-            "fullname":"Japan\n",
+            "fullname":"Japan",
             "ISO3_code":"JPN",
             "continent":"AS"
         }
@@ -1682,7 +1682,7 @@
             "num_code":"832",
 
             "ISO_code":"JE",
-            "fullname":"Jersey, Bailiwick of\n",
+            "fullname":"Jersey, Bailiwick of",
             "ISO3_code":"JEY",
             "continent":"EU"
         }
@@ -1696,7 +1696,7 @@
             "region":4,
             "num_code":"400",
             "ISO_code":"JO",
-            "fullname":"Jordan, Hashemite Kingdom of\n",
+            "fullname":"Jordan, Hashemite Kingdom of",
             "ISO3_code":"JOR",
             "continent":"AS"
         }
@@ -1711,7 +1711,7 @@
             "num_code":"398",
 
             "ISO_code":"KZ",
-            "fullname":"Kazakhstan, Republic of\n",
+            "fullname":"Kazakhstan, Republic of",
             "ISO3_code":"KAZ",
             "continent":"AS"
         }
@@ -1725,7 +1725,7 @@
             "region":1,
             "num_code":"404",
             "ISO_code":"KE",
-            "fullname":"Kenya, Republic of\n",
+            "fullname":"Kenya, Republic of",
             "ISO3_code":"KEN",
             "continent":"AF"
         }
@@ -1740,7 +1740,7 @@
             "num_code":"296",
 
             "ISO_code":"KI",
-            "fullname":"Kiribati, Republic of\n",
+            "fullname":"Kiribati, Republic of",
             "ISO3_code":"KIR",
             "continent":"OC"
         }
@@ -1754,7 +1754,7 @@
             "region":3,
             "num_code":"408",
             "ISO_code":"KP",
-            "fullname":"Korea, Democratic People's Republic of\n",
+            "fullname":"Korea, Democratic People's Republic of",
             "ISO3_code":"PRK",
             "continent":"AS"
         }
@@ -1769,7 +1769,7 @@
             "num_code":"414",
 
             "ISO_code":"KW",
-            "fullname":"Kuwait, State of\n",
+            "fullname":"Kuwait, State of",
             "ISO3_code":"KWT",
             "continent":"AS"
         }
@@ -1784,7 +1784,7 @@
             "num_code":"417",
 
             "ISO_code":"KG",
-            "fullname":"Kyrgyz Republic\n",
+            "fullname":"Kyrgyz Republic",
             "ISO3_code":"KGZ",
             "continent":"AS"
         }
@@ -1799,7 +1799,7 @@
             "num_code":"418",
 
             "ISO_code":"LA",
-            "fullname":"Lao People's Democratic Republic\n",
+            "fullname":"Lao People's Democratic Republic",
             "ISO3_code":"LAO",
             "continent":"AS"
         }
@@ -1814,7 +1814,7 @@
             "num_code":"428",
 
             "ISO_code":"LV",
-            "fullname":"Latvia, Republic of\n",
+            "fullname":"Latvia, Republic of",
             "ISO3_code":"LVA",
             "continent":"EU"
         }
@@ -1829,7 +1829,7 @@
             "num_code":"422",
 
             "ISO_code":"LB",
-            "fullname":"Lebanon, Lebanese Republic\n",
+            "fullname":"Lebanon, Lebanese Republic",
             "ISO3_code":"LBN",
             "continent":"AS"
         }
@@ -1843,7 +1843,7 @@
             "region":1,
             "num_code":"426",
             "ISO_code":"LS",
-            "fullname":"Lesotho, Kingdom of\n",
+            "fullname":"Lesotho, Kingdom of",
             "ISO3_code":"LSO",
             "continent":"AF"
         }
@@ -1857,7 +1857,7 @@
             "region":1,
             "num_code":"430",
             "ISO_code":"LR",
-            "fullname":"Liberia, Republic of\n",
+            "fullname":"Liberia, Republic of",
             "ISO3_code":"LBR",
             "continent":"AF"
         }
@@ -1872,7 +1872,7 @@
             "num_code":"434",
 
             "ISO_code":"LY",
-            "fullname":"Libyan Arab Jamahiriya\n",
+            "fullname":"Libyan Arab Jamahiriya",
             "ISO3_code":"LBY",
             "continent":"AF"
         }
@@ -1887,7 +1887,7 @@
             "num_code":"438",
 
             "ISO_code":"LI",
-            "fullname":"Liechtenstein, Principality of\n",
+            "fullname":"Liechtenstein, Principality of",
             "ISO3_code":"LIE",
             "continent":"EU"
         }
@@ -1902,7 +1902,7 @@
             "num_code":"440",
 
             "ISO_code":"LT",
-            "fullname":"Lithuania, Republic of\n",
+            "fullname":"Lithuania, Republic of",
             "ISO3_code":"LTU",
             "continent":"EU"
         }
@@ -1917,7 +1917,7 @@
             "num_code":"442",
 
             "ISO_code":"LU",
-            "fullname":"Luxembourg, Grand Duchy of\n",
+            "fullname":"Luxembourg, Grand Duchy of",
             "ISO3_code":"LUX",
             "continent":"EU"
         }
@@ -1932,7 +1932,7 @@
             "num_code":"446",
 
             "ISO_code":"MO",
-            "fullname":"Macao, Special Administrative Region of China\n",
+            "fullname":"Macao, Special Administrative Region of China",
             "ISO3_code":"MAC",
             "continent":"AS"
         }
@@ -1947,7 +1947,7 @@
             "num_code":"807",
 
             "ISO_code":"MK",
-            "fullname":"Macedonia, Republic of\n",
+            "fullname":"Macedonia, Republic of",
             "ISO3_code":"MKD",
             "continent":"EU"
         }
@@ -1961,7 +1961,7 @@
             "region":1,
             "num_code":"450",
             "ISO_code":"MG",
-            "fullname":"Madagascar, Republic of\n",
+            "fullname":"Madagascar, Republic of",
             "ISO3_code":"MDG",
             "continent":"AF"
         }
@@ -1975,7 +1975,7 @@
             "region":1,
             "num_code":"454",
             "ISO_code":"MW",
-            "fullname":"Malawi, Republic of\n",
+            "fullname":"Malawi, Republic of",
             "ISO3_code":"MWI",
             "continent":"AF"
         }
@@ -1990,7 +1990,7 @@
             "num_code":"458",
 
             "ISO_code":"MY",
-            "fullname":"Malaysia\n",
+            "fullname":"Malaysia",
             "ISO3_code":"MYS",
             "continent":"AS"
         }
@@ -2005,7 +2005,7 @@
             "num_code":"462",
 
             "ISO_code":"MV",
-            "fullname":"Maldives, Republic of\n",
+            "fullname":"Maldives, Republic of",
             "ISO3_code":"MDV",
             "continent":"AS"
         }
@@ -2019,7 +2019,7 @@
             "region":1,
             "num_code":"466",
             "ISO_code":"ML",
-            "fullname":"Mali, Republic of\n",
+            "fullname":"Mali, Republic of",
             "ISO3_code":"MLI",
             "continent":"AF"
         }
@@ -2034,7 +2034,7 @@
             "num_code":"470",
 
             "ISO_code":"MT",
-            "fullname":"Malta, Republic of\n",
+            "fullname":"Malta, Republic of",
             "ISO3_code":"MLT",
             "continent":"EU"
         }
@@ -2049,7 +2049,7 @@
             "num_code":"584",
 
             "ISO_code":"MH",
-            "fullname":"Marshall Islands, Republic of the\n",
+            "fullname":"Marshall Islands, Republic of the",
             "ISO3_code":"MHL",
             "continent":"OC"
         }
@@ -2059,12 +2059,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Martinique\n",
+            "name":"Martinique",
             "region":null,
             "num_code":"474",
 
             "ISO_code":"MQ",
-            "fullname":"Martinique\n",
+            "fullname":"Martinique",
             "ISO3_code":"MTQ",
             "continent":"NA"
         }
@@ -2078,7 +2078,7 @@
             "region":1,
             "num_code":"478",
             "ISO_code":"MR",
-            "fullname":"Mauritania, Islamic Republic of\n",
+            "fullname":"Mauritania, Islamic Republic of",
             "ISO3_code":"MRT",
             "continent":"AF"
         }
@@ -2093,7 +2093,7 @@
             "num_code":"480",
 
             "ISO_code":"MU",
-            "fullname":"Mauritius, Republic of\n",
+            "fullname":"Mauritius, Republic of",
             "ISO3_code":"MUS",
             "continent":"AF"
         }
@@ -2103,12 +2103,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Mayotte\n",
+            "name":"Mayotte",
             "region":null,
             "num_code":"175",
 
             "ISO_code":"YT",
-            "fullname":"Mayotte\n",
+            "fullname":"Mayotte",
             "ISO3_code":"MYT",
             "continent":"AF"
         }
@@ -2123,7 +2123,7 @@
             "num_code":"484",
 
             "ISO_code":"MX",
-            "fullname":"Mexico, United Mexican States\n",
+            "fullname":"Mexico, United Mexican States",
             "ISO3_code":"MEX",
             "continent":"NA"
         }
@@ -2138,7 +2138,7 @@
             "num_code":"583",
 
             "ISO_code":"FM",
-            "fullname":"Micronesia, Federated States of\n",
+            "fullname":"Micronesia, Federated States of",
             "ISO3_code":"FSM",
             "continent":"OC"
         }
@@ -2153,7 +2153,7 @@
             "num_code":"498",
 
             "ISO_code":"MD",
-            "fullname":"Moldova, Republic of\n",
+            "fullname":"Moldova, Republic of",
             "ISO3_code":"MDA",
             "continent":"EU"
         }
@@ -2168,7 +2168,7 @@
             "num_code":"492",
 
             "ISO_code":"MC",
-            "fullname":"Monaco, Principality of\n",
+            "fullname":"Monaco, Principality of",
             "ISO3_code":"MCO",
             "continent":"EU"
         }
@@ -2183,7 +2183,7 @@
             "num_code":"496",
 
             "ISO_code":"MN",
-            "fullname":"Mongolia\n",
+            "fullname":"Mongolia",
             "ISO3_code":"MNG",
             "continent":"AS"
         }
@@ -2198,7 +2198,7 @@
             "num_code":"499",
 
             "ISO_code":"ME",
-            "fullname":"Montenegro, Republic of\n",
+            "fullname":"Montenegro, Republic of",
             "ISO3_code":"MNE",
             "continent":"EU"
         }
@@ -2208,12 +2208,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Montserrat\n",
+            "name":"Montserrat",
             "region":null,
             "num_code":"500",
 
             "ISO_code":"MS",
-            "fullname":"Montserrat\n",
+            "fullname":"Montserrat",
             "ISO3_code":"MSR",
             "continent":"NA"
         }
@@ -2228,7 +2228,7 @@
             "num_code":"504",
 
             "ISO_code":"MA",
-            "fullname":"Morocco, Kingdom of\n",
+            "fullname":"Morocco, Kingdom of",
             "ISO3_code":"MAR",
             "continent":"AF"
         }
@@ -2242,7 +2242,7 @@
             "region":1,
             "num_code":"508",
             "ISO_code":"MZ",
-            "fullname":"Mozambique, Republic of\n",
+            "fullname":"Mozambique, Republic of",
             "ISO3_code":"MOZ",
             "continent":"AF"
         }
@@ -2256,7 +2256,7 @@
             "region":3,
             "num_code":"104",
             "ISO_code":"MM",
-            "fullname":"Myanmar, Union of\n",
+            "fullname":"Myanmar, Union of",
             "ISO3_code":"MMR",
             "continent":"AS"
         }
@@ -2270,7 +2270,7 @@
             "region":1,
             "num_code":"516",
             "ISO_code":"NA",
-            "fullname":"Namibia, Republic of\n",
+            "fullname":"Namibia, Republic of",
             "ISO3_code":"NAM",
             "continent":"AF"
         }
@@ -2285,7 +2285,7 @@
             "num_code":"520",
 
             "ISO_code":"NR",
-            "fullname":"Nauru, Republic of\n",
+            "fullname":"Nauru, Republic of",
             "ISO3_code":"NRU",
             "continent":"OC"
         }
@@ -2299,7 +2299,7 @@
             "region":3,
             "num_code":"524",
             "ISO_code":"NP",
-            "fullname":"Nepal, State of\n",
+            "fullname":"Nepal, State of",
             "ISO3_code":"NPL",
             "continent":"AS"
         }
@@ -2314,7 +2314,7 @@
             "num_code":"528",
 
             "ISO_code":"NL",
-            "fullname":"Netherlands, Kingdom of the\n",
+            "fullname":"Netherlands, Kingdom of the",
             "ISO3_code":"NLD",
             "continent":"EU"
         }
@@ -2324,12 +2324,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Neutral Zone    \n",
+            "name":"Neutral Zone    ",
             "region":null,
             "num_code":"333",
 
             "ISO_code":"NT",
-            "fullname":"Neutral Zone    \n",
+            "fullname":"Neutral Zone    ",
             "ISO3_code":"333",
             "continent":"AS"
         }
@@ -2339,12 +2339,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"New Caledonia\n",
+            "name":"New Caledonia",
             "region":null,
             "num_code":"540",
 
             "ISO_code":"NC",
-            "fullname":"New Caledonia\n",
+            "fullname":"New Caledonia",
             "ISO3_code":"NCL",
             "continent":"OC"
         }
@@ -2359,7 +2359,7 @@
             "num_code":"554",
 
             "ISO_code":"NZ",
-            "fullname":"New Zealand\n",
+            "fullname":"New Zealand",
             "ISO3_code":"NZL",
             "continent":"OC"
         }
@@ -2373,7 +2373,7 @@
             "region":2,
             "num_code":"558",
             "ISO_code":"NI",
-            "fullname":"Nicaragua, Republic of\n",
+            "fullname":"Nicaragua, Republic of",
             "ISO3_code":"NIC",
             "continent":"NA"
         }
@@ -2387,7 +2387,7 @@
             "region":1,
             "num_code":"562",
             "ISO_code":"NE",
-            "fullname":"Niger, Republic of\n",
+            "fullname":"Niger, Republic of",
             "ISO3_code":"NER",
             "continent":"AF"
         }
@@ -2402,7 +2402,7 @@
             "num_code":"566",
 
             "ISO_code":"NG",
-            "fullname":"Nigeria, Federal Republic of\n",
+            "fullname":"Nigeria, Federal Republic of",
             "ISO3_code":"NGA",
             "continent":"AF"
         }
@@ -2412,12 +2412,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Niue\n",
+            "name":"Niue",
             "region":null,
             "num_code":"570",
 
             "ISO_code":"NU",
-            "fullname":"Niue\n",
+            "fullname":"Niue",
             "ISO3_code":"NIU",
             "continent":"OC"
         }
@@ -2427,12 +2427,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Norfolk Island\n",
+            "name":"Norfolk Island",
             "region":null,
             "num_code":"574",
 
             "ISO_code":"NF",
-            "fullname":"Norfolk Island\n",
+            "fullname":"Norfolk Island",
             "ISO3_code":"NFK",
             "continent":"OC"
         }
@@ -2447,7 +2447,7 @@
             "num_code":"580",
 
             "ISO_code":"MP",
-            "fullname":"Northern Mariana Islands, Commonwealth of the\n",
+            "fullname":"Northern Mariana Islands, Commonwealth of the",
             "ISO3_code":"MNP",
             "continent":"OC"
         }
@@ -2462,7 +2462,7 @@
             "num_code":"578",
 
             "ISO_code":"NO",
-            "fullname":"Norway, Kingdom of\n",
+            "fullname":"Norway, Kingdom of",
             "ISO3_code":"NOR",
             "continent":"EU"
         }
@@ -2477,7 +2477,7 @@
             "num_code":"512",
 
             "ISO_code":"OM",
-            "fullname":"Oman, Sultanate of\n",
+            "fullname":"Oman, Sultanate of",
             "ISO3_code":"OMN",
             "continent":"AS"
         }
@@ -2491,7 +2491,7 @@
             "region":3,
             "num_code":"586",
             "ISO_code":"PK",
-            "fullname":"Pakistan, Islamic Republic of\n",
+            "fullname":"Pakistan, Islamic Republic of",
             "ISO3_code":"PAK",
             "continent":"AS"
         }
@@ -2506,7 +2506,7 @@
             "num_code":"585",
 
             "ISO_code":"PW",
-            "fullname":"Palau, Republic of\n",
+            "fullname":"Palau, Republic of",
             "ISO3_code":"PLW",
             "continent":"OC"
         }
@@ -2521,7 +2521,7 @@
             "num_code":"275",
 
             "ISO_code":"PS",
-            "fullname":"Palestinian Territory, Occupied\n",
+            "fullname":"Palestinian Territory, Occupied",
             "ISO3_code":"PSE",
             "continent":"AS"
         }
@@ -2536,7 +2536,7 @@
             "num_code":"591",
 
             "ISO_code":"PA",
-            "fullname":"Panama, Republic of\n",
+            "fullname":"Panama, Republic of",
             "ISO3_code":"PAN",
             "continent":"NA"
         }
@@ -2551,7 +2551,7 @@
             "num_code":"598",
 
             "ISO_code":"PG",
-            "fullname":"Papua New Guinea, Independant State of\n",
+            "fullname":"Papua New Guinea, Independant State of",
             "ISO3_code":"PNG",
             "continent":"OC"
         }
@@ -2566,7 +2566,7 @@
             "num_code":"600",
 
             "ISO_code":"PY",
-            "fullname":"Paraguay, Republic of\n",
+            "fullname":"Paraguay, Republic of",
             "ISO3_code":"PRY",
             "continent":"SA"
         }
@@ -2580,7 +2580,7 @@
             "region":2,
             "num_code":"604",
             "ISO_code":"PE",
-            "fullname":"Peru, Republic of\n",
+            "fullname":"Peru, Republic of",
             "ISO3_code":"PER",
             "continent":"SA"
         }
@@ -2594,7 +2594,7 @@
             "region":3,
             "num_code":"608",
             "ISO_code":"PH",
-            "fullname":"Philippines, Republic of the\n",
+            "fullname":"Philippines, Republic of the",
             "ISO3_code":"PHL",
             "continent":"AS"
         }
@@ -2604,12 +2604,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Pitcairn Islands\n",
+            "name":"Pitcairn Islands",
             "region":null,
             "num_code":"612",
 
             "ISO_code":"PN",
-            "fullname":"Pitcairn Islands\n",
+            "fullname":"Pitcairn Islands",
             "ISO3_code":"PCN",
             "continent":"OC"
         }
@@ -2624,7 +2624,7 @@
             "num_code":"616",
 
             "ISO_code":"PL",
-            "fullname":"Poland, Republic of\n",
+            "fullname":"Poland, Republic of",
             "ISO3_code":"POL",
             "continent":"EU"
         }
@@ -2639,7 +2639,7 @@
             "num_code":"620",
 
             "ISO_code":"PT",
-            "fullname":"Portugal, Portuguese Republic\n",
+            "fullname":"Portugal, Portuguese Republic",
             "ISO3_code":"PRT",
             "continent":"EU"
         }
@@ -2654,7 +2654,7 @@
             "num_code":"630",
 
             "ISO_code":"PR",
-            "fullname":"Puerto Rico, Commonwealth of\n",
+            "fullname":"Puerto Rico, Commonwealth of",
             "ISO3_code":"PRI",
             "continent":"NA"
         }
@@ -2669,7 +2669,7 @@
             "num_code":"634",
 
             "ISO_code":"QA",
-            "fullname":"Qatar, State of\n",
+            "fullname":"Qatar, State of",
             "ISO3_code":"QAT",
             "continent":"AS"
         }
@@ -2684,7 +2684,7 @@
             "num_code":"638",
 
             "ISO_code":"RE",
-            "fullname":"Reunion\n",
+            "fullname":"Reunion",
             "ISO3_code":"REU",
             "continent":"AF"
         }
@@ -2699,7 +2699,7 @@
             "num_code":"642",
 
             "ISO_code":"RO",
-            "fullname":"Romania\n",
+            "fullname":"Romania",
             "ISO3_code":"ROU",
             "continent":"EU"
         }
@@ -2714,7 +2714,7 @@
             "num_code":"643",
 
             "ISO_code":"RU",
-            "fullname":"Russian Federation\n",
+            "fullname":"Russian Federation",
             "ISO3_code":"RUS",
             "continent":"EU"
         }
@@ -2728,7 +2728,7 @@
             "region":1,
             "num_code":"646",
             "ISO_code":"RW",
-            "fullname":"Rwanda, Republic of\n",
+            "fullname":"Rwanda, Republic of",
             "ISO3_code":"RWA",
             "continent":"AF"
         }
@@ -2743,7 +2743,7 @@
             "num_code":"678",
 
             "ISO_code":"ST",
-            "fullname":"Sao Tome and Principe, Democratic Republic of\n",
+            "fullname":"Sao Tome and Principe, Democratic Republic of",
             "ISO3_code":"STP",
             "continent":"AF"
         }
@@ -2753,12 +2753,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Saint Barthelemy\n",
+            "name":"Saint Barthelemy",
             "region":null,
             "num_code":"652",
 
             "ISO_code":"BL",
-            "fullname":"Saint Barthelemy\n",
+            "fullname":"Saint Barthelemy",
             "ISO3_code":"BLM",
             "continent":"NA"
         }
@@ -2768,12 +2768,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Saint Helena\n",
+            "name":"Saint Helena",
             "region":null,
             "num_code":"654",
 
             "ISO_code":"SH",
-            "fullname":"Saint Helena\n",
+            "fullname":"Saint Helena",
             "ISO3_code":"SHN",
             "continent":"AF"
         }
@@ -2783,12 +2783,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Saint Martin\n",
+            "name":"Saint Martin",
             "region":null,
             "num_code":"663",
 
             "ISO_code":"MF",
-            "fullname":"Saint Martin\n",
+            "fullname":"Saint Martin",
             "ISO3_code":"MAF",
             "continent":"NA"
         }
@@ -2798,12 +2798,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Saint Pierre and Miquelon\n",
+            "name":"Saint Pierre and Miquelon",
             "region":null,
             "num_code":"666",
 
             "ISO_code":"PM",
-            "fullname":"Saint Pierre and Miquelon\n",
+            "fullname":"Saint Pierre and Miquelon",
             "ISO3_code":"SPM",
             "continent":"NA"
         }
@@ -2818,7 +2818,7 @@
             "num_code":"882",
 
             "ISO_code":"WS",
-            "fullname":"Samoa, Independant State of\n",
+            "fullname":"Samoa, Independant State of",
             "ISO3_code":"WSM",
             "continent":"OC"
         }
@@ -2833,7 +2833,7 @@
             "num_code":"674",
 
             "ISO_code":"SM",
-            "fullname":"San Marino, Republic of\n",
+            "fullname":"San Marino, Republic of",
             "ISO3_code":"SMR",
             "continent":"EU"
         }
@@ -2848,7 +2848,7 @@
             "num_code":"682",
 
             "ISO_code":"SA",
-            "fullname":"Saudi Arabia, Kingdom of\n",
+            "fullname":"Saudi Arabia, Kingdom of",
             "ISO3_code":"SAU",
             "continent":"AS"
         }
@@ -2862,7 +2862,7 @@
             "region":1,
             "num_code":"686",
             "ISO_code":"SN",
-            "fullname":"Senegal, Republic of\n",
+            "fullname":"Senegal, Republic of",
             "ISO3_code":"SEN",
             "continent":"AF"
         }
@@ -2877,7 +2877,7 @@
             "num_code":"688",
 
             "ISO_code":"RS",
-            "fullname":"Serbia, Republic of\n",
+            "fullname":"Serbia, Republic of",
             "ISO3_code":"SRB",
             "continent":"EU"
         }
@@ -2887,12 +2887,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Serbia and Montenegro   \n",
+            "name":"Serbia and Montenegro   ",
             "region":null,
             "num_code":"111",
 
             "ISO_code":"CS",
-            "fullname":"Serbia and Montenegro   \n",
+            "fullname":"Serbia and Montenegro   ",
             "ISO3_code":"222",
             "continent":"EU"
         }
@@ -2907,7 +2907,7 @@
             "num_code":"666",
 
             "ISO_code":"YU",
-            "fullname":"Yugoslavia  \n",
+            "fullname":"Yugoslavia  ",
             "ISO3_code":"666",
             "continent":"EU"
         }
@@ -2922,7 +2922,7 @@
             "num_code":"690",
 
             "ISO_code":"SC",
-            "fullname":"Seychelles, Republic of\n",
+            "fullname":"Seychelles, Republic of",
             "ISO3_code":"SYC",
             "continent":"AF"
         }
@@ -2936,7 +2936,7 @@
             "region":1,
             "num_code":"694",
             "ISO_code":"SL",
-            "fullname":"Sierra Leone, Republic of\n",
+            "fullname":"Sierra Leone, Republic of",
             "ISO3_code":"SLE",
             "continent":"AF"
         }
@@ -2951,7 +2951,7 @@
             "num_code":"702",
 
             "ISO_code":"SG",
-            "fullname":"Singapore, Republic of\n",
+            "fullname":"Singapore, Republic of",
             "ISO3_code":"SGP",
             "continent":"AS"
         }
@@ -2966,7 +2966,7 @@
             "num_code":"703",
 
             "ISO_code":"SK",
-            "fullname":"Slovakia (Slovak Republic)\n",
+            "fullname":"Slovakia (Slovak Republic)",
             "ISO3_code":"SVK",
             "continent":"EU"
         }
@@ -2981,7 +2981,7 @@
             "num_code":"705",
 
             "ISO_code":"SI",
-            "fullname":"Slovenia, Republic of\n",
+            "fullname":"Slovenia, Republic of",
             "ISO3_code":"SVN",
             "continent":"EU"
         }
@@ -2996,7 +2996,7 @@
             "num_code":"090",
 
             "ISO_code":"SB",
-            "fullname":"Solomon Islands\n",
+            "fullname":"Solomon Islands",
             "ISO3_code":"SLB",
             "continent":"OC"
         }
@@ -3010,7 +3010,7 @@
             "region":1,
             "num_code":"706",
             "ISO_code":"SO",
-            "fullname":"Somalia, Somali Republic\n",
+            "fullname":"Somalia, Somali Republic",
             "ISO3_code":"SOM",
             "continent":"AF"
         }
@@ -3025,7 +3025,7 @@
             "num_code":"710",
 
             "ISO_code":"ZA",
-            "fullname":"South Africa, Republic of\n",
+            "fullname":"South Africa, Republic of",
             "ISO3_code":"ZAF",
             "continent":"AF"
         }
@@ -3035,12 +3035,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"South Georgia and the South Sandwich Islands\n",
+            "name":"South Georgia and the South Sandwich Islands",
             "region":null,
             "num_code":"239",
 
             "ISO_code":"GS",
-            "fullname":"South Georgia and the South Sandwich Islands\n",
+            "fullname":"South Georgia and the South Sandwich Islands",
             "ISO3_code":"SGS",
             "continent":"AN"
         }
@@ -3054,7 +3054,7 @@
             "region":3,
             "num_code":"410",
             "ISO_code":"KR",
-            "fullname":"Korea, Republic of\n",
+            "fullname":"Korea, Republic of",
             "ISO3_code":"KOR",
             "continent":"AS"
         }
@@ -3069,7 +3069,7 @@
             "num_code":"724",
 
             "ISO_code":"ES",
-            "fullname":"Spain, Kingdom of\n",
+            "fullname":"Spain, Kingdom of",
             "ISO3_code":"ESP",
             "continent":"EU"
         }
@@ -3083,7 +3083,7 @@
             "region":3,
             "num_code":"144",
             "ISO_code":"LK",
-            "fullname":"Sri Lanka, Democratic Socialist Republic of\n",
+            "fullname":"Sri Lanka, Democratic Socialist Republic of",
             "ISO3_code":"LKA",
             "continent":"AS"
         }
@@ -3098,7 +3098,7 @@
             "num_code":"659",
 
             "ISO_code":"KN",
-            "fullname":"Saint Kitts and Nevis, Federation of\n",
+            "fullname":"Saint Kitts and Nevis, Federation of",
             "ISO3_code":"KNA",
             "continent":"NA"
         }
@@ -3113,7 +3113,7 @@
             "num_code":"662",
 
             "ISO_code":"LC",
-            "fullname":"Saint Lucia\n",
+            "fullname":"Saint Lucia",
             "ISO3_code":"LCA",
             "continent":"NA"
         }
@@ -3128,7 +3128,7 @@
             "num_code":"670",
 
             "ISO_code":"VC",
-            "fullname":"Saint Vincent and the Grenadines\n",
+            "fullname":"Saint Vincent and the Grenadines",
             "ISO3_code":"VCT",
             "continent":"NA"
         }
@@ -3142,7 +3142,7 @@
             "region":1,
             "num_code":"736",
             "ISO_code":"SD",
-            "fullname":"Sudan, Republic of\n",
+            "fullname":"Sudan, Republic of",
             "ISO3_code":"SDN",
             "continent":"AF"
         }
@@ -3157,7 +3157,7 @@
             "num_code":"740",
 
             "ISO_code":"SR",
-            "fullname":"Suriname, Republic of\n",
+            "fullname":"Suriname, Republic of",
             "ISO3_code":"SUR",
             "continent":"SA"
         }
@@ -3167,12 +3167,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Svalbard & Jan Mayen Islands\n",
+            "name":"Svalbard & Jan Mayen Islands",
             "region":null,
             "num_code":"744",
 
             "ISO_code":"SJ",
-            "fullname":"Svalbard & Jan Mayen Islands\n",
+            "fullname":"Svalbard & Jan Mayen Islands",
             "ISO3_code":"SJM",
             "continent":"EU"
         }
@@ -3186,7 +3186,7 @@
             "region":1,
             "num_code":"748",
             "ISO_code":"SZ",
-            "fullname":"Swaziland, Kingdom of\n",
+            "fullname":"Swaziland, Kingdom of",
             "ISO3_code":"SWZ",
             "continent":"AF"
         }
@@ -3201,7 +3201,7 @@
             "num_code":"752",
 
             "ISO_code":"SE",
-            "fullname":"Sweden, Kingdom of\n",
+            "fullname":"Sweden, Kingdom of",
             "ISO3_code":"SWE",
             "continent":"EU"
         }
@@ -3216,7 +3216,7 @@
             "num_code":"756",
 
             "ISO_code":"CH",
-            "fullname":"Switzerland, Swiss Confederation\n",
+            "fullname":"Switzerland, Swiss Confederation",
             "ISO3_code":"CHE",
             "continent":"EU"
         }
@@ -3231,7 +3231,7 @@
             "num_code":"760",
 
             "ISO_code":"SY",
-            "fullname":"Syrian Arab Republic\n",
+            "fullname":"Syrian Arab Republic",
             "ISO3_code":"SYR",
             "continent":"AS"
         }
@@ -3246,7 +3246,7 @@
             "num_code":"158",
 
             "ISO_code":"TW",
-            "fullname":"Taiwan\n",
+            "fullname":"Taiwan",
             "ISO3_code":"TWN",
             "continent":"AS"
         }
@@ -3260,7 +3260,7 @@
             "region":3,
             "num_code":"762",
             "ISO_code":"TJ",
-            "fullname":"Tajikistan, Republic of\n",
+            "fullname":"Tajikistan, Republic of",
             "ISO3_code":"TJK",
             "continent":"AS"
         }
@@ -3274,7 +3274,7 @@
             "region":1,
             "num_code":"834",
             "ISO_code":"TZ",
-            "fullname":"Tanzania, United Republic of\n",
+            "fullname":"Tanzania, United Republic of",
             "ISO3_code":"TZA",
             "continent":"AF"
         }
@@ -3289,7 +3289,7 @@
             "num_code":"764",
 
             "ISO_code":"TH",
-            "fullname":"Thailand, Kingdom of\n",
+            "fullname":"Thailand, Kingdom of",
             "ISO3_code":"THA",
             "continent":"AS"
         }
@@ -3303,7 +3303,7 @@
             "region":3,
             "num_code":"626",
             "ISO_code":"TL",
-            "fullname":"Timor-Leste, Democratic Republic of\n",
+            "fullname":"Timor-Leste, Democratic Republic of",
             "ISO3_code":"TLS",
             "continent":"AS"
         }
@@ -3318,7 +3318,7 @@
             "num_code":"555",
 
             "ISO_code":"TP",
-            "fullname":"East Timor  \n",
+            "fullname":"East Timor  ",
             "ISO3_code":"555",
             "continent":"AS"
         }
@@ -3332,7 +3332,7 @@
             "region":1,
             "num_code":"768",
             "ISO_code":"TG",
-            "fullname":"Togo, Togolese Republic\n",
+            "fullname":"Togo, Togolese Republic",
             "ISO3_code":"TGO",
             "continent":"AF"
         }
@@ -3342,12 +3342,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Tokelau\n",
+            "name":"Tokelau",
             "region":null,
             "num_code":"772",
 
             "ISO_code":"TK",
-            "fullname":"Tokelau\n",
+            "fullname":"Tokelau",
             "ISO3_code":"TKL",
             "continent":"OC"
         }
@@ -3362,7 +3362,7 @@
             "num_code":"776",
 
             "ISO_code":"TO",
-            "fullname":"Tonga, Kingdom of\n",
+            "fullname":"Tonga, Kingdom of",
             "ISO3_code":"TON",
             "continent":"OC"
         }
@@ -3377,7 +3377,7 @@
             "num_code":"780",
 
             "ISO_code":"TT",
-            "fullname":"Trinidad and Tobago, Republic of\n",
+            "fullname":"Trinidad and Tobago, Republic of",
             "ISO3_code":"TTO",
             "continent":"NA"
         }
@@ -3392,7 +3392,7 @@
             "num_code":"788",
 
             "ISO_code":"TN",
-            "fullname":"Tunisia, Tunisian Republic\n",
+            "fullname":"Tunisia, Tunisian Republic",
             "ISO3_code":"TUN",
             "continent":"AF"
         }
@@ -3407,7 +3407,7 @@
             "num_code":"792",
 
             "ISO_code":"TR",
-            "fullname":"Turkey, Republic of\n",
+            "fullname":"Turkey, Republic of",
             "ISO3_code":"TUR",
             "continent":"AS"
         }
@@ -3422,7 +3422,7 @@
             "num_code":"795",
 
             "ISO_code":"TM",
-            "fullname":"Turkmenistan\n",
+            "fullname":"Turkmenistan",
             "ISO3_code":"TKM",
             "continent":"AS"
         }
@@ -3432,12 +3432,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Turks and Caicos Islands\n",
+            "name":"Turks and Caicos Islands",
             "region":null,
             "num_code":"796",
 
             "ISO_code":"TC",
-            "fullname":"Turks and Caicos Islands\n",
+            "fullname":"Turks and Caicos Islands",
             "ISO3_code":"TCA",
             "continent":"NA"
         }
@@ -3447,12 +3447,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Tuvalu\n",
+            "name":"Tuvalu",
             "region":null,
             "num_code":"798",
 
             "ISO_code":"TV",
-            "fullname":"Tuvalu\n",
+            "fullname":"Tuvalu",
             "ISO3_code":"TUV",
             "continent":"OC"
         }
@@ -3466,7 +3466,7 @@
             "region":1,
             "num_code":"800",
             "ISO_code":"UG",
-            "fullname":"Uganda, Republic of\n",
+            "fullname":"Uganda, Republic of",
             "ISO3_code":"UGA",
             "continent":"AF"
         }
@@ -3481,7 +3481,7 @@
             "num_code":"804",
 
             "ISO_code":"UA",
-            "fullname":"Ukraine\n",
+            "fullname":"Ukraine",
             "ISO3_code":"UKR",
             "continent":"EU"
         }
@@ -3496,7 +3496,7 @@
             "num_code":"784",
 
             "ISO_code":"AE",
-            "fullname":"United Arab Emirates\n",
+            "fullname":"United Arab Emirates",
             "ISO3_code":"ARE",
             "continent":"AS"
         }
@@ -3511,7 +3511,7 @@
             "num_code":"826",
 
             "ISO_code":"GB",
-            "fullname":"United Kingdom of Great Britain & Northern Ireland\n",
+            "fullname":"United Kingdom of Great Britain & Northern Ireland",
             "ISO3_code":"GBR",
             "continent":"EU"
         }
@@ -3521,12 +3521,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"United States Minor Outlying Islands\n",
+            "name":"United States Minor Outlying Islands",
             "region":null,
             "num_code":"581",
 
             "ISO_code":"UM",
-            "fullname":"United States Minor Outlying Islands\n",
+            "fullname":"United States Minor Outlying Islands",
             "ISO3_code":"UMI",
             "continent":"OC"
         }
@@ -3536,12 +3536,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"United States Virgin Islands\n",
+            "name":"United States Virgin Islands",
             "region":null,
             "num_code":"850",
 
             "ISO_code":"VI",
-            "fullname":"United States Virgin Islands\n",
+            "fullname":"United States Virgin Islands",
             "ISO3_code":"VIR",
             "continent":"NA"
         }
@@ -3556,7 +3556,7 @@
             "num_code":"858",
 
             "ISO_code":"UY",
-            "fullname":"Uruguay, Eastern Republic of\n",
+            "fullname":"Uruguay, Eastern Republic of",
             "ISO3_code":"URY",
             "continent":"SA"
         }
@@ -3571,7 +3571,7 @@
             "num_code":"840",
 
             "ISO_code":"US",
-            "fullname":"United States of America\n",
+            "fullname":"United States of America",
             "ISO3_code":"USA",
             "continent":"NA"
         }
@@ -3586,7 +3586,7 @@
             "num_code":"860",
 
             "ISO_code":"UZ",
-            "fullname":"Uzbekistan, Republic of\n",
+            "fullname":"Uzbekistan, Republic of",
             "ISO3_code":"UZB",
             "continent":"AS"
         }
@@ -3601,7 +3601,7 @@
             "num_code":"548",
 
             "ISO_code":"VU",
-            "fullname":"Vanuatu, Republic of\n",
+            "fullname":"Vanuatu, Republic of",
             "ISO3_code":"VUT",
             "continent":"OC"
         }
@@ -3616,7 +3616,7 @@
             "num_code":"862",
 
             "ISO_code":"VE",
-            "fullname":"Venezuela, Bolivarian Republic of\n",
+            "fullname":"Venezuela, Bolivarian Republic of",
             "ISO3_code":"VEN",
             "continent":"SA"
         }
@@ -3631,7 +3631,7 @@
             "num_code":"704",
 
             "ISO_code":"VN",
-            "fullname":"Vietnam, Socialist Republic of\n",
+            "fullname":"Vietnam, Socialist Republic of",
             "ISO3_code":"VNM",
             "continent":"AS"
         }
@@ -3641,12 +3641,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Wallis and Futuna\n",
+            "name":"Wallis and Futuna",
             "region":null,
             "num_code":"876",
 
             "ISO_code":"WF",
-            "fullname":"Wallis and Futuna\n",
+            "fullname":"Wallis and Futuna",
             "ISO3_code":"WLF",
             "continent":"OC"
         }
@@ -3656,12 +3656,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Western Sahara\n",
+            "name":"Western Sahara",
             "region":null,
             "num_code":"732",
 
             "ISO_code":"EH",
-            "fullname":"Western Sahara\n",
+            "fullname":"Western Sahara",
             "ISO3_code":"ESH",
             "continent":"AF"
         }
@@ -3676,7 +3676,7 @@
             "num_code":"887",
 
             "ISO_code":"YE",
-            "fullname":"Yemen\n",
+            "fullname":"Yemen",
             "ISO3_code":"YEM",
             "continent":"AS"
         }
@@ -3686,12 +3686,12 @@
         "model":"geo.country",
         "fields":{
 
-            "name":"Zaire\n",
+            "name":"Zaire",
             "region":null,
             "num_code":"777",
 
             "ISO_code":"ZR",
-            "fullname":"Zaire\n",
+            "fullname":"Zaire",
             "ISO3_code":"777",
             "continent":"AF"
         }
@@ -3705,7 +3705,7 @@
             "region":1,
             "num_code":"894",
             "ISO_code":"ZM",
-            "fullname":"Zambia, Republic of\n",
+            "fullname":"Zambia, Republic of",
             "ISO3_code":"ZMB",
             "continent":"AF"
         }
@@ -3719,7 +3719,7 @@
             "region":1,
             "num_code":"716",
             "ISO_code":"ZW",
-            "fullname":"Zimbabwe, Republic of\n",
+            "fullname":"Zimbabwe, Republic of",
             "ISO3_code":"ZWE",
             "continent":"AF"
         }
