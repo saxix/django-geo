@@ -1,6 +1,7 @@
 # This is necessary in Python 2.5 to enable the with statement, in 2.6
 # and up it is no longer necessary.
 from __future__ import with_statement
+from contextlib import contextmanager
 
 import sys
 import os
@@ -24,6 +25,11 @@ try:
 except ImportError:
     has_bz2 = False
 
+
+@contextmanager
+def dummy_contextmanager():
+    yield
+
 class Command(BaseCommand):
     help = 'Installs the named fixture(s) in the database.'
     args = "fixture [fixture ...]"
@@ -38,6 +44,13 @@ class Command(BaseCommand):
         using = options.get('database')
         connection = connections[using]
         self.style = no_style()
+
+        #HACK django 1.3
+        try:
+            getattr(connection, 'constraint_checks_disabled')
+        except :
+            setattr(connection, 'constraint_checks_disabled', dummy_contextmanager)
+            setattr(connection, 'check_constraints', lambda table_names:None)
 
         if not len(fixture_labels):
             self.stderr.write(
@@ -233,6 +246,7 @@ class Command(BaseCommand):
             if show_traceback:
                 traceback.print_exc()
             else:
+                raise
                 self.stderr.write(
                     self.style.ERROR("Problem installing fixture '%s': %s\n" %
                          (full_path, ''.join(traceback.format_exception(sys.exc_type,
