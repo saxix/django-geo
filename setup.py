@@ -74,5 +74,5 @@ setup(
                  'Programming Language :: Python',
                  'Intended Audience :: Developers',
                  ],
-    long_description=open('README').read()
+    long_description=open('README.rst').read()
 )
