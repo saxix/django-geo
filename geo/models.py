@@ -9,6 +9,7 @@ from django.db import models
 from django.db.models.manager import Manager
 from django.utils.translation import gettext_lazy as _
 import logging
+from mptt.exceptions import InvalidMove
 from mptt.managers import TreeManager
 from mptt.models import MPTTModel, TreeForeignKey
 
@@ -59,13 +60,13 @@ class CountryManager(Manager):
         return self._by_continent('AN')
 
     def get_by_natural_key(self, iso_code):
-        return self.get(ISO_code=iso_code)
+        return self.get(iso_code=iso_code)
 
 
 class Country(models.Model):
     """ Model for the country of origin """
-    ISO_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True)
-    ISO3_code = models.CharField(max_length=3, blank=True, null=True)
+    iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True)
+    iso3_code = models.CharField(max_length=3, blank=True, null=True, db_index=True)
     num_code = models.CharField(max_length=3, blank=True, null=True)
     name = models.CharField(max_length=100, db_index=True)
     fullname = models.CharField(max_length=100, db_index=True)
@@ -86,18 +87,25 @@ class Country(models.Model):
         return self.fullname
 
     def natural_key(self):
-        return (self.ISO_code,)
+        return (self.iso_code,)
+
+    def __contains__(self, item):
+        if hasattr(item, 'country'):
+            return item.country == self
 
 
 class AdministrativeAreaTypeManager(TreeManager):
+    use_for_related_fields = True
+
     def get_by_natural_key(self, iso_code, name):
-        return self.get(country__ISO_code=iso_code, name=name)
+        return self.get(country__iso_code=iso_code, name=name)
 
 
 class AdministrativeAreaType(MPTTModel):
     name = models.CharField(_('Name'), max_length=100, db_index=True)
     country = models.ForeignKey(Country)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
+    objects = AdministrativeAreaTypeManager()
 
     class Meta:
         verbose_name = _("Administrative Area Type")
@@ -119,12 +127,22 @@ class AdministrativeAreaType(MPTTModel):
             raise ValidationError(_('`%s` cannot contains same type') % self.parent)
         super(AdministrativeAreaType, self).clean()
 
+class AdministrativeAreaManager(TreeManager):
+    use_for_related_fields = True
+
+    def get_by_natural_key(self, iso_code, name):
+        return self.get(country__iso_code=iso_code, name=name)
+
+    def get_or_create(self, **kwargs):
+        return super(AdministrativeAreaManager, self).get_or_create(**kwargs)
+
 
 class AdministrativeArea(MPTTModel):
     name = models.CharField(_('Name'), max_length=255, db_index=True)
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
-    country = models.ForeignKey(Country)
+    parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
+    country = models.ForeignKey(Country, related_name='areas')
     type = models.ForeignKey(AdministrativeAreaType)
+    objects = AdministrativeAreaManager()
 
     class Meta:
         verbose_name = _("Administrative Area")
@@ -137,9 +155,27 @@ class AdministrativeArea(MPTTModel):
         return self.name
 
     def natural_key(self):
-        return self.country.natural_key() + (self.name, )
-
+        return (self.country.iso_code, self.name )
     natural_key.dependencies = ['geo.country']
+
+    def clean(self):
+        if self.parent == self:
+            raise ValidationError(_('`%s` cannot contains self') % self)
+        if self.parent and self.parent.type == self.type:
+            raise ValidationError(_('`%s` cannot contains same type') % self.parent.type)
+        if (self.pk and self.parent) and self in self.parent:
+            raise ValidationError(_('`%s` cannot contains same type') % self.parent)
+
+        super(AdministrativeArea, self).clean()
+
+    def save(self, *args, **kwargs):
+        if not self.country_id:
+            self.country = self.parent.country
+        self.clean()
+        super(AdministrativeArea, self).save(*args, **kwargs)
+
+    def __contains__(self, item):
+        return True
 
 
 class Location(models.Model):
@@ -189,3 +225,6 @@ class Location(models.Model):
     def natural_key(self):
         return self.country.natural_key() + (self.name, str(self.lat), str(self.lng))
     natural_key.dependencies = ['geo.country']
+
+    def clean(self):
+        super(Location, self).clean()

@@ -1,0 +1,120 @@
+[
+    {
+        "pk":109,
+        "model":"geo.country",
+        "fields":{
+            "name":"Italy",
+            "region":null,
+            "num_code":"380",
+            "currency":null,
+            "iso_code":"IT",
+            "fullname":"Italy, Italian Republic",
+            "iso3_code":"ITA",
+            "continent":"EU"
+        }
+    },
+    {
+        "pk":1,
+        "model":"geo.administrativeareatype",
+        "fields":{
+            "rght":6,
+            "_order":0,
+            "name":"Regione",
+            "parent":null,
+            "level":0,
+            "country":["IT"],
+            "lft":1,
+            "tree_id":1
+        }
+    },
+    {
+        "pk":2,
+        "model":"geo.administrativeareatype",
+        "fields":{
+            "rght":5,
+            "_order":1,
+            "name":"Provincia",
+            "parent":["IT", "Regione"],
+            "level":1,
+            "country":["IT"],
+            "lft":2,
+            "tree_id":1
+        }
+    },
+    {
+        "pk":3,
+        "model":"geo.administrativeareatype",
+        "fields":{
+            "rght":4,
+            "_order":2,
+            "name":"Comune",
+            "parent":["IT", "Provincia"],
+            "level":2,
+            "country":["IT"],
+            "lft":3,
+            "tree_id":1
+        }
+    },
+    {
+        "pk":1,
+        "model":"geo.administrativearea",
+        "fields":{
+            "rght":6,
+            "_order":0,
+            "name":"Lazio",
+            "parent":null,
+            "level":0,
+            "country":["IT"],
+            "lft":1,
+            "tree_id":1,
+            "type":["IT", "Regione"]
+        }
+    },
+    {
+        "pk":2,
+        "model":"geo.administrativearea",
+        "fields":{
+            "rght":5,
+            "_order":1,
+            "name":"Provincia di Roma",
+            "parent":["IT", "Lazio"],
+            "level":1,
+            "country":["IT"],
+            "lft":2,
+            "tree_id":1,
+            "type":["IT", "Provincia"]
+        }
+    },
+    {
+        "pk":3,
+        "model":"geo.administrativearea",
+        "fields":{
+            "rght":4,
+            "_order":2,
+            "name":"Comune di Roma",
+            "parent":["IT", "Provincia di Roma"],
+            "level":2,
+            "country":["IT"],
+            "lft":3,
+            "tree_id":1,
+            "type":["IT", "Comune"]
+        }
+    },
+    {
+        "pk":1,
+        "model":"geo.location",
+        "fields":{
+            "acc":0,
+            "is_capital":false,
+            "is_administrative":false,
+            "name":"Roma",
+            "area":["IT", "Comune di Roma"],
+            "country":["IT"],
+            "_order":0,
+            "lat":null,
+            "lng":null,
+            "type":0,
+            "description":null
+        }
+    }
+]

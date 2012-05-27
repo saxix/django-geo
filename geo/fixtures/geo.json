@@ -7,9 +7,9 @@
             "name":"Afghanistan",
             "region":3,
             "num_code":"004",
-            "ISO_code":"AF",
+            "iso_code":"AF",
             "fullname":"Afghanistan, Islamic Republic of",
-            "ISO3_code":"AFG",
+            "iso3_code":"AFG",
             "continent":"AS"
         }
     },
@@ -22,9 +22,9 @@
             "region":null,
             "num_code":"248",
 
-            "ISO_code":"AX",
+            "iso_code":"AX",
             "fullname":"\u00c5land Islands",
-            "ISO3_code":"ALA",
+            "iso3_code":"ALA",
             "continent":"EU"
         }
     },
@@ -37,9 +37,9 @@
             "region":null,
             "num_code":"008",
 
-            "ISO_code":"AL",
+            "iso_code":"AL",
             "fullname":"Albania, Republic of",
-            "ISO3_code":"ALB",
+            "iso3_code":"ALB",
             "continent":"EU"
         }
     },
@@ -51,9 +51,9 @@
             "name":"Algeria",
             "region":1,
             "num_code":"012",
-            "ISO_code":"DZ",
+            "iso_code":"DZ",
             "fullname":"Algeria, People's Democratic Republic of",
-            "ISO3_code":"DZA",
+            "iso3_code":"DZA",
             "continent":"AF"
         }
     },
@@ -66,9 +66,9 @@
             "region":null,
             "num_code":"016",
 
-            "ISO_code":"AS",
+            "iso_code":"AS",
             "fullname":"American Samoa",
-            "ISO3_code":"ASM",
+            "iso3_code":"ASM",
             "continent":"OC"
         }
     },
@@ -81,9 +81,9 @@
             "region":null,
             "num_code":"020",
 
-            "ISO_code":"AD",
+            "iso_code":"AD",
             "fullname":"Andorra, Principality of",
-            "ISO3_code":"AND",
+            "iso3_code":"AND",
             "continent":"EU"
         }
     },
@@ -95,9 +95,9 @@
             "name":"Angola",
             "region":1,
             "num_code":"024",
-            "ISO_code":"AO",
+            "iso_code":"AO",
             "fullname":"Angola, Republic of",
-            "ISO3_code":"AGO",
+            "iso3_code":"AGO",
             "continent":"AF"
         }
     },
@@ -110,9 +110,9 @@
             "region":null,
             "num_code":"660",
 
-            "ISO_code":"AI",
+            "iso_code":"AI",
             "fullname":"Anguilla",
-            "ISO3_code":"AIA",
+            "iso3_code":"AIA",
             "continent":"NA"
         }
     },
@@ -125,9 +125,9 @@
             "region":null,
             "num_code":"010",
 
-            "ISO_code":"AQ",
+            "iso_code":"AQ",
             "fullname":"Antarctica (the territory South of 60 deg S)",
-            "ISO3_code":"ATA",
+            "iso3_code":"ATA",
             "continent":"AN"
         }
     },
@@ -140,9 +140,9 @@
             "region":null,
             "num_code":"028",
 
-            "ISO_code":"AG",
+            "iso_code":"AG",
             "fullname":"Antigua and Barbuda",
-            "ISO3_code":"ATG",
+            "iso3_code":"ATG",
             "continent":"NA"
         }
     },
@@ -155,9 +155,9 @@
             "region":null,
             "num_code":"032",
 
-            "ISO_code":"AR",
+            "iso_code":"AR",
             "fullname":"Argentina, Argentine Republic",
-            "ISO3_code":"ARG",
+            "iso3_code":"ARG",
             "continent":"SA"
         }
     },
@@ -169,9 +169,9 @@
             "name":"Armenia",
             "region":3,
             "num_code":"051",
-            "ISO_code":"AM",
+            "iso_code":"AM",
             "fullname":"Armenia, Republic of",
-            "ISO3_code":"ARM",
+            "iso3_code":"ARM",
             "continent":"AS"
         }
     },
@@ -184,9 +184,9 @@
             "region":null,
             "num_code":"533",
 
-            "ISO_code":"AW",
+            "iso_code":"AW",
             "fullname":"Aruba",
-            "ISO3_code":"ABW",
+            "iso3_code":"ABW",
             "continent":"NA"
         }
     },
@@ -199,9 +199,9 @@
             "region":null,
             "num_code":"036",
 
-            "ISO_code":"AU",
+            "iso_code":"AU",
             "fullname":"Australia, Commonwealth of",
-            "ISO3_code":"AUS",
+            "iso3_code":"AUS",
             "continent":"OC"
         }
     },
@@ -214,9 +214,9 @@
             "region":null,
             "num_code":"040",
 
-            "ISO_code":"AT",
+            "iso_code":"AT",
             "fullname":"Austria, Republic of",
-            "ISO3_code":"AUT",
+            "iso3_code":"AUT",
             "continent":"EU"
         }
     },
@@ -228,9 +228,9 @@
             "name":"Azerbaijan",
             "region":3,
             "num_code":"031",
-            "ISO_code":"AZ",
+            "iso_code":"AZ",
             "fullname":"Azerbaijan, Republic of",
-            "ISO3_code":"AZE",
+            "iso3_code":"AZE",
             "continent":"AS"
         }
     },
@@ -243,9 +243,9 @@
             "region":null,
             "num_code":"044",
 
-            "ISO_code":"BS",
+            "iso_code":"BS",
             "fullname":"Bahamas, Commonwealth of the",
-            "ISO3_code":"BHS",
+            "iso3_code":"BHS",
             "continent":"NA"
         }
     },
@@ -258,9 +258,9 @@
             "region":null,
             "num_code":"048",
 
-            "ISO_code":"BH",
+            "iso_code":"BH",
             "fullname":"Bahrain, Kingdom of",
-            "ISO3_code":"BHR",
+            "iso3_code":"BHR",
             "continent":"AS"
         }
     },
@@ -272,9 +272,9 @@
             "name":"Bangladesh",
             "region":3,
             "num_code":"050",
-            "ISO_code":"BD",
+            "iso_code":"BD",
             "fullname":"Bangladesh, People's Republic of",
-            "ISO3_code":"BGD",
+            "iso3_code":"BGD",
             "continent":"AS"
         }
     },
@@ -287,9 +287,9 @@
             "region":null,
             "num_code":"052",
 
-            "ISO_code":"BB",
+            "iso_code":"BB",
             "fullname":"Barbados",
-            "ISO3_code":"BRB",
+            "iso3_code":"BRB",
             "continent":"NA"
         }
     },
@@ -302,9 +302,9 @@
             "region":null,
             "num_code":"112",
 
-            "ISO_code":"BY",
+            "iso_code":"BY",
             "fullname":"Belarus, Republic of",
-            "ISO3_code":"BLR",
+            "iso3_code":"BLR",
             "continent":"EU"
         }
     },
@@ -317,9 +317,9 @@
             "region":null,
             "num_code":"056",
 
-            "ISO_code":"BE",
+            "iso_code":"BE",
             "fullname":"Belgium, Kingdom of",
-            "ISO3_code":"BEL",
+            "iso3_code":"BEL",
             "continent":"EU"
         }
     },
@@ -332,9 +332,9 @@
             "region":null,
             "num_code":"084",
 
-            "ISO_code":"BZ",
+            "iso_code":"BZ",
             "fullname":"Belize",
-            "ISO3_code":"BLZ",
+            "iso3_code":"BLZ",
             "continent":"NA"
         }
     },
@@ -346,9 +346,9 @@
             "name":"Benin",
             "region":1,
             "num_code":"204",
-            "ISO_code":"BJ",
+            "iso_code":"BJ",
             "fullname":"Benin, Republic of",
-            "ISO3_code":"BEN",
+            "iso3_code":"BEN",
             "continent":"AF"
         }
     },
@@ -361,9 +361,9 @@
             "region":null,
             "num_code":"060",
 
-            "ISO_code":"BM",
+            "iso_code":"BM",
             "fullname":"Bermuda",
-            "ISO3_code":"BMU",
+            "iso3_code":"BMU",
             "continent":"NA"
         }
     },
@@ -375,9 +375,9 @@
             "name":"Bhutan",
             "region":3,
             "num_code":"064",
-            "ISO_code":"BT",
+            "iso_code":"BT",
             "fullname":"Bhutan, Kingdom of",
-            "ISO3_code":"BTN",
+            "iso3_code":"BTN",
             "continent":"AS"
         }
     },
@@ -389,9 +389,9 @@
             "name":"Bolivia",
             "region":2,
             "num_code":"068",
-            "ISO_code":"BO",
+            "iso_code":"BO",
             "fullname":"Bolivia, Republic of",
-            "ISO3_code":"BOL",
+            "iso3_code":"BOL",
             "continent":"SA"
         }
     },
@@ -404,9 +404,9 @@
             "region":null,
             "num_code":"070",
 
-            "ISO_code":"BA",
+            "iso_code":"BA",
             "fullname":"Bosnia and Herzegovina",
-            "ISO3_code":"BIH",
+            "iso3_code":"BIH",
             "continent":"EU"
         }
     },
@@ -419,9 +419,9 @@
             "region":null,
             "num_code":"072",
 
-            "ISO_code":"BW",
+            "iso_code":"BW",
             "fullname":"Botswana, Republic of",
-            "ISO3_code":"BWA",
+            "iso3_code":"BWA",
             "continent":"AF"
         }
     },
@@ -434,9 +434,9 @@
             "region":null,
             "num_code":"074",
 
-            "ISO_code":"BV",
+            "iso_code":"BV",
             "fullname":"Bouvet Island (Bouvetoya)",
-            "ISO3_code":"BVT",
+            "iso3_code":"BVT",
             "continent":"AN"
         }
     },
@@ -449,9 +449,9 @@
             "region":null,
             "num_code":"076",
 
-            "ISO_code":"BR",
+            "iso_code":"BR",
             "fullname":"Brazil, Federative Republic of",
-            "ISO3_code":"BRA",
+            "iso3_code":"BRA",
             "continent":"SA"
         }
     },
@@ -464,9 +464,9 @@
             "region":null,
             "num_code":"086",
 
-            "ISO_code":"IO",
+            "iso_code":"IO",
             "fullname":"British Indian Ocean Territory (Chagos Archipelago)",
-            "ISO3_code":"IOT",
+            "iso3_code":"IOT",
             "continent":"AS"
         }
     },
@@ -479,9 +479,9 @@
             "region":null,
             "num_code":"092",
 
-            "ISO_code":"VG",
+            "iso_code":"VG",
             "fullname":"British Virgin Islands",
-            "ISO3_code":"VGB",
+            "iso3_code":"VGB",
             "continent":"NA"
         }
     },
@@ -494,9 +494,9 @@
             "region":null,
             "num_code":"096",
 
-            "ISO_code":"BN",
+            "iso_code":"BN",
             "fullname":"Brunei Darussalam",
-            "ISO3_code":"BRN",
+            "iso3_code":"BRN",
             "continent":"AS"
         }
     },
@@ -509,9 +509,9 @@
             "region":null,
             "num_code":"100",
 
-            "ISO_code":"BG",
+            "iso_code":"BG",
             "fullname":"Bulgaria, Republic of",
-            "ISO3_code":"BGR",
+            "iso3_code":"BGR",
             "continent":"EU"
         }
     },
@@ -523,9 +523,9 @@
             "name":"Burkina Faso",
             "region":1,
             "num_code":"854",
-            "ISO_code":"BF",
+            "iso_code":"BF",
             "fullname":"Burkina Faso",
-            "ISO3_code":"BFA",
+            "iso3_code":"BFA",
             "continent":"AF"
         }
     },
@@ -538,9 +538,9 @@
             "region":null,
             "num_code":"000",
 
-            "ISO_code":"BU",
+            "iso_code":"BU",
             "fullname":"Burma",
-            "ISO3_code":"000",
+            "iso3_code":"000",
             "continent":"AS"
         }
     },
@@ -552,9 +552,9 @@
             "name":"Burundi",
             "region":1,
             "num_code":"108",
-            "ISO_code":"BI",
+            "iso_code":"BI",
             "fullname":"Burundi, Republic of",
-            "ISO3_code":"BDI",
+            "iso3_code":"BDI",
             "continent":"AF"
         }
     },
@@ -566,9 +566,9 @@
             "name":"Cambodia",
             "region":3,
             "num_code":"116",
-            "ISO_code":"KH",
+            "iso_code":"KH",
             "fullname":"Cambodia, Kingdom of",
-            "ISO3_code":"KHM",
+            "iso3_code":"KHM",
             "continent":"AS"
         }
     },
@@ -580,9 +580,9 @@
             "name":"Cameroon",
             "region":1,
             "num_code":"120",
-            "ISO_code":"CM",
+            "iso_code":"CM",
             "fullname":"Cameroon, Republic of",
-            "ISO3_code":"CMR",
+            "iso3_code":"CMR",
             "continent":"AF"
         }
     },
@@ -595,9 +595,9 @@
             "region":null,
             "num_code":"124",
 
-            "ISO_code":"CA",
+            "iso_code":"CA",
             "fullname":"Canada",
-            "ISO3_code":"CAN",
+            "iso3_code":"CAN",
             "continent":"NA"
         }
     },
@@ -609,9 +609,9 @@
             "name":"Cape Verde",
             "region":1,
             "num_code":"132",
-            "ISO_code":"CV",
+            "iso_code":"CV",
             "fullname":"Cape Verde, Republic of",
-            "ISO3_code":"CPV",
+            "iso3_code":"CPV",
             "continent":"AF"
         }
     },
@@ -624,9 +624,9 @@
             "region":null,
             "num_code":"136",
 
-            "ISO_code":"KY",
+            "iso_code":"KY",
             "fullname":"Cayman Islands",
-            "ISO3_code":"CYM",
+            "iso3_code":"CYM",
             "continent":"NA"
         }
     },
@@ -638,9 +638,9 @@
             "name":"Cen.African Rep",
             "region":1,
             "num_code":"140",
-            "ISO_code":"CF",
+            "iso_code":"CF",
             "fullname":"Central African Republic",
-            "ISO3_code":"CAF",
+            "iso3_code":"CAF",
             "continent":"AF"
         }
     },
@@ -652,9 +652,9 @@
             "name":"Chad",
             "region":1,
             "num_code":"148",
-            "ISO_code":"TD",
+            "iso_code":"TD",
             "fullname":"Chad, Republic of",
-            "ISO3_code":"TCD",
+            "iso3_code":"TCD",
             "continent":"AF"
         }
     },
@@ -667,9 +667,9 @@
             "region":null,
             "num_code":"152",
 
-            "ISO_code":"CL",
+            "iso_code":"CL",
             "fullname":"Chile, Republic of",
-            "ISO3_code":"CHL",
+            "iso3_code":"CHL",
             "continent":"SA"
         }
     },
@@ -682,9 +682,9 @@
             "region":null,
             "num_code":"156",
 
-            "ISO_code":"CN",
+            "iso_code":"CN",
             "fullname":"China, People's Republic of",
-            "ISO3_code":"CHN",
+            "iso3_code":"CHN",
             "continent":"AS"
         }
     },
@@ -697,9 +697,9 @@
             "region":null,
             "num_code":"162",
 
-            "ISO_code":"CX",
+            "iso_code":"CX",
             "fullname":"Christmas Island",
-            "ISO3_code":"CXR",
+            "iso3_code":"CXR",
             "continent":"AS"
         }
     },
@@ -712,9 +712,9 @@
             "region":null,
             "num_code":"166",
 
-            "ISO_code":"CC",
+            "iso_code":"CC",
             "fullname":"Cocos (Keeling) Islands",
-            "ISO3_code":"CCK",
+            "iso3_code":"CCK",
             "continent":"AS"
         }
     },
@@ -726,9 +726,9 @@
             "name":"Colombia",
             "region":2,
             "num_code":"170",
-            "ISO_code":"CO",
+            "iso_code":"CO",
             "fullname":"Colombia, Republic of",
-            "ISO3_code":"COL",
+            "iso3_code":"COL",
             "continent":"SA"
         }
     },
@@ -741,9 +741,9 @@
             "region":null,
             "num_code":"174",
 
-            "ISO_code":"KM",
+            "iso_code":"KM",
             "fullname":"Comoros, Union of the",
-            "ISO3_code":"COM",
+            "iso3_code":"COM",
             "continent":"AF"
         }
     },
@@ -755,9 +755,9 @@
             "name":"Congo, Democratic Republic Of",
             "region":1,
             "num_code":"180",
-            "ISO_code":"CD",
+            "iso_code":"CD",
             "fullname":"Congo, Democratic Republic of the",
-            "ISO3_code":"COD",
+            "iso3_code":"COD",
             "continent":"AF"
         }
     },
@@ -769,9 +769,9 @@
             "name":"Congo, Republic Of",
             "region":1,
             "num_code":"178",
-            "ISO_code":"CG",
+            "iso_code":"CG",
             "fullname":"Congo, Republic of the",
-            "ISO3_code":"COG",
+            "iso3_code":"COG",
             "continent":"AF"
         }
     },
@@ -784,9 +784,9 @@
             "region":null,
             "num_code":"184",
 
-            "ISO_code":"CK",
+            "iso_code":"CK",
             "fullname":"Cook Islands",
-            "ISO3_code":"COK",
+            "iso3_code":"COK",
             "continent":"OC"
         }
     },
@@ -799,9 +799,9 @@
             "region":null,
             "num_code":"188",
 
-            "ISO_code":"CR",
+            "iso_code":"CR",
             "fullname":"Costa Rica, Republic of",
-            "ISO3_code":"CRI",
+            "iso3_code":"CRI",
             "continent":"NA"
         }
     },
@@ -814,9 +814,9 @@
             "region":null,
             "num_code":"191",
 
-            "ISO_code":"HR",
+            "iso_code":"HR",
             "fullname":"Croatia, Republic of",
-            "ISO3_code":"HRV",
+            "iso3_code":"HRV",
             "continent":"EU"
         }
     },
@@ -828,9 +828,9 @@
             "name":"Cuba",
             "region":2,
             "num_code":"192",
-            "ISO_code":"CU",
+            "iso_code":"CU",
             "fullname":"Cuba, Republic of",
-            "ISO3_code":"CUB",
+            "iso3_code":"CUB",
             "continent":"NA"
         }
     },
@@ -843,9 +843,9 @@
             "region":null,
             "num_code":"196",
 
-            "ISO_code":"CY",
+            "iso_code":"CY",
             "fullname":"Cyprus, Republic of",
-            "ISO3_code":"CYP",
+            "iso3_code":"CYP",
             "continent":"AS"
         }
     },
@@ -858,9 +858,9 @@
             "region":null,
             "num_code":"203",
 
-            "ISO_code":"CZ",
+            "iso_code":"CZ",
             "fullname":"Czech Republic",
-            "ISO3_code":"CZE",
+            "iso3_code":"CZE",
             "continent":"EU"
         }
     },
@@ -873,9 +873,9 @@
             "region":null,
             "num_code":"384",
 
-            "ISO_code":"CI",
+            "iso_code":"CI",
             "fullname":"Cote d'Ivoire, Republic of",
-            "ISO3_code":"CIV",
+            "iso3_code":"CIV",
             "continent":"AF"
         }
     },
@@ -888,9 +888,9 @@
             "region":null,
             "num_code":"208",
 
-            "ISO_code":"DK",
+            "iso_code":"DK",
             "fullname":"Denmark, Kingdom of",
-            "ISO3_code":"DNK",
+            "iso3_code":"DNK",
             "continent":"EU"
         }
     },
@@ -902,9 +902,9 @@
             "name":"Djibouti",
             "region":1,
             "num_code":"262",
-            "ISO_code":"DJ",
+            "iso_code":"DJ",
             "fullname":"Djibouti, Republic of",
-            "ISO3_code":"DJI",
+            "iso3_code":"DJI",
             "continent":"AF"
         }
     },
@@ -917,9 +917,9 @@
             "region":null,
             "num_code":"212",
 
-            "ISO_code":"DM",
+            "iso_code":"DM",
             "fullname":"Dominica, Commonwealth of",
-            "ISO3_code":"DMA",
+            "iso3_code":"DMA",
             "continent":"NA"
         }
     },
@@ -932,9 +932,9 @@
             "region":null,
             "num_code":"214",
 
-            "ISO_code":"DO",
+            "iso_code":"DO",
             "fullname":"Dominican Republic",
-            "ISO3_code":"DOM",
+            "iso3_code":"DOM",
             "continent":"NA"
         }
     },
@@ -947,9 +947,9 @@
             "region":null,
             "num_code":"530",
 
-            "ISO_code":"AN",
+            "iso_code":"AN",
             "fullname":"Netherlands Antilles",
-            "ISO3_code":"ANT",
+            "iso3_code":"ANT",
             "continent":"NA"
         }
     },
@@ -961,9 +961,9 @@
             "name":"Ecuador",
             "region":2,
             "num_code":"218",
-            "ISO_code":"EC",
+            "iso_code":"EC",
             "fullname":"Ecuador, Republic of",
-            "ISO3_code":"ECU",
+            "iso3_code":"ECU",
             "continent":"SA"
         }
     },
@@ -975,9 +975,9 @@
             "name":"Egypt",
             "region":1,
             "num_code":"818",
-            "ISO_code":"EG",
+            "iso_code":"EG",
             "fullname":"Egypt, Arab Republic of",
-            "ISO3_code":"EGY",
+            "iso3_code":"EGY",
             "continent":"AF"
         }
     },
@@ -989,9 +989,9 @@
             "name":"El Salvador",
             "region":2,
             "num_code":"222",
-            "ISO_code":"SV",
+            "iso_code":"SV",
             "fullname":"El Salvador, Republic of",
-            "ISO3_code":"SLV",
+            "iso3_code":"SLV",
             "continent":"NA"
         }
     },
@@ -1004,9 +1004,9 @@
             "region":null,
             "num_code":"226",
 
-            "ISO_code":"GQ",
+            "iso_code":"GQ",
             "fullname":"Equatorial Guinea, Republic of",
-            "ISO3_code":"GNQ",
+            "iso3_code":"GNQ",
             "continent":"AF"
         }
     },
@@ -1018,9 +1018,9 @@
             "name":"Eritrea",
             "region":1,
             "num_code":"232",
-            "ISO_code":"ER",
+            "iso_code":"ER",
             "fullname":"Eritrea, State of",
-            "ISO3_code":"ERI",
+            "iso3_code":"ERI",
             "continent":"AF"
         }
     },
@@ -1033,9 +1033,9 @@
             "region":null,
             "num_code":"233",
 
-            "ISO_code":"EE",
+            "iso_code":"EE",
             "fullname":"Estonia, Republic of",
-            "ISO3_code":"EST",
+            "iso3_code":"EST",
             "continent":"EU"
         }
     },
@@ -1047,9 +1047,9 @@
             "name":"Ethiopia",
             "region":1,
             "num_code":"231",
-            "ISO_code":"ET",
+            "iso_code":"ET",
             "fullname":"Ethiopia, Federal Democratic Republic of",
-            "ISO3_code":"ETH",
+            "iso3_code":"ETH",
             "continent":"AF"
         }
     },
@@ -1062,9 +1062,9 @@
             "region":null,
             "num_code":"238",
 
-            "ISO_code":"FK",
+            "iso_code":"FK",
             "fullname":"Falkland Islands (Malvinas)",
-            "ISO3_code":"FLK",
+            "iso3_code":"FLK",
             "continent":"SA"
         }
     },
@@ -1077,9 +1077,9 @@
             "region":null,
             "num_code":"234",
 
-            "ISO_code":"FO",
+            "iso_code":"FO",
             "fullname":"Faroe Islands",
-            "ISO3_code":"FRO",
+            "iso3_code":"FRO",
             "continent":"EU"
         }
     },
@@ -1092,9 +1092,9 @@
             "region":null,
             "num_code":"242",
 
-            "ISO_code":"FJ",
+            "iso_code":"FJ",
             "fullname":"Fiji, Republic of the Fiji Islands",
-            "ISO3_code":"FJI",
+            "iso3_code":"FJI",
             "continent":"OC"
         }
     },
@@ -1107,9 +1107,9 @@
             "region":null,
             "num_code":"246",
 
-            "ISO_code":"FI",
+            "iso_code":"FI",
             "fullname":"Finland, Republic of",
-            "ISO3_code":"FIN",
+            "iso3_code":"FIN",
             "continent":"EU"
         }
     },
@@ -1122,9 +1122,9 @@
             "region":null,
             "num_code":"444",
 
-            "ISO_code":"SF",
+            "iso_code":"SF",
             "fullname":"Finland     ",
-            "ISO3_code":"444",
+            "iso3_code":"444",
             "continent":"EU"
         }
     },
@@ -1137,9 +1137,9 @@
             "region":null,
             "num_code":"250",
 
-            "ISO_code":"FR",
+            "iso_code":"FR",
             "fullname":"France, French Republic",
-            "ISO3_code":"FRA",
+            "iso3_code":"FRA",
             "continent":"EU"
         }
     },
@@ -1152,9 +1152,9 @@
             "region":null,
             "num_code":"254",
 
-            "ISO_code":"GF",
+            "iso_code":"GF",
             "fullname":"French Guiana",
-            "ISO3_code":"GUF",
+            "iso3_code":"GUF",
             "continent":"SA"
         }
     },
@@ -1167,9 +1167,9 @@
             "region":null,
             "num_code":"258",
 
-            "ISO_code":"PF",
+            "iso_code":"PF",
             "fullname":"French Polynesia",
-            "ISO3_code":"PYF",
+            "iso3_code":"PYF",
             "continent":"OC"
         }
     },
@@ -1182,9 +1182,9 @@
             "region":null,
             "num_code":"260",
 
-            "ISO_code":"TF",
+            "iso_code":"TF",
             "fullname":"French Southern Territories",
-            "ISO3_code":"ATF",
+            "iso3_code":"ATF",
             "continent":"AN"
         }
     },
@@ -1197,9 +1197,9 @@
             "region":null,
             "num_code":"266",
 
-            "ISO_code":"GA",
+            "iso_code":"GA",
             "fullname":"Gabon, Gabonese Republic",
-            "ISO3_code":"GAB",
+            "iso3_code":"GAB",
             "continent":"AF"
         }
     },
@@ -1212,9 +1212,9 @@
             "region":null,
             "num_code":"270",
 
-            "ISO_code":"GM",
+            "iso_code":"GM",
             "fullname":"Gambia, Republic of the",
-            "ISO3_code":"GMB",
+            "iso3_code":"GMB",
             "continent":"AF"
         }
     },
@@ -1226,9 +1226,9 @@
             "name":"Georgia",
             "region":3,
             "num_code":"268",
-            "ISO_code":"GE",
+            "iso_code":"GE",
             "fullname":"Georgia",
-            "ISO3_code":"GEO",
+            "iso3_code":"GEO",
             "continent":"AS"
         }
     },
@@ -1241,9 +1241,9 @@
             "region":null,
             "num_code":"276",
 
-            "ISO_code":"DE",
+            "iso_code":"DE",
             "fullname":"Germany, Federal Republic of",
-            "ISO3_code":"DEU",
+            "iso3_code":"DEU",
             "continent":"EU"
         }
     },
@@ -1255,9 +1255,9 @@
             "name":"Ghana",
             "region":1,
             "num_code":"288",
-            "ISO_code":"GH",
+            "iso_code":"GH",
             "fullname":"Ghana, Republic of",
-            "ISO3_code":"GHA",
+            "iso3_code":"GHA",
             "continent":"AF"
         }
     },
@@ -1270,9 +1270,9 @@
             "region":null,
             "num_code":"292",
 
-            "ISO_code":"GI",
+            "iso_code":"GI",
             "fullname":"Gibraltar",
-            "ISO3_code":"GIB",
+            "iso3_code":"GIB",
             "continent":"EU"
         }
     },
@@ -1285,9 +1285,9 @@
             "region":null,
             "num_code":"300",
 
-            "ISO_code":"GR",
+            "iso_code":"GR",
             "fullname":"Greece, Hellenic Republic",
-            "ISO3_code":"GRC",
+            "iso3_code":"GRC",
             "continent":"EU"
         }
     },
@@ -1300,9 +1300,9 @@
             "region":null,
             "num_code":"304",
 
-            "ISO_code":"GL",
+            "iso_code":"GL",
             "fullname":"Greenland",
-            "ISO3_code":"GRL",
+            "iso3_code":"GRL",
             "continent":"NA"
         }
     },
@@ -1315,9 +1315,9 @@
             "region":null,
             "num_code":"308",
 
-            "ISO_code":"GD",
+            "iso_code":"GD",
             "fullname":"Grenada",
-            "ISO3_code":"GRD",
+            "iso3_code":"GRD",
             "continent":"NA"
         }
     },
@@ -1330,9 +1330,9 @@
             "region":null,
             "num_code":"312",
 
-            "ISO_code":"GP",
+            "iso_code":"GP",
             "fullname":"Guadeloupe",
-            "ISO3_code":"GLP",
+            "iso3_code":"GLP",
             "continent":"NA"
         }
     },
@@ -1345,9 +1345,9 @@
             "region":null,
             "num_code":"316",
 
-            "ISO_code":"GU",
+            "iso_code":"GU",
             "fullname":"Guam",
-            "ISO3_code":"GUM",
+            "iso3_code":"GUM",
             "continent":"OC"
         }
     },
@@ -1359,9 +1359,9 @@
             "name":"Guatemala",
             "region":2,
             "num_code":"320",
-            "ISO_code":"GT",
+            "iso_code":"GT",
             "fullname":"Guatemala, Republic of",
-            "ISO3_code":"GTM",
+            "iso3_code":"GTM",
             "continent":"NA"
         }
     },
@@ -1374,9 +1374,9 @@
             "region":null,
             "num_code":"831",
 
-            "ISO_code":"GG",
+            "iso_code":"GG",
             "fullname":"Guernsey, Bailiwick of",
-            "ISO3_code":"GGY",
+            "iso3_code":"GGY",
             "continent":"EU"
         }
     },
@@ -1388,9 +1388,9 @@
             "name":"Guinea",
             "region":1,
             "num_code":"324",
-            "ISO_code":"GN",
+            "iso_code":"GN",
             "fullname":"Guinea, Republic of",
-            "ISO3_code":"GIN",
+            "iso3_code":"GIN",
             "continent":"AF"
         }
     },
@@ -1402,9 +1402,9 @@
             "name":"Guinea-Bissau",
             "region":1,
             "num_code":"624",
-            "ISO_code":"GW",
+            "iso_code":"GW",
             "fullname":"Guinea-Bissau, Republic of",
-            "ISO3_code":"GNB",
+            "iso3_code":"GNB",
             "continent":"AF"
         }
     },
@@ -1417,9 +1417,9 @@
             "region":null,
             "num_code":"328",
 
-            "ISO_code":"GY",
+            "iso_code":"GY",
             "fullname":"Guyana, Co-operative Republic of",
-            "ISO3_code":"GUY",
+            "iso3_code":"GUY",
             "continent":"SA"
         }
     },
@@ -1431,9 +1431,9 @@
             "name":"Haiti",
             "region":2,
             "num_code":"332",
-            "ISO_code":"HT",
+            "iso_code":"HT",
             "fullname":"Haiti, Republic of",
-            "ISO3_code":"HTI",
+            "iso3_code":"HTI",
             "continent":"NA"
         }
     },
@@ -1446,9 +1446,9 @@
             "region":null,
             "num_code":"334",
 
-            "ISO_code":"HM",
+            "iso_code":"HM",
             "fullname":"Heard Island and McDonald Islands",
-            "ISO3_code":"HMD",
+            "iso3_code":"HMD",
             "continent":"AN"
         }
     },
@@ -1461,9 +1461,9 @@
             "region":null,
             "num_code":"336",
 
-            "ISO_code":"VA",
+            "iso_code":"VA",
             "fullname":"Holy See (Vatican City State)",
-            "ISO3_code":"VAT",
+            "iso3_code":"VAT",
             "continent":"EU"
         }
     },
@@ -1475,9 +1475,9 @@
             "name":"Honduras",
             "region":2,
             "num_code":"340",
-            "ISO_code":"HN",
+            "iso_code":"HN",
             "fullname":"Honduras, Republic of",
-            "ISO3_code":"HND",
+            "iso3_code":"HND",
             "continent":"NA"
         }
     },
@@ -1490,9 +1490,9 @@
             "region":null,
             "num_code":"344",
 
-            "ISO_code":"HK",
+            "iso_code":"HK",
             "fullname":"Hong Kong, Special Administrative Region of China",
-            "ISO3_code":"HKG",
+            "iso3_code":"HKG",
             "continent":"AS"
         }
     },
@@ -1505,9 +1505,9 @@
             "region":null,
             "num_code":"348",
 
-            "ISO_code":"HU",
+            "iso_code":"HU",
             "fullname":"Hungary, Republic of",
-            "ISO3_code":"HUN",
+            "iso3_code":"HUN",
             "continent":"EU"
         }
     },
@@ -1520,9 +1520,9 @@
             "region":null,
             "num_code":"352",
 
-            "ISO_code":"IS",
+            "iso_code":"IS",
             "fullname":"Iceland, Republic of",
-            "ISO3_code":"ISL",
+            "iso3_code":"ISL",
             "continent":"EU"
         }
     },
@@ -1534,9 +1534,9 @@
             "name":"India",
             "region":3,
             "num_code":"356",
-            "ISO_code":"IN",
+            "iso_code":"IN",
             "fullname":"India, Republic of",
-            "ISO3_code":"IND",
+            "iso3_code":"IND",
             "continent":"AS"
         }
     },
@@ -1548,9 +1548,9 @@
             "name":"Indonesia",
             "region":3,
             "num_code":"360",
-            "ISO_code":"ID",
+            "iso_code":"ID",
             "fullname":"Indonesia, Republic of",
-            "ISO3_code":"IDN",
+            "iso3_code":"IDN",
             "continent":"AS"
         }
     },
@@ -1562,9 +1562,9 @@
             "name":"Iran",
             "region":4,
             "num_code":"364",
-            "ISO_code":"IR",
+            "iso_code":"IR",
             "fullname":"Iran, Islamic Republic of",
-            "ISO3_code":"IRN",
+            "iso3_code":"IRN",
             "continent":"AS"
         }
     },
@@ -1576,9 +1576,9 @@
             "name":"Iraq",
             "region":4,
             "num_code":"368",
-            "ISO_code":"IQ",
+            "iso_code":"IQ",
             "fullname":"Iraq, Republic of",
-            "ISO3_code":"IRQ",
+            "iso3_code":"IRQ",
             "continent":"AS"
         }
     },
@@ -1591,9 +1591,9 @@
             "region":null,
             "num_code":"372",
 
-            "ISO_code":"IE",
+            "iso_code":"IE",
             "fullname":"Ireland",
-            "ISO3_code":"IRL",
+            "iso3_code":"IRL",
             "continent":"EU"
         }
     },
@@ -1606,9 +1606,9 @@
             "region":null,
             "num_code":"833",
 
-            "ISO_code":"IM",
+            "iso_code":"IM",
             "fullname":"Isle of Man",
-            "ISO3_code":"IMN",
+            "iso3_code":"IMN",
             "continent":"EU"
         }
     },
@@ -1621,9 +1621,9 @@
             "region":null,
             "num_code":"376",
 
-            "ISO_code":"IL",
+            "iso_code":"IL",
             "fullname":"Israel, State of",
-            "ISO3_code":"ISR",
+            "iso3_code":"ISR",
             "continent":"AS"
         }
     },
@@ -1636,9 +1636,9 @@
             "region":null,
             "num_code":"380",
 
-            "ISO_code":"IT",
+            "iso_code":"IT",
             "fullname":"Italy, Italian Republic",
-            "ISO3_code":"ITA",
+            "iso3_code":"ITA",
             "continent":"EU"
         }
     },
@@ -1651,9 +1651,9 @@
             "region":null,
             "num_code":"388",
 
-            "ISO_code":"JM",
+            "iso_code":"JM",
             "fullname":"Jamaica",
-            "ISO3_code":"JAM",
+            "iso3_code":"JAM",
             "continent":"NA"
         }
     },
@@ -1666,9 +1666,9 @@
             "region":null,
             "num_code":"392",
 
-            "ISO_code":"JP",
+            "iso_code":"JP",
             "fullname":"Japan",
-            "ISO3_code":"JPN",
+            "iso3_code":"JPN",
             "continent":"AS"
         }
     },
@@ -1681,9 +1681,9 @@
             "region":null,
             "num_code":"832",
 
-            "ISO_code":"JE",
+            "iso_code":"JE",
             "fullname":"Jersey, Bailiwick of",
-            "ISO3_code":"JEY",
+            "iso3_code":"JEY",
             "continent":"EU"
         }
     },
@@ -1695,9 +1695,9 @@
             "name":"Jordan",
             "region":4,
             "num_code":"400",
-            "ISO_code":"JO",
+            "iso_code":"JO",
             "fullname":"Jordan, Hashemite Kingdom of",
-            "ISO3_code":"JOR",
+            "iso3_code":"JOR",
             "continent":"AS"
         }
     },
@@ -1710,9 +1710,9 @@
             "region":null,
             "num_code":"398",
 
-            "ISO_code":"KZ",
+            "iso_code":"KZ",
             "fullname":"Kazakhstan, Republic of",
-            "ISO3_code":"KAZ",
+            "iso3_code":"KAZ",
             "continent":"AS"
         }
     },
@@ -1724,9 +1724,9 @@
             "name":"Kenya",
             "region":1,
             "num_code":"404",
-            "ISO_code":"KE",
+            "iso_code":"KE",
             "fullname":"Kenya, Republic of",
-            "ISO3_code":"KEN",
+            "iso3_code":"KEN",
             "continent":"AF"
         }
     },
@@ -1739,9 +1739,9 @@
             "region":null,
             "num_code":"296",
 
-            "ISO_code":"KI",
+            "iso_code":"KI",
             "fullname":"Kiribati, Republic of",
-            "ISO3_code":"KIR",
+            "iso3_code":"KIR",
             "continent":"OC"
         }
     },
@@ -1753,9 +1753,9 @@
             "name":"Korea, Democratic Republic",
             "region":3,
             "num_code":"408",
-            "ISO_code":"KP",
+            "iso_code":"KP",
             "fullname":"Korea, Democratic People's Republic of",
-            "ISO3_code":"PRK",
+            "iso3_code":"PRK",
             "continent":"AS"
         }
     },
@@ -1768,9 +1768,9 @@
             "region":null,
             "num_code":"414",
 
-            "ISO_code":"KW",
+            "iso_code":"KW",
             "fullname":"Kuwait, State of",
-            "ISO3_code":"KWT",
+            "iso3_code":"KWT",
             "continent":"AS"
         }
     },
@@ -1783,9 +1783,9 @@
             "region":null,
             "num_code":"417",
 
-            "ISO_code":"KG",
+            "iso_code":"KG",
             "fullname":"Kyrgyz Republic",
-            "ISO3_code":"KGZ",
+            "iso3_code":"KGZ",
             "continent":"AS"
         }
     },
@@ -1798,9 +1798,9 @@
             "region":null,
             "num_code":"418",
 
-            "ISO_code":"LA",
+            "iso_code":"LA",
             "fullname":"Lao People's Democratic Republic",
-            "ISO3_code":"LAO",
+            "iso3_code":"LAO",
             "continent":"AS"
         }
     },
@@ -1813,9 +1813,9 @@
             "region":null,
             "num_code":"428",
 
-            "ISO_code":"LV",
+            "iso_code":"LV",
             "fullname":"Latvia, Republic of",
-            "ISO3_code":"LVA",
+            "iso3_code":"LVA",
             "continent":"EU"
         }
     },
@@ -1828,9 +1828,9 @@
             "region":null,
             "num_code":"422",
 
-            "ISO_code":"LB",
+            "iso_code":"LB",
             "fullname":"Lebanon, Lebanese Republic",
-            "ISO3_code":"LBN",
+            "iso3_code":"LBN",
             "continent":"AS"
         }
     },
@@ -1842,9 +1842,9 @@
             "name":"Lesotho",
             "region":1,
             "num_code":"426",
-            "ISO_code":"LS",
+            "iso_code":"LS",
             "fullname":"Lesotho, Kingdom of",
-            "ISO3_code":"LSO",
+            "iso3_code":"LSO",
             "continent":"AF"
         }
     },
@@ -1856,9 +1856,9 @@
             "name":"Liberia",
             "region":1,
             "num_code":"430",
-            "ISO_code":"LR",
+            "iso_code":"LR",
             "fullname":"Liberia, Republic of",
-            "ISO3_code":"LBR",
+            "iso3_code":"LBR",
             "continent":"AF"
         }
     },
@@ -1871,9 +1871,9 @@
             "region":null,
             "num_code":"434",
 
-            "ISO_code":"LY",
+            "iso_code":"LY",
             "fullname":"Libyan Arab Jamahiriya",
-            "ISO3_code":"LBY",
+            "iso3_code":"LBY",
             "continent":"AF"
         }
     },
@@ -1886,9 +1886,9 @@
             "region":null,
             "num_code":"438",
 
-            "ISO_code":"LI",
+            "iso_code":"LI",
             "fullname":"Liechtenstein, Principality of",
-            "ISO3_code":"LIE",
+            "iso3_code":"LIE",
             "continent":"EU"
         }
     },
@@ -1901,9 +1901,9 @@
             "region":null,
             "num_code":"440",
 
-            "ISO_code":"LT",
+            "iso_code":"LT",
             "fullname":"Lithuania, Republic of",
-            "ISO3_code":"LTU",
+            "iso3_code":"LTU",
             "continent":"EU"
         }
     },
@@ -1916,9 +1916,9 @@
             "region":null,
             "num_code":"442",
 
-            "ISO_code":"LU",
+            "iso_code":"LU",
             "fullname":"Luxembourg, Grand Duchy of",
-            "ISO3_code":"LUX",
+            "iso3_code":"LUX",
             "continent":"EU"
         }
     },
@@ -1931,9 +1931,9 @@
             "region":null,
             "num_code":"446",
 
-            "ISO_code":"MO",
+            "iso_code":"MO",
             "fullname":"Macao, Special Administrative Region of China",
-            "ISO3_code":"MAC",
+            "iso3_code":"MAC",
             "continent":"AS"
         }
     },
@@ -1946,9 +1946,9 @@
             "region":null,
             "num_code":"807",
 
-            "ISO_code":"MK",
+            "iso_code":"MK",
             "fullname":"Macedonia, Republic of",
-            "ISO3_code":"MKD",
+            "iso3_code":"MKD",
             "continent":"EU"
         }
     },
@@ -1960,9 +1960,9 @@
             "name":"Madagascar",
             "region":1,
             "num_code":"450",
-            "ISO_code":"MG",
+            "iso_code":"MG",
             "fullname":"Madagascar, Republic of",
-            "ISO3_code":"MDG",
+            "iso3_code":"MDG",
             "continent":"AF"
         }
     },
@@ -1974,9 +1974,9 @@
             "name":"Malawi",
             "region":1,
             "num_code":"454",
-            "ISO_code":"MW",
+            "iso_code":"MW",
             "fullname":"Malawi, Republic of",
-            "ISO3_code":"MWI",
+            "iso3_code":"MWI",
             "continent":"AF"
         }
     },
@@ -1989,9 +1989,9 @@
             "region":null,
             "num_code":"458",
 
-            "ISO_code":"MY",
+            "iso_code":"MY",
             "fullname":"Malaysia",
-            "ISO3_code":"MYS",
+            "iso3_code":"MYS",
             "continent":"AS"
         }
     },
@@ -2004,9 +2004,9 @@
             "region":null,
             "num_code":"462",
 
-            "ISO_code":"MV",
+            "iso_code":"MV",
             "fullname":"Maldives, Republic of",
-            "ISO3_code":"MDV",
+            "iso3_code":"MDV",
             "continent":"AS"
         }
     },
@@ -2018,9 +2018,9 @@
             "name":"Mali",
             "region":1,
             "num_code":"466",
-            "ISO_code":"ML",
+            "iso_code":"ML",
             "fullname":"Mali, Republic of",
-            "ISO3_code":"MLI",
+            "iso3_code":"MLI",
             "continent":"AF"
         }
     },
@@ -2033,9 +2033,9 @@
             "region":null,
             "num_code":"470",
 
-            "ISO_code":"MT",
+            "iso_code":"MT",
             "fullname":"Malta, Republic of",
-            "ISO3_code":"MLT",
+            "iso3_code":"MLT",
             "continent":"EU"
         }
     },
@@ -2048,9 +2048,9 @@
             "region":null,
             "num_code":"584",
 
-            "ISO_code":"MH",
+            "iso_code":"MH",
             "fullname":"Marshall Islands, Republic of the",
-            "ISO3_code":"MHL",
+            "iso3_code":"MHL",
             "continent":"OC"
         }
     },
@@ -2063,9 +2063,9 @@
             "region":null,
             "num_code":"474",
 
-            "ISO_code":"MQ",
+            "iso_code":"MQ",
             "fullname":"Martinique",
-            "ISO3_code":"MTQ",
+            "iso3_code":"MTQ",
             "continent":"NA"
         }
     },
@@ -2077,9 +2077,9 @@
             "name":"Mauritania",
             "region":1,
             "num_code":"478",
-            "ISO_code":"MR",
+            "iso_code":"MR",
             "fullname":"Mauritania, Islamic Republic of",
-            "ISO3_code":"MRT",
+            "iso3_code":"MRT",
             "continent":"AF"
         }
     },
@@ -2092,9 +2092,9 @@
             "region":null,
             "num_code":"480",
 
-            "ISO_code":"MU",
+            "iso_code":"MU",
             "fullname":"Mauritius, Republic of",
-            "ISO3_code":"MUS",
+            "iso3_code":"MUS",
             "continent":"AF"
         }
     },
@@ -2107,9 +2107,9 @@
             "region":null,
             "num_code":"175",
 
-            "ISO_code":"YT",
+            "iso_code":"YT",
             "fullname":"Mayotte",
-            "ISO3_code":"MYT",
+            "iso3_code":"MYT",
             "continent":"AF"
         }
     },
@@ -2122,9 +2122,9 @@
             "region":null,
             "num_code":"484",
 
-            "ISO_code":"MX",
+            "iso_code":"MX",
             "fullname":"Mexico, United Mexican States",
-            "ISO3_code":"MEX",
+            "iso3_code":"MEX",
             "continent":"NA"
         }
     },
@@ -2137,9 +2137,9 @@
             "region":null,
             "num_code":"583",
 
-            "ISO_code":"FM",
+            "iso_code":"FM",
             "fullname":"Micronesia, Federated States of",
-            "ISO3_code":"FSM",
+            "iso3_code":"FSM",
             "continent":"OC"
         }
     },
@@ -2152,9 +2152,9 @@
             "region":null,
             "num_code":"498",
 
-            "ISO_code":"MD",
+            "iso_code":"MD",
             "fullname":"Moldova, Republic of",
-            "ISO3_code":"MDA",
+            "iso3_code":"MDA",
             "continent":"EU"
         }
     },
@@ -2167,9 +2167,9 @@
             "region":null,
             "num_code":"492",
 
-            "ISO_code":"MC",
+            "iso_code":"MC",
             "fullname":"Monaco, Principality of",
-            "ISO3_code":"MCO",
+            "iso3_code":"MCO",
             "continent":"EU"
         }
     },
@@ -2182,9 +2182,9 @@
             "region":null,
             "num_code":"496",
 
-            "ISO_code":"MN",
+            "iso_code":"MN",
             "fullname":"Mongolia",
-            "ISO3_code":"MNG",
+            "iso3_code":"MNG",
             "continent":"AS"
         }
     },
@@ -2197,9 +2197,9 @@
             "region":null,
             "num_code":"499",
 
-            "ISO_code":"ME",
+            "iso_code":"ME",
             "fullname":"Montenegro, Republic of",
-            "ISO3_code":"MNE",
+            "iso3_code":"MNE",
             "continent":"EU"
         }
     },
@@ -2212,9 +2212,9 @@
             "region":null,
             "num_code":"500",
 
-            "ISO_code":"MS",
+            "iso_code":"MS",
             "fullname":"Montserrat",
-            "ISO3_code":"MSR",
+            "iso3_code":"MSR",
             "continent":"NA"
         }
     },
@@ -2227,9 +2227,9 @@
             "region":null,
             "num_code":"504",
 
-            "ISO_code":"MA",
+            "iso_code":"MA",
             "fullname":"Morocco, Kingdom of",
-            "ISO3_code":"MAR",
+            "iso3_code":"MAR",
             "continent":"AF"
         }
     },
@@ -2241,9 +2241,9 @@
             "name":"Mozambique",
             "region":1,
             "num_code":"508",
-            "ISO_code":"MZ",
+            "iso_code":"MZ",
             "fullname":"Mozambique, Republic of",
-            "ISO3_code":"MOZ",
+            "iso3_code":"MOZ",
             "continent":"AF"
         }
     },
@@ -2255,9 +2255,9 @@
             "name":"Myanmar",
             "region":3,
             "num_code":"104",
-            "ISO_code":"MM",
+            "iso_code":"MM",
             "fullname":"Myanmar, Union of",
-            "ISO3_code":"MMR",
+            "iso3_code":"MMR",
             "continent":"AS"
         }
     },
@@ -2269,9 +2269,9 @@
             "name":"Namibia",
             "region":1,
             "num_code":"516",
-            "ISO_code":"NA",
+            "iso_code":"NA",
             "fullname":"Namibia, Republic of",
-            "ISO3_code":"NAM",
+            "iso3_code":"NAM",
             "continent":"AF"
         }
     },
@@ -2284,9 +2284,9 @@
             "region":null,
             "num_code":"520",
 
-            "ISO_code":"NR",
+            "iso_code":"NR",
             "fullname":"Nauru, Republic of",
-            "ISO3_code":"NRU",
+            "iso3_code":"NRU",
             "continent":"OC"
         }
     },
@@ -2298,9 +2298,9 @@
             "name":"Nepal",
             "region":3,
             "num_code":"524",
-            "ISO_code":"NP",
+            "iso_code":"NP",
             "fullname":"Nepal, State of",
-            "ISO3_code":"NPL",
+            "iso3_code":"NPL",
             "continent":"AS"
         }
     },
@@ -2313,9 +2313,9 @@
             "region":null,
             "num_code":"528",
 
-            "ISO_code":"NL",
+            "iso_code":"NL",
             "fullname":"Netherlands, Kingdom of the",
-            "ISO3_code":"NLD",
+            "iso3_code":"NLD",
             "continent":"EU"
         }
     },
@@ -2328,9 +2328,9 @@
             "region":null,
             "num_code":"333",
 
-            "ISO_code":"NT",
+            "iso_code":"NT",
             "fullname":"Neutral Zone    ",
-            "ISO3_code":"333",
+            "iso3_code":"333",
             "continent":"AS"
         }
     },
@@ -2343,9 +2343,9 @@
             "region":null,
             "num_code":"540",
 
-            "ISO_code":"NC",
+            "iso_code":"NC",
             "fullname":"New Caledonia",
-            "ISO3_code":"NCL",
+            "iso3_code":"NCL",
             "continent":"OC"
         }
     },
@@ -2358,9 +2358,9 @@
             "region":null,
             "num_code":"554",
 
-            "ISO_code":"NZ",
+            "iso_code":"NZ",
             "fullname":"New Zealand",
-            "ISO3_code":"NZL",
+            "iso3_code":"NZL",
             "continent":"OC"
         }
     },
@@ -2372,9 +2372,9 @@
             "name":"Nicaragua",
             "region":2,
             "num_code":"558",
-            "ISO_code":"NI",
+            "iso_code":"NI",
             "fullname":"Nicaragua, Republic of",
-            "ISO3_code":"NIC",
+            "iso3_code":"NIC",
             "continent":"NA"
         }
     },
@@ -2386,9 +2386,9 @@
             "name":"Niger",
             "region":1,
             "num_code":"562",
-            "ISO_code":"NE",
+            "iso_code":"NE",
             "fullname":"Niger, Republic of",
-            "ISO3_code":"NER",
+            "iso3_code":"NER",
             "continent":"AF"
         }
     },
@@ -2401,9 +2401,9 @@
             "region":null,
             "num_code":"566",
 
-            "ISO_code":"NG",
+            "iso_code":"NG",
             "fullname":"Nigeria, Federal Republic of",
-            "ISO3_code":"NGA",
+            "iso3_code":"NGA",
             "continent":"AF"
         }
     },
@@ -2416,9 +2416,9 @@
             "region":null,
             "num_code":"570",
 
-            "ISO_code":"NU",
+            "iso_code":"NU",
             "fullname":"Niue",
-            "ISO3_code":"NIU",
+            "iso3_code":"NIU",
             "continent":"OC"
         }
     },
@@ -2431,9 +2431,9 @@
             "region":null,
             "num_code":"574",
 
-            "ISO_code":"NF",
+            "iso_code":"NF",
             "fullname":"Norfolk Island",
-            "ISO3_code":"NFK",
+            "iso3_code":"NFK",
             "continent":"OC"
         }
     },
@@ -2446,9 +2446,9 @@
             "region":null,
             "num_code":"580",
 
-            "ISO_code":"MP",
+            "iso_code":"MP",
             "fullname":"Northern Mariana Islands, Commonwealth of the",
-            "ISO3_code":"MNP",
+            "iso3_code":"MNP",
             "continent":"OC"
         }
     },
@@ -2461,9 +2461,9 @@
             "region":null,
             "num_code":"578",
 
-            "ISO_code":"NO",
+            "iso_code":"NO",
             "fullname":"Norway, Kingdom of",
-            "ISO3_code":"NOR",
+            "iso3_code":"NOR",
             "continent":"EU"
         }
     },
@@ -2476,9 +2476,9 @@
             "region":null,
             "num_code":"512",
 
-            "ISO_code":"OM",
+            "iso_code":"OM",
             "fullname":"Oman, Sultanate of",
-            "ISO3_code":"OMN",
+            "iso3_code":"OMN",
             "continent":"AS"
         }
     },
@@ -2490,9 +2490,9 @@
             "name":"Pakistan",
             "region":3,
             "num_code":"586",
-            "ISO_code":"PK",
+            "iso_code":"PK",
             "fullname":"Pakistan, Islamic Republic of",
-            "ISO3_code":"PAK",
+            "iso3_code":"PAK",
             "continent":"AS"
         }
     },
@@ -2505,9 +2505,9 @@
             "region":null,
             "num_code":"585",
 
-            "ISO_code":"PW",
+            "iso_code":"PW",
             "fullname":"Palau, Republic of",
-            "ISO3_code":"PLW",
+            "iso3_code":"PLW",
             "continent":"OC"
         }
     },
@@ -2520,9 +2520,9 @@
             "region":null,
             "num_code":"275",
 
-            "ISO_code":"PS",
+            "iso_code":"PS",
             "fullname":"Palestinian Territory, Occupied",
-            "ISO3_code":"PSE",
+            "iso3_code":"PSE",
             "continent":"AS"
         }
     },
@@ -2535,9 +2535,9 @@
             "region":null,
             "num_code":"591",
 
-            "ISO_code":"PA",
+            "iso_code":"PA",
             "fullname":"Panama, Republic of",
-            "ISO3_code":"PAN",
+            "iso3_code":"PAN",
             "continent":"NA"
         }
     },
@@ -2550,9 +2550,9 @@
             "region":null,
             "num_code":"598",
 
-            "ISO_code":"PG",
+            "iso_code":"PG",
             "fullname":"Papua New Guinea, Independant State of",
-            "ISO3_code":"PNG",
+            "iso3_code":"PNG",
             "continent":"OC"
         }
     },
@@ -2565,9 +2565,9 @@
             "region":null,
             "num_code":"600",
 
-            "ISO_code":"PY",
+            "iso_code":"PY",
             "fullname":"Paraguay, Republic of",
-            "ISO3_code":"PRY",
+            "iso3_code":"PRY",
             "continent":"SA"
         }
     },
@@ -2579,9 +2579,9 @@
             "name":"Peru",
             "region":2,
             "num_code":"604",
-            "ISO_code":"PE",
+            "iso_code":"PE",
             "fullname":"Peru, Republic of",
-            "ISO3_code":"PER",
+            "iso3_code":"PER",
             "continent":"SA"
         }
     },
@@ -2593,9 +2593,9 @@
             "name":"Philippines",
             "region":3,
             "num_code":"608",
-            "ISO_code":"PH",
+            "iso_code":"PH",
             "fullname":"Philippines, Republic of the",
-            "ISO3_code":"PHL",
+            "iso3_code":"PHL",
             "continent":"AS"
         }
     },
@@ -2608,9 +2608,9 @@
             "region":null,
             "num_code":"612",
 
-            "ISO_code":"PN",
+            "iso_code":"PN",
             "fullname":"Pitcairn Islands",
-            "ISO3_code":"PCN",
+            "iso3_code":"PCN",
             "continent":"OC"
         }
     },
@@ -2623,9 +2623,9 @@
             "region":null,
             "num_code":"616",
 
-            "ISO_code":"PL",
+            "iso_code":"PL",
             "fullname":"Poland, Republic of",
-            "ISO3_code":"POL",
+            "iso3_code":"POL",
             "continent":"EU"
         }
     },
@@ -2638,9 +2638,9 @@
             "region":null,
             "num_code":"620",
 
-            "ISO_code":"PT",
+            "iso_code":"PT",
             "fullname":"Portugal, Portuguese Republic",
-            "ISO3_code":"PRT",
+            "iso3_code":"PRT",
             "continent":"EU"
         }
     },
@@ -2653,9 +2653,9 @@
             "region":null,
             "num_code":"630",
 
-            "ISO_code":"PR",
+            "iso_code":"PR",
             "fullname":"Puerto Rico, Commonwealth of",
-            "ISO3_code":"PRI",
+            "iso3_code":"PRI",
             "continent":"NA"
         }
     },
@@ -2668,9 +2668,9 @@
             "region":null,
             "num_code":"634",
 
-            "ISO_code":"QA",
+            "iso_code":"QA",
             "fullname":"Qatar, State of",
-            "ISO3_code":"QAT",
+            "iso3_code":"QAT",
             "continent":"AS"
         }
     },
@@ -2683,9 +2683,9 @@
             "region":null,
             "num_code":"638",
 
-            "ISO_code":"RE",
+            "iso_code":"RE",
             "fullname":"Reunion",
-            "ISO3_code":"REU",
+            "iso3_code":"REU",
             "continent":"AF"
         }
     },
@@ -2698,9 +2698,9 @@
             "region":null,
             "num_code":"642",
 
-            "ISO_code":"RO",
+            "iso_code":"RO",
             "fullname":"Romania",
-            "ISO3_code":"ROU",
+            "iso3_code":"ROU",
             "continent":"EU"
         }
     },
@@ -2713,9 +2713,9 @@
             "region":null,
             "num_code":"643",
 
-            "ISO_code":"RU",
+            "iso_code":"RU",
             "fullname":"Russian Federation",
-            "ISO3_code":"RUS",
+            "iso3_code":"RUS",
             "continent":"EU"
         }
     },
@@ -2727,9 +2727,9 @@
             "name":"Rwanda",
             "region":1,
             "num_code":"646",
-            "ISO_code":"RW",
+            "iso_code":"RW",
             "fullname":"Rwanda, Republic of",
-            "ISO3_code":"RWA",
+            "iso3_code":"RWA",
             "continent":"AF"
         }
     },
@@ -2742,9 +2742,9 @@
             "region":null,
             "num_code":"678",
 
-            "ISO_code":"ST",
+            "iso_code":"ST",
             "fullname":"Sao Tome and Principe, Democratic Republic of",
-            "ISO3_code":"STP",
+            "iso3_code":"STP",
             "continent":"AF"
         }
     },
@@ -2757,9 +2757,9 @@
             "region":null,
             "num_code":"652",
 
-            "ISO_code":"BL",
+            "iso_code":"BL",
             "fullname":"Saint Barthelemy",
-            "ISO3_code":"BLM",
+            "iso3_code":"BLM",
             "continent":"NA"
         }
     },
@@ -2772,9 +2772,9 @@
             "region":null,
             "num_code":"654",
 
-            "ISO_code":"SH",
+            "iso_code":"SH",
             "fullname":"Saint Helena",
-            "ISO3_code":"SHN",
+            "iso3_code":"SHN",
             "continent":"AF"
         }
     },
@@ -2787,9 +2787,9 @@
             "region":null,
             "num_code":"663",
 
-            "ISO_code":"MF",
+            "iso_code":"MF",
             "fullname":"Saint Martin",
-            "ISO3_code":"MAF",
+            "iso3_code":"MAF",
             "continent":"NA"
         }
     },
@@ -2802,9 +2802,9 @@
             "region":null,
             "num_code":"666",
 
-            "ISO_code":"PM",
+            "iso_code":"PM",
             "fullname":"Saint Pierre and Miquelon",
-            "ISO3_code":"SPM",
+            "iso3_code":"SPM",
             "continent":"NA"
         }
     },
@@ -2817,9 +2817,9 @@
             "region":null,
             "num_code":"882",
 
-            "ISO_code":"WS",
+            "iso_code":"WS",
             "fullname":"Samoa, Independant State of",
-            "ISO3_code":"WSM",
+            "iso3_code":"WSM",
             "continent":"OC"
         }
     },
@@ -2832,9 +2832,9 @@
             "region":null,
             "num_code":"674",
 
-            "ISO_code":"SM",
+            "iso_code":"SM",
             "fullname":"San Marino, Republic of",
-            "ISO3_code":"SMR",
+            "iso3_code":"SMR",
             "continent":"EU"
         }
     },
@@ -2847,9 +2847,9 @@
             "region":null,
             "num_code":"682",
 
-            "ISO_code":"SA",
+            "iso_code":"SA",
             "fullname":"Saudi Arabia, Kingdom of",
-            "ISO3_code":"SAU",
+            "iso3_code":"SAU",
             "continent":"AS"
         }
     },
@@ -2861,9 +2861,9 @@
             "name":"Senegal",
             "region":1,
             "num_code":"686",
-            "ISO_code":"SN",
+            "iso_code":"SN",
             "fullname":"Senegal, Republic of",
-            "ISO3_code":"SEN",
+            "iso3_code":"SEN",
             "continent":"AF"
         }
     },
@@ -2876,9 +2876,9 @@
             "region":null,
             "num_code":"688",
 
-            "ISO_code":"RS",
+            "iso_code":"RS",
             "fullname":"Serbia, Republic of",
-            "ISO3_code":"SRB",
+            "iso3_code":"SRB",
             "continent":"EU"
         }
     },
@@ -2891,9 +2891,9 @@
             "region":null,
             "num_code":"111",
 
-            "ISO_code":"CS",
+            "iso_code":"CS",
             "fullname":"Serbia and Montenegro   ",
-            "ISO3_code":"222",
+            "iso3_code":"222",
             "continent":"EU"
         }
     },
@@ -2906,9 +2906,9 @@
             "region":null,
             "num_code":"666",
 
-            "ISO_code":"YU",
+            "iso_code":"YU",
             "fullname":"Yugoslavia  ",
-            "ISO3_code":"666",
+            "iso3_code":"666",
             "continent":"EU"
         }
     },
@@ -2921,9 +2921,9 @@
             "region":null,
             "num_code":"690",
 
-            "ISO_code":"SC",
+            "iso_code":"SC",
             "fullname":"Seychelles, Republic of",
-            "ISO3_code":"SYC",
+            "iso3_code":"SYC",
             "continent":"AF"
         }
     },
@@ -2935,9 +2935,9 @@
             "name":"Sierra Leone",
             "region":1,
             "num_code":"694",
-            "ISO_code":"SL",
+            "iso_code":"SL",
             "fullname":"Sierra Leone, Republic of",
-            "ISO3_code":"SLE",
+            "iso3_code":"SLE",
             "continent":"AF"
         }
     },
@@ -2950,9 +2950,9 @@
             "region":null,
             "num_code":"702",
 
-            "ISO_code":"SG",
+            "iso_code":"SG",
             "fullname":"Singapore, Republic of",
-            "ISO3_code":"SGP",
+            "iso3_code":"SGP",
             "continent":"AS"
         }
     },
@@ -2965,9 +2965,9 @@
             "region":null,
             "num_code":"703",
 
-            "ISO_code":"SK",
+            "iso_code":"SK",
             "fullname":"Slovakia (Slovak Republic)",
-            "ISO3_code":"SVK",
+            "iso3_code":"SVK",
             "continent":"EU"
         }
     },
@@ -2980,9 +2980,9 @@
             "region":null,
             "num_code":"705",
 
-            "ISO_code":"SI",
+            "iso_code":"SI",
             "fullname":"Slovenia, Republic of",
-            "ISO3_code":"SVN",
+            "iso3_code":"SVN",
             "continent":"EU"
         }
     },
@@ -2995,9 +2995,9 @@
             "region":null,
             "num_code":"090",
 
-            "ISO_code":"SB",
+            "iso_code":"SB",
             "fullname":"Solomon Islands",
-            "ISO3_code":"SLB",
+            "iso3_code":"SLB",
             "continent":"OC"
         }
     },
@@ -3009,9 +3009,9 @@
             "name":"Somalia",
             "region":1,
             "num_code":"706",
-            "ISO_code":"SO",
+            "iso_code":"SO",
             "fullname":"Somalia, Somali Republic",
-            "ISO3_code":"SOM",
+            "iso3_code":"SOM",
             "continent":"AF"
         }
     },
@@ -3024,9 +3024,9 @@
             "region":null,
             "num_code":"710",
 
-            "ISO_code":"ZA",
+            "iso_code":"ZA",
             "fullname":"South Africa, Republic of",
-            "ISO3_code":"ZAF",
+            "iso3_code":"ZAF",
             "continent":"AF"
         }
     },
@@ -3039,9 +3039,9 @@
             "region":null,
             "num_code":"239",
 
-            "ISO_code":"GS",
+            "iso_code":"GS",
             "fullname":"South Georgia and the South Sandwich Islands",
-            "ISO3_code":"SGS",
+            "iso3_code":"SGS",
             "continent":"AN"
         }
     },
@@ -3053,9 +3053,9 @@
             "name":"South Korea",
             "region":3,
             "num_code":"410",
-            "ISO_code":"KR",
+            "iso_code":"KR",
             "fullname":"Korea, Republic of",
-            "ISO3_code":"KOR",
+            "iso3_code":"KOR",
             "continent":"AS"
         }
     },
@@ -3068,9 +3068,9 @@
             "region":null,
             "num_code":"724",
 
-            "ISO_code":"ES",
+            "iso_code":"ES",
             "fullname":"Spain, Kingdom of",
-            "ISO3_code":"ESP",
+            "iso3_code":"ESP",
             "continent":"EU"
         }
     },
@@ -3082,9 +3082,9 @@
             "name":"Sri Lanka",
             "region":3,
             "num_code":"144",
-            "ISO_code":"LK",
+            "iso_code":"LK",
             "fullname":"Sri Lanka, Democratic Socialist Republic of",
-            "ISO3_code":"LKA",
+            "iso3_code":"LKA",
             "continent":"AS"
         }
     },
@@ -3097,9 +3097,9 @@
             "region":null,
             "num_code":"659",
 
-            "ISO_code":"KN",
+            "iso_code":"KN",
             "fullname":"Saint Kitts and Nevis, Federation of",
-            "ISO3_code":"KNA",
+            "iso3_code":"KNA",
             "continent":"NA"
         }
     },
@@ -3112,9 +3112,9 @@
             "region":null,
             "num_code":"662",
 
-            "ISO_code":"LC",
+            "iso_code":"LC",
             "fullname":"Saint Lucia",
-            "ISO3_code":"LCA",
+            "iso3_code":"LCA",
             "continent":"NA"
         }
     },
@@ -3127,9 +3127,9 @@
             "region":null,
             "num_code":"670",
 
-            "ISO_code":"VC",
+            "iso_code":"VC",
             "fullname":"Saint Vincent and the Grenadines",
-            "ISO3_code":"VCT",
+            "iso3_code":"VCT",
             "continent":"NA"
         }
     },
@@ -3141,9 +3141,9 @@
             "name":"Sudan",
             "region":1,
             "num_code":"736",
-            "ISO_code":"SD",
+            "iso_code":"SD",
             "fullname":"Sudan, Republic of",
-            "ISO3_code":"SDN",
+            "iso3_code":"SDN",
             "continent":"AF"
         }
     },
@@ -3156,9 +3156,9 @@
             "region":null,
             "num_code":"740",
 
-            "ISO_code":"SR",
+            "iso_code":"SR",
             "fullname":"Suriname, Republic of",
-            "ISO3_code":"SUR",
+            "iso3_code":"SUR",
             "continent":"SA"
         }
     },
@@ -3171,9 +3171,9 @@
             "region":null,
             "num_code":"744",
 
-            "ISO_code":"SJ",
+            "iso_code":"SJ",
             "fullname":"Svalbard & Jan Mayen Islands",
-            "ISO3_code":"SJM",
+            "iso3_code":"SJM",
             "continent":"EU"
         }
     },
@@ -3185,9 +3185,9 @@
             "name":"Swaziland",
             "region":1,
             "num_code":"748",
-            "ISO_code":"SZ",
+            "iso_code":"SZ",
             "fullname":"Swaziland, Kingdom of",
-            "ISO3_code":"SWZ",
+            "iso3_code":"SWZ",
             "continent":"AF"
         }
     },
@@ -3200,9 +3200,9 @@
             "region":null,
             "num_code":"752",
 
-            "ISO_code":"SE",
+            "iso_code":"SE",
             "fullname":"Sweden, Kingdom of",
-            "ISO3_code":"SWE",
+            "iso3_code":"SWE",
             "continent":"EU"
         }
     },
@@ -3215,9 +3215,9 @@
             "region":null,
             "num_code":"756",
 
-            "ISO_code":"CH",
+            "iso_code":"CH",
             "fullname":"Switzerland, Swiss Confederation",
-            "ISO3_code":"CHE",
+            "iso3_code":"CHE",
             "continent":"EU"
         }
     },
@@ -3230,9 +3230,9 @@
             "region":null,
             "num_code":"760",
 
-            "ISO_code":"SY",
+            "iso_code":"SY",
             "fullname":"Syrian Arab Republic",
-            "ISO3_code":"SYR",
+            "iso3_code":"SYR",
             "continent":"AS"
         }
     },
@@ -3245,9 +3245,9 @@
             "region":null,
             "num_code":"158",
 
-            "ISO_code":"TW",
+            "iso_code":"TW",
             "fullname":"Taiwan",
-            "ISO3_code":"TWN",
+            "iso3_code":"TWN",
             "continent":"AS"
         }
     },
@@ -3259,9 +3259,9 @@
             "name":"Tajikistan",
             "region":3,
             "num_code":"762",
-            "ISO_code":"TJ",
+            "iso_code":"TJ",
             "fullname":"Tajikistan, Republic of",
-            "ISO3_code":"TJK",
+            "iso3_code":"TJK",
             "continent":"AS"
         }
     },
@@ -3273,9 +3273,9 @@
             "name":"Tanzania, United Republic Of",
             "region":1,
             "num_code":"834",
-            "ISO_code":"TZ",
+            "iso_code":"TZ",
             "fullname":"Tanzania, United Republic of",
-            "ISO3_code":"TZA",
+            "iso3_code":"TZA",
             "continent":"AF"
         }
     },
@@ -3288,9 +3288,9 @@
             "region":null,
             "num_code":"764",
 
-            "ISO_code":"TH",
+            "iso_code":"TH",
             "fullname":"Thailand, Kingdom of",
-            "ISO3_code":"THA",
+            "iso3_code":"THA",
             "continent":"AS"
         }
     },
@@ -3302,9 +3302,9 @@
             "name":"Timor-Leste",
             "region":3,
             "num_code":"626",
-            "ISO_code":"TL",
+            "iso_code":"TL",
             "fullname":"Timor-Leste, Democratic Republic of",
-            "ISO3_code":"TLS",
+            "iso3_code":"TLS",
             "continent":"AS"
         }
     },
@@ -3317,9 +3317,9 @@
             "region":null,
             "num_code":"555",
 
-            "ISO_code":"TP",
+            "iso_code":"TP",
             "fullname":"East Timor  ",
-            "ISO3_code":"555",
+            "iso3_code":"555",
             "continent":"AS"
         }
     },
@@ -3331,9 +3331,9 @@
             "name":"Togo",
             "region":1,
             "num_code":"768",
-            "ISO_code":"TG",
+            "iso_code":"TG",
             "fullname":"Togo, Togolese Republic",
-            "ISO3_code":"TGO",
+            "iso3_code":"TGO",
             "continent":"AF"
         }
     },
@@ -3346,9 +3346,9 @@
             "region":null,
             "num_code":"772",
 
-            "ISO_code":"TK",
+            "iso_code":"TK",
             "fullname":"Tokelau",
-            "ISO3_code":"TKL",
+            "iso3_code":"TKL",
             "continent":"OC"
         }
     },
@@ -3361,9 +3361,9 @@
             "region":null,
             "num_code":"776",
 
-            "ISO_code":"TO",
+            "iso_code":"TO",
             "fullname":"Tonga, Kingdom of",
-            "ISO3_code":"TON",
+            "iso3_code":"TON",
             "continent":"OC"
         }
     },
@@ -3376,9 +3376,9 @@
             "region":null,
             "num_code":"780",
 
-            "ISO_code":"TT",
+            "iso_code":"TT",
             "fullname":"Trinidad and Tobago, Republic of",
-            "ISO3_code":"TTO",
+            "iso3_code":"TTO",
             "continent":"NA"
         }
     },
@@ -3391,9 +3391,9 @@
             "region":null,
             "num_code":"788",
 
-            "ISO_code":"TN",
+            "iso_code":"TN",
             "fullname":"Tunisia, Tunisian Republic",
-            "ISO3_code":"TUN",
+            "iso3_code":"TUN",
             "continent":"AF"
         }
     },
@@ -3406,9 +3406,9 @@
             "region":null,
             "num_code":"792",
 
-            "ISO_code":"TR",
+            "iso_code":"TR",
             "fullname":"Turkey, Republic of",
-            "ISO3_code":"TUR",
+            "iso3_code":"TUR",
             "continent":"AS"
         }
     },
@@ -3421,9 +3421,9 @@
             "region":null,
             "num_code":"795",
 
-            "ISO_code":"TM",
+            "iso_code":"TM",
             "fullname":"Turkmenistan",
-            "ISO3_code":"TKM",
+            "iso3_code":"TKM",
             "continent":"AS"
         }
     },
@@ -3436,9 +3436,9 @@
             "region":null,
             "num_code":"796",
 
-            "ISO_code":"TC",
+            "iso_code":"TC",
             "fullname":"Turks and Caicos Islands",
-            "ISO3_code":"TCA",
+            "iso3_code":"TCA",
             "continent":"NA"
         }
     },
@@ -3451,9 +3451,9 @@
             "region":null,
             "num_code":"798",
 
-            "ISO_code":"TV",
+            "iso_code":"TV",
             "fullname":"Tuvalu",
-            "ISO3_code":"TUV",
+            "iso3_code":"TUV",
             "continent":"OC"
         }
     },
@@ -3465,9 +3465,9 @@
             "name":"Uganda",
             "region":1,
             "num_code":"800",
-            "ISO_code":"UG",
+            "iso_code":"UG",
             "fullname":"Uganda, Republic of",
-            "ISO3_code":"UGA",
+            "iso3_code":"UGA",
             "continent":"AF"
         }
     },
@@ -3480,9 +3480,9 @@
             "region":null,
             "num_code":"804",
 
-            "ISO_code":"UA",
+            "iso_code":"UA",
             "fullname":"Ukraine",
-            "ISO3_code":"UKR",
+            "iso3_code":"UKR",
             "continent":"EU"
         }
     },
@@ -3495,9 +3495,9 @@
             "region":null,
             "num_code":"784",
 
-            "ISO_code":"AE",
+            "iso_code":"AE",
             "fullname":"United Arab Emirates",
-            "ISO3_code":"ARE",
+            "iso3_code":"ARE",
             "continent":"AS"
         }
     },
@@ -3510,9 +3510,9 @@
             "region":null,
             "num_code":"826",
 
-            "ISO_code":"GB",
+            "iso_code":"GB",
             "fullname":"United Kingdom of Great Britain & Northern Ireland",
-            "ISO3_code":"GBR",
+            "iso3_code":"GBR",
             "continent":"EU"
         }
     },
@@ -3525,9 +3525,9 @@
             "region":null,
             "num_code":"581",
 
-            "ISO_code":"UM",
+            "iso_code":"UM",
             "fullname":"United States Minor Outlying Islands",
-            "ISO3_code":"UMI",
+            "iso3_code":"UMI",
             "continent":"OC"
         }
     },
@@ -3540,9 +3540,9 @@
             "region":null,
             "num_code":"850",
 
-            "ISO_code":"VI",
+            "iso_code":"VI",
             "fullname":"United States Virgin Islands",
-            "ISO3_code":"VIR",
+            "iso3_code":"VIR",
             "continent":"NA"
         }
     },
@@ -3555,9 +3555,9 @@
             "region":null,
             "num_code":"858",
 
-            "ISO_code":"UY",
+            "iso_code":"UY",
             "fullname":"Uruguay, Eastern Republic of",
-            "ISO3_code":"URY",
+            "iso3_code":"URY",
             "continent":"SA"
         }
     },
@@ -3570,9 +3570,9 @@
             "region":null,
             "num_code":"840",
 
-            "ISO_code":"US",
+            "iso_code":"US",
             "fullname":"United States of America",
-            "ISO3_code":"USA",
+            "iso3_code":"USA",
             "continent":"NA"
         }
     },
@@ -3585,9 +3585,9 @@
             "region":null,
             "num_code":"860",
 
-            "ISO_code":"UZ",
+            "iso_code":"UZ",
             "fullname":"Uzbekistan, Republic of",
-            "ISO3_code":"UZB",
+            "iso3_code":"UZB",
             "continent":"AS"
         }
     },
@@ -3600,9 +3600,9 @@
             "region":null,
             "num_code":"548",
 
-            "ISO_code":"VU",
+            "iso_code":"VU",
             "fullname":"Vanuatu, Republic of",
-            "ISO3_code":"VUT",
+            "iso3_code":"VUT",
             "continent":"OC"
         }
     },
@@ -3615,9 +3615,9 @@
             "region":null,
             "num_code":"862",
 
-            "ISO_code":"VE",
+            "iso_code":"VE",
             "fullname":"Venezuela, Bolivarian Republic of",
-            "ISO3_code":"VEN",
+            "iso3_code":"VEN",
             "continent":"SA"
         }
     },
@@ -3630,9 +3630,9 @@
             "region":null,
             "num_code":"704",
 
-            "ISO_code":"VN",
+            "iso_code":"VN",
             "fullname":"Vietnam, Socialist Republic of",
-            "ISO3_code":"VNM",
+            "iso3_code":"VNM",
             "continent":"AS"
         }
     },
@@ -3645,9 +3645,9 @@
             "region":null,
             "num_code":"876",
 
-            "ISO_code":"WF",
+            "iso_code":"WF",
             "fullname":"Wallis and Futuna",
-            "ISO3_code":"WLF",
+            "iso3_code":"WLF",
             "continent":"OC"
         }
     },
@@ -3660,9 +3660,9 @@
             "region":null,
             "num_code":"732",
 
-            "ISO_code":"EH",
+            "iso_code":"EH",
             "fullname":"Western Sahara",
-            "ISO3_code":"ESH",
+            "iso3_code":"ESH",
             "continent":"AF"
         }
     },
@@ -3675,9 +3675,9 @@
             "region":null,
             "num_code":"887",
 
-            "ISO_code":"YE",
+            "iso_code":"YE",
             "fullname":"Yemen",
-            "ISO3_code":"YEM",
+            "iso3_code":"YEM",
             "continent":"AS"
         }
     },
@@ -3690,9 +3690,9 @@
             "region":null,
             "num_code":"777",
 
-            "ISO_code":"ZR",
+            "iso_code":"ZR",
             "fullname":"Zaire",
-            "ISO3_code":"777",
+            "iso3_code":"777",
             "continent":"AF"
         }
     },
@@ -3704,9 +3704,9 @@
             "name":"Zambia",
             "region":1,
             "num_code":"894",
-            "ISO_code":"ZM",
+            "iso_code":"ZM",
             "fullname":"Zambia, Republic of",
-            "ISO3_code":"ZMB",
+            "iso3_code":"ZMB",
             "continent":"AF"
         }
     },
@@ -3718,9 +3718,9 @@
             "name":"Zimbabwe",
             "region":1,
             "num_code":"716",
-            "ISO_code":"ZW",
+            "iso_code":"ZW",
             "fullname":"Zimbabwe, Republic of",
-            "ISO3_code":"ZWE",
+            "iso3_code":"ZWE",
             "continent":"AF"
         }
     }

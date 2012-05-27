@@ -1,0 +1,8 @@
+{% extends "iadmin/geo/change_form.html" %}{% load geo %}
+
+{% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}
+    {% if original %}{{ original|flag }}{% endif %}
+{% endblock %}
+{% block content %}
+    {{ block.super }}
+{% endblock content %}
