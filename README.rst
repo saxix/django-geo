@@ -2,7 +2,7 @@
 django-geo
 ================
 
-.. image:: https://secure.travis-ci.org/saxix/django-geo/djangorecipe.png?branch=master
+.. image:: https://secure.travis-ci.org/saxix/django-geo.png?branch=master
    :target: http://travis-ci.org/saxix/django-geo/
 
 A Django application which manage administrative geographical data.
