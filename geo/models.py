@@ -129,6 +129,11 @@ class AdministrativeAreaType(MPTTModel):
             raise ValidationError(_('`%s` cannot contains same type') % self.parent)
         super(AdministrativeAreaType, self).clean()
 
+    def get_or_create(self, **kwargs):
+        return AdministrativeArea.objects.get_or_create(country=self.country, type=self, **kwargs)
+
+
+
 class AdministrativeAreaManager(TreeManager):
     use_for_related_fields = True
 
@@ -145,6 +150,7 @@ class AdministrativeArea(MPTTModel):
     """
 
     name = models.CharField(_('Name'), max_length=255, db_index=True)
+    code = models.CharField(_('Code'), max_length=5, db_index=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
     country = models.ForeignKey(Country, related_name='areas')
     type = models.ForeignKey(AdministrativeAreaType)
@@ -163,6 +169,7 @@ class AdministrativeArea(MPTTModel):
 
     def natural_key(self):
         return (self.country.iso_code, self.name )
+
     natural_key.dependencies = ['geo.country']
 
     def clean(self):
@@ -233,6 +240,7 @@ class Location(models.Model):
 
     def natural_key(self):
         return self.country.natural_key() + (self.name, str(self.lat), str(self.lng))
+
     natural_key.dependencies = ['geo.country']
 
     def clean(self):
