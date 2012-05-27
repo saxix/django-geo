@@ -38,6 +38,8 @@ CONTINENTS = (
 Regions = zip(range(1, 5), ('Africa', 'Americas', 'Asia', 'Middle East'))
 
 class CountryManager(Manager):
+    use_for_related_fields = True
+
     def _by_continent(self, c):
         return self.get_query_set().filter(continent=c)
 
@@ -151,6 +153,7 @@ class AdministrativeArea(MPTTModel):
     class Meta:
         verbose_name = _("Administrative Area")
         verbose_name_plural = _("Administrative Areas")
+        unique_together = (('name', 'country', 'type'),)
         app_label = 'geo'
         ordering = ['name']
         order_with_respect_to = 'country'
