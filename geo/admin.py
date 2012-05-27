@@ -43,14 +43,14 @@ class ICountry(ModelAdmin):
 class ILocation(ModelAdmin):
     change_form_template = 'admin/geo/location/change_form.html'
     search_fields = ('name', )
-    list_display = ('name', 'country',)
-    list_display_rel_links = cell_filter = ('country', )
+    list_display = ('name', 'country', 'area', 'is_administrative')
+    list_display_rel_links = cell_filter = ('country', 'area', 'is_administrative')
 
 
 class IArea(ModelAdmin):
     search_fields = ('name', )
-    list_display = ('name', 'parent', 'country', 'type')
-    list_display_rel_links = cell_filter = ('country', )
+    list_display = ('name', 'parent', 'country', 'type', 'code')
+    list_display_rel_links = cell_filter = ('country', 'type', 'code')
     list_filter = ('type', )
     inlines = (tabular_factory(Location),
         )
