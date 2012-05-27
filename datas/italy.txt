@@ -1,0 +1,110 @@
+Agrigento,Sicilia,AG
+Alessandria,Piemonte,AL
+Ancona,Marche,AN
+Aosta,Valle d'Aosta,AO
+Arezzo,Toscana,AR
+Ascoli Piceno,Marche,AP
+Asti,Piemonte,AT
+Avellino,Campania,AV
+Bari,Puglia,BA
+Barletta-Andria-Trani,Puglia,BT
+Belluno,Veneto,BL
+Benevento,Campania,BN
+Bergamo,Lombardia,BG
+Biella,Piemonte,BI
+Bologna,Emilia-Romagna,BO
+Bolzano,Trentino-Alto Adige,BZ
+Brescia,Lombardia,BS
+Brindisi,Puglia,BR
+Cagliari,Sardegna,CA
+Caltanissetta,Sicilia,CL
+Campobasso,Molise,CB
+Carbonia-Iglesias,Sardegna,CI
+Caserta,Campania,CE
+Catania,Sicilia,CT
+Catanzaro,Calabria,CZ
+Chieti,Abruzzo,CH
+Como,Lombardia,CO
+Cosenza,Calabria,CS
+Cremona,Lombardia,CR
+Crotone,Calabria,KR
+Cuneo,Piemonte,CN
+Enna,Sicilia,EN
+Fermo,Marche,FM
+Ferrara,Emilia-Romagna,FE
+Firenze,Toscana,FI
+Foggia,Puglia,FG
+Forlì-Cesena,Emilia-Romagna,FC
+Frosinone,Lazio,FR
+Genova,Liguria,GE
+Gorizia,Friuli-Venezia Giulia,GO
+Grosseto,Toscana,GR
+Imperia,Liguria,IM
+Isernia,Molise,IS
+La Spezia,Liguria,SP
+L'Aquila,Abruzzo,AQ
+Latina,Lazio,LT
+Lecce,Puglia,LE
+Lecco,Lombardia,LC
+Livorno,Toscana,LI
+Lodi,Lombardia,LO
+Lucca,Toscana,LU
+Macerata,Marche,MC
+Mantova,Lombardia,MN
+Massa-Carrara,Toscana,MS
+Matera,Basilicata,MT
+Messina,Sicilia,ME
+Milano,Lombardia,MI
+Modena,Emilia-Romagna,MO
+Monza e della Brianza,Lombardia,MB
+Napoli,Campania,NA
+Novara,Piemonte,NO
+Nuoro,Sardegna,NU
+Olbia-Tempio,Sardegna,OT
+Oristano,Sardegna,OR
+Padova,Veneto,PD
+Palermo,Sicilia,PA
+Parma,Emilia-Romagna,PR
+Pavia,Lombardia,PV
+Perugia,Umbria,PG
+Pesaro e Urbino,Marche,PU
+Pescara,Abruzzo,PE
+Piacenza,Emilia-Romagna,PC
+Pisa,Toscana,PI
+Pistoia,Toscana,PT
+Pordenone,Friuli-Venezia Giulia,PN
+Potenza,Basilicata,PZ
+Prato,Toscana,PO
+Ragusa,Sicilia,RG
+Ravenna,Emilia-Romagna,RA
+Reggio Calabria,Calabria,RC
+Reggio Emilia,Emilia-Romagna,RE
+Rieti,Lazio,RI
+Rimini,Emilia-Romagna,RN
+Roma,Lazio,RM
+Rovigo,Veneto,RO
+Salerno,Campania,SA
+Medio Campidano,Sardegna,VS
+Sassari,Sardegna,SS
+Savona,Liguria,SV
+Siena,Toscana,SI
+Siracusa,Sicilia,SR
+Sondrio,Lombardia,SO
+Taranto,Puglia,TA
+Teramo,Abruzzo,TE
+Terni,Umbria,TR
+Torino,Piemonte,TO
+Ogliastra,Sardegna,OG
+Trapani,Sicilia,TP
+Trento,Trentino-Alto Adige,TN
+Treviso,Veneto,TV
+Trieste,Friuli-Venezia Giulia,TS
+Udine,Friuli-Venezia Giulia,UD
+Varese,Lombardia,VA
+Venezia,Veneto,VE
+Verbano-Cusio-Ossola,Piemonte,VB
+Vercelli,Piemonte,VC
+Verona,Veneto,VR
+Vibo Valentia,Calabria,VV
+Vicenza,Veneto,VI
+Viterbo,Lazio,VT

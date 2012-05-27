@@ -138,6 +138,10 @@ class AdministrativeAreaManager(TreeManager):
 
 
 class AdministrativeArea(MPTTModel):
+    """ Administrative areas that can contains other AdministrativeArea and/or Location
+
+    """
+
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
     country = models.ForeignKey(Country, related_name='areas')
@@ -179,7 +183,9 @@ class AdministrativeArea(MPTTModel):
 
 
 class Location(models.Model):
-    """ Geographical location ( city, place everything with a name and Lat/Lng"""
+    """ Administrative location ( city, place everything with a name and Lat/Lng that
+    is not intetend to contains anything ( use Areas for that
+    """
     NONE = 0
     COUNTRY = 10
     EXACT = 20

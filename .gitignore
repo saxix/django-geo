@@ -3,4 +3,6 @@
 *.pyc
 local_settings.py
 .idea
-
+OUT
+dist
+MANIFEST
