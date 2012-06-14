@@ -1,17 +1,31 @@
 # -*- coding: utf-8 -*-
 from django.contrib.admin.util import unquote
-from django.core.exceptions import ValidationError
-from mptt.exceptions import InvalidMove
 from geo.models import Country, Location, AdministrativeArea, AdministrativeAreaType
 from geo.templatetags.geo import flag
 
 try:
     from iadmin.options import IModelAdmin as ModelAdmin
     from iadmin.utils import tabular_factory
+    from iadmin.api import site
 except ImportError:
-    from django.contrib.admin import ModelAdmin
+    from django.contrib.admin import ModelAdmin, site
 
-    tabular_factory = lambda o: None
+    def tabular_factory(model, fields=None, inline=None, form=None, **kwargs):
+        """ factory for TabularInline
+
+        >>> class MD(IModelAdmin):
+        ...     inlines = [tabular_factory(Permission)]
+        """
+        from django.contrib.admin import TabularInline
+
+        Inline = inline or TabularInline
+        name = "%sInLine" % model.__class__.__name__
+        attrs = {'model': model, 'fields': fields}
+        if form:
+            attrs['form'] = form
+        attrs.update(kwargs)
+        Tab = type(name, (Inline,), attrs)
+        return Tab
 
 
 class ICountry(ModelAdmin):
@@ -36,8 +50,9 @@ class ICountry(ModelAdmin):
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
-        extra_context = {'nodes': obj.areas.all()}
-        return super(ICountry, self).change_view(request, object_id, form_url, extra_context)
+        context = {'nodes': obj.areas.all()}
+        context.update(extra_context or {})
+        return super(ICountry, self).change_view(request, object_id, form_url, context)
 
 
 class ILocation(ModelAdmin):
@@ -57,8 +72,9 @@ class IArea(ModelAdmin):
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
-        extra_context = {'nodes': obj.areas.all()}
-        return super(IArea, self).change_view(request, object_id, form_url, extra_context)
+        context = {'nodes': obj.areas.all()}
+        context.update(extra_context or {})
+        return super(IArea, self).change_view(request, object_id, form_url, context)
 
 
 class IAreaType(ModelAdmin):
@@ -71,8 +87,13 @@ class IAreaType(ModelAdmin):
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
-        extra_context = {'nodes': obj.children.all()}
-        return super(IAreaType, self).change_view(request, object_id, form_url, extra_context)
+        context = {'nodes': obj.children.all()}
+        context.update(extra_context or {})
+        return super(IAreaType, self).change_view(request, object_id, form_url, context)
 
-__iadmin__ = ((Country, ICountry), (Location, ILocation), (AdministrativeArea, IArea),
-              (AdministrativeAreaType, IAreaType))
+
+reg = ((Country, ICountry), (Location, ILocation), (AdministrativeArea, IArea),
+       (AdministrativeAreaType, IAreaType))
+
+for model, model_admin in reg:
+    site.register(model, model_admin)
