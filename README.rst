@@ -66,3 +66,9 @@ Examples
                                                  area=columbia,
                                                  is_administrative=True)
 
+Project links
+-------------
+
+* Project home page: https://github.com/saxix/django-geo
+* Documentation: http://pypi.python.org/pypi/django-geo/
+* Download: http://pypi.python.org/pypi/django-geo/
