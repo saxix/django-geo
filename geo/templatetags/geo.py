@@ -5,5 +5,6 @@ from mptt.templatetags.mptt_tags import register
 
 @register.filter
 def flag(country):
-    url = static('geo/flags/%s.gif' % country.iso_code.lower())
-    return mark_safe('<img src="%s">' % url)
+    code = country.iso_code.lower()
+    url = static('geo/flags/%s.gif' % code)
+    return mark_safe('<img width="16" height="11" id="%s_flag" src="%s">' % (code, url))
