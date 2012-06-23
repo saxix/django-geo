@@ -25,7 +25,7 @@ Three levels
 ::
 
     italy = Country.objects.get(iso_code='IT')
-    regione, __ = italy.administrativeareatype_set.create(name='Regione')
+    regione, __ = italy.administrativeareatype_set.get_or_create(name='Regione')
 
 
     lazio, __ = AdministrativeArea.objects.get_or_create(country=italy,
@@ -36,6 +36,42 @@ Three levels
                                                 name ='Roma',
                                                 type=Location.CITY,
                                                 area=lazio)
+
+Four levels
+-----------
+
+ Represtent US administrative hierarchy:
+
+ Structure:
+
+    Country / State / County / Location
+
+ Es.
+
+    United States   / New York   / Columbia / Hudson
+
+    United States   / New York   / Albany / Albany
+
+
+::
+
+    us = Country.objects.get(iso_code='US')
+    state, __ = italy.administrativeareatype_set.get_or_create(name='State')
+    county,__ = italy.administrativeareatype_set.get_or_create(name='County',
+                                                                parent=state)
+    ny, __ = AdministrativeArea.objects.get_or_create(country=us,
+                                                        name ='New York',
+                                                        type=state)
+    columbia, __ = AdministrativeArea.objects.get_or_create(country=us,
+                                                            name ='Columbia',
+                                                            type=county,
+                                                            parent=ny)
+    hudson, __  = Location.objects.get_or_create(country=us,
+                                                 name ='Hudson',
+                                                 type=Location.CITY,
+                                                 area=columbia,
+                                                 is_administrative=True)
+
 
 
 Five levels
@@ -88,39 +124,4 @@ Five levels
                                                 name ='Roma',
                                                 type=Location.CITY,
                                                 area=roma_comune)
-
-Four levels
------------
-
- Represtent US administrative hierarchy:
-
- Structure:
-
-    Country / State / County / Location
-
- Es.
-
-    United States   / New York   / Columbia / Hudson
-
-    United States   / New York   / Albany / Albany
-
-
-::
-
-    us = Country.objects.get(iso_code='US')
-    state, __ = italy.administrativeareatype_set.get_or_create(name='State')
-    county,__ = italy.administrativeareatype_set.get_or_create(name='County',
-                                                                parent=state)
-    ny, __ = AdministrativeArea.objects.get_or_create(country=us,
-                                                        name ='New York',
-                                                        type=state)
-    columbia, __ = AdministrativeArea.objects.get_or_create(country=us,
-                                                            name ='Columbia',
-                                                            type=county,
-                                                            parent=ny)
-    hudson, __  = Location.objects.get_or_create(country=us,
-                                                 name ='Hudson',
-                                                 type=Location.CITY,
-                                                 area=columbia,
-                                                 is_administrative=True)
 
