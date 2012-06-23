@@ -1,38 +1,46 @@
 # -*- coding: utf-8 -*-
 from django.contrib.admin.util import unquote
-from geo.models import Country, Location, AdministrativeArea, AdministrativeAreaType
+from django.core.urlresolvers import reverse
+from geo.models import Country, Location, AdministrativeArea, AdministrativeAreaType, Currency
 from geo.templatetags.geo import flag
+from django.contrib.admin import ModelAdmin, site
 
-try:
-    from iadmin.options import IModelAdmin as ModelAdmin
-    from iadmin.utils import tabular_factory
-    from iadmin.api import site
-except ImportError:
-    from django.contrib.admin import ModelAdmin, site
+def tabular_factory(model, fields=None, inline=None, form=None, **kwargs):
+    """ factory for TabularInline
 
-    def tabular_factory(model, fields=None, inline=None, form=None, **kwargs):
-        """ factory for TabularInline
+    >>> class MD(IModelAdmin):
+    ...     inlines = [tabular_factory(Permission)]
+    """
+    from django.contrib.admin import TabularInline
+    attrs = {'model': model, 'fields': fields}
+    read_only = kwargs.pop('read_only', False)
+    if read_only:
+        attrs['readonly_fields'] = fields
+        attrs['can_delete'] = False
 
-        >>> class MD(IModelAdmin):
-        ...     inlines = [tabular_factory(Permission)]
-        """
-        from django.contrib.admin import TabularInline
+    Inline = inline or TabularInline
+    name = "%sInLine" % model.__class__.__name__
+    if form:
+        attrs['form'] = form
+    attrs.update(kwargs)
+    Tab = type(name, (Inline,), attrs)
+    return Tab
 
-        Inline = inline or TabularInline
-        name = "%sInLine" % model.__class__.__name__
-        attrs = {'model': model, 'fields': fields}
-        if form:
-            attrs['form'] = form
-        attrs.update(kwargs)
-        Tab = type(name, (Inline,), attrs)
-        return Tab
 
+class ICurrency(ModelAdmin):
+    search_fields = ('name', 'code')
+    list_display = ('name', 'code','symbol', 'used_by')
+    inlines = [tabular_factory(Country, fields=['name'], read_only=True)]
+
+    def used_by(self, o):
+        return ', '.join(['<a href="%s">%s</>' % (reverse('admin:geo_country_change', args=[c.pk]), c.name) for c in Country.objects.filter(currency=o)])
+    used_by.allow_tags = True
 
 class ICountry(ModelAdmin):
     search_fields = ('name', )
-    list_display = ('name', 'continent', 'region', 'iso_code', 'iso3_code', 'flag')
-    list_filter = ('continent', 'region',)
-    cell_filter = ('continent', 'region', )
+    list_display = ('name', 'continent', 'region', 'iso_code', 'iso3_code', 'currency', 'capital', 'flag')
+    list_filter = ('continent', 'region', )
+    cell_filter = ('continent', 'region', 'currency')
     fieldsets = [(None, {'fields': (('name', 'fullname'),
                                     ('iso_code', 'iso3_code', 'num_code'),
                                     ('region', 'continent', 'currency'),
@@ -45,8 +53,16 @@ class ICountry(ModelAdmin):
 
     def flag(self, o):
         return flag(o)
-
     flag.allow_tags = True
+
+    def capital(self, o):
+        c= o.location_set.get_or_none(is_capital=True)
+        if c:
+            admin_url = reverse('admin:geo_location_change', args=[c.pk])
+            return "<a href='%s'>%s</a>" % ( admin_url, c.name)
+        return c
+    capital.allow_tags = True
+
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
@@ -56,11 +72,10 @@ class ICountry(ModelAdmin):
 
 
 class ILocation(ModelAdmin):
-    change_form_template = 'admin/geo/location/change_form.html'
     search_fields = ('name', )
-    list_display = ('name', 'country', 'area', 'is_administrative')
-    list_display_rel_links = cell_filter = ('country', 'area', 'is_administrative')
-
+    list_display = ('name', 'country', 'area', 'is_administrative', 'is_capital')
+    list_display_rel_links = cell_filter = ('country', 'area', 'is_administrative', 'is_capital')
+    list_filter = ('is_administrative', 'is_capital')
 
 class IArea(ModelAdmin):
     search_fields = ('name', )
@@ -93,7 +108,7 @@ class IAreaType(ModelAdmin):
 
 
 reg = ((Country, ICountry), (Location, ILocation), (AdministrativeArea, IArea),
-       (AdministrativeAreaType, IAreaType))
+       (AdministrativeAreaType, IAreaType),(Currency, ICurrency), )
 
 for model, model_admin in reg:
     site.register(model, model_admin)

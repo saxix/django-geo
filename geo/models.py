@@ -4,7 +4,7 @@ Created on May 7, 2010
 
 @author: sax
 '''
-from django.core.exceptions import ValidationError
+from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.db import models
 from django.db.models.manager import Manager
 from django.utils.translation import gettext_lazy as _
@@ -17,13 +17,17 @@ logger = logging.getLogger("geo")
 
 
 class Currency(models.Model):
-    code = models.CharField(max_length=5)
+    code = models.CharField(max_length=5, unique=True, help_text="ISO 4217 code")
     name = models.CharField(max_length=30)
-    symbol = models.CharField(max_length=5)
+    symbol = models.CharField(max_length=5, blank=True, null=True)
 
     class Meta:
         app_label = 'geo'
         ordering = ['code', ]
+
+    def __unicode__(self):
+        return u"%s (%s)" % (self.code, self.name)
+
 
 CONTINENTS = (
     ('AF', _('Africa')),
@@ -77,6 +81,9 @@ class Country(models.Model):
     continent = models.CharField(choices=CONTINENTS, max_length=2)
     currency = models.ForeignKey(Currency, blank=True, null=True)
 
+#    tld = models.CharField(max_length=6, blank=True, null=True, help_text='internet tld')
+#    tz = models.IntegerField(blank=True, null=True, help_text='time zone')
+
     fullname.alphabetic_filter = True
     objects = CountryManager()
 
@@ -94,6 +101,9 @@ class Country(models.Model):
     def __contains__(self, item):
         if hasattr(item, 'country'):
             return item.country == self
+
+    def cities(self):
+        return self.location_set.cities()
 
 
 class AdministrativeAreaTypeManager(TreeManager):
@@ -191,6 +201,17 @@ class AdministrativeArea(MPTTModel):
     def __contains__(self, item):
         return True
 
+class LocationManager(models.Manager):
+    use_for_related_fields = True
+
+    def get_or_none(self, *args, **kwargs):
+        try:
+            return self.get(*args, **kwargs)
+        except ObjectDoesNotExist:
+            return None
+
+    def cities(self):
+        return self.get_query_set().filter(type=Location.CITY)
 
 class Location(models.Model):
     """ Administrative location ( city, place everything with a name and Lat/Lng that
@@ -228,11 +249,13 @@ class Location(models.Model):
     acc = models.IntegerField(choices=ACCURACY, default=NONE, blank=True, null=True,
         help_text="Define the level of accuracy of lat/lng infos")
 
+    objects = LocationManager()
+
     class Meta:
         verbose_name_plural = _('Locations')
         verbose_name = _('Location')
         app_label = 'geo'
-        ordering = ("name",)
+        ordering = ('name', 'country')
         order_with_respect_to = 'country'
 
     def __unicode__(self):
