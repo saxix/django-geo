@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+from django.contrib.admin.options import TabularInline
 from django.contrib.admin.util import unquote
 from django.core.urlresolvers import reverse
+from geo.forms import CountryForm, AreaForm, administrativeareatypeform_factory_for_country
 from geo.models import Country, Location, AdministrativeArea, AdministrativeAreaType, Currency
 from geo.templatetags.geo import flag
-from django.contrib.admin import ModelAdmin, site
+from django.contrib.admin import ModelAdmin, site, TabularInline
 
 def tabular_factory(model, fields=None, inline=None, form=None, **kwargs):
     """ factory for TabularInline
@@ -11,7 +13,6 @@ def tabular_factory(model, fields=None, inline=None, form=None, **kwargs):
     >>> class MD(IModelAdmin):
     ...     inlines = [tabular_factory(Permission)]
     """
-    from django.contrib.admin import TabularInline
     attrs = {'model': model, 'fields': fields}
     read_only = kwargs.pop('read_only', False)
     if read_only:
@@ -29,14 +30,26 @@ def tabular_factory(model, fields=None, inline=None, form=None, **kwargs):
 
 class ICurrency(ModelAdmin):
     search_fields = ('name', 'code')
-    list_display = ('name', 'code','symbol', 'used_by')
+    list_display = ('name', 'code', 'symbol', 'used_by')
     inlines = [tabular_factory(Country, fields=['name'], read_only=True)]
 
     def used_by(self, o):
-        return ', '.join(['<a href="%s">%s</>' % (reverse('admin:geo_country_change', args=[c.pk]), c.name) for c in Country.objects.filter(currency=o)])
+        return ', '.join(['<a href="%s">%s</>' % (reverse('admin:geo_country_change', args=[c.pk]), c.name) for c in
+                          Country.objects.filter(currency=o)])
+
     used_by.allow_tags = True
 
+
+class AdministrativeAreaInline(TabularInline):
+    model = AdministrativeArea
+
+    def get_formset(self, request, obj=None, **kwargs):
+        self.form = administrativeareatypeform_factory_for_country(obj)
+        return super(AdministrativeAreaInline, self).get_formset(request, obj, **kwargs)
+
+
 class ICountry(ModelAdmin):
+    form = CountryForm
     search_fields = ('name', )
     list_display = ('name', 'continent', 'region', 'iso_code', 'iso3_code', 'currency', 'capital', 'flag')
     list_filter = ('continent', 'region', )
@@ -47,20 +60,22 @@ class ICountry(ModelAdmin):
         ),
 
                          })]
-    inlines = (tabular_factory(Location),
-               tabular_factory(AdministrativeArea),
+    inlines = (tabular_factory(Location, exclude=('description',)),
+               AdministrativeAreaInline,
                tabular_factory(AdministrativeAreaType), )
 
     def flag(self, o):
         return flag(o)
+
     flag.allow_tags = True
 
     def capital(self, o):
-        c= o.location_set.get_or_none(is_capital=True)
+        c = o.location_set.get_or_none(is_capital=True)
         if c:
             admin_url = reverse('admin:geo_location_change', args=[c.pk])
             return "<a href='%s'>%s</a>" % ( admin_url, c.name)
         return c
+
     capital.allow_tags = True
 
 
@@ -77,7 +92,9 @@ class ILocation(ModelAdmin):
     list_display_rel_links = cell_filter = ('country', 'area', 'is_administrative', 'is_capital')
     list_filter = ('is_administrative', 'is_capital')
 
+
 class IArea(ModelAdmin):
+    form = AreaForm
     search_fields = ('name', )
     list_display = ('name', 'parent', 'country', 'type', 'code')
     list_display_rel_links = cell_filter = ('country', 'type', 'code')
@@ -108,7 +125,7 @@ class IAreaType(ModelAdmin):
 
 
 reg = ((Country, ICountry), (Location, ILocation), (AdministrativeArea, IArea),
-       (AdministrativeAreaType, IAreaType),(Currency, ICurrency), )
+       (AdministrativeAreaType, IAreaType), (Currency, ICurrency), )
 
 for model, model_admin in reg:
     site.register(model, model_admin)
