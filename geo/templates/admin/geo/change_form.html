@@ -2,6 +2,7 @@
 {% block content %}
     {{ block.super }}
 <ul>
+{% if nodes %}
     {% recursetree nodes %}
         <li>
             {{ node.name }}
@@ -12,5 +13,6 @@
             {% endif %}
         </li>
     {% endrecursetree %}
+{% endif %}
 </ul>
 {% endblock content %}
