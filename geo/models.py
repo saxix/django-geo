@@ -71,9 +71,9 @@ class CountryManager(Manager):
 
 class Country(models.Model):
     """ Model for the country of origin """
-    iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True)
-    iso3_code = models.CharField(max_length=3, blank=True, null=True, db_index=True)
-    num_code = models.CharField(max_length=3, blank=True, null=True)
+    iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True, help_text='ISO 3166-1 alpha 2')
+    iso3_code = models.CharField(max_length=3, blank=True, null=True, db_index=True, help_text='ISO 3166-1 alpha 3')
+    num_code = models.CharField(max_length=3, blank=True, null=True, help_text='ISO 3166-1 numeric')
     name = models.CharField(max_length=100, db_index=True)
     fullname = models.CharField(max_length=100, db_index=True)
 
@@ -160,7 +160,7 @@ class AdministrativeArea(MPTTModel):
     """
 
     name = models.CharField(_('Name'), max_length=255, db_index=True)
-    code = models.CharField(_('Code'), max_length=5, db_index=True)
+    code = models.CharField(_('Code'), max_length=5, db_index=True, help_text='ISO 3166-2 code')
     parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
     country = models.ForeignKey(Country, related_name='areas')
     type = models.ForeignKey(AdministrativeAreaType)
