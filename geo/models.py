@@ -160,7 +160,7 @@ class AdministrativeArea(MPTTModel):
     """
 
     name = models.CharField(_('Name'), max_length=255, db_index=True)
-    code = models.CharField(_('Code'), max_length=5, db_index=True, help_text='ISO 3166-2 code')
+    code = models.CharField(_('Code'), max_length=10, blank=True, null=True, db_index=True, help_text='ISO 3166-2 code')
     parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
     country = models.ForeignKey(Country, related_name='areas')
     type = models.ForeignKey(AdministrativeAreaType)

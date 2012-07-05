@@ -1,5 +1,5 @@
 NAME = 'django-geo'
-VERSION = __version__ = (0, 2, 1, 'beta', 0)
+VERSION = __version__ = (0, 2, 1, 'beta', 1)
 __author__ = 'sax'
 
 def get_version(version=None, short=False):
