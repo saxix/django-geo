@@ -45,6 +45,8 @@ def administrativeareatypeform_factory_for_country(country):
         used by the admin's inlines
 
     """
+    if country is None:
+        return AdministrativeAreaTypeForm
     name = str('%sAdministrativeAreaForm' % country.iso_code)
     args = {'for_country':country}
     return type(name, (AdministrativeAreaTypeForm,), args)
