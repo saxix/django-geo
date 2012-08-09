@@ -105,14 +105,31 @@
         "model":"geo.location",
         "fields":{
             "acc":0,
-            "is_capital":false,
-            "is_administrative":false,
+            "is_capital":true,
+            "is_administrative":true,
             "name":"Roma",
             "area":["IT", "Comune di Roma"],
             "country":["IT"],
             "_order":0,
             "lat":null,
             "lng":null,
+            "type":0,
+            "description":null
+        }
+    },
+    {
+        "pk":2,
+        "model":"geo.location",
+        "fields":{
+            "acc":0,
+            "is_capital":false,
+            "is_administrative":false,
+            "name":"Bracciano",
+            "area":["IT", "Provincia di Roma"],
+            "country":["IT"],
+            "_order":1,
+            "lat":42.1014,
+            "lng":12.1671,
             "type":0,
             "description":null
         }

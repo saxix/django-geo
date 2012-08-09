@@ -71,7 +71,8 @@ class CountryManager(Manager):
 
 class Country(models.Model):
     """ Model for the country of origin """
-    iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True, help_text='ISO 3166-1 alpha 2')
+    iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True,
+        help_text='ISO 3166-1 alpha 2')
     iso3_code = models.CharField(max_length=3, blank=True, null=True, db_index=True, help_text='ISO 3166-1 alpha 3')
     num_code = models.CharField(max_length=3, blank=True, null=True, help_text='ISO 3166-1 numeric')
     name = models.CharField(max_length=100, db_index=True)
@@ -81,8 +82,8 @@ class Country(models.Model):
     continent = models.CharField(choices=CONTINENTS, max_length=2)
     currency = models.ForeignKey(Currency, blank=True, null=True)
 
-#    tld = models.CharField(max_length=6, blank=True, null=True, help_text='internet tld')
-#    tz = models.IntegerField(blank=True, null=True, help_text='time zone')
+    #    tld = models.CharField(max_length=6, blank=True, null=True, help_text='internet tld')
+    #    tz = models.IntegerField(blank=True, null=True, help_text='time zone')
 
     fullname.alphabetic_filter = True
     objects = CountryManager()
@@ -143,7 +144,6 @@ class AdministrativeAreaType(MPTTModel):
         return AdministrativeArea.objects.get_or_create(country=self.country, type=self, **kwargs)
 
 
-
 class AdministrativeAreaManager(TreeManager):
     use_for_related_fields = True
 
@@ -201,6 +201,7 @@ class AdministrativeArea(MPTTModel):
     def __contains__(self, item):
         return True
 
+
 class LocationManager(models.Manager):
     use_for_related_fields = True
 
@@ -212,6 +213,15 @@ class LocationManager(models.Manager):
 
     def cities(self):
         return self.get_query_set().filter(type=Location.CITY)
+
+    def get_by_natural_key(self, country_iso_code, name, lat, lng):
+        if lat == 'None':
+            lat = None
+        if lng == 'None':
+            lng = None
+
+        return self.get(country__iso_code=country_iso_code, name=name, lat=lat, lng=lng)
+
 
 class Location(models.Model):
     """ Administrative location ( city, place everything with a name and Lat/Lng that
