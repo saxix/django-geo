@@ -131,7 +131,8 @@ def sort_dependencies(app_list):
         if model_list is None:
             model_list = get_models(app)
 
-        for model in model_list:
+        while model_list:
+            model = model_list.pop()
             models.add(model)
             # Add any explicitly defined dependencies
             if hasattr(model, 'natural_key'):
@@ -149,9 +150,12 @@ def sort_dependencies(app_list):
                     if hasattr(rel_model, 'natural_key')and rel_model != model:
                         deps.append(rel_model)
             for field in model._meta.many_to_many:
-                rel_model = field.rel.to
-                if hasattr(rel_model, 'natural_key')and rel_model != model:
-                    deps.append(rel_model)
+                m2m_model = field.rel.through
+                if hasattr(m2m_model, 'natural_key'):
+                    # if the m2m model is not in the model_dependencies list,
+                    # add it for processing
+                    if not any((m[0]==m2m_model for m in model_dependencies)):
+                        model_list.append(m2m_model)
             model_dependencies.append((model, deps))
 
     model_dependencies.reverse()
