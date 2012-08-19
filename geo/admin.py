@@ -98,7 +98,7 @@ class IArea(ModelAdmin):
     search_fields = ('name', )
     list_display = ('name', 'parent', 'country', 'type', 'code')
     list_display_rel_links = cell_filter = ('country', 'type', 'code')
-    list_filter = ('type', )
+    list_filter = ('type', 'country')
     inlines = (tabular_factory(Location),
         )
 
