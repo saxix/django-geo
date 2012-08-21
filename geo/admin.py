@@ -2,7 +2,7 @@
 from django.contrib.admin.options import TabularInline
 from django.contrib.admin.util import unquote
 from django.core.urlresolvers import reverse
-from geo.forms import CountryForm, AreaForm, administrativeareatypeform_factory_for_country
+from geo.forms import CountryForm, AreaForm, administrativeareatypeform_factory_for_country, LocationForm
 from geo.models import Country, Location, AdministrativeArea, AdministrativeAreaType, Currency
 from geo.templatetags.geo import flag
 from django.contrib.admin import ModelAdmin, site, TabularInline
@@ -91,6 +91,14 @@ class ILocation(ModelAdmin):
     list_display = ('name', 'country', 'area', 'is_administrative', 'is_capital')
     list_display_rel_links = cell_filter = ('country', 'area', 'is_administrative', 'is_capital')
     list_filter = ('is_administrative', 'is_capital')
+    form = LocationForm
+
+#    def get_form(self, request, obj=None, **kwargs):
+#        return super(ILocation, self).get_form(request, obj, **kwargs)
+
+
+
+
 
 
 class IArea(ModelAdmin):

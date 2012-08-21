@@ -277,4 +277,7 @@ class Location(models.Model):
     natural_key.dependencies = ['geo.country']
 
     def clean(self):
+        if self.area and self.area.country != self.country:
+            raise ValidationError('Selected area not in selected country')
         super(Location, self).clean()
+

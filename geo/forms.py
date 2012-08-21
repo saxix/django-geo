@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.forms.widgets import Input, TextInput
+from mptt.forms import TreeNodeChoiceField
 from geo.models import AdministrativeAreaType, AdministrativeArea, Country, Location
 
 class CountryForm(forms.ModelForm):
@@ -37,6 +38,17 @@ class AdministrativeAreaTypeForm(forms.ModelForm):
         model = AdministrativeArea
         widgets = {
             'code': TextInput(attrs={'size': 10}),
+            }
+
+
+class LocationForm(forms.ModelForm):
+    area = TreeNodeChoiceField(AdministrativeArea.objects.all())
+
+    class Meta:
+        model = Location
+        widgets = {
+            'code': TextInput(attrs={'size': 10}),
+
             }
 
 def administrativeareatypeform_factory_for_country(country):
