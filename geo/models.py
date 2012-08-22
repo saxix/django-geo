@@ -5,6 +5,7 @@ Created on May 7, 2010
 @author: sax
 '''
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
+from django.core.validators import MinLengthValidator
 from django.db import models
 from django.db.models.manager import Manager
 from django.utils.translation import gettext_lazy as _
@@ -72,8 +73,9 @@ class CountryManager(Manager):
 class Country(models.Model):
     """ Model for the country of origin """
     iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True,
-        help_text='ISO 3166-1 alpha 2')
-    iso3_code = models.CharField(max_length=3, blank=True, null=True, db_index=True, help_text='ISO 3166-1 alpha 3')
+        help_text='ISO 3166-1 alpha 2', validators=[MinLengthValidator(2)])
+    iso3_code = models.CharField(max_length=3, blank=False, null=False, db_index=True,
+        help_text='ISO 3166-1 alpha 3', validators=[MinLengthValidator(3)])
     num_code = models.CharField(max_length=3, blank=True, null=True, help_text='ISO 3166-1 numeric')
     name = models.CharField(max_length=100, db_index=True)
     fullname = models.CharField(max_length=100, db_index=True)
@@ -95,6 +97,11 @@ class Country(models.Model):
 
     def __unicode__(self):
         return self.fullname
+
+    def full_clean(self, exclude=None):
+        super(Country, self).full_clean(exclude)
+        self.iso_code = self.iso_code.upper()
+        self.iso3_code = self.iso3_code.upper()
 
     def natural_key(self):
         return (self.iso_code,)
