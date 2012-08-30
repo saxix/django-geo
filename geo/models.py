@@ -108,7 +108,7 @@ class Country(models.Model):
 
     def __contains__(self, item):
         if hasattr(item, 'country'):
-            return item.country == self
+            return item.country.iso_code == self.iso_code
 
     def cities(self):
         return self.location_set.cities()
