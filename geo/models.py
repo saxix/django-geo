@@ -8,7 +8,7 @@ from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import MinLengthValidator
 from django.db import models
 from django.db.models.manager import Manager
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 import logging
 from mptt.exceptions import InvalidMove
 from mptt.managers import TreeManager
@@ -27,7 +27,7 @@ class Currency(models.Model):
         ordering = ['code', ]
 
     def __unicode__(self):
-        return u"%s (%s)" % (self.code, self.name)
+        return unicode("%s (%s)" % (self.code, self.name))
 
 
 CONTINENTS = (
@@ -96,7 +96,7 @@ class Country(models.Model):
         ordering = ['name']
 
     def __unicode__(self):
-        return self.fullname
+        return unicode(self.fullname)
 
     def full_clean(self, exclude=None):
         super(Country, self).full_clean(exclude)
@@ -135,7 +135,7 @@ class AdministrativeAreaType(MPTTModel):
         order_with_respect_to = 'country'
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     def natural_key(self):
         return self.country.natural_key() + (self.name, )
@@ -182,7 +182,7 @@ class AdministrativeArea(MPTTModel):
         order_with_respect_to = 'country'
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     def natural_key(self):
         return (self.country.iso_code, self.name )
@@ -194,8 +194,8 @@ class AdministrativeArea(MPTTModel):
             raise ValidationError(_('`%s` cannot contains self') % self)
         if self.parent and self.parent.type == self.type:
             raise ValidationError(_('`%s` cannot contains same type') % self.parent.type)
-        if (self.pk and self.parent) and self in self.parent:
-            raise ValidationError(_('`%s` cannot contains same type') % self.parent)
+        if (self.pk and self.parent) and self.parent in self:
+            raise ValidationError(_('`%s` cannot contains `%s`') % (self, self.parent))
 
         super(AdministrativeArea, self).clean()
 
@@ -206,7 +206,10 @@ class AdministrativeArea(MPTTModel):
         super(AdministrativeArea, self).save(*args, **kwargs)
 
     def __contains__(self, item):
-        return True
+        if isinstance(item, AdministrativeArea) and item.is_child_node():
+            return item.is_descendant_of(self)
+        elif isinstance(item, Location) and item.area:
+            return item.area.is_descendant_of(self)
 
 
 class LocationManager(models.Manager):
@@ -276,7 +279,7 @@ class Location(models.Model):
         order_with_respect_to = 'country'
 
     def __unicode__(self):
-        return self.name
+        return unicode(self.name)
 
     def natural_key(self):
         return self.country.natural_key() + (self.name, str(self.lat), str(self.lng))
