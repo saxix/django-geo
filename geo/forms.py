@@ -42,7 +42,7 @@ class AdministrativeAreaTypeForm(forms.ModelForm):
 
 
 class LocationForm(forms.ModelForm):
-    area = TreeNodeChoiceField(AdministrativeArea.objects.all())
+    area = TreeNodeChoiceField(AdministrativeArea.objects.all(), required=False)
 
     class Meta:
         model = Location
