@@ -54,6 +54,7 @@ setup(
     name=NAME,
     version=RELEASE,
     url='https://github.com/saxix/django-geo',
+    description="A Django application which manage administrative geographical data.",
     download_url = 'https://github.com/saxix/django-geo/tarball/master',
     author='sax',
     author_email='sax@os4d.org',
