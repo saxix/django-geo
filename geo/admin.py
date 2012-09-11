@@ -7,6 +7,7 @@ from geo.models import Country, Location, AdministrativeArea, AdministrativeArea
 from geo.templatetags.geo import flag
 from django.contrib.admin import ModelAdmin, site, TabularInline
 
+
 def tabular_factory(model, fields=None, inline=None, form=None, **kwargs):
     """ factory for TabularInline
 
@@ -57,9 +58,7 @@ class ICountry(ModelAdmin):
     fieldsets = [(None, {'fields': (('name', 'fullname'),
                                     ('iso_code', 'iso3_code', 'num_code'),
                                     ('region', 'continent', 'currency'),
-        ),
-
-                         })]
+                                    )})]
     inlines = (tabular_factory(Location, exclude=('description',)),
                AdministrativeAreaInline,
                tabular_factory(AdministrativeAreaType), )
@@ -73,11 +72,10 @@ class ICountry(ModelAdmin):
         c = o.location_set.get_or_none(is_capital=True)
         if c:
             admin_url = reverse('admin:geo_location_change', args=[c.pk])
-            return "<a href='%s'>%s</a>" % ( admin_url, c.name)
+            return "<a href='%s'>%s</a>" % (admin_url, c.name)
         return c
 
     capital.allow_tags = True
-
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
@@ -93,13 +91,6 @@ class ILocation(ModelAdmin):
     list_filter = ('is_administrative', 'is_capital')
     form = LocationForm
 
-#    def get_form(self, request, obj=None, **kwargs):
-#        return super(ILocation, self).get_form(request, obj, **kwargs)
-
-
-
-
-
 
 class IArea(ModelAdmin):
     form = AreaForm
@@ -107,8 +98,7 @@ class IArea(ModelAdmin):
     list_display = ('name', 'parent', 'country', 'type', 'code')
     list_display_rel_links = cell_filter = ('country', 'type', 'code')
     list_filter = ('type', 'country')
-    inlines = (tabular_factory(Location),
-        )
+    inlines = (tabular_factory(Location),)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
@@ -116,20 +106,27 @@ class IArea(ModelAdmin):
         context.update(extra_context or {})
         return super(IArea, self).change_view(request, object_id, form_url, context)
 
+    def rebuild_tree(self, request, queryset):
+        self.model.objects.rebuild()
+    rebuild_tree.short_description = "Rebuild MPTT table structure"
+
 
 class IAreaType(ModelAdmin):
     search_fields = ('name', )
     list_display = ('name', 'parent', 'country')
     list_display_rel_links = cell_filter = ('country', )
     list_filter = ('country', )
-    inlines = (tabular_factory(AdministrativeArea),
-        )
+    inlines = (tabular_factory(AdministrativeArea),)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
         context = {'nodes': obj.children.all()}
         context.update(extra_context or {})
         return super(IAreaType, self).change_view(request, object_id, form_url, context)
+
+    def rebuild_tree(self, request, queryset):
+        self.model.objects.rebuild()
+    rebuild_tree.short_description = "Rebuild MPTT table structure"
 
 
 reg = ((Country, ICountry), (Location, ILocation), (AdministrativeArea, IArea),
