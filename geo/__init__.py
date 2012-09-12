@@ -3,7 +3,7 @@ import datetime
 import os
 
 NAME = 'django-geo'
-VERSION = __version__ = (0, 2, 1, 'beta', 8)
+VERSION = __version__ = (0, 2, 2, 'alpha', 0)
 __author__ = 'sax'
 
 

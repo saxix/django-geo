@@ -91,6 +91,9 @@ class ILocation(ModelAdmin):
     list_filter = ('is_administrative', 'is_capital')
     form = LocationForm
 
+def rebuild_tree(modeladmin, request, queryset):
+    modeladmin.model.objects.rebuild()
+rebuild_tree.short_description = "Rebuild MPTT table structure"
 
 class IArea(ModelAdmin):
     form = AreaForm
@@ -99,6 +102,7 @@ class IArea(ModelAdmin):
     list_display_rel_links = cell_filter = ('country', 'type', 'code')
     list_filter = ('type', 'country')
     inlines = (tabular_factory(Location),)
+    actions = [rebuild_tree,]
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
@@ -106,9 +110,7 @@ class IArea(ModelAdmin):
         context.update(extra_context or {})
         return super(IArea, self).change_view(request, object_id, form_url, context)
 
-    def rebuild_tree(self, request, queryset):
-        self.model.objects.rebuild()
-    rebuild_tree.short_description = "Rebuild MPTT table structure"
+
 
 
 class IAreaType(ModelAdmin):
@@ -117,6 +119,7 @@ class IAreaType(ModelAdmin):
     list_display_rel_links = cell_filter = ('country', )
     list_filter = ('country', )
     inlines = (tabular_factory(AdministrativeArea),)
+    actions = [rebuild_tree,]
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
