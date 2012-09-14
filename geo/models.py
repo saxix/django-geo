@@ -74,9 +74,9 @@ class Country(models.Model):
     """ Model for the country of origin """
     iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True,
         help_text='ISO 3166-1 alpha 2', validators=[MinLengthValidator(2)])
-    iso3_code = models.CharField(max_length=3, blank=False, null=False, db_index=True,
+    iso3_code = models.CharField(max_length=3, unique=True, blank=False, null=False, db_index=True,
         help_text='ISO 3166-1 alpha 3', validators=[MinLengthValidator(3)])
-    num_code = models.CharField(max_length=3, blank=True, null=True, help_text='ISO 3166-1 numeric')
+    num_code = models.CharField(max_length=3, unique=True, blank=False, null=False, help_text='ISO 3166-1 numeric')
     name = models.CharField(max_length=100, db_index=True)
     fullname = models.CharField(max_length=100, db_index=True)
 
