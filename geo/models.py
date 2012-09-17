@@ -5,7 +5,7 @@ Created on May 7, 2010
 @author: sax
 '''
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
-from django.core.validators import MinLengthValidator
+from django.core.validators import MinLengthValidator, RegexValidator
 from django.db import models
 from django.db.models.manager import Manager
 from django.utils.translation import ugettext_lazy as _
@@ -37,12 +37,13 @@ CONTINENTS = (
     ('NA', _('North America')),
     ('SA', _('South America')),
     ('OC', _('Oceania')),
-    ('AN', _('Antartica'))
-    )
+    ('AN', _('Antartica')))
 
 Regions = zip(range(1, 5), ('Africa', 'Americas', 'Asia', 'Middle East'))
 
+
 class CountryManager(Manager):
+
     use_for_related_fields = True
 
     def _by_continent(self, c):
@@ -72,13 +73,15 @@ class CountryManager(Manager):
 
 class Country(models.Model):
     """ Model for the country of origin """
-    iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True,
-        help_text='ISO 3166-1 alpha 2', validators=[MinLengthValidator(2)])
-    iso3_code = models.CharField(max_length=3, unique=True, blank=False, null=False, db_index=True,
-        help_text='ISO 3166-1 alpha 3', validators=[MinLengthValidator(3)])
-    num_code = models.CharField(max_length=3, unique=True, blank=False, null=False, help_text='ISO 3166-1 numeric')
-    name = models.CharField(max_length=100, db_index=True)
-    fullname = models.CharField(max_length=100, db_index=True)
+    iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True, default=None,
+                                help_text='ISO 3166-1 alpha 2', validators=[MinLengthValidator(2)])
+    iso3_code = models.CharField(max_length=3, unique=True, blank=False, null=False, db_index=True, default=None,
+                                 help_text='ISO 3166-1 alpha 3', validators=[MinLengthValidator(3)])
+    num_code = models.CharField(max_length=3, unique=True, blank=False, null=False, default=None,
+                                help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
+
+    name = models.CharField(max_length=100, db_index=True, default=None)
+    fullname = models.CharField(max_length=100, db_index=True, default=None)
 
     region = models.IntegerField(choices=Regions, blank=True, null=True)
     continent = models.CharField(choices=CONTINENTS, max_length=2)
@@ -98,8 +101,8 @@ class Country(models.Model):
     def __unicode__(self):
         return unicode(self.fullname)
 
-    def full_clean(self, exclude=None):
-        super(Country, self).full_clean(exclude)
+    def clean(self):
+        super(Country, self).clean()
         self.iso_code = self.iso_code.upper()
         self.iso3_code = self.iso3_code.upper()
 
@@ -136,6 +139,10 @@ class AdministrativeAreaType(MPTTModel):
 
     def __unicode__(self):
         return unicode(self.name)
+
+    def __contains__(self, item):
+        if isinstance(item, AdministrativeAreaType) and item.is_child_node():
+            return item.is_descendant_of(self)
 
     def natural_key(self):
         return self.country.natural_key() + (self.name, )
@@ -185,7 +192,7 @@ class AdministrativeArea(MPTTModel):
         return unicode(self.name)
 
     def natural_key(self):
-        return (self.country.iso_code, self.name )
+        return (self.country.iso_code, self.name)
 
     natural_key.dependencies = ['geo.country']
 
@@ -244,14 +251,12 @@ class Location(models.Model):
     ACCURACY = (
         (NONE, _('None')),
         (COUNTRY, _('Country')),
-        (EXACT, _('Exact')),
-        )
+        (EXACT, _('Exact')))
 
     CITY = 0
     OTHER = 1
     TYPE = ((CITY, _("City")),
-            (OTHER, _("Other")),
-        )
+            (OTHER, _("Other")))
 
     country = models.ForeignKey(Country, db_index=True)
     area = models.ForeignKey(AdministrativeArea, db_index=True, blank=True, null=True)

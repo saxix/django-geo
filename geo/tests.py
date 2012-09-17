@@ -7,6 +7,18 @@ from geo.models import Country, AdministrativeArea, Location
 class Test(TestCase):
     fixtures = ['geo_test.json']
 
+    def test_validator_country_iso_code(self):
+        c = Country(name='a', fullname='aa', iso_code='a', iso3_code='aaa', num_code='123', continent='AS')
+        self.assertRaises(ValidationError, c.full_clean, )
+
+    def test_validator_country_iso3_code(self):
+        c = Country(name='a', fullname='aa', iso_code='aa', iso3_code='aa', num_code='123', continent='AS')
+        self.assertRaises(ValidationError, c.full_clean, )
+
+    def test_validator_country_num_code(self):
+        c = Country(name='a', fullname='aa', iso_code='aa', iso3_code='aaa', num_code='aaa', continent='AS')
+        self.assertRaises(ValidationError, c.full_clean, )
+
     def test_consistency1(self):
         """ a Type cannot contain the same type
         """
@@ -39,14 +51,14 @@ class Test(TestCase):
             type=comune, parent=roma_provincia)
         self.assertEqual(new_comune.country, roma_provincia.country)
 
-    def test_in_country(self):
+    def test_regione_in_country(self):
         """ a Type cannot contain the parent type
         """
         italy = Country.objects.get(iso_code='IT')
         lazio = italy.areas.get(name='Lazio')
         self.assertTrue(lazio in italy)
 
-    def test_in_country(self):
+    def test_comune_in_regione(self):
         """ a Type cannot contain the parent type
         """
         italy = Country.objects.get(iso_code='IT')
