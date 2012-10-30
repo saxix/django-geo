@@ -131,8 +131,7 @@ def sort_dependencies(app_list):
         if model_list is None:
             model_list = get_models(app)
 
-        while model_list:
-            model = model_list.pop()
+        for model in model_list:
             models.add(model)
             # Add any explicitly defined dependencies
             if hasattr(model, 'natural_key'):

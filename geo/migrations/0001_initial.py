@@ -20,11 +20,11 @@ class Migration(SchemaMigration):
         # Adding model 'Country'
         db.create_table('geo_country', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('iso_code', self.gf('django.db.models.fields.CharField')(unique=True, max_length=2, db_index=True)),
-            ('iso3_code', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=3, null=True, blank=True)),
-            ('num_code', self.gf('django.db.models.fields.CharField')(max_length=3, null=True, blank=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100, db_index=True)),
-            ('fullname', self.gf('django.db.models.fields.CharField')(max_length=100, db_index=True)),
+            ('iso_code', self.gf('django.db.models.fields.CharField')(default=None, unique=True, max_length=2, db_index=True)),
+            ('iso3_code', self.gf('django.db.models.fields.CharField')(default=None, unique=True, max_length=3, db_index=True)),
+            ('num_code', self.gf('django.db.models.fields.CharField')(default=None, unique=True, max_length=3)),
+            ('name', self.gf('django.db.models.fields.CharField')(default=None, max_length=100, db_index=True)),
+            ('fullname', self.gf('django.db.models.fields.CharField')(default=None, max_length=100, db_index=True)),
             ('region', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
             ('continent', self.gf('django.db.models.fields.CharField')(max_length=2)),
             ('currency', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.Currency'], null=True, blank=True)),
@@ -49,7 +49,7 @@ class Migration(SchemaMigration):
         db.create_table('geo_administrativearea', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255, db_index=True)),
-            ('code', self.gf('django.db.models.fields.CharField')(max_length=5, db_index=True)),
+            ('code', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=10, null=True, blank=True)),
             ('parent', self.gf('mptt.fields.TreeForeignKey')(blank=True, related_name='areas', null=True, to=orm['geo.AdministrativeArea'])),
             ('country', self.gf('django.db.models.fields.related.ForeignKey')(related_name='areas', to=orm['geo.Country'])),
             ('type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.AdministrativeAreaType'])),
@@ -106,7 +106,7 @@ class Migration(SchemaMigration):
         'geo.administrativearea': {
             'Meta': {'ordering': "('_order',)", 'unique_together': "(('name', 'country', 'type'),)", 'object_name': 'AdministrativeArea'},
             '_order': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            'code': ('django.db.models.fields.CharField', [], {'max_length': '5', 'db_index': 'True'}),
+            'code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '10', 'null': 'True', 'blank': 'True'}),
             'country': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'areas'", 'to': "orm['geo.Country']"}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
@@ -133,12 +133,12 @@ class Migration(SchemaMigration):
             'Meta': {'ordering': "['name']", 'object_name': 'Country'},
             'continent': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
             'currency': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.Currency']", 'null': 'True', 'blank': 'True'}),
-            'fullname': ('django.db.models.fields.CharField', [], {'max_length': '100', 'db_index': 'True'}),
+            'fullname': ('django.db.models.fields.CharField', [], {'default': 'None', 'max_length': '100', 'db_index': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'iso3_code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '3', 'null': 'True', 'blank': 'True'}),
-            'iso_code': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '2', 'db_index': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100', 'db_index': 'True'}),
-            'num_code': ('django.db.models.fields.CharField', [], {'max_length': '3', 'null': 'True', 'blank': 'True'}),
+            'iso3_code': ('django.db.models.fields.CharField', [], {'default': 'None', 'unique': 'True', 'max_length': '3', 'db_index': 'True'}),
+            'iso_code': ('django.db.models.fields.CharField', [], {'default': 'None', 'unique': 'True', 'max_length': '2', 'db_index': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'default': 'None', 'max_length': '100', 'db_index': 'True'}),
+            'num_code': ('django.db.models.fields.CharField', [], {'default': 'None', 'unique': 'True', 'max_length': '3'}),
             'region': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'})
         },
         'geo.currency': {

@@ -24,7 +24,7 @@ Table Of Contents
     install
     examples
     api
-
+    changes
 
 Links
 ~~~~~

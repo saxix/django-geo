@@ -1,0 +1,7 @@
+0.3.0 beta
+=================================
+
+.. note:: This version is backward incompatible
+
+* reset migrations
+* fixed dumpdata
