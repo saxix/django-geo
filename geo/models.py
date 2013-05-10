@@ -136,6 +136,7 @@ class AdministrativeAreaType(MPTTModel):
         app_label = 'geo'
         ordering = ['name']
         order_with_respect_to = 'country'
+        unique_together = (('country', 'name'),)
 
     def __unicode__(self):
         return unicode(self.name)
@@ -161,11 +162,9 @@ class AdministrativeAreaType(MPTTModel):
 class AdministrativeAreaManager(TreeManager):
     use_for_related_fields = True
 
-    def get_by_natural_key(self, iso_code, name):
-        return self.get(country__iso_code=iso_code, name=name)
-
-    def get_or_create(self, **kwargs):
-        return super(AdministrativeAreaManager, self).get_or_create(**kwargs)
+    def get_by_natural_key(self, iso_code, name, type_name):
+        type = AdministrativeAreaType.objects.get_by_natural_key(iso_code, type_name)
+        return self.get(country__iso_code=iso_code, name=name, type=type)
 
 
 class AdministrativeArea(MPTTModel):
@@ -192,7 +191,7 @@ class AdministrativeArea(MPTTModel):
         return unicode(self.name)
 
     def natural_key(self):
-        return (self.country.iso_code, self.name)
+        return (self.country.iso_code, self.name, self.type.name)
 
     natural_key.dependencies = ['geo.country']
 
@@ -239,6 +238,13 @@ class LocationManager(models.Manager):
 
         return self.get(country__iso_code=country_iso_code, name=name, lat=lat, lng=lng)
 
+class LocationType(models.Model):
+    description = models.CharField(unique=True, max_length=100)
+
+    class Meta:
+        verbose_name_plural = _('Location Types')
+        verbose_name = _('Location Type')
+        app_label = 'geo'
 
 class Location(models.Model):
     """ Administrative location ( city, place everything with a name and Lat/Lng that
@@ -253,14 +259,9 @@ class Location(models.Model):
         (COUNTRY, _('Country')),
         (EXACT, _('Exact')))
 
-    CITY = 0
-    OTHER = 1
-    TYPE = ((CITY, _("City")),
-            (OTHER, _("Other")))
-
     country = models.ForeignKey(Country, db_index=True)
     area = models.ForeignKey(AdministrativeArea, db_index=True, blank=True, null=True)
-    type = models.IntegerField(choices=TYPE, default=CITY)
+    type = models.ForeignKey(LocationType, blank=True, null=True)
     is_capital = models.BooleanField(default=False,
         help_text="True if is the capital of `country`")
 

@@ -1,137 +1,147 @@
 [
     {
-        "pk":109,
-        "model":"geo.country",
-        "fields":{
-            "name":"Italy",
-            "region":null,
-            "num_code":"380",
-            "currency":null,
-            "iso_code":"IT",
-            "fullname":"Italy, Italian Republic",
-            "iso3_code":"ITA",
-            "continent":"EU"
+        "pk": 109,
+        "model": "geo.country",
+        "fields": {
+            "name": "Italy",
+            "region": null,
+            "num_code": "380",
+            "currency": null,
+            "iso_code": "IT",
+            "fullname": "Italy, Italian Republic",
+            "iso3_code": "ITA",
+            "continent": "EU"
         }
     },
     {
-        "pk":1,
-        "model":"geo.administrativeareatype",
-        "fields":{
-            "rght":6,
-            "_order":0,
-            "name":"Regione",
-            "parent":null,
-            "level":0,
-            "country":["IT"],
-            "lft":1,
-            "tree_id":1
+        "pk": 1,
+        "model": "geo.administrativeareatype",
+        "fields": {
+            "rght": 6,
+            "_order": 0,
+            "name": "Regione",
+            "parent": null,
+            "level": 0,
+            "country": 109,
+            "lft": 1,
+            "tree_id": 1
         }
     },
     {
-        "pk":2,
-        "model":"geo.administrativeareatype",
-        "fields":{
-            "rght":5,
-            "_order":1,
-            "name":"Provincia",
-            "parent":["IT", "Regione"],
-            "level":1,
-            "country":["IT"],
-            "lft":2,
-            "tree_id":1
+        "pk": 2,
+        "model": "geo.administrativeareatype",
+        "fields": {
+            "rght": 5,
+            "_order": 1,
+            "name": "Provincia",
+            "parent": 1,
+            "level": 1,
+            "country": 109,
+            "lft": 2,
+            "tree_id": 1
         }
     },
     {
-        "pk":3,
-        "model":"geo.administrativeareatype",
-        "fields":{
-            "rght":4,
-            "_order":2,
-            "name":"Comune",
-            "parent":["IT", "Provincia"],
-            "level":2,
-            "country":["IT"],
-            "lft":3,
-            "tree_id":1
+        "pk": 3,
+        "model": "geo.administrativeareatype",
+        "fields": {
+            "rght": 4,
+            "_order": 2,
+            "name": "Comune",
+            "parent": 2,
+            "level": 2,
+            "country": 109,
+            "lft": 3,
+            "tree_id": 1
         }
     },
     {
-        "pk":1,
-        "model":"geo.administrativearea",
-        "fields":{
-            "rght":6,
-            "_order":0,
-            "name":"Lazio",
-            "parent":null,
-            "level":0,
-            "country":["IT"],
-            "lft":1,
-            "tree_id":1,
-            "type":["IT", "Regione"]
+        "pk": 1,
+        "model": "geo.administrativearea",
+        "fields": {
+            "rght": 6,
+            "_order": 0,
+            "name": "Lazio",
+            "parent": null,
+            "level": 0,
+            "country": 109,
+            "lft": 1,
+            "code": null,
+            "tree_id": 1,
+            "type": 1
         }
     },
     {
-        "pk":2,
-        "model":"geo.administrativearea",
-        "fields":{
-            "rght":5,
-            "_order":1,
-            "name":"Provincia di Roma",
-            "parent":["IT", "Lazio"],
-            "level":1,
-            "country":["IT"],
-            "lft":2,
-            "tree_id":1,
-            "type":["IT", "Provincia"]
+        "pk": 2,
+        "model": "geo.administrativearea",
+        "fields": {
+            "rght": 5,
+            "_order": 1,
+            "name": "Provincia di Roma",
+            "parent": 1,
+            "level": 1,
+            "country": 109,
+            "lft": 2,
+            "code": null,
+            "tree_id": 1,
+            "type": 2
         }
     },
     {
-        "pk":3,
-        "model":"geo.administrativearea",
-        "fields":{
-            "rght":4,
-            "_order":2,
-            "name":"Comune di Roma",
-            "parent":["IT", "Provincia di Roma"],
-            "level":2,
-            "country":["IT"],
-            "lft":3,
-            "tree_id":1,
-            "type":["IT", "Comune"]
+        "pk": 3,
+        "model": "geo.administrativearea",
+        "fields": {
+            "rght": 4,
+            "_order": 2,
+            "name": "Comune di Roma",
+            "parent": 2,
+            "level": 2,
+            "country": 109,
+            "lft": 3,
+            "code": null,
+            "tree_id": 1,
+            "type": 3
         }
     },
     {
-        "pk":1,
-        "model":"geo.location",
-        "fields":{
-            "acc":0,
-            "is_capital":true,
-            "is_administrative":true,
-            "name":"Roma",
-            "area":["IT", "Comune di Roma"],
-            "country":["IT"],
-            "_order":0,
-            "lat":null,
-            "lng":null,
-            "type":0,
-            "description":null
+        "pk": 1,
+        "model": "geo.locationtype",
+        "fields": {
+            "description": "City"
         }
     },
     {
-        "pk":2,
-        "model":"geo.location",
-        "fields":{
-            "acc":0,
-            "is_capital":false,
-            "is_administrative":false,
-            "name":"Bracciano",
-            "area":["IT", "Provincia di Roma"],
-            "country":["IT"],
-            "_order":1,
-            "lat":42.1014,
-            "lng":12.1671,
-            "type":0,
-            "description":null
+        "pk": 1,
+        "model": "geo.location",
+        "fields": {
+            "acc": 0,
+            "is_capital": true,
+            "is_administrative": true,
+            "name": "Roma",
+            "area": 3,
+            "country": 109,
+            "_order": 0,
+            "lat": null,
+            "lng": null,
+            "type": 1,
+            "description": null
+        }
+    },
+    {
+        "pk": 2,
+        "model": "geo.location",
+        "fields": {
+            "acc": 0,
+            "is_capital": false,
+            "is_administrative": false,
+            "name": "Bracciano",
+            "area": 2,
+            "country": 109,
+            "_order": 1,
+            "lat": "42.1014",
+            "lng": "12.1671",
+            "type": 1,
+            "description": null
         }
     }
 ]

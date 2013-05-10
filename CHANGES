@@ -3,5 +3,7 @@
 
 .. note:: This version is backward incompatible
 
+* new model `LocationType`
+* fixed natural_key issue in AdministrativeArea/AdministrativeAreaType
 * reset migrations
 * fixed dumpdata

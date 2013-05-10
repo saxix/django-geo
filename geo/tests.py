@@ -81,3 +81,9 @@ class Test(TestCase):
         l1 = Location.objects.get(name="Bracciano")
         l2 = Location.objects.get_by_natural_key(*l1.natural_key())
         self.assertEquals(l1.pk, l2.pk)
+
+    def test_administrativearea_natural_key(self):
+        area = AdministrativeArea.objects.get(
+            country__iso_code='IT', parent__name='Lazio')
+        l2 = AdministrativeArea.objects.get_by_natural_key(*area.natural_key())
+        self.assertEquals(area.pk, l2.pk)

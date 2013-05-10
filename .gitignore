@@ -1,9 +1,12 @@
+~*.*
+.tox
+.idea
+*.egg-info
 *.log
 *.pot
 *.pyc
+*.sqlite
 local_settings.py
-.idea
 OUT
 dist
 MANIFEST
-*.egg-info

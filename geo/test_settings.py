@@ -11,3 +11,4 @@ DATABASES = {
 INSTALLED_APPS = (
     'geo',
     )
+SECRET_KEY = '123'
