@@ -104,6 +104,22 @@
         }
     },
     {
+        "pk": 4,
+        "model": "geo.administrativearea",
+        "fields": {
+            "rght": 4,
+            "_order": 2,
+            "name": "Comune di Fiumicino",
+            "parent": 2,
+            "level": 2,
+            "country": 109,
+            "lft": 3,
+            "code": null,
+            "tree_id": 1,
+            "type": 3
+        }
+    },
+    {
         "pk": 1,
         "model": "geo.locationtype",
         "fields": {
