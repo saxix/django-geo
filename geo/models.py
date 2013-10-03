@@ -230,13 +230,14 @@ class LocationManager(models.Manager):
     def cities(self):
         return self.get_query_set().filter(type=Location.CITY)
 
-    def get_by_natural_key(self, country_iso_code, name, lat, lng):
+    def get_by_natural_key(self, country_iso_code, parent, name, lat, lng):
         if lat == 'None':
             lat = None
         if lng == 'None':
             lng = None
 
-        return self.get(country__iso_code=country_iso_code, name=name, lat=lat, lng=lng)
+        return self.get(country__iso_code=country_iso_code, area__name=parent, name=name, lat=lat, lng=lng)
+
 
 class LocationType(models.Model):
     description = models.CharField(unique=True, max_length=100)
@@ -245,6 +246,7 @@ class LocationType(models.Model):
         verbose_name_plural = _('Location Types')
         verbose_name = _('Location Type')
         app_label = 'geo'
+
 
 class Location(models.Model):
     """ Administrative location ( city, place everything with a name and Lat/Lng that
@@ -288,7 +290,7 @@ class Location(models.Model):
         return unicode(self.name)
 
     def natural_key(self):
-        return self.country.natural_key() + (self.name, str(self.lat), str(self.lng))
+        return self.country.natural_key() + (self.area.name, self.name, str(self.lat), str(self.lng))
 
     natural_key.dependencies = ['geo.country']
 
@@ -296,4 +298,3 @@ class Location(models.Model):
         if self.area and self.area.country != self.country:
             raise ValidationError('Selected area not in selected country')
         super(Location, self).clean()
-
