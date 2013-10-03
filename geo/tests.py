@@ -72,6 +72,15 @@ class Test(TestCase):
         lazio2 = AdministrativeArea(name='Lazio', country=italy, type=regione)
         self.assertRaises(IntegrityError, lazio2.save)
 
+    def test_same_name_for_location_in_diff_area(self):
+        italy = Country.objects.get(iso_code='IT')
+        fiumicino = italy.areas.get(name='Comune di Fiumicino')
+        roma2 = Location(name="Roma", country=italy, area=fiumicino)
+        roma2.save()
+        all_roma = Location.objects.filter(name='Roma')
+        self.assertTrue(len(all_roma), 2)
+        self.assertTrue(roma2.area, fiumicino)
+
     def test_natural_key_if_no_lat_lng(self):
         l1 = Location.objects.get(name="Roma")
         l2 = Location.objects.get_by_natural_key(*l1.natural_key())
