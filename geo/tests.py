@@ -82,6 +82,16 @@ class Test(TestCase):
         self.assertTrue(len(all_roma), 2)
         self.assertTrue(roma2.area, fiumicino)
 
+    def test_unique_together_location_within_same_area(self):
+        italy = Country.objects.get(iso_code='IT')
+        comune = italy.administrativeareatype_set.get(name='Comune')
+        roma_comune = AdministrativeArea(name='Roma', country=italy, type=comune)
+        location_1 = Location(name="Magliana", area=roma_comune, country=italy)
+        location_1.save()
+        # duplicate name as for location_1
+        location_2 = Location(name="Magliana", area=roma_comune, country=italy)
+        self.assertRaises(IntegrityError, location_2.save())
+
     def test_natural_key_if_no_lat_lng(self):
         location_1 = Location.objects.get(name="Roma")
         location_2 = Location.objects.get_by_natural_key(*location_1.natural_key())
