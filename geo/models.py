@@ -240,6 +240,9 @@ class LocationManager(models.Manager):
 
 
 class LocationType(models.Model):
+    """Type of the location (city, village, place, locality, neighbourhood, etc.)
+    This is not intended to contain anything inside it.
+    """
     description = models.CharField(unique=True, max_length=100)
 
     class Meta:
@@ -249,8 +252,8 @@ class LocationType(models.Model):
 
 
 class Location(models.Model):
-    """ Administrative location ( city, place everything with a name and Lat/Lng that
-    is not intetend to contains anything ( use Areas for that
+    """Administrative location (city, place everything with a name and Lat/Lng that
+    is not intended to contain anything; use Areas for that).
     """
     NONE = 0
     COUNTRY = 10
