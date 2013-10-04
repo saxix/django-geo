@@ -75,6 +75,8 @@ class Test(TestCase):
     def test_same_name_for_location_in_diff_area(self):
         italy = Country.objects.get(iso_code='IT')
         fiumicino = italy.areas.get(name='Comune di Fiumicino')
+        # There is no such a thing as Roma location within Fiumicino council.
+        # Just for testing purpose.
         roma2 = Location(name="Roma", country=italy, area=fiumicino)
         roma2.save()
         all_roma = Location.objects.filter(name='Roma')
@@ -82,17 +84,17 @@ class Test(TestCase):
         self.assertTrue(roma2.area, fiumicino)
 
     def test_natural_key_if_no_lat_lng(self):
-        l1 = Location.objects.get(name="Roma")
-        l2 = Location.objects.get_by_natural_key(*l1.natural_key())
-        self.assertEquals(l1.pk, l2.pk)
+        location_1 = Location.objects.get(name="Roma")
+        location_2 = Location.objects.get_by_natural_key(*location_1.natural_key())
+        self.assertEquals(location_1.pk, location_2.pk)
 
     def test_natural_key_with_lat_lng(self):
-        l1 = Location.objects.get(name="Bracciano")
-        l2 = Location.objects.get_by_natural_key(*l1.natural_key())
-        self.assertEquals(l1.pk, l2.pk)
+        location_1 = Location.objects.get(name="Bracciano")
+        location_2 = Location.objects.get_by_natural_key(*location_1.natural_key())
+        self.assertEquals(location_1.pk, location_2.pk)
 
     def test_administrativearea_natural_key(self):
         area = AdministrativeArea.objects.get(
             country__iso_code='IT', parent__name='Lazio')
-        l2 = AdministrativeArea.objects.get_by_natural_key(*area.natural_key())
-        self.assertEquals(area.pk, l2.pk)
+        location_2 = AdministrativeArea.objects.get_by_natural_key(*area.natural_key())
+        self.assertEquals(area.pk, location_2.pk)
