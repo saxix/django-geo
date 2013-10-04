@@ -288,6 +288,7 @@ class Location(models.Model):
         app_label = 'geo'
         ordering = ('name', 'country')
         order_with_respect_to = 'country'
+        unique_together = (('area', 'name'), )
 
     def __unicode__(self):
         return unicode(self.name)
