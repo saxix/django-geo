@@ -75,8 +75,7 @@ class Test(TestCase):
     def test_same_name_for_location_in_diff_area(self):
         italy = Country.objects.get(iso_code='IT')
         fiumicino = italy.areas.get(name='Comune di Fiumicino')
-        # There is no such a thing as Roma location within Fiumicino council.
-        # Just for testing purpose.
+        # No Roma location within Fiumicino council: just for testing.
         roma2 = Location(name="Roma", country=italy, area=fiumicino)
         roma2.save()
         all_roma = Location.objects.filter(name='Roma')
