@@ -104,12 +104,12 @@ class Test(TestCase):
 
     def test_natural_key_if_no_lat_lng(self):
         location_1 = Location.objects.get(name="Roma")
-        location_2 = Location.objects.get_by_natural_key(location_1.natural_key())
+        location_2 = Location.objects.get_by_natural_key(*location_1.natural_key())
         self.assertEquals(location_1.pk, location_2.pk)
 
     def test_natural_key_with_lat_lng(self):
         location_1 = Location.objects.get(name="Bracciano")
-        location_2 = Location.objects.get_by_natural_key(location_1.natural_key())
+        location_2 = Location.objects.get_by_natural_key(*location_1.natural_key())
         self.assertEquals(location_1.pk, location_2.pk)
 
     def test_administrativearea_natural_key(self):
