@@ -248,9 +248,6 @@ class LocationManager(models.Manager):
         except ObjectDoesNotExist:
             return None
 
-    def cities(self):
-        return self.get_query_set().filter(type=Location.CITY)
-
     def get_by_natural_key(self, uuid):
         return self.get(uuid=uuid)
 
