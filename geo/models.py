@@ -122,8 +122,8 @@ class Country(models.Model):
 class AdministrativeAreaTypeManager(TreeManager):
     use_for_related_fields = True
 
-    def get_by_natural_key(self, iso_code, name):
-        return self.get(country__iso_code=iso_code, name=name)
+    def get_by_natural_key(self, uuid):
+        return self.get(uuid=uuid)
 
 
 class AdministrativeAreaType(MPTTModel):
@@ -149,7 +149,7 @@ class AdministrativeAreaType(MPTTModel):
             return item.is_descendant_of(self)
 
     def natural_key(self):
-        return self.country.natural_key() + (self.name, )
+        return self.uuid
 
     natural_key.dependencies = ['geo.country']
 
@@ -165,9 +165,8 @@ class AdministrativeAreaType(MPTTModel):
 class AdministrativeAreaManager(TreeManager):
     use_for_related_fields = True
 
-    def get_by_natural_key(self, iso_code, name, type_name):
-        type = AdministrativeAreaType.objects.get_by_natural_key(iso_code, type_name)
-        return self.get(country__iso_code=iso_code, name=name, type=type)
+    def get_by_natural_key(self, uuid):  # iso_code, name, type_name):
+        return self.get(uuid=uuid)
 
 
 class AdministrativeArea(MPTTModel):
@@ -175,6 +174,7 @@ class AdministrativeArea(MPTTModel):
 
     """
 
+    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     code = models.CharField(_('Code'), max_length=10, blank=True, null=True, db_index=True, help_text='ISO 3166-2 code')
     parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
@@ -194,7 +194,7 @@ class AdministrativeArea(MPTTModel):
         return unicode(self.name)
 
     def natural_key(self):
-        return (self.country.iso_code, self.name, self.type.name)
+        return (self.uuid)
 
     natural_key.dependencies = ['geo.country']
 
@@ -233,19 +233,15 @@ class LocationManager(models.Manager):
     def cities(self):
         return self.get_query_set().filter(type=Location.CITY)
 
-    def get_by_natural_key(self, country_iso_code, parent, name, lat, lng):
-        if lat == 'None':
-            lat = None
-        if lng == 'None':
-            lng = None
-
-        return self.get(country__iso_code=country_iso_code, area__name=parent, name=name, lat=lat, lng=lng)
+    def get_by_natural_key(self, uuid):
+        return self.get(uuid=uuid)
 
 
 class LocationType(models.Model):
     """Type of the location (city, village, place, locality, neighbourhood, etc.)
     This is not intended to contain anything inside it.
     """
+    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
     description = models.CharField(unique=True, max_length=100)
 
     class Meta:
@@ -298,7 +294,7 @@ class Location(models.Model):
         return unicode(self.name)
 
     def natural_key(self):
-        return self.country.natural_key() + (self.area.name, self.name, str(self.lat), str(self.lng))
+        return self.uuid  # country.natural_key() + (self.area.name, self.name, str(self.lat), str(self.lng))
 
     natural_key.dependencies = ['geo.country']
 
