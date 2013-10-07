@@ -146,7 +146,7 @@ class AdministrativeAreaType(MPTTModel):
             return item.is_descendant_of(self)
 
     def natural_key(self):
-        return self.uuid
+        return (self.uuid,)
 
     def clean(self):
         if self.parent == self:
@@ -236,7 +236,7 @@ class LocationType(models.Model):
         app_label = 'geo'
 
     def natural_key(self):
-        return self.uuid
+        return (self.uuid,)
 
 
 class LocationManager(models.Manager):
@@ -296,7 +296,7 @@ class Location(models.Model):
         return unicode(self.name)
 
     def natural_key(self):
-        return self.uuid
+        return (self.uuid,)
 
     natural_key.dependencies = ['geo.country']
 
