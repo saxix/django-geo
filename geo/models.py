@@ -89,9 +89,6 @@ class Country(models.Model):
     continent = models.CharField(choices=CONTINENTS, max_length=2)
     currency = models.ForeignKey(Currency, blank=True, null=True)
 
-    #    tld = models.CharField(max_length=6, blank=True, null=True, help_text='internet tld')
-    #    tz = models.IntegerField(blank=True, null=True, help_text='time zone')
-
     fullname.alphabetic_filter = True
     objects = CountryManager()
 
@@ -165,7 +162,7 @@ class AdministrativeAreaType(MPTTModel):
 class AdministrativeAreaManager(TreeManager):
     use_for_related_fields = True
 
-    def get_by_natural_key(self, uuid):  # iso_code, name, type_name):
+    def get_by_natural_key(self, uuid):
         return self.get(uuid=uuid)
 
 
@@ -294,7 +291,7 @@ class Location(models.Model):
         return unicode(self.name)
 
     def natural_key(self):
-        return self.uuid  # country.natural_key() + (self.area.name, self.name, str(self.lat), str(self.lng))
+        return self.uuid
 
     natural_key.dependencies = ['geo.country']
 
