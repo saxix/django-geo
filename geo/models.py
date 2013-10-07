@@ -4,6 +4,7 @@ Created on May 7, 2010
 
 @author: sax
 '''
+from uuidfield import UUIDField
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import MinLengthValidator, RegexValidator
 from django.db import models
@@ -80,6 +81,7 @@ class Country(models.Model):
     num_code = models.CharField(max_length=3, unique=True, blank=False, null=False, default=None,
                                 help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
 
+    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
     name = models.CharField(max_length=100, db_index=True, default=None)
     fullname = models.CharField(max_length=100, db_index=True, default=None)
 
@@ -125,6 +127,7 @@ class AdministrativeAreaTypeManager(TreeManager):
 
 
 class AdministrativeAreaType(MPTTModel):
+    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=100, db_index=True)
     country = models.ForeignKey(Country)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
@@ -273,6 +276,7 @@ class Location(models.Model):
     is_administrative = models.BooleanField(default=False,
         help_text="True if is administrative for `area`")
 
+    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     description = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
