@@ -81,7 +81,7 @@ class Country(models.Model):
     num_code = models.CharField(max_length=3, unique=True, blank=False, null=False, default=None,
                                 help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
 
-    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     name = models.CharField(max_length=100, db_index=True, default=None)
     fullname = models.CharField(max_length=100, db_index=True, default=None)
 
@@ -124,7 +124,7 @@ class AdministrativeAreaTypeManager(TreeManager):
 
 
 class AdministrativeAreaType(MPTTModel):
-    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=100, db_index=True)
     country = models.ForeignKey(Country)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
@@ -148,8 +148,6 @@ class AdministrativeAreaType(MPTTModel):
     def natural_key(self):
         return self.uuid
 
-    natural_key.dependencies = ['geo.country']
-
     def clean(self):
         if self.parent == self:
             raise ValidationError(_('`%s` cannot contains same type') % self.parent)
@@ -171,7 +169,7 @@ class AdministrativeArea(MPTTModel):
 
     """
 
-    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     code = models.CharField(_('Code'), max_length=10, blank=True, null=True, db_index=True, help_text='ISO 3166-2 code')
     parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
@@ -218,6 +216,29 @@ class AdministrativeArea(MPTTModel):
             return item.area.is_descendant_of(self)
 
 
+class LocationTypeManager(models.Manager):
+    use_for_related_fields = True
+
+    def get_by_natural_key(self, uuid):
+        return self.get(uuid=uuid)
+
+
+class LocationType(models.Model):
+    """Type of the location (city, village, place, locality, neighbourhood, etc.)
+    This is not intended to contain anything inside it.
+    """
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
+    description = models.CharField(unique=True, max_length=100)
+
+    class Meta:
+        verbose_name_plural = _('Location Types')
+        verbose_name = _('Location Type')
+        app_label = 'geo'
+
+    def natural_key(self):
+        return self.uuid
+
+
 class LocationManager(models.Manager):
     use_for_related_fields = True
 
@@ -232,19 +253,6 @@ class LocationManager(models.Manager):
 
     def get_by_natural_key(self, uuid):
         return self.get(uuid=uuid)
-
-
-class LocationType(models.Model):
-    """Type of the location (city, village, place, locality, neighbourhood, etc.)
-    This is not intended to contain anything inside it.
-    """
-    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
-    description = models.CharField(unique=True, max_length=100)
-
-    class Meta:
-        verbose_name_plural = _('Location Types')
-        verbose_name = _('Location Type')
-        app_label = 'geo'
 
 
 class Location(models.Model):
@@ -269,7 +277,7 @@ class Location(models.Model):
     is_administrative = models.BooleanField(default=False,
         help_text="True if is administrative for `area`")
 
-    uuid = UUIDField(auto=True, null=True, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     description = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
