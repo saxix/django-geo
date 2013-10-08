@@ -4,6 +4,7 @@ Created on May 7, 2010
 
 @author: sax
 '''
+from uuidfield import UUIDField
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.core.validators import MinLengthValidator, RegexValidator
 from django.db import models
@@ -32,22 +33,22 @@ class Currency(models.Model):
 
 CONTINENTS = (
     ('AF', _('Africa')),
+    ('AN', _('Antartica')),
     ('AS', _('Asia')),
     ('EU', _('Europe')),
     ('NA', _('North America')),
-    ('SA', _('South America')),
     ('OC', _('Oceania')),
-    ('AN', _('Antartica')))
+    ('SA', _('South America')),
+)
 
-Regions = zip(range(1, 5), ('Africa', 'Americas', 'Asia', 'Middle East'))
+REGIONS = zip(range(1, 5), ('Africa', 'Americas', 'Asia', 'Middle East'))
 
 
 class CountryManager(Manager):
-
     use_for_related_fields = True
 
-    def _by_continent(self, c):
-        return self.get_query_set().filter(continent=c)
+    def _by_continent(self, continent):
+        return self.get_query_set().filter(continent=continent)
 
     def asia(self):
         return self._by_continent('AS')
@@ -72,23 +73,20 @@ class CountryManager(Manager):
 
 
 class Country(models.Model):
-    """ Model for the country of origin """
+    """ Model for the country of origin.
+    """
     iso_code = models.CharField(max_length=2, unique=True, blank=False, null=False, db_index=True, default=None,
                                 help_text='ISO 3166-1 alpha 2', validators=[MinLengthValidator(2)])
     iso3_code = models.CharField(max_length=3, unique=True, blank=False, null=False, db_index=True, default=None,
                                  help_text='ISO 3166-1 alpha 3', validators=[MinLengthValidator(3)])
     num_code = models.CharField(max_length=3, unique=True, blank=False, null=False, default=None,
                                 help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
-
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     name = models.CharField(max_length=100, db_index=True, default=None)
     fullname = models.CharField(max_length=100, db_index=True, default=None)
-
-    region = models.IntegerField(choices=Regions, blank=True, null=True)
+    region = models.IntegerField(choices=REGIONS, blank=True, null=True)
     continent = models.CharField(choices=CONTINENTS, max_length=2)
     currency = models.ForeignKey(Currency, blank=True, null=True)
-
-    #    tld = models.CharField(max_length=6, blank=True, null=True, help_text='internet tld')
-    #    tz = models.IntegerField(blank=True, null=True, help_text='time zone')
 
     fullname.alphabetic_filter = True
     objects = CountryManager()
@@ -107,7 +105,7 @@ class Country(models.Model):
         self.iso3_code = self.iso3_code.upper()
 
     def natural_key(self):
-        return (self.iso_code,)
+        return (self.iso_code, )
 
     def __contains__(self, item):
         if hasattr(item, 'country'):
@@ -120,11 +118,12 @@ class Country(models.Model):
 class AdministrativeAreaTypeManager(TreeManager):
     use_for_related_fields = True
 
-    def get_by_natural_key(self, iso_code, name):
-        return self.get(country__iso_code=iso_code, name=name)
+    def get_by_natural_key(self, uuid):
+        return self.get(uuid=uuid)
 
 
 class AdministrativeAreaType(MPTTModel):
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=100, db_index=True)
     country = models.ForeignKey(Country)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
@@ -146,9 +145,7 @@ class AdministrativeAreaType(MPTTModel):
             return item.is_descendant_of(self)
 
     def natural_key(self):
-        return self.country.natural_key() + (self.name, )
-
-    natural_key.dependencies = ['geo.country']
+        return (self.uuid, )
 
     def clean(self):
         if self.parent == self:
@@ -162,16 +159,15 @@ class AdministrativeAreaType(MPTTModel):
 class AdministrativeAreaManager(TreeManager):
     use_for_related_fields = True
 
-    def get_by_natural_key(self, iso_code, name, type_name):
-        type = AdministrativeAreaType.objects.get_by_natural_key(iso_code, type_name)
-        return self.get(country__iso_code=iso_code, name=name, type=type)
+    def get_by_natural_key(self, uuid):
+        return self.get(uuid=uuid)
 
 
 class AdministrativeArea(MPTTModel):
-    """ Administrative areas that can contains other AdministrativeArea and/or Location
-
+    """ Administrative areas that can contains other AdministrativeArea and/or Location.
     """
 
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     code = models.CharField(_('Code'), max_length=10, blank=True, null=True, db_index=True, help_text='ISO 3166-2 code')
     parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
@@ -191,9 +187,7 @@ class AdministrativeArea(MPTTModel):
         return unicode(self.name)
 
     def natural_key(self):
-        return (self.country.iso_code, self.name, self.type.name)
-
-    natural_key.dependencies = ['geo.country']
+        return (self.uuid, )
 
     def clean(self):
         if self.parent == self:
@@ -202,7 +196,6 @@ class AdministrativeArea(MPTTModel):
             raise ValidationError(_('`%s` cannot contains same type') % self.parent.type)
         if (self.pk and self.parent) and self.parent in self:
             raise ValidationError(_('`%s` cannot contains `%s`') % (self, self.parent))
-
         super(AdministrativeArea, self).clean()
 
     def save(self, *args, **kwargs):
@@ -218,6 +211,29 @@ class AdministrativeArea(MPTTModel):
             return item.area.is_descendant_of(self)
 
 
+class LocationTypeManager(models.Manager):
+    use_for_related_fields = True
+
+    def get_by_natural_key(self, uuid):
+        return self.get(uuid=uuid)
+
+
+class LocationType(models.Model):
+    """Type of the location (city, village, place, locality, neighbourhood, etc.)
+    This is not intended to contain anything inside it.
+    """
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
+    description = models.CharField(unique=True, max_length=100)
+
+    class Meta:
+        verbose_name_plural = _('Location Types')
+        verbose_name = _('Location Type')
+        app_label = 'geo'
+
+    def natural_key(self):
+        return (self.uuid, )
+
+
 class LocationManager(models.Manager):
     use_for_related_fields = True
 
@@ -227,28 +243,13 @@ class LocationManager(models.Manager):
         except ObjectDoesNotExist:
             return None
 
-    def cities(self):
-        return self.get_query_set().filter(type=Location.CITY)
+    def get_by_natural_key(self, uuid):
+        return self.get(uuid=uuid)
 
-    def get_by_natural_key(self, country_iso_code, name, lat, lng):
-        if lat == 'None':
-            lat = None
-        if lng == 'None':
-            lng = None
-
-        return self.get(country__iso_code=country_iso_code, name=name, lat=lat, lng=lng)
-
-class LocationType(models.Model):
-    description = models.CharField(unique=True, max_length=100)
-
-    class Meta:
-        verbose_name_plural = _('Location Types')
-        verbose_name = _('Location Type')
-        app_label = 'geo'
 
 class Location(models.Model):
-    """ Administrative location ( city, place everything with a name and Lat/Lng that
-    is not intetend to contains anything ( use Areas for that
+    """Administrative location (city, place everything with a name and Lat/Lng that
+    is not intended to contain anything; use Areas for that).
     """
     NONE = 0
     COUNTRY = 10
@@ -262,18 +263,14 @@ class Location(models.Model):
     country = models.ForeignKey(Country, db_index=True)
     area = models.ForeignKey(AdministrativeArea, db_index=True, blank=True, null=True)
     type = models.ForeignKey(LocationType, blank=True, null=True)
-    is_capital = models.BooleanField(default=False,
-        help_text="True if is the capital of `country`")
-
-    is_administrative = models.BooleanField(default=False,
-        help_text="True if is administrative for `area`")
-
+    is_capital = models.BooleanField(default=False, help_text="True if is the capital of `country`")
+    is_administrative = models.BooleanField(default=False, help_text="True if is administrative for `area`")
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     description = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
     lng = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
-    acc = models.IntegerField(choices=ACCURACY, default=NONE, blank=True, null=True,
-        help_text="Define the level of accuracy of lat/lng infos")
+    acc = models.IntegerField(choices=ACCURACY, default=NONE, blank=True, null=True, help_text="Define the level of accuracy of lat/lng infos")
 
     objects = LocationManager()
 
@@ -281,19 +278,17 @@ class Location(models.Model):
         verbose_name_plural = _('Locations')
         verbose_name = _('Location')
         app_label = 'geo'
-        ordering = ('name', 'country')
+        ordering = ('name', 'country', )
         order_with_respect_to = 'country'
+        unique_together = (('area', 'name'), )
 
     def __unicode__(self):
         return unicode(self.name)
 
     def natural_key(self):
-        return self.country.natural_key() + (self.name, str(self.lat), str(self.lng))
-
-    natural_key.dependencies = ['geo.country']
+        return (self.uuid, )
 
     def clean(self):
         if self.area and self.area.country != self.country:
             raise ValidationError('Selected area not in selected country')
         super(Location, self).clean()
-
