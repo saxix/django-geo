@@ -1,7 +1,11 @@
-0.3.0 beta
+0.4
 =================================
 
 .. note:: This version is backward incompatible
 
+* uuid in models
+* fix natural keys
+* new model `LocationType`
+* fixed natural_key issue in AdministrativeArea/AdministrativeAreaType
 * reset migrations
 * fixed dumpdata

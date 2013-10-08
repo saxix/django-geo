@@ -1,1 +1,2 @@
 django-mptt>=0.5.4
+django-uuidfield==0.4.0

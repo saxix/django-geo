@@ -62,6 +62,7 @@ setup(
     packages=packages,
     data_files=data_files,
     platforms=['any'],
+    install_requires = ['django-mptt>=0.5.4'],
     command_options={
         'build_sphinx': {
             'version': ('setup.py', app.VERSION),
