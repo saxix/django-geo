@@ -189,7 +189,7 @@ class AdministrativeArea(MPTTModel):
         return unicode(self.name)
 
     def natural_key(self):
-        return (self.uuid)
+        return (self.uuid, )
 
     natural_key.dependencies = ['geo.country']
 

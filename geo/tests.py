@@ -114,5 +114,5 @@ class Test(TestCase):
 
     def test_administrativearea_natural_key(self):
         area = AdministrativeArea.objects.get(country__iso_code='IT', parent__name='Lazio')
-        location_2 = AdministrativeArea.objects.get_by_natural_key(area.natural_key())
+        location_2 = AdministrativeArea.objects.get_by_natural_key(*area.natural_key())
         self.assertEquals(area.pk, location_2.pk)
