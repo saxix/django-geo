@@ -12,9 +12,10 @@ Two levels
 ::
 
     italy = Country.objects.get(iso_code='IT')
+    city, __ = LocationType.objects.get_or_create(description='CITY')
     roma_city, __  = Location.objects.get_or_create(country=italy,
                                                 name ='Roma',
-                                                type=Location.CITY)
+                                                type=city)
 
 
 Three levels
@@ -32,9 +33,10 @@ Three levels
                                                              name ='Lazio',
                                                              type=regione)
 
+    city, __ = LocationType.objects.get_or_create(description='CITY')
     roma_city, __  = Location.objects.get_or_create(country=italy,
                                                 name ='Roma',
-                                                type=Location.CITY,
+                                                type=city,
                                                 area=lazio)
 
 Four levels
@@ -66,9 +68,10 @@ Four levels
                                                             name ='Columbia',
                                                             type=county,
                                                             parent=ny)
+    city, __ = LocationType.objects.get_or_create(description='CITY')
     hudson, __  = Location.objects.get_or_create(country=us,
                                                  name ='Hudson',
-                                                 type=Location.CITY,
+                                                 type=city,
                                                  area=columbia,
                                                  is_administrative=True)
 
@@ -120,8 +123,9 @@ Five levels
                                                                 name ='Comune di Roma',
                                                                 type=comune,
                                                                 parent=roma_provincia)
+    city, __ = LocationType.objects.get_or_create(description='CITY')
     roma_city, __  = Location.objects.get_or_create(country=italy,
                                                 name ='Roma',
-                                                type=Location.CITY,
+                                                type=city,
                                                 area=roma_comune)
 

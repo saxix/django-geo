@@ -3,7 +3,7 @@ include AUTHORS
 include LICENSE
 include MANIFEST.in
 include setup.py
-include requirements.txt
+include requirements/*.pip
 recursive-include geo *.py
 recursive-include geo/fixtures *.json
 recursive-include geo/templates *.html
