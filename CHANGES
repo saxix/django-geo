@@ -1,3 +1,9 @@
+0.4.2
+=================================
+
+* fixed natural key dependencies (ensures dumpdata puts json objects in an order for loaddata to load them)
+
+
 0.4.1
 =================================
 
