@@ -117,6 +117,7 @@ class Country(models.Model):
 
     def natural_key(self):
         return (self.iso_code, )
+    natural_key.dependencies = ['geo.currency']
 
     def __contains__(self, item):
         if hasattr(item, 'country'):
@@ -157,6 +158,7 @@ class AdministrativeAreaType(MPTTModel):
 
     def natural_key(self):
         return (self.uuid.hex, )
+    natural_key.dependencies = ['geo.country']
 
     def clean(self):
         if self.parent == self:
@@ -199,6 +201,7 @@ class AdministrativeArea(MPTTModel):
 
     def natural_key(self):
         return (self.uuid.hex, )
+    natural_key.dependencies = ['geo.administrativeareatype', 'geo.country']
 
     def clean(self):
         if self.parent == self:
@@ -298,6 +301,7 @@ class Location(models.Model):
 
     def natural_key(self):
         return (self.uuid.hex, )
+    natural_key.dependencies = ['geo.administrativearea', 'geo.country', 'geo.locationtype']
 
     def clean(self):
         if self.area and self.area.country != self.country:
