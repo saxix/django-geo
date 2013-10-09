@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
-from django.test import TestCase
+from django.test import TestCase, TransactionTestCase
 from geo.models import Country, AdministrativeArea, Location
 
 
@@ -116,3 +116,27 @@ class Test(TestCase):
         area = AdministrativeArea.objects.get(country__iso_code='IT', parent__name='Lazio')
         location_2 = AdministrativeArea.objects.get_by_natural_key(*area.natural_key())
         self.assertEquals(area.pk, location_2.pk)
+
+
+class TestNaturalKeys(TransactionTestCase):
+
+    def test_dump_and_load(self):
+        import os
+        from geo.fixtures import location_factory, currency_factory
+        from django.db import transaction
+        from django.core.management import call_command
+
+        transaction.commit_unless_managed()
+        transaction.enter_transaction_management()
+        transaction.managed()
+        location = location_factory()
+        currency = currency_factory()
+
+        with open('tmp_fixture.json', 'w') as fixture_file:
+            call_command('dumpdata', use_natural_keys=True, stdout=fixture_file)
+
+        transaction.rollback()
+        transaction.leave_transaction_management()
+
+        call_command('loaddata', 'tmp_fixture.json', use_natural_keys=True)
+        os.remove('tmp_fixture.json')
