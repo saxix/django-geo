@@ -1,3 +1,12 @@
+0.4.1
+=================================
+
+.. note:: This version is backward incompatible
+
+* fixed bugs causing dumpdata/loaddata not to work
+* add uuid also to currency
+
+
 0.4
 =================================
 
