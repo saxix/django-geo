@@ -42,9 +42,10 @@ Examples
                                                                 name ='Comune di Roma',
                                                                 type=comune,
                                                                 parent=roma_provincia)
+    city, __ = LocationType.objects.get_or_create(description='CITY')
     roma, __  = Location.objects.get_or_create(country=italy,
                                                 name ='Roma',
-                                                type=Location.CITY,
+                                                type=city,
                                                 area=roma_comune)
 
  Two levels, ::
@@ -60,9 +61,10 @@ Examples
                                                             name ='Columbia',
                                                             type=county,
                                                             parent=ny)
+    city, __ = LocationType.objects.get_or_create(description='CITY')
     hudson, __  = Location.objects.get_or_create(country=us,
                                                  name ='Hudson',
-                                                 type=Location.CITY,
+                                                 type=city,
                                                  area=columbia,
                                                  is_administrative=True)
 

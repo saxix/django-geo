@@ -11,17 +11,25 @@ from django.db import models
 from django.db.models.manager import Manager
 from django.utils.translation import ugettext_lazy as _
 import logging
-from mptt.exceptions import InvalidMove
 from mptt.managers import TreeManager
 from mptt.models import MPTTModel, TreeForeignKey
 
 logger = logging.getLogger("geo")
 
 
+class CurrencyManager(Manager):
+    use_for_related_fields = True
+
+    def get_by_natural_key(self, uuid):
+        return self.get(uuid=uuid)
+
+
 class Currency(models.Model):
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     code = models.CharField(max_length=5, unique=True, help_text="ISO 4217 code")
     name = models.CharField(max_length=30)
     symbol = models.CharField(max_length=5, blank=True, null=True)
+    objects = CurrencyManager()
 
     class Meta:
         app_label = 'geo'
@@ -29,6 +37,9 @@ class Currency(models.Model):
 
     def __unicode__(self):
         return unicode("%s (%s)" % (self.code, self.name))
+
+    def natural_key(self):
+        return (self.uuid.hex, )
 
 
 CONTINENTS = (
@@ -145,7 +156,7 @@ class AdministrativeAreaType(MPTTModel):
             return item.is_descendant_of(self)
 
     def natural_key(self):
-        return (self.uuid, )
+        return (self.uuid.hex, )
 
     def clean(self):
         if self.parent == self:
@@ -187,7 +198,7 @@ class AdministrativeArea(MPTTModel):
         return unicode(self.name)
 
     def natural_key(self):
-        return (self.uuid, )
+        return (self.uuid.hex, )
 
     def clean(self):
         if self.parent == self:
@@ -224,6 +235,7 @@ class LocationType(models.Model):
     """
     uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
     description = models.CharField(unique=True, max_length=100)
+    objects = LocationTypeManager()
 
     class Meta:
         verbose_name_plural = _('Location Types')
@@ -231,7 +243,7 @@ class LocationType(models.Model):
         app_label = 'geo'
 
     def natural_key(self):
-        return (self.uuid, )
+        return (self.uuid.hex, )
 
 
 class LocationManager(models.Manager):
@@ -271,7 +283,6 @@ class Location(models.Model):
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
     lng = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
     acc = models.IntegerField(choices=ACCURACY, default=NONE, blank=True, null=True, help_text="Define the level of accuracy of lat/lng infos")
-
     objects = LocationManager()
 
     class Meta:
@@ -286,7 +297,7 @@ class Location(models.Model):
         return unicode(self.name)
 
     def natural_key(self):
-        return (self.uuid, )
+        return (self.uuid.hex, )
 
     def clean(self):
         if self.area and self.area.country != self.country:
