@@ -3,10 +3,12 @@ python:
   - "2.7"
 script: nosetests
 env:
-  - DJANGO_VERSION=1.4.5
-  - DJANGO_VERSION=1.5.1
+  - DJANGO=django==1.4.8
+  - DJANGO=django==1.5.4
+  - DJANGO=https://www.djangoproject.com/download/1.6b4/tarball/
+
 install:
-  - pip install -q Django==$DJANGO_VERSION
+  - pip install -q $DJANGO
   - python setup.py -q install
   - pip install -r requirements/install.pip --use-mirrors
   - pip install -r requirements/testing.pip --use-mirrors

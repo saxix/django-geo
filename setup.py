@@ -1,80 +1,47 @@
 #!/usr/bin/env python
-from distutils.core import setup
-from distutils.command.install import INSTALL_SCHEMES
 import os
-import geo as app
+import codecs
+from distutils.config import PyPIRCCommand
+from setuptools import setup, find_packages
 
-NAME = app.NAME
-RELEASE = app.get_version()
+dirname = 'geo'
 
-VERSIONMAP = {'final': (app.VERSION, 'Development Status :: 5 - Production/Stable'),
-              'rc': (app.VERSION, 'Development Status :: 4 - Beta'),
-              'beta': (app.VERSION, 'Development Status :: 4 - Beta'),
-              'alpha': ('master', 'Development Status :: 3 - Alpha'),
-              }
-download_tag, development_status = VERSIONMAP[app.VERSION[3]]
-
-for scheme in INSTALL_SCHEMES.values():
-    scheme['data'] = scheme['purelib']
-
-packages, data_files = [], []
-root_dir = os.path.dirname(__file__)
-if root_dir != '':
-    os.chdir(root_dir)
-
-def fullsplit(path, result=None):
-    """
-    Split a pathname into components (the opposite of os.path.join) in a
-    platform-neutral way.
-    """
-    if result is None:
-        result = []
-    head, tail = os.path.split(path)
-    if head == '':
-        return [tail] + result
-    if head == path:
-        return result
-    return fullsplit(head, [tail] + result)
+app = __import__(dirname)
 
 
-def scan_dir( target, packages=[], data_files=[] ):
-    for dirpath, dirnames, filenames in os.walk(target):
-        # Ignore dirnames that start with '.'
-        for i, dirname in enumerate(dirnames):
-            if dirname.startswith('.'): del dirnames[i]
-        if '__init__.py' in filenames:
-            packages.append('.'.join(fullsplit(dirpath)))
-        elif filenames:
-            data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
-    return packages, data_files
+def read(*parts):
+    here = os.path.abspath(os.path.dirname(__file__))
+    return codecs.open(os.path.join(here, *parts), 'r').read()
 
-packages, data_files = scan_dir('geo')
+
+PyPIRCCommand.DEFAULT_REPOSITORY = 'http://pypi.wfp.org/pypi/'
+
+tests_require = read('geo/requirements/testing.pip')
 
 setup(
-    name=NAME,
-    version=RELEASE,
+    name=app.NAME,
+    version=app.get_version(),
     url='https://github.com/saxix/django-geo',
     description="A Django application which manage administrative geographical data.",
-    download_url = 'https://github.com/saxix/django-geo/tarball/master',
+    download_url='https://github.com/saxix/django-geo/tarball/master',
     author='sax',
     author_email='sax@os4d.org',
     license='BSD',
-    packages=packages,
-    data_files=data_files,
+    packages=find_packages('.'),
+    include_package_data=True,
     platforms=['any'],
-    install_requires = ['django-mptt>=0.5.4', 'django-uuidfield==0.4.0'],
+    install_requires=read('geo/requirements/install.pip'),
     command_options={
         'build_sphinx': {
             'version': ('setup.py', app.VERSION),
             'release': ('setup.py', app.VERSION)}
     },
     classifiers=[
-        development_status,
-                 'Environment :: Web Environment',
-                 'Framework :: Django',
-                 'Operating System :: OS Independent',
-                 'Programming Language :: Python',
-                 'Intended Audience :: Developers',
-                 ],
+        'Environment :: Web Environment',
+        'Framework :: Django',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Intended Audience :: Developers',
+    ],
     long_description=open('README.rst').read()
 )

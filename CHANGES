@@ -1,3 +1,14 @@
+0.5
+===
+
+* switch to setuptools
+* removed django-any, django-sample-data dependencies
+* fixed migrations
+* fixed compatibility django 1.5,16
+* fixed tox
+* added Makefile
+
+
 0.4.2
 =================================
 

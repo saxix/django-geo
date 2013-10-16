@@ -25,7 +25,7 @@ class CurrencyManager(Manager):
 
 
 class Currency(models.Model):
-    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
     code = models.CharField(max_length=5, unique=True, help_text="ISO 4217 code")
     name = models.CharField(max_length=30)
     symbol = models.CharField(max_length=5, blank=True, null=True)
@@ -92,7 +92,7 @@ class Country(models.Model):
                                  help_text='ISO 3166-1 alpha 3', validators=[MinLengthValidator(3)])
     num_code = models.CharField(max_length=3, unique=True, blank=False, null=False, default=None,
                                 help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
-    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
     name = models.CharField(max_length=100, db_index=True, default=None)
     fullname = models.CharField(max_length=100, db_index=True, default=None)
     region = models.IntegerField(choices=REGIONS, blank=True, null=True)
@@ -135,7 +135,7 @@ class AdministrativeAreaTypeManager(TreeManager):
 
 
 class AdministrativeAreaType(MPTTModel):
-    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
     name = models.CharField(_('Name'), max_length=100, db_index=True)
     country = models.ForeignKey(Country)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children')
@@ -180,7 +180,7 @@ class AdministrativeArea(MPTTModel):
     """ Administrative areas that can contains other AdministrativeArea and/or Location.
     """
 
-    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     code = models.CharField(_('Code'), max_length=10, blank=True, null=True, db_index=True, help_text='ISO 3166-2 code')
     parent = TreeForeignKey('self', null=True, blank=True, related_name='areas')
@@ -236,7 +236,7 @@ class LocationType(models.Model):
     """Type of the location (city, village, place, locality, neighbourhood, etc.)
     This is not intended to contain anything inside it.
     """
-    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
     description = models.CharField(unique=True, max_length=100)
     objects = LocationTypeManager()
 
@@ -280,7 +280,7 @@ class Location(models.Model):
     type = models.ForeignKey(LocationType, blank=True, null=True)
     is_capital = models.BooleanField(default=False, help_text="True if is the capital of `country`")
     is_administrative = models.BooleanField(default=False, help_text="True if is administrative for `area`")
-    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'))
+    uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     description = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
