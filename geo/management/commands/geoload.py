@@ -30,22 +30,6 @@ def cache(func):
     return _inner
 
 
-# def geoload(filename):
-#
-#     @cache
-#     def _get(filename):
-#         url = 'http://download.geonames.org/export/dump/%s' % filename
-#         r = requests.get(url)
-#         assert r.status_code == 200, r.status_code
-#         assert r.headers['content-type'] != 'text/html; charset=utf-8', r.headers['content-type']
-#         return r.content
-#     content = _get(filename)
-#     name, ext = filename.rsplit('.', 1)
-#     if ext == 'zip':
-#         z = zipfile.ZipFile(StringIO.StringIO(content))
-#         return z.read(name + '.txt')
-#     return content
-
 def geoload(filename):
     url = 'http://download.geonames.org/export/dump/%s' % filename
 
@@ -73,7 +57,7 @@ class Command(BaseCommand):
     option_list = BaseCommand.option_list + (
         make_option('-a', '--all', action='store_true', dest='all'),
         make_option('-c', '--country', action='store_true', dest='country'),
-        make_option('-t', '--city', action='store_true', dest='city'),
+        #make_option('-t', '--city', action='store_true', dest='city'),
         make_option('-z', '--timezone', action='store_true', dest='tz'),
         make_option('-m', '--currency', action='store_true', dest='currency'),
         make_option('-r', '--region', action='store_true', dest='region'),
@@ -107,53 +91,8 @@ class Command(BaseCommand):
         if country:
             self.countries()
 
-    def regions(self):
-        # url = 'https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/raw/master/all/all.json'
-        url = 'https://commondatastorage.googleapis.com/ckannet-storage/2012-01-13T104757/un_geographical_regions.csv'
-
-        @cache
-        def x(filename):
-            return requests.get(url).content
-
-        csvfile = StringIO.StringIO(x('un_geo_regions.csv'))
-        spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
-        transaction.enter_transaction_management(True)
-        for row in spamreader:
-            try:
-                parent, num, cont, name, level, iso3, iso2 = row
-                if level == 'continent':
-                    UNRegion.objects.get_or_create(id=num,
-                                                   name=name,
-                    )
-                elif level == 'region':
-                    UNSubRegion.objects.get_or_create(id=num,
-                                                      region=UNRegion.objects.get(pk=cont),
-                                                      name=name,
-                    )
-                elif level == 'country':
-                    if iso3 and iso2:
-                        c, __ = Country.objects.get_or_create(num_code=num,
-                                                          defaults={'iso3_code': iso3,
-                                                                    'iso_code': iso2,
-                                                                    'name': name,
-                                                                    'fullname': name})
-                        c.subregion = UNSubRegion.objects.get(pk=parent)
-                        c.un_code = num
-                        c.clean()
-                        c.save()
-            except Country.DoesNotExist:
-                print row
-            except (ValidationError, IntegrityError) as e:
-                print e
-                print c
-                print row
-                transaction.rollback()
-            except (ValueError,) as e:
-                print e, row
-                transaction.rollback()
-
-    def cities(self):
-        data = geoload('cities15000.zip')
+    #def cities(self):
+    #    data = geoload('cities15000.zip')
 
     def countries(self):
         data = geoload('countryInfo.txt')
