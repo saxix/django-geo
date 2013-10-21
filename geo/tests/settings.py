@@ -10,4 +10,11 @@ DATABASES = {
 }
 INSTALLED_APPS = (
     'geo',
-    )
+)
+SECRET_KEY = '123'
+
+DDF_VALIDATE_ARGS = True
+DDF_DEBUG_MODE = True  # default = False
+DDF_IGNORE_FIELDS = ['version', 'last_modified_user', 'last_modified_date', 'security_hash']
+DDF_FILL_NULLABLE_FIELDS = True
+DDF_DEFAULT_DATA_FIXTURE = 'geo.tests.ddf_fixture.DataFixture'  # static_sequential, random, sequential,

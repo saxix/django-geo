@@ -4,6 +4,7 @@ from django.forms.widgets import Input, TextInput
 from mptt.forms import TreeNodeChoiceField
 from geo.models import AdministrativeAreaType, AdministrativeArea, Country, Location
 
+
 class CountryForm(forms.ModelForm):
     class Meta:
         model = Country
@@ -12,20 +13,20 @@ class CountryForm(forms.ModelForm):
             'iso_code': TextInput(attrs={'size': 2}),
             'iso3_code': TextInput(attrs={'size': 3}),
             'num_code': TextInput(attrs={'size': 5}),
-#            'tld': TextInput(attrs={'size': 5}),
-            }
+            #            'tld': TextInput(attrs={'size': 5}),
+        }
+
 
 class AreaForm(forms.ModelForm):
     class Meta:
         model = AdministrativeArea
-        widgets = {
-            'name': TextInput(attrs={'size': 100}),
-            'code': TextInput(attrs={'size': 3}),
-            }
+        widgets = {'name': TextInput(attrs={'size': 100}),
+                   'code': TextInput(attrs={'size': 3})}
+
 
 class AdministrativeAreaTypeForm(forms.ModelForm):
-
     for_country = None
+
     def __init__(self, *args, **kwargs):
         super(AdministrativeAreaTypeForm, self).__init__(*args, **kwargs)
         for_country = kwargs.pop('for_country', self.for_country)
@@ -38,7 +39,7 @@ class AdministrativeAreaTypeForm(forms.ModelForm):
         model = AdministrativeArea
         widgets = {
             'code': TextInput(attrs={'size': 10}),
-            }
+        }
 
 
 class LocationForm(forms.ModelForm):
@@ -49,7 +50,8 @@ class LocationForm(forms.ModelForm):
         widgets = {
             'code': TextInput(attrs={'size': 10}),
 
-            }
+        }
+
 
 def administrativeareatypeform_factory_for_country(country):
     """ returns a AdministrativeAreaForm type for a specific Country
@@ -60,5 +62,5 @@ def administrativeareatypeform_factory_for_country(country):
     if country is None:
         return AdministrativeAreaTypeForm
     name = str('%sAdministrativeAreaForm' % country.iso_code)
-    args = {'for_country':country}
+    args = {'for_country': country}
     return type(name, (AdministrativeAreaTypeForm,), args)
