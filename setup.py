@@ -14,8 +14,6 @@ def read(*parts):
     return codecs.open(os.path.join(here, *parts), 'r').read()
 
 
-PyPIRCCommand.DEFAULT_REPOSITORY = 'http://pypi.wfp.org/pypi/'
-
 tests_require = read('geo/requirements/testing.pip')
 
 setup(

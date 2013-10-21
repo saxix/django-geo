@@ -1,33 +1,21 @@
+from collections import OrderedDict
 from django.core.exceptions import ImproperlyConfigured
 from django.core.management.base import BaseCommand, CommandError
+from django.core.management.commands.dumpdata import Command as DumpCommand
 from django.core import serializers
 from django.db import router, DEFAULT_DB_ALIAS
-from django.utils.datastructures import SortedDict
-
 from optparse import make_option
+import django
 
-class Command(BaseCommand):
-    option_list = BaseCommand.option_list + (
-        make_option('--format', default='json', dest='format',
-            help='Specifies the output serialization format for fixtures.'),
-        make_option('--indent', default=None, dest='indent', type='int',
-            help='Specifies the indent level to use when pretty-printing output'),
-        make_option('--database', action='store', dest='database',
-            default=DEFAULT_DB_ALIAS, help='Nominates a specific database to dump '
-                                           'fixtures from. Defaults to the "default" database.'),
-        make_option('-e', '--exclude', dest='exclude',action='append', default=[],
-            help='An appname or appname.ModelName to exclude (use multiple --exclude to exclude multiple apps/models).'),
-        make_option('-n', '--natural', action='store_true', dest='use_natural_keys', default=False,
-            help='Use natural keys if they are available.'),
-        make_option('-a', '--all', action='store_true', dest='use_base_manager', default=False,
-            help="Use Django's base manager to dump all models stored in the database, including those that would otherwise be filtered or modified by a custom manager."),
-        )
-    help = ("Output the contents of the database as a fixture of the given "
-            "format (using each model's default manager unless --all is "
-            "specified).")
-    args = '[appname appname.ModelName ...]'
+class Command(DumpCommand):
 
     def handle(self, *app_labels, **options):
+        if django.VERSION[1] == 4:
+            return self._handle(*app_labels, **options)
+        else:
+            return super(Command, self).handle(*app_labels, **options)
+
+    def _handle(self, *app_labels, **options):
         from django.db.models import get_app, get_apps, get_model
 
         format = options.get('format')
@@ -55,9 +43,9 @@ class Command(BaseCommand):
                     raise CommandError('Unknown app in excludes: %s' % exclude)
 
         if len(app_labels) == 0:
-            app_list = SortedDict((app, None) for app in get_apps() if app not in excluded_apps)
+            app_list = OrderedDict((app, None) for app in get_apps() if app not in excluded_apps)
         else:
-            app_list = SortedDict()
+            app_list = OrderedDict()
             for label in app_labels:
                 try:
                     app_label, model_label = label.split('.')

@@ -1,0 +1,2 @@
+sample_data_utils>=0.1
+django_dynamic_fixture
