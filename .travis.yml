@@ -10,6 +10,7 @@ env:
 
 script:
   - python setup.py -q install
+  - pip unistall geo
   - make test
 
 
