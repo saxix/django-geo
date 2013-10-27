@@ -1,3 +1,11 @@
+0.6
+===
+
+* fixed wrong/missed migrations
+* extend test matrix
+* fixes packaging
+
+
 0.5
 ===
 
