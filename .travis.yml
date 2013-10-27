@@ -10,7 +10,7 @@ env:
 install:
   - pip install -q $DJANGO
   - python setup.py -q install
-  - pip install -r requirements/install.pip --use-mirrors
-  - pip install -r requirements/testing.pip --use-mirrors
+  - pip install -r geo/requirements/install.pip --use-mirrors
+  - pip install -r geo/requirements/testing.pip --use-mirrors
 
 script: django-admin.py test geo --settings=geo.test_settings
