@@ -6,5 +6,5 @@ include setup.py
 recursive-include geo *.py
 recursive-include geo *.json
 recursive-include geo *.html
-recursive-exclude geo/management/commands/DATADIR/countryInfo.txt
+include geo/management/commands/DATADIR/countryInfo.txt
 
