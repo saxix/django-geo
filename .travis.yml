@@ -8,10 +8,8 @@ env:
   - DJANGO=1.6.x
   - DJANGO=dev
 
-install:
-  - pip install -q $DJANGO
-  - python setup.py -q install
-  - pip install -r geo/requirements/install.pip --use-mirrors
-  - pip install -r geo/requirements/testing.pip --use-mirrors
+script: make test
 
-script: django-admin.py test geo --settings=geo.tests.settings
+
+after_success:
+  - coveralls
