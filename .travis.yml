@@ -8,7 +8,9 @@ env:
   - DJANGO=1.6.x
   - DJANGO=dev
 
-script: make test
+script:
+  - python setup.py -q install
+  - make test
 
 
 after_success:
