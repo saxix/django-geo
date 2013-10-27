@@ -10,7 +10,7 @@ env:
 
 script:
   - python setup.py -q install
-  - pip unistall geo
+  - pip unistall django-geo
   - make test
 
 
