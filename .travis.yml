@@ -1,16 +1,18 @@
 language: python
 python:
   - "2.7"
-script: nosetests
+
 env:
-  - DJANGO=django==1.4.8
-  - DJANGO=django==1.5.4
-  - DJANGO=https://www.djangoproject.com/download/1.6b4/tarball/
+  - DJANGO=1.4.x
+  - DJANGO=1.5.x
+  - DJANGO=1.6.x
+  - DJANGO=dev
 
-install:
-  - pip install -q $DJANGO
+script:
   - python setup.py -q install
-  - pip install -r requirements/install.pip --use-mirrors
-  - pip install -r requirements/testing.pip --use-mirrors
+  - pip uninstall -y django-geo
+  - make test
 
-script: django-admin.py test geo --settings=geo.test_settings
+
+after_success:
+  - coveralls

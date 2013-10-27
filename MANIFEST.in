@@ -3,8 +3,9 @@ include AUTHORS
 include LICENSE
 include MANIFEST.in
 include setup.py
-include geo/requirements/*.pip
 recursive-include geo *.py
 recursive-include geo *.json
-recursive-include geo/templates *.html
+recursive-include geo *.html
+recursive-include geo *.pip
+include geo/management/commands/DATADIR/countryInfo.txt
 
