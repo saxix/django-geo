@@ -6,5 +6,6 @@ include setup.py
 recursive-include geo *.py
 recursive-include geo *.json
 recursive-include geo *.html
+recursive-include geo *.pip
 include geo/management/commands/DATADIR/countryInfo.txt
 
