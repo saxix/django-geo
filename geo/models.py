@@ -34,6 +34,7 @@ class Currency(models.Model):
     class Meta:
         app_label = 'geo'
         ordering = ['code', ]
+        verbose_name_plural = 'Currencies'
 
     def __unicode__(self):
         return unicode("%s (%s)" % (self.code, self.name))
