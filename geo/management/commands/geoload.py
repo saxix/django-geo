@@ -99,42 +99,38 @@ class Command(BaseCommand):
         # data = geoload('allCountries.zip')
         # data = load('IT.zip')
         lines = self._split(data)
-        transaction.enter_transaction_management(True)
-        for line in lines:
-            if line:
-                try:
-                    iso2, iso3, ison, fips, name, \
-                    capital, area, population, \
-                    continent, tld, \
-                    currencycode, currencyname, \
-                    phone, postal_code_format, \
-                    postal_code_regex, \
-                    languages, \
-                    geonameid, neighbours, \
-                    equivalentfipscode = line
+        with transaction.commit_on_success():
+            for line in lines:
+                if line:
+                    try:
+                        iso2, iso3, ison, fips, name, \
+                        capital, area, population, \
+                        continent, tld, \
+                        currencycode, currencyname, \
+                        phone, postal_code_format, \
+                        postal_code_regex, \
+                        languages, \
+                        geonameid, neighbours, \
+                        equivalentfipscode = line
 
-                    c, __ = Country.objects.get_or_create(num_code=ison,
-                                                          defaults={'iso3_code': iso3,
-                                                                    'iso_code': iso2,
-                                                                    'name': name,
-                                                                    'fullname': name})
-                    c.tld = tld
-                    c.geonameid = geonameid or None
-                    c.continent = continent.upper()
+                        c, __ = Country.objects.get_or_create(num_code=ison,
+                                                              defaults={'iso3_code': iso3,
+                                                                        'iso_code': iso2,
+                                                                        'name': name,
+                                                                        'fullname': name})
+                        c.tld = tld
+                        c.geonameid = geonameid or None
+                        c.continent = continent.upper()
 
-                    curr, __ = Currency.objects.get_or_create(code=currencycode,
-                                                                defaults={'name': currencyname})
-                    c.currency = curr
-                    c.clean()
-                    c.save()
-                except Country.DoesNotExist:
-                    print geonameid, line
-                except (ValueError, IntegrityError, ValidationError) as e:
-                    print e, line
-                    transaction.rollback()
-                    raise
-                except:
-                    transaction.rollback()
-                    raise
-                else:
-                    transaction.commit()
+                        curr, __ = Currency.objects.get_or_create(code=currencycode,
+                                                                    defaults={'name': currencyname})
+                        c.currency = curr
+                        c.clean()
+                        c.save()
+                    except Country.DoesNotExist:
+                        print geonameid, line
+                    except (ValueError, IntegrityError, ValidationError) as e:
+                        print e, line
+                        raise
+                    except:
+                        raise
