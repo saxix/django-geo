@@ -3,6 +3,7 @@ DJANGO_14=django==1.4.10
 DJANGO_15=django==1.5.5
 DJANGO_16=django==1.6.1
 DJANGO_DEV=git+git://github.com/django/django.git
+DBNAME=geo
 
 mkbuilddir:
 	mkdir -p ${BUILDDIR}/cache
