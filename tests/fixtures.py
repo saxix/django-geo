@@ -4,11 +4,12 @@ import string
 from itertools import cycle
 from django_dynamic_fixture import G
 from geo.models import Currency, Country, AdministrativeAreaType, AdministrativeArea, LocationType, Location
-from sample_data_utils.geo import iso2, isonum, countries
+from sample_data_utils.geo import iso2, isonum, get_codes
 from sample_data_utils.text import text
 from sample_data_utils.utils import unique, sequence
 
 nextname = partial(sequence, cache={})
+countries = iter(get_codes())
 
 # iso2_codes = unique(country)
 # iso_number = unique(isonum)

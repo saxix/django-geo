@@ -121,7 +121,6 @@ def load_country(rewrite=False, stdout=None):
                 fields = {'iso_code3': iso3, 'iso_code': iso2,
                           'phone_prefix': phone, 'name': name,
                           'fullname': name, 'tld': tld,
-                          'geonameid': geonameid,
                           'continent': continent.upper()}
                 c, created = Country.objects.get_or_create(iso_num=ison,
                                                       defaults=fields)

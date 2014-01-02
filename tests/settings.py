@@ -1,4 +1,5 @@
 import os
+from tempfile import mktemp
 
 GEO_CACHE = '~build/cache'
 
@@ -8,6 +9,8 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 ROOT_URLCONF = 'tests.urls'
 SECRET_KEY = 'abc'
+STATIC_ROOT = mktemp('static')
+MEDIA_ROOT = mktemp('media')
 
 INSTALLED_APPS = ['django.contrib.auth',
                   'django.contrib.contenttypes',

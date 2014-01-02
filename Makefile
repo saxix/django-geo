@@ -38,5 +38,5 @@ ci:
 	@python -c "from __future__ import print_function;import django;print('Django version:', django.get_version())"
 	@echo "Database:" ${DBENGINE}
 
-	pip install -r geo/requirements/install.pip geo/requirements/testing.pip
+	pip install -r geo/requirements/install.pip -r geo/requirements/testing.pip
 	$(MAKE) coverage

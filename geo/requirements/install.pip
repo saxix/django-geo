@@ -4,4 +4,4 @@ requests
 unicodecsv
 pytz
 django-timezone-field
-django-rest-framework
+djangorestframework

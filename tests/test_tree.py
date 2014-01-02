@@ -52,8 +52,8 @@ def test_contains(hierachy):
     italy, regione, provincia, comune = hierachy
 
     lazio = italy.areas.create(name='Lazio', type=regione)
-    rm = italy.areas.create(name='Provincia di Roma', type=provincia)
-    roma = italy.areas.create(name='Comune di Roma', type=comune)
+    rm = italy.areas.create(name='Provincia di Roma', type=provincia, parent=lazio)
+    roma = italy.areas.create(name='Comune di Roma', type=comune, parent=rm)
 
     assert regione in italy
     assert provincia in regione
