@@ -7,8 +7,8 @@ from django.db import router, DEFAULT_DB_ALIAS
 from optparse import make_option
 import django
 
-class Command(DumpCommand):
 
+class Command(DumpCommand):
     def handle(self, *app_labels, **options):
         if django.VERSION[1] == 4:
             return self._handle(*app_labels, **options)
@@ -98,11 +98,12 @@ class Command(DumpCommand):
 
         try:
             return serializers.serialize(format, objects, indent=indent,
-                use_natural_keys=use_natural_keys)
+                                         use_natural_keys=use_natural_keys)
         except Exception, e:
             if show_traceback:
                 raise
             raise CommandError("Unable to serialize database: %s" % e)
+
 
 def sort_dependencies(app_list):
     """Sort a list of app,modellist pairs into a single list of models.
@@ -134,14 +135,14 @@ def sort_dependencies(app_list):
             for field in model._meta.fields:
                 if hasattr(field.rel, 'to'):
                     rel_model = field.rel.to
-                    if hasattr(rel_model, 'natural_key')and rel_model != model:
+                    if hasattr(rel_model, 'natural_key') and rel_model != model:
                         deps.append(rel_model)
             for field in model._meta.many_to_many:
                 m2m_model = field.rel.through
                 if hasattr(m2m_model, 'natural_key'):
                     # if the m2m model is not in the model_dependencies list,
                     # add it for processing
-                    if not any((m[0]==m2m_model for m in model_dependencies)):
+                    if not any((m[0] == m2m_model for m in model_dependencies)):
                         model_list.append(m2m_model)
             model_dependencies.append((model, deps))
 
@@ -176,8 +177,7 @@ def sort_dependencies(app_list):
         if not changed:
             raise CommandError("Can't resolve dependencies for %s in serialized app list." %
                                ', '.join('%s.%s' % (model._meta.app_label, model._meta.object_name)
-                               for model, deps in sorted(skipped, key=lambda obj: obj[0].__name__))
-            )
+                                         for model, deps in sorted(skipped, key=lambda obj: obj[0].__name__)))
         model_dependencies = skipped
 
     return model_list

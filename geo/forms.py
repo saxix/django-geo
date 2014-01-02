@@ -13,7 +13,7 @@ class CountryForm(forms.ModelForm):
             'iso_code': TextInput(attrs={'size': 2}),
             'iso3_code': TextInput(attrs={'size': 3}),
             'num_code': TextInput(attrs={'size': 5}),
-            #            'tld': TextInput(attrs={'size': 5}),
+            'tld': TextInput(attrs={'size': 5}),
         }
 
 

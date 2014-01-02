@@ -1,2 +1,2 @@
-sample_data_utils>=0.1
+sample_data_utils>=0.3
 django_dynamic_fixture

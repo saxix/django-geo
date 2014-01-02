@@ -1,3 +1,7 @@
 django-mptt>=0.6.0
 django-uuidfield==0.4.0
-
+requests
+unicodecsv
+pytz
+django-timezone-field
+django-rest-framework

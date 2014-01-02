@@ -3,16 +3,21 @@ python:
   - "2.7"
 
 env:
-  - DJANGO=1.4.x
-  - DJANGO=1.5.x
-  - DJANGO=1.6.x
-  - DJANGO=dev
+  - DJANGO="1.4.x" DBENGINE=pg
+  - DJANGO="1.5.x" DBENGINE=pg
+  - DJANGO="1.6.x" DBENGINE=pg
+  - DJANGO="dev" DBENGINE=pg
+
+
+install:
+  - pip install coverage python-coveralls
 
 script:
-  - python setup.py -q install
-  - pip uninstall -y django-geo
-  - make test
+  - make ci
 
+before_script:
+  - make init-db
 
 after_success:
-  - coveralls
+  - coveralls -c .coveragerc
+

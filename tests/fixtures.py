@@ -3,43 +3,15 @@ import random
 import string
 from itertools import cycle
 from django_dynamic_fixture import G
-import uuidfield
-from sample_data_utils.sample import text
-from sample_data_utils.utils import sequence
-#from django_any import any_field, any_model
-#from django_any.contrib import any_model_with_defaults
 from geo.models import Currency, Country, AdministrativeAreaType, AdministrativeArea, LocationType, Location
-
+from sample_data_utils.geo import iso2, isonum, countries
+from sample_data_utils.text import text
+from sample_data_utils.utils import unique, sequence
 
 nextname = partial(sequence, cache={})
 
-# Create two-character iso-codes
-iso2_codes = []
-for c1 in string.ascii_uppercase:
-    for c2 in string.ascii_uppercase:
-        iso2_codes.append('{}{}'.format(c1, c2))
-random.shuffle(iso2_codes)
-iso2_codes_iter = cycle(iso2_codes)
-
-# Create three-character iso-codes
-iso3_codes = []
-for c1 in string.ascii_uppercase:
-    for c2 in string.ascii_uppercase:
-        for c3 in string.ascii_uppercase:
-            iso3_codes.append('{}{}{}'.format(c1, c2, c3))
-random.shuffle(iso3_codes)
-iso3_codes_iter = cycle(iso3_codes)
-
-# Create iso-number with three digits
-iso_numbers = range(100, 999)
-random.shuffle(iso_numbers)
-iso_numbers_iter = cycle(iso_numbers)
-
-#
-#@any_field.register(uuidfield.UUIDField)
-#def uuid_field(field, **kwargs):
-#    return uuidfield.UUIDField()._create_uuid()
-
+# iso2_codes = unique(country)
+# iso_number = unique(isonum)
 
 def subargs(kwargs, prefix):
     prefix = "%s__" % prefix
@@ -52,15 +24,12 @@ def currency_factory(**kwargs):
 
 
 def country_factory(**kwargs):
-    iso_code = iso2_codes_iter.next()
-    currency = G(Currency, code=nextname(iso_code))
-
-    kwargs.setdefault('iso_code', iso_code)
-    kwargs.setdefault('num_code', iso_numbers_iter.next())
-    kwargs.setdefault('iso3_code', iso3_codes_iter.next())
-    kwargs.setdefault('name', nextname('Country'))
-    kwargs.setdefault('fullname', text(20))
-    kwargs.setdefault('currency', currency)
+    names = nextname('Country')
+    kwargs.setdefault('iso_code', lambda x: unique(iso2))
+    kwargs.setdefault('num_code', lambda x: unique(isonum))
+    kwargs.setdefault('iso3_code', lambda x: unique(isonum))
+    kwargs.setdefault('name', lambda x: next(names))
+    kwargs.setdefault('fullname', lambda x: text(20))
 
     country = G(Country, **kwargs)
     return country
