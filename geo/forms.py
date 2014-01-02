@@ -1,19 +1,61 @@
 # -*- coding: utf-8 -*-
 from django import forms
+from django.core.exceptions import ValidationError
+from django.forms import CharField
 from django.forms.widgets import Input, TextInput
 from mptt.forms import TreeNodeChoiceField
 from geo.models import AdministrativeAreaType, AdministrativeArea, Country, Location
 
 
+class IsoCode2Field(CharField):
+
+    def __init__(self, max_length=None, min_length=None, *args, **kwargs):
+        max_length = 2
+        super(IsoCode2Field, self).__init__(max_length, min_length, *args, **kwargs)
+
+    def clean(self, value):
+        if value:
+            value = value.strip().upper()
+        return super(IsoCode2Field, self).clean(value)
+
+class IsoCode3Field(CharField):
+
+    def __init__(self, max_length=None, min_length=None, *args, **kwargs):
+        max_length = 3
+        super(IsoCode3Field, self).__init__(max_length, min_length, *args, **kwargs)
+
+    def clean(self, value):
+        if value:
+            value = value.strip().upper()
+        return super(IsoCode3Field, self).clean(value)
+
+class IsoNumericField(CharField):
+
+    def __init__(self, max_length=None, min_length=None, *args, **kwargs):
+        max_length = 3
+        super(IsoNumericField, self).__init__(max_length, min_length, *args, **kwargs)
+
+    def clean(self, value):
+        try:
+            if value:
+                value = '%03d' % int(value.strip().upper())
+        except Exception as e:
+            raise ValidationError(e)
+        return super(IsoNumericField, self).clean(value)
+
 class CountryForm(forms.ModelForm):
+    iso_code = IsoCode2Field()
+    iso_code3 = IsoCode3Field()
+    iso_num = IsoNumericField()
+
     class Meta:
         model = Country
         widgets = {
             'fullname': TextInput(attrs={'size': 100}),
-            'iso_code': TextInput(attrs={'size': 2}),
-            'iso3_code': TextInput(attrs={'size': 3}),
-            'num_code': TextInput(attrs={'size': 5}),
-            'tld': TextInput(attrs={'size': 5}),
+            # 'iso_code': TextInput(attrs={'size': 2}),
+            # 'iso_code3': TextInput(attrs={'size': 3}),
+            # 'num_code': TextInput(attrs={'size': 5}),
+            # 'tld': TextInput(attrs={'size': 5}),
         }
 
 

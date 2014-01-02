@@ -2,9 +2,12 @@ from functools import partial
 import random
 import string
 from itertools import cycle
+from django.contrib.auth.models import User
 from django_dynamic_fixture import G
+import pytest
+from geo.hierarchy import italy
 from geo.models import Currency, Country, AdministrativeAreaType, AdministrativeArea, LocationType, Location
-from sample_data_utils.geo import iso2, isonum, get_codes
+from sample_data_utils.geo import iso2, iso3, isonum, get_codes
 from sample_data_utils.text import text
 from sample_data_utils.utils import unique, sequence
 
@@ -13,6 +16,21 @@ countries = iter(get_codes())
 
 # iso2_codes = unique(country)
 # iso_number = unique(isonum)
+
+
+@pytest.fixture
+def hierachy():
+    G(Country, iso_code='IT', iso_code3='ITA', iso_num=380,
+              name='Italy', fullname='Italy, Italian Republic')
+
+    return italy()
+
+@pytest.fixture
+def superuser():
+    try:
+        return User.objects.get(is_superuser=True)
+    except User.DoesNotExist:
+         return User.objects.create_superuser('superuser','','123')
 
 def subargs(kwargs, prefix):
     prefix = "%s__" % prefix
@@ -26,9 +44,13 @@ def currency_factory(**kwargs):
 
 def country_factory(**kwargs):
     names = nextname('Country')
-    kwargs.setdefault('iso_code', lambda x: unique(iso2))
-    kwargs.setdefault('num_code', lambda x: unique(isonum))
-    kwargs.setdefault('iso3_code', lambda x: unique(isonum))
+    iso_2 = unique(iso2, 1, cache={})
+    iso_3 = unique(iso3, 1, cache={})
+    iso_n = unique(isonum, 1, cache={})
+
+    kwargs.setdefault('iso_code', lambda x: iso_2())
+    kwargs.setdefault('iso_code3', lambda x: iso_3())
+    kwargs.setdefault('num_code', lambda x: '%03d' % iso_n())
     kwargs.setdefault('name', lambda x: next(names))
     kwargs.setdefault('fullname', lambda x: text(20))
 

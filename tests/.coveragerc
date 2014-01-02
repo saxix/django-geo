@@ -5,6 +5,7 @@ include =
 
 omit = geo/__init__.py
        geo/migrations/**
+       geo/management/**
 
 [report]
 # Regexes for lines to exclude from consideration

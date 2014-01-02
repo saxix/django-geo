@@ -69,15 +69,6 @@ class ICountry(ModelAdmin):
 
     flag.allow_tags = True
 
-    def capital(self, o):
-        c = o.location_set.get_or_none(is_capital=True)
-        if c:
-            admin_url = reverse('admin:geo_location_change', args=[c.pk])
-            return "<a href='%s'>%s</a>" % (admin_url, c.name)
-        return c
-
-    capital.allow_tags = True
-
     def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, unquote(object_id))
         context = {'nodes': obj.areas.all()}

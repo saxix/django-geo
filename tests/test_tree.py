@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
 from django_dynamic_fixture import G
 from geo.models import Country, AdministrativeArea
-from .base import hierachy
+from .fixtures import hierachy
 
 
 @pytest.mark.django_db
