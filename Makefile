@@ -8,6 +8,14 @@ DBNAME=geo
 mkbuilddir:
 	mkdir -p ${BUILDDIR}/cache
 
+
+install-deps:
+	pip install \
+	        -r demo/demoproject/requirements.pip \
+	        -r requirements.pip \
+	        -r requirements.pip python-coveralls coverage
+
+
 test:
 	py.test -vvv
 
@@ -30,7 +38,7 @@ init-db:
 	@sh -c "if [ '${DBENGINE}' = 'pg' ]; then psql -c 'CREATE DATABASE ${DBNAME};' -U postgres; fi"
 	@sh -c "if [ '${DBENGINE}' = 'pg' ]; then pip install -q psycopg2; fi"
 
-ci:
+ci: init-db
 	@sh -c "if [ '${DJANGO}' = '1.4.x' ]; then pip install ${DJANGO_14}; fi"
 	@sh -c "if [ '${DJANGO}' = '1.5.x' ]; then pip install ${DJANGO_15}; fi"
 	@sh -c "if [ '${DJANGO}' = '1.6.x' ]; then pip install ${DJANGO_16}; fi"
@@ -39,5 +47,5 @@ ci:
 	@python -c "from __future__ import print_function;import django;print('Django version:', django.get_version())"
 	@echo "Database:" ${DBENGINE}
 
-	pip install -r geo/requirements/install.pip -r geo/requirements/testing.pip
+
 	$(MAKE) coverage
