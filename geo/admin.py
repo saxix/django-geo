@@ -60,8 +60,7 @@ class ICountry(ModelAdmin):
                                     ('iso_code', 'iso_code3', 'iso_num'),
                                     ('region', 'continent', 'currency'),
                                     ('timezone', 'tld', 'phone_prefix'))})]
-    inlines = (tabular_factory(Location, exclude=('description',)),
-               AdministrativeAreaInline,
+    inlines = (AdministrativeAreaInline,
                tabular_factory(AdministrativeAreaType), )
 
     def flag(self, o):

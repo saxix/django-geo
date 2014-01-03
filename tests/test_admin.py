@@ -24,7 +24,8 @@ def test_country_update(app, superuser):
 
     res = app.get(url, user=superuser.username)
     res = res.click('^Country-1$')
-    res= res.form.submit().follow()
+    res = res.form.submit().follow()
+
 
 @pytest.mark.django_db(transaction=True)
 def test_areatype_update(app, hierachy, superuser):
@@ -33,14 +34,15 @@ def test_areatype_update(app, hierachy, superuser):
 
     res = app.get(url, user=superuser.username)
     res = res.click('^Regione$')
-    res= res.form.submit().follow()
+    res = res.form.submit().follow()
+
 
 @pytest.mark.django_db(transaction=True)
 def test_area_update(app, hierachy, superuser):
     italy, regione, provincia, comune = hierachy
-    G(AdministrativeArea, type=regione, name='Lazio')
+    G(AdministrativeArea, type=regione, name='Lazio', country=italy)
     url = reverse('admin:geo_administrativearea_changelist')
 
     res = app.get(url, user=superuser.username)
     res = res.click('^Lazio$')
-    res= res.form.submit().follow()
+    res = res.form.submit().follow()

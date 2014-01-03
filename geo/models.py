@@ -301,10 +301,13 @@ class Location(models.Model):
     country = models.ForeignKey(Country, db_index=True)
     area = models.ForeignKey(AdministrativeArea, db_index=True, blank=True, null=True)
     type = models.ForeignKey(LocationType, blank=True, null=True)
+
     is_capital = models.BooleanField(default=False, help_text="True if is the capital of `country`")
     is_administrative = models.BooleanField(default=False, help_text="True if is administrative for `area`")
+
     uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
     name = models.CharField(_('Name'), max_length=255, db_index=True)
+
     description = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
     lng = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)

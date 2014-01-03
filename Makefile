@@ -11,9 +11,9 @@ mkbuilddir:
 
 install-deps:
 	pip install \
-	        -r demo/demoproject/requirements.pip \
-	        -r requirements.pip \
-	        -r requirements.pip python-coveralls coverage
+	        -r geo/requirements/install.pip \
+	        -r geo/requirements/testing.pip \
+	        python-coveralls==2.4.2
 
 
 test:
@@ -38,7 +38,7 @@ init-db:
 	@sh -c "if [ '${DBENGINE}' = 'pg' ]; then psql -c 'CREATE DATABASE ${DBNAME};' -U postgres; fi"
 	@sh -c "if [ '${DBENGINE}' = 'pg' ]; then pip install -q psycopg2; fi"
 
-ci: init-db
+ci: init-db install-deps
 	@sh -c "if [ '${DJANGO}' = '1.4.x' ]; then pip install ${DJANGO_14}; fi"
 	@sh -c "if [ '${DJANGO}' = '1.5.x' ]; then pip install ${DJANGO_15}; fi"
 	@sh -c "if [ '${DJANGO}' = '1.6.x' ]; then pip install ${DJANGO_16}; fi"
