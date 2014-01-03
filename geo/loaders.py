@@ -156,7 +156,6 @@ def load_currency(rewrite=False, stdout=None):
             code = element.find('Ccy')
             if code is not None:
                 values = {'numeric_code': element.find('CcyNbr').text,
-                          # 'decimals': element.find('CcyMnrUnts').text,
                           'name': element.find('CcyNm').text,
                           'symbol': ''}
 

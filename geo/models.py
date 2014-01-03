@@ -36,7 +36,7 @@ class Currency(models.Model):
     iso_code = models.CharField(max_length=5, db_index=True, unique=True, help_text="ISO 4217 code")
     numeric_code = models.CharField(max_length=5, unique=True, help_text="ISO 4217 code")
     decimals = models.IntegerField(default=0)
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=50)
     symbol = models.CharField(max_length=5, blank=True, null=True)
     objects = CurrencyManager()
 
