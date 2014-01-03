@@ -66,11 +66,11 @@ class AreaForm(forms.ModelForm):
                    'code': TextInput(attrs={'size': 3})}
 
 
-class AdministrativeAreaTypeForm(forms.ModelForm):
+class AdministrativeAreaForm(forms.ModelForm):
     for_country = None
 
     def __init__(self, *args, **kwargs):
-        super(AdministrativeAreaTypeForm, self).__init__(*args, **kwargs)
+        super(AdministrativeAreaForm, self).__init__(*args, **kwargs)
         for_country = kwargs.pop('for_country', self.for_country)
         if 'initial' in kwargs:
             self.fields['type'].queryset = AdministrativeAreaType.objects.filter(country=initial.country)
@@ -95,14 +95,14 @@ class LocationForm(forms.ModelForm):
         }
 
 
-def administrativeareatypeform_factory_for_country(country):
+def administrativeareaform_factory_for_country(country):
     """ returns a AdministrativeAreaForm type for a specific Country
         ie. only AdministrativeAreaType related to the Counry are allowed.
         used by the admin's inlines
 
     """
     if country is None:
-        return AdministrativeAreaTypeForm
+        return AdministrativeAreaForm
     name = str('%sAdministrativeAreaForm' % country.iso_code)
     args = {'for_country': country}
-    return type(name, (AdministrativeAreaTypeForm,), args)
+    return type(name, (AdministrativeAreaForm,), args)

@@ -18,12 +18,6 @@ from mptt.models import MPTTModel, TreeForeignKey
 logger = logging.getLogger("geo")
 
 
-
-# class MagicMixin(object):
-#     def __getattr__(self, attrname):
-#         print 111111111111, attrname
-#         return object.__getattr__(self, attrname)
-
 class CurrencyManager(Manager):
     use_for_related_fields = True
 
@@ -36,7 +30,7 @@ class Currency(models.Model):
     iso_code = models.CharField(max_length=5, db_index=True, unique=True, help_text="ISO 4217 code")
     numeric_code = models.CharField(max_length=5, unique=True, help_text="ISO 4217 code")
     decimals = models.IntegerField(default=0)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     symbol = models.CharField(max_length=5, blank=True, null=True)
     objects = CurrencyManager()
 
@@ -49,7 +43,7 @@ class Currency(models.Model):
         return unicode("%s (%s)" % (self.iso_code, self.name))
 
     def natural_key(self):
-        return (self.uuid.hex, )
+        return self.uuid.hex,
 
 
 CONTINENTS = (
@@ -113,7 +107,7 @@ class Country(models.Model):
     currency = models.ForeignKey(Currency, blank=True, null=True)
 
     tld = models.CharField(help_text='Internet tld', max_length=5, blank=True, null=True)
-    phone_prefix = models.CharField(help_text='Phone prefix number', max_length=10, blank=True, null=True)
+    phone_prefix = models.CharField(help_text='Phone prefix number', max_length=20, blank=True, null=True)
 
     timezone = TimeZoneField(blank=True, null=True, default=None)
     expired = models.DateField(blank=True, null=True, default=None)
@@ -304,7 +298,6 @@ class Location(models.Model):
 
     is_capital = models.BooleanField(default=False, help_text="True if is the capital of `country`")
     is_administrative = models.BooleanField(default=False, help_text="True if is administrative for `area`")
-
     uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
     name = models.CharField(_('Name'), max_length=255, db_index=True)
 

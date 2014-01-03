@@ -97,7 +97,8 @@ def load_currency_symbols(stdout=None):
                 c.save()
             except Currency.DoesNotExist:
                 print code
-
+            except Exception as e:
+                raise e
 
 def load_country(rewrite=False, stdout=None):
     url = "http://download.geonames.org/export/dump/countryInfo.txt"
@@ -139,7 +140,7 @@ def load_country(rewrite=False, stdout=None):
             else:
                 raise LoadingError(line)
 
-    load_fullnames()
+    # load_fullnames()
 
 
 def load_currency(rewrite=False, stdout=None):
@@ -172,5 +173,5 @@ def load_currency(rewrite=False, stdout=None):
                 cur.save()
                 stdout.write('%s\n' % unicode(cur))
 
-    load_currency_symbols()
+    # load_currency_symbols()
 

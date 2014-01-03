@@ -53,6 +53,7 @@ def country_factory(**kwargs):
     kwargs.setdefault('num_code', lambda x: '%03d' % iso_n())
     kwargs.setdefault('name', lambda x: next(names))
     kwargs.setdefault('fullname', lambda x: text(20))
+    kwargs.setdefault('currency', None)
 
     country = G(Country, **kwargs)
     return country

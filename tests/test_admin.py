@@ -17,7 +17,7 @@ def app(request):
     return django_webtest.DjangoTestApp()
 
 
-@pytest.mark.django_db(transaction=True)
+@pytest.mark.django_db(transaction=False)
 def test_country_update(app, superuser):
     url = reverse('admin:geo_country_changelist')
     country_factory(n=10)

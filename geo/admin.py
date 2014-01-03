@@ -2,7 +2,7 @@
 from django.contrib.admin.options import TabularInline
 from django.contrib.admin.util import unquote
 from django.core.urlresolvers import reverse
-from geo.forms import CountryForm, AreaForm, administrativeareatypeform_factory_for_country, LocationForm
+from geo.forms import CountryForm, AreaForm, administrativeareaform_factory_for_country, LocationForm
 from geo.models import Country, Location, AdministrativeArea, AdministrativeAreaType, Currency
 from geo.templatetags.geo import flag
 from django.contrib.admin import ModelAdmin, site, TabularInline
@@ -45,7 +45,7 @@ class AdministrativeAreaInline(TabularInline):
     model = AdministrativeArea
 
     def get_formset(self, request, obj=None, **kwargs):
-        self.form = administrativeareatypeform_factory_for_country(obj)
+        self.form = administrativeareaform_factory_for_country(obj)
         return super(AdministrativeAreaInline, self).get_formset(request, obj, **kwargs)
 
 
