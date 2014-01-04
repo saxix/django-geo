@@ -73,38 +73,38 @@ Two levels
 Links
 ~~~~~
 
-+--------------------+----------------+--------------+------------------------+
-| Stable             | |master-build| | |master-cov| | |master-req|           |
-+--------------------+----------------+--------------+------------------------+
-| Development        | |dev-build|    | |dev-cov|    | |dev-req|              |
-+--------------------+----------------+--------------+------------------------+
++--------------------+----------------+--------------+----------------+
+| Stable             | |master-build| | |master-cov| | |master-req|   |
++--------------------+----------------+--------------+----------------+
+| Development        | |dev-build|    | |dev-cov|    | |dev-req|      |
++--------------------+----------------+--------------+----------------+
 | Project home page: |https://github.com/saxix/django-geo             |
-+--------------------+---------------+----------------------------------------+
++--------------------+---------------+--------------------------------+
 | Issue tracker:     |https://github.com/saxix/django-geo/issues?sort |
-+--------------------+---------------+----------------------------------------+
++--------------------+---------------+--------------------------------+
 | Download:          |http://pypi.python.org/pypi/django-geo/         |
-+--------------------+---------------+----------------------------------------+
++--------------------+---------------+--------------------------------+
 | Documentation:     |https://django-geo.readthedocs.org/en/latest/   |
-+--------------------+---------------+--------------+-------------------------+
++--------------------+---------------+--------------+-----------------+
 
 .. |master-build| image:: https://secure.travis-ci.org/saxix/django-geo.png?branch=master
-:target: http://travis-ci.org/saxix/django-geo/
+                    :target: http://travis-ci.org/saxix/django-geo/
 
 .. |master-cov| image:: https://coveralls.io/repos/saxix/django-geo/badge.png?branch=master
-:target: https://coveralls.io/r/saxix/django-geo
+                    :target: https://coveralls.io/r/saxix/django-geo
 
 .. |master-req| image:: https://requires.io/github/saxix/django-geo/requirements.png?branch=master
-:target: https://requires.io/github/saxix/django-geo/requirements/?branch=master
-:alt: Requirements Status
+                    :target: https://requires.io/github/saxix/django-geo/requirements/?branch=master
+                    :alt: Requirements Status
 
 
 .. |dev-build| image:: https://secure.travis-ci.org/saxix/django-geo.png?branch=develop
-:target: http://travis-ci.org/saxix/django-geo/
+                    :target: http://travis-ci.org/saxix/django-geo/
 
 .. |dev-cov| image:: https://coveralls.io/repos/saxix/django-geo/badge.png?branch=develop
-:target: https://coveralls.io/r/saxix/django-geo
+                :target: https://coveralls.io/r/saxix/django-geo
 
 .. |dev-req| image:: https://requires.io/github/saxix/django-geo/requirements.png?branch=develop
-:target: https://requires.io/github/saxix/django-geo/requirements/?branch=develop
-:alt: Requirements Status
+                :target: https://requires.io/github/saxix/django-geo/requirements/?branch=develop
+                :alt: Requirements Status
 
