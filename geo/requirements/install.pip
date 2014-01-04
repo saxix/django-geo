@@ -1,4 +1,4 @@
-django-mptt>=0.6.0
+django-mptt==0.6.0
 django-uuidfield==0.4.0
 requests==2.1.0
 unicodecsv==0.9.4
