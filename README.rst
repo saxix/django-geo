@@ -2,9 +2,6 @@
 django-geo
 ================
 
-.. image:: https://secure.travis-ci.org/saxix/django-geo.png?branch=master
-   :target: http://travis-ci.org/saxix/django-geo/
-
 A Django application which manage administrative geographical data.
 It use Modified Preorder Tree Traversal, provided by django-mptt `https://github.com/django-mptt/django-mptt/`
 
@@ -23,7 +20,9 @@ Models
 Examples
 --------
 
- Three levels ::
+ Three levels
+
+.. code-block:: python
 
     italy = Country.objects.get(iso_code='IT')
     regione, __ = italy.administrativeareatype_set.get_or_create(name='Regione')
@@ -48,7 +47,9 @@ Examples
                                                 type=city,
                                                 area=roma_comune)
 
- Two levels, ::
+Two levels
+
+ .. code-block:: python
 
     us = Country.objects.get(iso_code='US')
     state, __ = italy.administrativeareatype_set.get_or_create(name='State')
@@ -68,9 +69,42 @@ Examples
                                                  area=columbia,
                                                  is_administrative=True)
 
-Project links
--------------
 
-* Project home page: https://github.com/saxix/django-geo
-* Documentation: http://pypi.python.org/pypi/django-geo/
-* Download: http://pypi.python.org/pypi/django-geo/
+Links
+~~~~~
+
++--------------------+----------------+--------------+------------------------+
+| Stable             | |master-build| | |master-cov| | |master-req|           |
++--------------------+----------------+--------------+------------------------+
+| Development        | |dev-build|    | |dev-cov|    | |dev-req|              |
++--------------------+----------------+--------------+------------------------+
+| Project home page: |https://github.com/saxix/django-geo             |
++--------------------+---------------+----------------------------------------+
+| Issue tracker:     |https://github.com/saxix/django-geo/issues?sort |
++--------------------+---------------+----------------------------------------+
+| Download:          |http://pypi.python.org/pypi/django-geo/         |
++--------------------+---------------+----------------------------------------+
+| Documentation:     |https://django-geo.readthedocs.org/en/latest/   |
++--------------------+---------------+--------------+-------------------------+
+
+.. |master-build| image:: https://secure.travis-ci.org/saxix/django-geo.png?branch=master
+:target: http://travis-ci.org/saxix/django-geo/
+
+.. |master-cov| image:: https://coveralls.io/repos/saxix/django-geo/badge.png?branch=master
+:target: https://coveralls.io/r/saxix/django-geo
+
+.. |master-req| image:: https://requires.io/github/saxix/django-geo/requirements.png?branch=master
+:target: https://requires.io/github/saxix/django-geo/requirements/?branch=master
+:alt: Requirements Status
+
+
+.. |dev-build| image:: https://secure.travis-ci.org/saxix/django-geo.png?branch=develop
+:target: http://travis-ci.org/saxix/django-geo/
+
+.. |dev-cov| image:: https://coveralls.io/repos/saxix/django-geo/badge.png?branch=develop
+:target: https://coveralls.io/r/saxix/django-geo
+
+.. |dev-req| image:: https://requires.io/github/saxix/django-geo/requirements.png?branch=develop
+:target: https://requires.io/github/saxix/django-geo/requirements/?branch=develop
+:alt: Requirements Status
+
