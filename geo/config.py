@@ -5,7 +5,6 @@ from django.db.models import Model
 from django.utils import six
 from django.test.signals import setting_changed
 import os
-from wfp_commonlib.path import Path
 
 
 class AppSettings(object):
@@ -58,6 +57,8 @@ class AppSettings(object):
             setting_changed.send(self.__class__, setting=prefix_name, value=value, enter=True)
 
         setting_changed.connect(self._handler)
+        if not os.path.isdir(self.CACHE):
+            raise ImproperlyConfigured('%s is not a valid directory. Please change `settings.GEO_CACHE` value or create it', self.CACHE)
 
     def _set_attr(self, prefix_name, value):
         name = prefix_name[len(self.prefix) + 1:]
@@ -79,4 +80,3 @@ class AppSettings(object):
 
 
 conf = AppSettings('GEO')
-cache = Path(conf.CACHE).mkdir(parents=True)
