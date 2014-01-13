@@ -4,6 +4,8 @@ Created on May 7, 2010
 
 @author: sax
 '''
+import functools
+import warnings
 from timezone_field import TimeZoneField
 from uuidfield import UUIDField
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
@@ -87,6 +89,24 @@ class CountryManager(Manager):
         return self.get(uuid=uuid)
 
 
+class deprecated_fieldname(object):
+    def __init__(self, replace):
+        self.new_field_name = replace
+        self._message = "`{0.name}` is deprecated. Please use `{0.new_field_name}` instead"
+
+    def __get__(self, instance, owner):
+        warnings.warn(self._message.format(self), stacklevel=2)
+        return getattr(instance, self.new_field_name)
+
+    def __set__(self, instance, value):
+        warnings.warn(self._message.format(self), stacklevel=2)
+        setattr(instance, self.new_field_name, value)
+
+    def contribute_to_class(self, cls, name, virtual_only=False):
+        self.name = name
+        setattr(cls, name, self)
+
+
 class Country(models.Model):
     """ Model for the country of origin.
     """
@@ -94,8 +114,8 @@ class Country(models.Model):
                                 help_text='ISO 3166-1 alpha 2', validators=[MinLengthValidator(2)])
     iso_code3 = models.CharField(max_length=3, unique=True, blank=False, null=False, db_index=True,
                                  help_text='ISO 3166-1 alpha 3', validators=[MinLengthValidator(3)])
-    iso_num = models.CharField(max_length=3, unique=True, blank=False, null=False,
-                               help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
+    iso_numeric = models.CharField(max_length=3, unique=True, blank=False, null=False,
+                                   help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
     uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
 
     name = models.CharField(max_length=100, db_index=True)
@@ -113,6 +133,10 @@ class Country(models.Model):
     expired = models.DateField(blank=True, null=True, default=None)
     fullname.alphabetic_filter = True
     objects = CountryManager()
+
+    num_code = deprecated_fieldname('iso_numeric')
+    iso3_code = deprecated_fieldname('iso_code3')
+
 
     class Meta:
         app_label = 'geo'
