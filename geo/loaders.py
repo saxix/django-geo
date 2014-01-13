@@ -53,7 +53,6 @@ def load_timezone(overwrite=False, stdout=None):
     if overwrite:
         filters1 = {'timezone__isnull': True}
         filters2 = {'country__timezone__isnull': True}
-        filters3 = {'country__timezone__    Pisnull': True}
 
     for country in Country.objects.filter(**filters1):
         _update(country, country.iso_code)
