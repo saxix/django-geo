@@ -5,6 +5,7 @@ from django.db.models import Model
 from django.utils import six
 from django.test.signals import setting_changed
 import os
+from wfp_commonlib.path import Path
 
 
 class AppSettings(object):
@@ -78,3 +79,4 @@ class AppSettings(object):
 
 
 conf = AppSettings('GEO')
+cache = Path(conf.CACHE).mkdir(parents=True)
