@@ -1,7 +1,11 @@
+import os
 from django.core.exceptions import ValidationError
 from django.db.utils import IntegrityError
 from django.test import TestCase, TransactionTestCase
 from geo.models import Country, AdministrativeArea, Location
+from geo.fixtures import location_factory, currency_factory
+from django.db import transaction
+from django.core.management import call_command
 
 
 class Test(TestCase):
@@ -121,11 +125,6 @@ class Test(TestCase):
 class TestNaturalKeys(TransactionTestCase):
 
     def test_dump_and_load(self):
-        import os
-        from geo.fixtures import location_factory, currency_factory
-        from django.db import transaction
-        from django.core.management import call_command
-
         transaction.commit_unless_managed()
         transaction.enter_transaction_management()
         transaction.managed()
@@ -140,3 +139,10 @@ class TestNaturalKeys(TransactionTestCase):
 
         call_command('loaddata', 'tmp_fixture.json', use_natural_keys=True)
         os.remove('tmp_fixture.json')
+
+
+class TestExportXls(TestCase):
+
+    def test_export_xls(self):
+        location1 = location_factory()
+        location2 = location_factory()
