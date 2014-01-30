@@ -7,3 +7,4 @@ django-timezone-field==1.0
 djangorestframework==2.3.11
 lxml==3.3.0beta4
 django-modeltranslation
+south
