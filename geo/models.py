@@ -6,6 +6,7 @@ Created on May 7, 2010
 '''
 import functools
 import warnings
+from datetime import datetime
 from timezone_field import TimeZoneField
 from uuidfield import UUIDField
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
@@ -58,14 +59,15 @@ CONTINENTS = (
     ('SA', _('South America')),
 )
 
-REGIONS = zip(range(1, 5), ('Africa', 'Americas', 'Asia', 'Middle East'))
-
 
 class CountryManager(Manager):
     use_for_related_fields = True
 
+    def valid(self):
+        return self.get_query_set().filter(expired__isnull=True)
+
     def _by_continent(self, continent):
-        return self.get_query_set().filter(continent=continent)
+        return self.valid().filter(continent=continent)
 
     def asia(self):
         return self._by_continent('AS')
@@ -89,23 +91,19 @@ class CountryManager(Manager):
         return self.get(uuid=uuid)
 
 
-class deprecated_fieldname(object):
-    def __init__(self, replace):
-        self.new_field_name = replace
-        self._message = "`{0.name}` is deprecated. Please use `{0.new_field_name}` instead"
+class UNRegion(models.Model):
+    code = models.CharField(max_length=5, unique=True, blank=False, null=False, db_index=True)
 
-    def __get__(self, instance, owner):
-        warnings.warn(self._message.format(self), stacklevel=2)
-        return getattr(instance, self.new_field_name)
+    name = models.CharField(max_length=100)
+    last_update = models.DateTimeField(auto_now=True)
 
-    def __set__(self, instance, value):
-        warnings.warn(self._message.format(self), stacklevel=2)
-        setattr(instance, self.new_field_name, value)
+    class Meta:
+        app_label = 'geo'
+        verbose_name_plural = _('UN Regions')
+        ordering = ['name']
 
-    def contribute_to_class(self, cls, name, virtual_only=False):
-        self.name = name
-        setattr(cls, name, self)
-
+    def __unicode__(self):
+        return self.name
 
 class Country(models.Model):
     """ Model for the country of origin.
@@ -114,15 +112,15 @@ class Country(models.Model):
                                 help_text='ISO 3166-1 alpha 2', validators=[MinLengthValidator(2)])
     iso_code3 = models.CharField(max_length=3, unique=True, blank=False, null=False, db_index=True,
                                  help_text='ISO 3166-1 alpha 3', validators=[MinLengthValidator(3)])
-    iso_numeric = models.CharField(max_length=3, unique=True, blank=False, null=False,
-                                   help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
+    iso_num = models.CharField(max_length=3, unique=True, blank=False, null=False,
+                               help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
     uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
 
     name = models.CharField(max_length=100, db_index=True)
 
     fullname = models.CharField(max_length=100, db_index=True)
 
-    region = models.IntegerField(choices=REGIONS, blank=True, null=True, default=None)
+    region = models.ForeignKey(UNRegion, blank=True, null=True, default=None)
     continent = models.CharField(choices=CONTINENTS, max_length=2)
     currency = models.ForeignKey(Currency, blank=True, null=True)
 
@@ -131,11 +129,14 @@ class Country(models.Model):
 
     timezone = TimeZoneField(blank=True, null=True, default=None)
     expired = models.DateField(blank=True, null=True, default=None)
+
+    lat = models.DecimalField("Latitude", max_digits=18, decimal_places=12, blank=True, null=True)
+    lng = models.DecimalField("Longitude", max_digits=18, decimal_places=12, blank=True, null=True)
+
+    last_update = models.DateTimeField(auto_now=True, default=datetime.now)
+
     fullname.alphabetic_filter = True
     objects = CountryManager()
-
-    num_code = deprecated_fieldname('iso_numeric')
-    iso3_code = deprecated_fieldname('iso_code3')
 
 
     class Meta:

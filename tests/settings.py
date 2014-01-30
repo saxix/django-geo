@@ -12,6 +12,12 @@ SECRET_KEY = 'abc'
 STATIC_ROOT = mktemp('static')
 MEDIA_ROOT = mktemp('media')
 
+gettext = lambda s: s
+LANGUAGES = (
+    ('de', gettext('German')),
+    ('en', gettext('English')),
+)
+
 INSTALLED_APPS = ['django.contrib.auth',
                   'django.contrib.contenttypes',
                   'django.contrib.sessions',
@@ -19,6 +25,8 @@ INSTALLED_APPS = ['django.contrib.auth',
                   'django.contrib.messages',
                   'django.contrib.staticfiles',
                   'django.contrib.admin',
+                  'south',
+                  'modeltranslation',
                   'geo']
 
 TEMPLATE_DIRS = ['tests/templates']
