@@ -4,8 +4,15 @@ from django.core.management.base import BaseCommand, CommandError
 from optparse import make_option
 from django.db import transaction, IntegrityError
 from geo.loaders import load_timezone
-from geo.models import Country, Currency
+from geo.models import Country, Currency, UNRegion
 from geo.utils import load_currency, load_country
+
+
+Regions = (('OMD', 'West Africa'),
+           ('OMJ', 'Southern Africa'),
+           ('OMP', 'Latin America & Caribbean'),
+           ('OMB', 'Asia'),
+           ('OMC', 'Middle East, North Africa, Eastern Europe and Central Asia'), ('OMN', 'Eastern & Central Africa'))
 
 
 class Command(BaseCommand):
@@ -16,17 +23,18 @@ class Command(BaseCommand):
         make_option('-p', '--capitals', action='store_true', dest='capital'),
         make_option('-z', '--timezone', action='store_true', dest='tz'),
         make_option('-m', '--currency', action='store_true', dest='currency'),
-        # make_option('-r', '--region', action='store_true', dest='region'),
+        make_option('-r', '--region', action='store_true', dest='region'),
         # make_option('-i', '--ignore-cache', action='store_true', dest='reset'),
     )
 
     def handle(self, *args, **options):
         load_all = options.get('all')
-        reset = options.get('currency')
+        # reset = options.get('currency')
         if load_all:
-            region = tz= country = capital = currency = True
+            region = tz = country = capital = currency = region = True
         else:
             country = options.get('country')
+            region = options.get('region')
             capital = options.get('capital')
             tz = options.get('tz')
             currency = options.get('currency')
@@ -34,6 +42,9 @@ class Command(BaseCommand):
         if currency:
             self.stdout.write("Loading currencies...")
             load_currency(self.stdout)
+        if region:
+            for code, name in Regions:
+                UNRegion.objects.get_or_create(name=name, code=code)
         if country:
             self.stdout.write("Loading countries...")
             load_country(self.stdout)
