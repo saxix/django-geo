@@ -44,6 +44,7 @@ def currency_factory(**kwargs):
 
 def country_factory(**kwargs):
     names = nextname('Country')
+
     iso_2 = unique(iso2, 1, cache={})
     iso_3 = unique(iso3, 1, cache={})
     iso_n = unique(isonum, 1, cache={})
@@ -52,7 +53,8 @@ def country_factory(**kwargs):
     kwargs.setdefault('iso_code3', lambda x: iso_3())
     kwargs.setdefault('num_code', lambda x: '%03d' % iso_n())
     kwargs.setdefault('name', lambda x: next(names))
-    kwargs.setdefault('fullname', lambda x: text(20))
+    kwargs.setdefault('name_en', lambda x: next(names))
+    kwargs.setdefault('fullname', lambda x: next(names))
     kwargs.setdefault('currency', None)
 
     country = G(Country, **kwargs)
