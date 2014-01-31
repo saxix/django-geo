@@ -23,6 +23,7 @@ def test_country_update(app, superuser):
     country_factory(n=10)
 
     res = app.get(url, user=superuser.username)
+
     res = res.click('^Country-1$')
     res = res.form.submit().follow()
 
