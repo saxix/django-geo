@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
+import datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
@@ -11,40 +11,50 @@ class Migration(SchemaMigration):
         # Adding model 'Currency'
         db.create_table(u'geo_currency', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, unique=True, default='', max_length=32)),
-            ('iso_code', self.gf('django.db.models.fields.CharField')(unique=True, max_length=5, db_index=True)),
-            ('numeric_code', self.gf('django.db.models.fields.CharField')(unique=True, max_length=5)),
+            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
+            ('iso_code', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=5, unique=True)),
+            ('numeric_code', self.gf('django.db.models.fields.CharField')(max_length=5, unique=True)),
             ('decimals', self.gf('django.db.models.fields.IntegerField')(default=0)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('symbol', self.gf('django.db.models.fields.CharField')(blank=True, max_length=5, null=True)),
         ))
         db.send_create_signal('geo', ['Currency'])
 
+        # Adding model 'UNRegion'
+        db.create_table(u'geo_unregion', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('code', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=5, unique=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('last_update', self.gf('django.db.models.fields.DateTimeField')(blank=True, auto_now=True)),
+        ))
+        db.send_create_signal('geo', ['UNRegion'])
+
         # Adding model 'Country'
         db.create_table(u'geo_country', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('iso_code', self.gf('django.db.models.fields.CharField')(unique=True, max_length=2, db_index=True)),
-            ('iso_code3', self.gf('django.db.models.fields.CharField')(unique=True, max_length=3, db_index=True)),
-            ('iso_num', self.gf('django.db.models.fields.CharField')(unique=True, max_length=3)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, unique=True, default='', max_length=32)),
+            ('iso_code', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=2, unique=True)),
+            ('iso_code3', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=3, unique=True)),
+            ('iso_num', self.gf('django.db.models.fields.CharField')(max_length=3, unique=True)),
+            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
             ('name', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=100)),
             ('fullname', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=100)),
-            ('region', self.gf('django.db.models.fields.IntegerField')(blank=True, default=None, null=True)),
+            ('region', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, null=True, to=orm['geo.UNRegion'], default=None)),
             ('continent', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('currency', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, to=orm['geo.Currency'], null=True)),
+            ('currency', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, null=True, to=orm['geo.Currency'])),
             ('tld', self.gf('django.db.models.fields.CharField')(blank=True, max_length=5, null=True)),
             ('phone_prefix', self.gf('django.db.models.fields.CharField')(blank=True, max_length=20, null=True)),
-            ('timezone', self.gf('timezone_field.fields.TimeZoneField')(blank=True, default=None, null=True)),
-            ('expired', self.gf('django.db.models.fields.DateField')(blank=True, default=None, null=True)),
-            ('lat', self.gf('django.db.models.fields.DecimalField')(blank=True, max_digits=18, decimal_places=12, null=True)),
-            ('lng', self.gf('django.db.models.fields.DecimalField')(blank=True, max_digits=18, decimal_places=12, null=True)),
+            ('timezone', self.gf('timezone_field.fields.TimeZoneField')(blank=True, null=True, default=None)),
+            ('expired', self.gf('django.db.models.fields.DateField')(blank=True, null=True, default=None)),
+            ('lat', self.gf('django.db.models.fields.DecimalField')(blank=True, decimal_places=12, max_digits=18, null=True)),
+            ('lng', self.gf('django.db.models.fields.DecimalField')(blank=True, decimal_places=12, max_digits=18, null=True)),
+            ('last_update', self.gf('django.db.models.fields.DateTimeField')(blank=True, auto_now=True, default=datetime.datetime.now)),
         ))
         db.send_create_signal('geo', ['Country'])
 
         # Adding model 'AdministrativeAreaType'
         db.create_table(u'geo_administrativeareatype', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, unique=True, default='', max_length=32)),
+            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
             ('name', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=100)),
             ('country', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.Country'])),
             ('parent', self.gf('mptt.fields.TreeForeignKey')(blank=True, null=True, to=orm['geo.AdministrativeAreaType'], related_name='children')),
@@ -62,10 +72,10 @@ class Migration(SchemaMigration):
         # Adding model 'AdministrativeArea'
         db.create_table(u'geo_administrativearea', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, unique=True, default='', max_length=32)),
+            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
             ('name', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255)),
-            ('code', self.gf('django.db.models.fields.CharField')(blank=True, null=True, db_index=True, max_length=10)),
-            ('parent', self.gf('mptt.fields.TreeForeignKey')(to=orm['geo.AdministrativeArea'], blank=True, null=True, default=None, related_name='areas')),
+            ('code', self.gf('django.db.models.fields.CharField')(db_index=True, blank=True, max_length=10, null=True)),
+            ('parent', self.gf('mptt.fields.TreeForeignKey')(blank=True, null=True, to=orm['geo.AdministrativeArea'], related_name='areas', default=None)),
             ('country', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.Country'], related_name='areas')),
             ('type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.AdministrativeAreaType'])),
             ('_order', self.gf('django.db.models.fields.IntegerField')(default=0)),
@@ -82,8 +92,8 @@ class Migration(SchemaMigration):
         # Adding model 'LocationType'
         db.create_table(u'geo_locationtype', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, unique=True, default='', max_length=32)),
-            ('description', self.gf('django.db.models.fields.CharField')(unique=True, max_length=100)),
+            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
+            ('description', self.gf('django.db.models.fields.CharField')(max_length=100, unique=True)),
         ))
         db.send_create_signal('geo', ['LocationType'])
 
@@ -91,16 +101,16 @@ class Migration(SchemaMigration):
         db.create_table(u'geo_location', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('country', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.Country'])),
-            ('area', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, to=orm['geo.AdministrativeArea'], null=True)),
-            ('type', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, to=orm['geo.LocationType'], null=True)),
+            ('area', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, null=True, to=orm['geo.AdministrativeArea'])),
+            ('type', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, null=True, to=orm['geo.LocationType'])),
             ('is_capital', self.gf('django.db.models.fields.BooleanField')(default=False)),
             ('is_administrative', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, unique=True, default='', max_length=32)),
+            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
             ('name', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255)),
             ('description', self.gf('django.db.models.fields.CharField')(blank=True, max_length=100, null=True)),
-            ('lat', self.gf('django.db.models.fields.DecimalField')(blank=True, max_digits=18, decimal_places=12, null=True)),
-            ('lng', self.gf('django.db.models.fields.DecimalField')(blank=True, max_digits=18, decimal_places=12, null=True)),
-            ('acc', self.gf('django.db.models.fields.IntegerField')(blank=True, default=0, null=True)),
+            ('lat', self.gf('django.db.models.fields.DecimalField')(blank=True, decimal_places=12, max_digits=18, null=True)),
+            ('lng', self.gf('django.db.models.fields.DecimalField')(blank=True, decimal_places=12, max_digits=18, null=True)),
+            ('acc', self.gf('django.db.models.fields.IntegerField')(blank=True, null=True, default=0)),
             ('_order', self.gf('django.db.models.fields.IntegerField')(default=0)),
         ))
         db.send_create_signal('geo', ['Location'])
@@ -122,6 +132,9 @@ class Migration(SchemaMigration):
         # Deleting model 'Currency'
         db.delete_table(u'geo_currency')
 
+        # Deleting model 'UNRegion'
+        db.delete_table(u'geo_unregion')
+
         # Deleting model 'Country'
         db.delete_table(u'geo_country')
 
@@ -140,22 +153,22 @@ class Migration(SchemaMigration):
 
     models = {
         'geo.administrativearea': {
-            'Meta': {'object_name': 'AdministrativeArea', 'ordering': "(u'_order',)", 'unique_together': "(('name', 'country', 'type'),)"},
+            'Meta': {'object_name': 'AdministrativeArea', 'unique_together': "(('name', 'country', 'type'),)", 'ordering': "(u'_order',)"},
             '_order': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            'code': ('django.db.models.fields.CharField', [], {'blank': 'True', 'null': 'True', 'db_index': 'True', 'max_length': '10'}),
+            'code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'blank': 'True', 'max_length': '10', 'null': 'True'}),
             'country': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.Country']", 'related_name': "'areas'"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             u'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             u'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255'}),
-            'parent': ('mptt.fields.TreeForeignKey', [], {'to': "orm['geo.AdministrativeArea']", 'blank': 'True', 'null': 'True', 'default': 'None', 'related_name': "'areas'"}),
+            'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.AdministrativeArea']", 'related_name': "'areas'", 'default': 'None'}),
             u'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             u'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             'type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.AdministrativeAreaType']"}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'unique': 'True', 'default': "''", 'max_length': '32'})
+            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
         },
         'geo.administrativeareatype': {
-            'Meta': {'object_name': 'AdministrativeAreaType', 'ordering': "(u'_order',)", 'unique_together': "(('country', 'name'),)"},
+            'Meta': {'object_name': 'AdministrativeAreaType', 'unique_together': "(('country', 'name'),)", 'ordering': "(u'_order',)"},
             '_order': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'country': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.Country']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -165,58 +178,66 @@ class Migration(SchemaMigration):
             'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.AdministrativeAreaType']", 'related_name': "'children'"}),
             u'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             u'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'unique': 'True', 'default': "''", 'max_length': '32'})
+            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
         },
         'geo.country': {
             'Meta': {'object_name': 'Country', 'ordering': "['name']"},
             'continent': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
-            'currency': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'to': "orm['geo.Currency']", 'null': 'True'}),
-            'expired': ('django.db.models.fields.DateField', [], {'blank': 'True', 'default': 'None', 'null': 'True'}),
+            'currency': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.Currency']"}),
+            'expired': ('django.db.models.fields.DateField', [], {'blank': 'True', 'null': 'True', 'default': 'None'}),
             'fullname': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '100'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'iso_code': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '2', 'db_index': 'True'}),
-            'iso_code3': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '3', 'db_index': 'True'}),
-            'iso_num': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '3'}),
-            'lat': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'max_digits': '18', 'decimal_places': '12', 'null': 'True'}),
-            'lng': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'max_digits': '18', 'decimal_places': '12', 'null': 'True'}),
+            'iso_code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '2', 'unique': 'True'}),
+            'iso_code3': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '3', 'unique': 'True'}),
+            'iso_num': ('django.db.models.fields.CharField', [], {'max_length': '3', 'unique': 'True'}),
+            'last_update': ('django.db.models.fields.DateTimeField', [], {'blank': 'True', 'auto_now': 'True', 'default': 'datetime.datetime.now'}),
+            'lat': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'decimal_places': '12', 'max_digits': '18', 'null': 'True'}),
+            'lng': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'decimal_places': '12', 'max_digits': '18', 'null': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '100'}),
             'phone_prefix': ('django.db.models.fields.CharField', [], {'blank': 'True', 'max_length': '20', 'null': 'True'}),
-            'region': ('django.db.models.fields.IntegerField', [], {'blank': 'True', 'default': 'None', 'null': 'True'}),
-            'timezone': ('timezone_field.fields.TimeZoneField', [], {'blank': 'True', 'default': 'None', 'null': 'True'}),
+            'region': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.UNRegion']", 'default': 'None'}),
+            'timezone': ('timezone_field.fields.TimeZoneField', [], {'blank': 'True', 'null': 'True', 'default': 'None'}),
             'tld': ('django.db.models.fields.CharField', [], {'blank': 'True', 'max_length': '5', 'null': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'unique': 'True', 'default': "''", 'max_length': '32'})
+            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
         },
         'geo.currency': {
             'Meta': {'object_name': 'Currency', 'ordering': "['iso_code']"},
             'decimals': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'iso_code': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '5', 'db_index': 'True'}),
+            'iso_code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '5', 'unique': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'numeric_code': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '5'}),
+            'numeric_code': ('django.db.models.fields.CharField', [], {'max_length': '5', 'unique': 'True'}),
             'symbol': ('django.db.models.fields.CharField', [], {'blank': 'True', 'max_length': '5', 'null': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'unique': 'True', 'default': "''", 'max_length': '32'})
+            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
         },
         'geo.location': {
-            'Meta': {'object_name': 'Location', 'ordering': "(u'_order',)", 'unique_together': "(('area', 'name'),)"},
+            'Meta': {'object_name': 'Location', 'unique_together': "(('area', 'name'),)", 'ordering': "(u'_order',)"},
             '_order': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            'acc': ('django.db.models.fields.IntegerField', [], {'blank': 'True', 'default': '0', 'null': 'True'}),
-            'area': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'to': "orm['geo.AdministrativeArea']", 'null': 'True'}),
+            'acc': ('django.db.models.fields.IntegerField', [], {'blank': 'True', 'null': 'True', 'default': '0'}),
+            'area': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.AdministrativeArea']"}),
             'country': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.Country']"}),
             'description': ('django.db.models.fields.CharField', [], {'blank': 'True', 'max_length': '100', 'null': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'is_administrative': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'is_capital': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'lat': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'max_digits': '18', 'decimal_places': '12', 'null': 'True'}),
-            'lng': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'max_digits': '18', 'decimal_places': '12', 'null': 'True'}),
+            'lat': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'decimal_places': '12', 'max_digits': '18', 'null': 'True'}),
+            'lng': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'decimal_places': '12', 'max_digits': '18', 'null': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255'}),
-            'type': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'to': "orm['geo.LocationType']", 'null': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'unique': 'True', 'default': "''", 'max_length': '32'})
+            'type': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.LocationType']"}),
+            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
         },
         'geo.locationtype': {
             'Meta': {'object_name': 'LocationType'},
-            'description': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '100'}),
+            'description': ('django.db.models.fields.CharField', [], {'max_length': '100', 'unique': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'unique': 'True', 'default': "''", 'max_length': '32'})
+            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
+        },
+        'geo.unregion': {
+            'Meta': {'object_name': 'UNRegion', 'ordering': "['name']"},
+            'code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '5', 'unique': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'last_update': ('django.db.models.fields.DateTimeField', [], {'blank': 'True', 'auto_now': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         }
     }
 
