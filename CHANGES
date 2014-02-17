@@ -2,6 +2,7 @@
 ===
 
 * BACKWARD INCOMPATIBLE
+* ALL MIGRATIONS RESET
 * add UNRegion
 * new UUIDField for each Model
 * new LocationType Model
