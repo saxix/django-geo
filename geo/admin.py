@@ -51,8 +51,8 @@ class AdministrativeAreaInline(TabularInline):
 
 class ICountry(ModelAdmin):
     form = CountryForm
-    search_fields = ('name', )
-    list_display = ('name', 'continent', 'iso_code', 'iso_code3',
+    search_fields = ('name', 'iso_code', 'iso_code3', 'iso_num',)
+    list_display = ('name', 'continent', 'iso_code', 'iso_code3', 'iso_num',
                     'currency', 'timezone', 'flag')
     list_filter = ('continent', 'region', )
     cell_filter = ('continent', 'region', 'currency')
