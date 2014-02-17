@@ -16,7 +16,7 @@ install-deps:
 	        python-coveralls==2.4.2
 
 
-test:
+test: mkbuilddir
 	py.test -vvv
 
 clean:
