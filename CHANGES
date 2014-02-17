@@ -1,3 +1,13 @@
+0.7
+===
+
+* BACKWARD INCOMPATIBLE
+* ALL MIGRATIONS RESET
+* add UNRegion
+* new UUIDField for each Model
+* new LocationType Model
+
+
 0.6
 ===
 
@@ -18,13 +28,13 @@
 
 
 0.4.2
-=================================
+=====
 
 * fixed natural key dependencies (ensures dumpdata puts json objects in an order for loaddata to load them)
 
 
 0.4.1
-=================================
+=====
 
 .. note:: This version is backward incompatible
 
@@ -33,7 +43,7 @@
 
 
 0.4
-=================================
+===
 
 .. note:: This version is backward incompatible
 

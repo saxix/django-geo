@@ -5,7 +5,26 @@
 Django Geo
 =======================
 
-:Date: |today|
+
+.. image:: https://secure.travis-ci.org/saxix/django-geo.png?branch=master
+    :target: http://travis-ci.org/saxix/django-geo/
+    :alt: Test status
+
+.. image:: https://coveralls.io/repos/saxix/django-geo/badge.png?branch=master
+    :target: https://coveralls.io/r/saxix/django-geo
+    :alt: Coverage
+
+.. image:: https://pypip.in/v/django-geo/badge.png
+    :target: https://crate.io/packages/django-geo/
+
+.. image:: https://pypip.in/d/django-geo/badge.png
+    :target: https://crate.io/packages/django-geo/
+    :alt: Downloads
+
+.. image:: https://requires.io/github/saxix/django-geo/requirements.png?branch=master
+    :target: https://requires.io/github/saxix/django-geo/requirements/?branch=master
+    :alt: Requirements Status
+
 
 Overview
 --------
