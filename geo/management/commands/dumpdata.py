@@ -135,7 +135,7 @@ def sort_dependencies(app_list):
             models.add(model)
             # Add any explicitly defined dependencies
             if hasattr(model, 'natural_key'):
-                deps = getattr(model.natural_key, 'dependencies', [])
+                deps = list(getattr(model.natural_key, 'dependencies', []))
                 if deps:
                     deps = [get_model(*d.split('.')) for d in deps]
             else:
