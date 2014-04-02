@@ -48,9 +48,9 @@ def currency_factory(**kwargs):
 def country_factory(**kwargs):
     country_name = partial(name, sequence=itertools.count(start=0))
 
-    kwargs.setdefault('iso_code', lambda x: "{0}{0}".format(next(counter)))
-    kwargs.setdefault('iso_code3', lambda x: "{0}{0}{0}".format(next(counter)))
-    kwargs.setdefault('iso_num', lambda x: "{0}{0}{0}".format(next(counter)))
+    kwargs.setdefault('iso_code', lambda x: "{0}{0}".format(next(counter))[:2])
+    kwargs.setdefault('iso_code3', lambda x: "{0}{0}{0}".format(next(counter))[:3])
+    kwargs.setdefault('iso_num', lambda x: "{0}{0}{0}".format(next(counter))[:3])
     kwargs.setdefault('name_en', lambda x: country_name('Country'))
     kwargs.setdefault('currency', None)
 
