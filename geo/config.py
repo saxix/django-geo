@@ -36,7 +36,7 @@ class AppSettings(object):
     """
     defaults = {
         'CACHE': './cache',
-        'DATA' : os.path.join(os.path.dirname(__file__), 'data'),
+        'DATA': os.path.join(os.path.dirname(__file__), 'data'),
         'LOAD_CURRENCY_FUNC': 'geo.loaders.load_currency',
         'LOAD_COUNTRY_FUNC': 'geo.loaders.load_country',
     }
@@ -80,3 +80,10 @@ class AppSettings(object):
 
 
 conf = AppSettings('GEO')
+try:
+    from django.apps import AppConfig
+
+    class GeoConfig(AppConfig):
+        pass
+except ImportError:
+    pass

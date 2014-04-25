@@ -7,30 +7,33 @@ from django_dynamic_fixture import G
 import pytest
 from geo.hierarchy import italy
 from geo.models import Currency, Country, AdministrativeAreaType, AdministrativeArea, LocationType, Location
-from sample_data_utils.geo import iso2, iso3, isonum, get_codes
-from sample_data_utils.text import text
-from sample_data_utils.utils import unique, sequence
+from .util import text, unique
+import itertools
 
-nextname = partial(sequence, cache={})
-countries = iter(get_codes())
 
-# iso2_codes = unique(country)
-# iso_number = unique(isonum)
+name = lambda prefix, sequence: "{0}-{1}".format(prefix, next(sequence))
+nextname = partial(name, sequence=itertools.count())
+
+counter = itertools.count()
 
 
 @pytest.fixture
 def hierachy():
-    G(Country, iso_code='IT', iso_code3='ITA', iso_num=380,
-              name='Italy', fullname='Italy, Italian Republic')
+    Country.objects.all().delete()
+    Currency.objects.all().delete()
+    Country.objects.get_or_create(iso_code='IT', iso_code3='ITA', iso_num=380,
+                                  name='Italy', fullname='Italy, Italian Republic')
 
     return italy()
+
 
 @pytest.fixture
 def superuser():
     try:
         return User.objects.get(is_superuser=True)
     except User.DoesNotExist:
-         return User.objects.create_superuser('superuser','','123')
+        return User.objects.create_superuser('superuser', '', '123')
+
 
 def subargs(kwargs, prefix):
     prefix = "%s__" % prefix
@@ -43,18 +46,12 @@ def currency_factory(**kwargs):
 
 
 def country_factory(**kwargs):
-    names = nextname('Country')
+    country_name = partial(name, sequence=itertools.count(start=0))
 
-    iso_2 = unique(iso2, 1, cache={})
-    iso_3 = unique(iso3, 1, cache={})
-    iso_n = unique(isonum, 1, cache={})
-
-    kwargs.setdefault('iso_code', lambda x: iso_2())
-    kwargs.setdefault('iso_code3', lambda x: iso_3())
-    kwargs.setdefault('num_code', lambda x: '%03d' % iso_n())
-    kwargs.setdefault('name', lambda x: next(names))
-    kwargs.setdefault('name_en', lambda x: next(names))
-    kwargs.setdefault('fullname', lambda x: next(names))
+    kwargs.setdefault('iso_code', lambda x: "{0}{0}".format(next(counter))[:2])
+    kwargs.setdefault('iso_code3', lambda x: "{0}{0}{0}".format(next(counter))[:3])
+    kwargs.setdefault('iso_num', lambda x: "{0}{0}{0}".format(next(counter))[:3])
+    kwargs.setdefault('name_en', lambda x: country_name('Country'))
     kwargs.setdefault('currency', None)
 
     country = G(Country, **kwargs)

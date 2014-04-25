@@ -1,7 +1,8 @@
 BUILDDIR=./~build
 DJANGO_14=django==1.4.10
 DJANGO_15=django==1.5.5
-DJANGO_16=django==1.6.1
+DJANGO_16=django==1.6.2
+DJANGO_17=django==https://www.djangoproject.com/download/1.7b1/tarball/
 DJANGO_DEV=git+git://github.com/django/django.git
 DBNAME=geo
 
