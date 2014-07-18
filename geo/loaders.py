@@ -2,6 +2,7 @@
 from StringIO import StringIO
 from contextlib import contextmanager
 import os
+from django.utils.encoding import smart_text
 import requests
 import codecs
 import sys
@@ -80,7 +81,7 @@ def load_fullnames(stdout=None):
                 c.fullname = fullname
                 c.save()
             except Country.DoesNotExist:
-                print code, name, fullname
+                stdout.write("%s %s %s" % code, name, fullname)
 
 
 def load_currency_symbols(stdout=None):
@@ -95,7 +96,7 @@ def load_currency_symbols(stdout=None):
                 c.symbol = symbol
                 c.save()
             except Currency.DoesNotExist:
-                print code
+                stdout.write(code)
             except Exception as e:
                 raise e
 
@@ -170,7 +171,7 @@ def load_currency(rewrite=False, stdout=None):
                 except ValueError:
                     pass
                 cur.save()
-                stdout.write('%s\n' % unicode(cur))
+                stdout.write(u'%s\n' % smart_text(cur))
 
     # load_currency_symbols()
 

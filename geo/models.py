@@ -7,6 +7,7 @@ Created on May 7, 2010
 import functools
 import warnings
 from datetime import datetime
+from bitfield.models import BitField
 from timezone_field import TimeZoneField
 from uuidfield import UUIDField
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
@@ -17,6 +18,7 @@ from django.utils.translation import ugettext_lazy as _
 import logging
 from mptt.managers import TreeManager
 from mptt.models import MPTTModel, TreeForeignKey
+from separatedvaluesfield.models import SeparatedValuesField
 
 logger = logging.getLogger("geo")
 
@@ -105,6 +107,7 @@ class UNRegion(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Country(models.Model):
     """ Model for the country of origin.
     """
@@ -115,6 +118,20 @@ class Country(models.Model):
     iso_num = models.CharField(max_length=3, unique=True, blank=False, null=False,
                                help_text='ISO 3166-1 numeric', validators=[RegexValidator('\d\d\d')])
     uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
+
+    undp = models.CharField(max_length=3, unique=True, blank=True, null=True,
+                            help_text='UNDP code', validators=[MinLengthValidator(3)])
+
+    nato3 = models.CharField(max_length=3, unique=True, blank=True, null=True,
+                             help_text='NATO3 code', validators=[MinLengthValidator(3)])
+
+    fips = models.CharField(max_length=255, blank=True, null=True,
+                            help_text='fips code')
+
+    itu = models.CharField(max_length=255, blank=True, null=True,
+                           help_text='ITU code')
+
+    icao = models.CharField(max_length=255, blank=True, null=True, help_text='ICAO code')
 
     name = models.CharField(max_length=100, db_index=True)
 
@@ -324,32 +341,66 @@ class Location(models.Model):
     is_capital = models.BooleanField(default=False, help_text="True if is the capital of `country`")
     is_administrative = models.BooleanField(default=False, help_text="True if is administrative for `area`")
     uuid = UUIDField(auto=True, blank=False, version=1, help_text=_('unique id'), default="")
+
     name = models.CharField(_('Name'), max_length=255, db_index=True)
+    loccode = models.CharField(_('UN LOCODE'), max_length=255, db_index=True, blank=True, null=True)
+    # iata = models.CharField(_('IATA code (if exists)'), max_length=255, db_index=True, blank=True, null=True)
 
     description = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
     lng = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
     acc = models.IntegerField(choices=ACCURACY, default=NONE, blank=True, null=True,
                               help_text="Define the level of accuracy of lat/lng infos")
+
+    flags = BitField(flags=({0: 'unknown',
+                             1: 'port',
+                             2: 'rail_terminal',
+                             3: 'road_terminal',
+                             4: 'airport',
+                             5: 'postal_exchange',
+                             6: 'reserved',
+                             7: 'reserved'}),
+                     default=0)
+
+    status = models.CharField(max_length=2,
+                              blank=True, null=True,
+                              choices=(
+                                  ('AA', 'Approved by competent national government agency'),
+                                  ('AC', 'Approved by Customs Authority'),
+                                  ('AF', 'Approved by national facilitation body'),
+                                  ('AI', 'Code adopted by international organisation (IATA or ECLAC)'),
+                                  ('RL', 'Recognised location - Existence and representation of location name '
+                                         'confirmed by check against nominated gazetteer or other reference work'),
+                                  ('RN', 'Request from credible national sources for locations in their own country'),
+                                  ('RQ', 'Request under consideration'),
+                                  ('RR', 'Request rejected'),
+                                  ('QQ', 'Original entry not verified since date indicated'),
+                                  ('XX', 'Entry that will be removed from the next issue of UN/LOCODE'),
+                              ))
     objects = LocationManager()
 
-    class Meta:
-        verbose_name_plural = _('Locations')
-        verbose_name = _('Location')
-        app_label = 'geo'
-        ordering = ('name', 'country', )
-        order_with_respect_to = 'country'
-        unique_together = (('area', 'name'), )
 
-    def __unicode__(self):
-        return unicode(self.name)
+class Meta:
+    verbose_name_plural = _('Locations')
+    verbose_name = _('Location')
+    app_label = 'geo'
+    ordering = ('name', 'country', )
+    order_with_respect_to = 'country'
+    unique_together = (('area', 'name'), )
 
-    def natural_key(self):
-        return (self.uuid.hex, )
 
-    natural_key.dependencies = ['geo.administrativearea', 'geo.country', 'geo.locationtype']
+def __unicode__(self):
+    return unicode(self.name)
 
-    def clean(self):
-        if self.area and self.area.country != self.country:
-            raise ValidationError('Selected area not in selected country')
-        super(Location, self).clean()
+
+def natural_key(self):
+    return (self.uuid.hex, )
+
+
+natural_key.dependencies = ['geo.administrativearea', 'geo.country', 'geo.locationtype']
+
+
+def clean(self):
+    if self.area and self.area.country != self.country:
+        raise ValidationError('Selected area not in selected country')
+    super(Location, self).clean()

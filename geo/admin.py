@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+from bitfield.admin import BitFieldListFilter
+from bitfield.forms import BitFieldCheckboxSelectMultiple
+from bitfield.models import BitField
 from django.contrib.admin.options import TabularInline
 from django.contrib.admin.util import unquote
 from django.core.urlresolvers import reverse
@@ -51,13 +54,15 @@ class AdministrativeAreaInline(TabularInline):
 
 class ICountry(ModelAdmin):
     form = CountryForm
-    search_fields = ('name', 'iso_code', 'iso_code3', 'iso_num',)
-    list_display = ('name', 'continent', 'iso_code', 'iso_code3', 'iso_num',
+    search_fields = ('name', 'undp', 'iso_code', 'iso_code3', 'iso_num',)
+    list_display = ('name', 'continent', 'undp', 'iso_code', 'iso_code3', 'iso_num',
                     'currency', 'timezone', 'flag')
     list_filter = ('continent', 'region', )
     cell_filter = ('continent', 'region', 'currency')
     fieldsets = [(None, {'fields': (('name', 'fullname'),
                                     ('iso_code', 'iso_code3', 'iso_num'),
+                                    ('undp', 'nato3', ),
+                                    ('itu', 'icao', 'fips'),
                                     ('region', 'continent', 'currency'),
                                     ('timezone', 'tld', 'phone_prefix'))})]
     inlines = (AdministrativeAreaInline,
@@ -77,11 +82,13 @@ class ICountry(ModelAdmin):
 
 class ILocation(ModelAdmin):
     search_fields = ('name', )
-    list_display = ('name', 'country', 'area', 'is_administrative', 'is_capital')
+    list_display = ('name', 'loccode', 'country', 'area', 'is_administrative', 'is_capital')
     list_display_rel_links = cell_filter = ('country', 'area', 'is_administrative', 'is_capital')
-    list_filter = ('is_administrative', 'is_capital')
+    list_filter = ('is_administrative', 'is_capital', ('flags', BitFieldListFilter,), 'country')
     form = LocationForm
-
+    formfield_overrides = {
+            BitField: {'widget': BitFieldCheckboxSelectMultiple},
+    }
 
 def rebuild_tree(modeladmin, request, queryset):
     modeladmin.model.objects.rebuild()
