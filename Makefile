@@ -1,8 +1,8 @@
 BUILDDIR=./~build
-DJANGO_14=django==1.4.10
-DJANGO_15=django==1.5.5
-DJANGO_16=django==1.6.2
-DJANGO_17=django==https://www.djangoproject.com/download/1.7b1/tarball/
+DJANGO_14:='django>=1.4,<1.5'
+DJANGO_15:='django>=1.5,<1.6'
+DJANGO_16:='django>=1.6,<1.7'
+DJANGO_17=https://www.djangoproject.com/download/1.7c1/tarball/
 DJANGO_DEV=git+git://github.com/django/django.git
 DBNAME=geo
 
@@ -11,7 +11,7 @@ mkbuilddir:
 
 
 install-deps:
-	pip install \
+	@pip install -q \
 	        -r geo/requirements/install.pip \
 	        -r geo/requirements/testing.pip \
 	        python-coveralls==2.4.2
@@ -43,6 +43,7 @@ ci: init-db install-deps
 	@sh -c "if [ '${DJANGO}' = '1.4.x' ]; then pip install ${DJANGO_14}; fi"
 	@sh -c "if [ '${DJANGO}' = '1.5.x' ]; then pip install ${DJANGO_15}; fi"
 	@sh -c "if [ '${DJANGO}' = '1.6.x' ]; then pip install ${DJANGO_16}; fi"
+	@sh -c "if [ '${DJANGO}' = '1.7.x' ]; then pip install ${DJANGO_17}; fi"
 	@sh -c "if [ '${DJANGO}' = 'dev' ]; then pip install ${DJANGO_DEV}; fi"
 	@pip install coverage
 	@python -c "from __future__ import print_function;import django;print('Django version:', django.get_version())"

@@ -42,15 +42,20 @@ def subargs(kwargs, prefix):
 
 
 def currency_factory(**kwargs):
-    return G(Currency, code=nextname('CUR').next())
+    return G(Currency,
+             numeric_code=next(counter),
+             code=nextname('CUR').next())
 
 
 def country_factory(**kwargs):
     country_name = partial(name, sequence=itertools.count(start=0))
 
-    kwargs.setdefault('iso_code', lambda x: "{0}{0}".format(next(counter))[:2])
-    kwargs.setdefault('iso_code3', lambda x: "{0}{0}{0}".format(next(counter))[:3])
-    kwargs.setdefault('iso_num', lambda x: "{0}{0}{0}".format(next(counter))[:3])
+    kwargs.setdefault('iso_code', lambda x: "{:02}".format(next(counter))[:2])
+    kwargs.setdefault('iso_code3', lambda x: "{:03}".format(next(counter))[:3])
+    kwargs.setdefault('undp', lambda x: "{:03}".format(next(counter))[:3])
+    kwargs.setdefault('nato3', lambda x: "{:03}".format(next(counter))[:3])
+    kwargs.setdefault('iso_num', lambda x: "{:03}".format(next(counter))[:3])
+
     kwargs.setdefault('name_en', lambda x: country_name('Country'))
     kwargs.setdefault('currency', None)
 

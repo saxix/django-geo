@@ -8,3 +8,5 @@ djangorestframework>=2.3.13
 lxml>=3.3.0
 django-modeltranslation
 south
+django-bitfield
+django-separatedvaluesfield

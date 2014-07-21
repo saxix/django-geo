@@ -380,27 +380,27 @@ class Location(models.Model):
     objects = LocationManager()
 
 
-class Meta:
-    verbose_name_plural = _('Locations')
-    verbose_name = _('Location')
-    app_label = 'geo'
-    ordering = ('name', 'country', )
-    order_with_respect_to = 'country'
-    unique_together = (('area', 'name'), )
+    class Meta:
+        verbose_name_plural = _('Locations')
+        verbose_name = _('Location')
+        app_label = 'geo'
+        ordering = ('name', 'country', )
+        order_with_respect_to = 'country'
+        unique_together = (('area', 'name'), )
 
 
-def __unicode__(self):
-    return unicode(self.name)
+    def __unicode__(self):
+        return unicode(self.name)
 
 
-def natural_key(self):
-    return (self.uuid.hex, )
+    def natural_key(self):
+        return (self.uuid.hex, )
 
 
-natural_key.dependencies = ['geo.administrativearea', 'geo.country', 'geo.locationtype']
+    natural_key.dependencies = ['geo.administrativearea', 'geo.country', 'geo.locationtype']
 
 
-def clean(self):
-    if self.area and self.area.country != self.country:
-        raise ValidationError('Selected area not in selected country')
-    super(Location, self).clean()
+    def clean(self):
+        if self.area and self.area.country != self.country:
+            raise ValidationError('Selected area not in selected country')
+        super(Location, self).clean()

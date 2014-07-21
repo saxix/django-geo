@@ -17,17 +17,32 @@ LANGUAGES = (
     ('de', gettext('German')),
     ('en', gettext('English')),
 )
-
-INSTALLED_APPS = ['django.contrib.auth',
+# MIGRATION_MODULES = {'geo': 'migrations'}
+# SOUTH_MIGRATION_MODULES = {
+#     'geo': 'geo.south_migrations',
+# }
+INSTALLED_APPS = [
+    'django.contrib.auth',
                   'django.contrib.contenttypes',
                   'django.contrib.sessions',
-                  'django.contrib.sites',
-                  'django.contrib.messages',
-                  'django.contrib.staticfiles',
+    #               'django.contrib.sites',
+    #               'django.contrib.messages',
+    #               'django.contrib.staticfiles',
                   'django.contrib.admin',
-                  'south',
+                  # 'south',
                   'modeltranslation',
                   'geo']
+
+
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
 
 TEMPLATE_DIRS = ['tests/templates']
 

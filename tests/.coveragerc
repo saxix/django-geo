@@ -5,6 +5,7 @@ include =
 
 omit = geo/__init__.py
        geo/migrations/**
+       geo/south_migrations/**
        geo/management/**
 
 [report]

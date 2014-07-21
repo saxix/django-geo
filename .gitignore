@@ -1,5 +1,6 @@
 ~*.*
 ~*
+.*
 .tox
 .idea
 *.egg-info
@@ -11,3 +12,4 @@ local_settings.py
 OUT
 dist
 MANIFEST
+wheelhouse

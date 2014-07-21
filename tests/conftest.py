@@ -17,14 +17,21 @@ def pytest_configure(config):
 
     if not settings.configured:
         os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.settings'
-
-    try:
+    import django
+    if django.VERSION[:2] >= [1, 7]:
         from django.apps import AppConfig
-        import django
 
+        settings.INSTALLED_APPS = ['django.contrib.auth',
+                                   'django.contrib.contenttypes',
+                                   'django.contrib.sessions',
+                                   # 'django.contrib.sites',
+                                   #               'django.contrib.messages',
+                                   #               'django.contrib.staticfiles',
+                                   'django.contrib.admin.apps.SimpleAdminConfig',
+                                   # 'south',
+                                   # 'modeltranslation',
+                                   'geo.apps.GeoConfig']
         django.setup()
-    except ImportError:
-        pass
 
 
 def runtests(args=None):

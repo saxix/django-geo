@@ -5,4 +5,4 @@ from geo.models import Country
 
 @pytest.mark.django_db
 def test_issue_2():
-    G(Country)
+    G(Country, currency=None)
