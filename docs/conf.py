@@ -99,9 +99,7 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 import os
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-if on_rtd:
-    html_theme = 'default'
-else:
+if not on_rtd:
     html_theme = 'nature'
 
 

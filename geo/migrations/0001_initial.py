@@ -1,244 +1,216 @@
 # -*- coding: utf-8 -*-
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+import bitfield.models
+import django.core.validators
+import mptt.fields
+import uuidfield.fields
+import timezone_field.fields
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Currency'
-        db.create_table(u'geo_currency', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
-            ('iso_code', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=5, unique=True)),
-            ('numeric_code', self.gf('django.db.models.fields.CharField')(max_length=5, unique=True)),
-            ('decimals', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('symbol', self.gf('django.db.models.fields.CharField')(blank=True, max_length=5, null=True)),
-        ))
-        db.send_create_signal('geo', ['Currency'])
+    dependencies = [
+    ]
 
-        # Adding model 'UNRegion'
-        db.create_table(u'geo_unregion', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('code', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=5, unique=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('last_update', self.gf('django.db.models.fields.DateTimeField')(blank=True, auto_now=True)),
-        ))
-        db.send_create_signal('geo', ['UNRegion'])
-
-        # Adding model 'Country'
-        db.create_table(u'geo_country', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('iso_code', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=2, unique=True)),
-            ('iso_code3', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=3, unique=True)),
-            ('iso_num', self.gf('django.db.models.fields.CharField')(max_length=3, unique=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
-            ('name', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=100)),
-            ('fullname', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=100)),
-            ('region', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, null=True, to=orm['geo.UNRegion'], default=None)),
-            ('continent', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('currency', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, null=True, to=orm['geo.Currency'])),
-            ('tld', self.gf('django.db.models.fields.CharField')(blank=True, max_length=5, null=True)),
-            ('phone_prefix', self.gf('django.db.models.fields.CharField')(blank=True, max_length=20, null=True)),
-            ('timezone', self.gf('timezone_field.fields.TimeZoneField')(blank=True, null=True, default=None)),
-            ('expired', self.gf('django.db.models.fields.DateField')(blank=True, null=True, default=None)),
-            ('lat', self.gf('django.db.models.fields.DecimalField')(blank=True, decimal_places=12, max_digits=18, null=True)),
-            ('lng', self.gf('django.db.models.fields.DecimalField')(blank=True, decimal_places=12, max_digits=18, null=True)),
-            ('last_update', self.gf('django.db.models.fields.DateTimeField')(blank=True, auto_now=True, default=datetime.datetime.now)),
-        ))
-        db.send_create_signal('geo', ['Country'])
-
-        # Adding model 'AdministrativeAreaType'
-        db.create_table(u'geo_administrativeareatype', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
-            ('name', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=100)),
-            ('country', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.Country'])),
-            ('parent', self.gf('mptt.fields.TreeForeignKey')(blank=True, null=True, to=orm['geo.AdministrativeAreaType'], related_name='children')),
-            ('_order', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            (u'lft', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            (u'rght', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            (u'tree_id', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            (u'level', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-        ))
-        db.send_create_signal('geo', ['AdministrativeAreaType'])
-
-        # Adding unique constraint on 'AdministrativeAreaType', fields ['country', 'name']
-        db.create_unique(u'geo_administrativeareatype', ['country_id', 'name'])
-
-        # Adding model 'AdministrativeArea'
-        db.create_table(u'geo_administrativearea', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
-            ('name', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255)),
-            ('code', self.gf('django.db.models.fields.CharField')(db_index=True, blank=True, max_length=10, null=True)),
-            ('parent', self.gf('mptt.fields.TreeForeignKey')(blank=True, null=True, to=orm['geo.AdministrativeArea'], related_name='areas', default=None)),
-            ('country', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.Country'], related_name='areas')),
-            ('type', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.AdministrativeAreaType'])),
-            ('_order', self.gf('django.db.models.fields.IntegerField')(default=0)),
-            (u'lft', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            (u'rght', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            (u'tree_id', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-            (u'level', self.gf('django.db.models.fields.PositiveIntegerField')(db_index=True)),
-        ))
-        db.send_create_signal('geo', ['AdministrativeArea'])
-
-        # Adding unique constraint on 'AdministrativeArea', fields ['name', 'country', 'type']
-        db.create_unique(u'geo_administrativearea', ['name', 'country_id', 'type_id'])
-
-        # Adding model 'LocationType'
-        db.create_table(u'geo_locationtype', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
-            ('description', self.gf('django.db.models.fields.CharField')(max_length=100, unique=True)),
-        ))
-        db.send_create_signal('geo', ['LocationType'])
-
-        # Adding model 'Location'
-        db.create_table(u'geo_location', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('country', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['geo.Country'])),
-            ('area', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, null=True, to=orm['geo.AdministrativeArea'])),
-            ('type', self.gf('django.db.models.fields.related.ForeignKey')(blank=True, null=True, to=orm['geo.LocationType'])),
-            ('is_capital', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('is_administrative', self.gf('django.db.models.fields.BooleanField')(default=False)),
-            ('uuid', self.gf('uuidfield.fields.UUIDField')(blank=True, max_length=32, unique=True, default='')),
-            ('name', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=255)),
-            ('description', self.gf('django.db.models.fields.CharField')(blank=True, max_length=100, null=True)),
-            ('lat', self.gf('django.db.models.fields.DecimalField')(blank=True, decimal_places=12, max_digits=18, null=True)),
-            ('lng', self.gf('django.db.models.fields.DecimalField')(blank=True, decimal_places=12, max_digits=18, null=True)),
-            ('acc', self.gf('django.db.models.fields.IntegerField')(blank=True, null=True, default=0)),
-            ('_order', self.gf('django.db.models.fields.IntegerField')(default=0)),
-        ))
-        db.send_create_signal('geo', ['Location'])
-
-        # Adding unique constraint on 'Location', fields ['area', 'name']
-        db.create_unique(u'geo_location', ['area_id', 'name'])
-
-
-    def backwards(self, orm):
-        # Removing unique constraint on 'Location', fields ['area', 'name']
-        db.delete_unique(u'geo_location', ['area_id', 'name'])
-
-        # Removing unique constraint on 'AdministrativeArea', fields ['name', 'country', 'type']
-        db.delete_unique(u'geo_administrativearea', ['name', 'country_id', 'type_id'])
-
-        # Removing unique constraint on 'AdministrativeAreaType', fields ['country', 'name']
-        db.delete_unique(u'geo_administrativeareatype', ['country_id', 'name'])
-
-        # Deleting model 'Currency'
-        db.delete_table(u'geo_currency')
-
-        # Deleting model 'UNRegion'
-        db.delete_table(u'geo_unregion')
-
-        # Deleting model 'Country'
-        db.delete_table(u'geo_country')
-
-        # Deleting model 'AdministrativeAreaType'
-        db.delete_table(u'geo_administrativeareatype')
-
-        # Deleting model 'AdministrativeArea'
-        db.delete_table(u'geo_administrativearea')
-
-        # Deleting model 'LocationType'
-        db.delete_table(u'geo_locationtype')
-
-        # Deleting model 'Location'
-        db.delete_table(u'geo_location')
-
-
-    models = {
-        'geo.administrativearea': {
-            'Meta': {'object_name': 'AdministrativeArea', 'unique_together': "(('name', 'country', 'type'),)", 'ordering': "(u'_order',)"},
-            '_order': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            'code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'blank': 'True', 'max_length': '10', 'null': 'True'}),
-            'country': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.Country']", 'related_name': "'areas'"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            u'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            u'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255'}),
-            'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.AdministrativeArea']", 'related_name': "'areas'", 'default': 'None'}),
-            u'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            u'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'type': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.AdministrativeAreaType']"}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
-        },
-        'geo.administrativeareatype': {
-            'Meta': {'object_name': 'AdministrativeAreaType', 'unique_together': "(('country', 'name'),)", 'ordering': "(u'_order',)"},
-            '_order': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            'country': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.Country']"}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            u'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            u'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '100'}),
-            'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.AdministrativeAreaType']", 'related_name': "'children'"}),
-            u'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            u'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
-        },
-        'geo.country': {
-            'Meta': {'object_name': 'Country', 'ordering': "['name']"},
-            'continent': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
-            'currency': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.Currency']"}),
-            'expired': ('django.db.models.fields.DateField', [], {'blank': 'True', 'null': 'True', 'default': 'None'}),
-            'fullname': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '100'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'iso_code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '2', 'unique': 'True'}),
-            'iso_code3': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '3', 'unique': 'True'}),
-            'iso_num': ('django.db.models.fields.CharField', [], {'max_length': '3', 'unique': 'True'}),
-            'last_update': ('django.db.models.fields.DateTimeField', [], {'blank': 'True', 'auto_now': 'True', 'default': 'datetime.datetime.now'}),
-            'lat': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'decimal_places': '12', 'max_digits': '18', 'null': 'True'}),
-            'lng': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'decimal_places': '12', 'max_digits': '18', 'null': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '100'}),
-            'phone_prefix': ('django.db.models.fields.CharField', [], {'blank': 'True', 'max_length': '20', 'null': 'True'}),
-            'region': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.UNRegion']", 'default': 'None'}),
-            'timezone': ('timezone_field.fields.TimeZoneField', [], {'blank': 'True', 'null': 'True', 'default': 'None'}),
-            'tld': ('django.db.models.fields.CharField', [], {'blank': 'True', 'max_length': '5', 'null': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
-        },
-        'geo.currency': {
-            'Meta': {'object_name': 'Currency', 'ordering': "['iso_code']"},
-            'decimals': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'iso_code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '5', 'unique': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'numeric_code': ('django.db.models.fields.CharField', [], {'max_length': '5', 'unique': 'True'}),
-            'symbol': ('django.db.models.fields.CharField', [], {'blank': 'True', 'max_length': '5', 'null': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
-        },
-        'geo.location': {
-            'Meta': {'object_name': 'Location', 'unique_together': "(('area', 'name'),)", 'ordering': "(u'_order',)"},
-            '_order': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
-            'acc': ('django.db.models.fields.IntegerField', [], {'blank': 'True', 'null': 'True', 'default': '0'}),
-            'area': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.AdministrativeArea']"}),
-            'country': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['geo.Country']"}),
-            'description': ('django.db.models.fields.CharField', [], {'blank': 'True', 'max_length': '100', 'null': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'is_administrative': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'is_capital': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'lat': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'decimal_places': '12', 'max_digits': '18', 'null': 'True'}),
-            'lng': ('django.db.models.fields.DecimalField', [], {'blank': 'True', 'decimal_places': '12', 'max_digits': '18', 'null': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '255'}),
-            'type': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'null': 'True', 'to': "orm['geo.LocationType']"}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
-        },
-        'geo.locationtype': {
-            'Meta': {'object_name': 'LocationType'},
-            'description': ('django.db.models.fields.CharField', [], {'max_length': '100', 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'uuid': ('uuidfield.fields.UUIDField', [], {'blank': 'True', 'max_length': '32', 'unique': 'True', 'default': "''"})
-        },
-        'geo.unregion': {
-            'Meta': {'object_name': 'UNRegion', 'ordering': "['name']"},
-            'code': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '5', 'unique': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'last_update': ('django.db.models.fields.DateTimeField', [], {'blank': 'True', 'auto_now': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
-        }
-    }
-
-    complete_apps = ['geo']
+    operations = [
+        migrations.CreateModel(
+            name='AdministrativeArea',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
+                ('uuid', uuidfield.fields.UUIDField(help_text='unique id', unique=True, editable=False, blank=True, default=b'', max_length=32)),
+                ('name', models.CharField(max_length=255, verbose_name='Name', db_index=True)),
+                ('code', models.CharField(help_text=b'ISO 3166-2 code', verbose_name='Code', db_index=True, blank=True, null=True, max_length=10)),
+                ('lft', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('rght', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('tree_id', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('level', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('parent', mptt.fields.TreeForeignKey(to='geo.AdministrativeArea', blank=True, default=None, null=True)),
+            ],
+            options={
+                'verbose_name_plural': 'Administrative Areas',
+                'ordering': [b'name'],
+                'verbose_name': 'Administrative Area',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='AdministrativeAreaType',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
+                ('uuid', uuidfield.fields.UUIDField(help_text='unique id', unique=True, editable=False, blank=True, default=b'', max_length=32)),
+                ('name', models.CharField(max_length=100, verbose_name='Name', db_index=True)),
+                ('lft', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('rght', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('tree_id', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('level', models.PositiveIntegerField(editable=False, db_index=True)),
+                ('parent', mptt.fields.TreeForeignKey(to='geo.AdministrativeAreaType', blank=True, null=True)),
+            ],
+            options={
+                'verbose_name_plural': 'Administrative Area Types',
+                'ordering': [b'name'],
+                'verbose_name': 'Administrative Area Type',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='administrativearea',
+            name='type',
+            field=models.ForeignKey(to='geo.AdministrativeAreaType'),
+            preserve_default=True,
+        ),
+        migrations.CreateModel(
+            name='Country',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
+                ('iso_code', models.CharField(max_length=2, db_index=True, unique=True, help_text=b'ISO 3166-1 alpha 2', validators=[django.core.validators.MinLengthValidator(2)])),
+                ('iso_code3', models.CharField(max_length=3, db_index=True, unique=True, help_text=b'ISO 3166-1 alpha 3', validators=[django.core.validators.MinLengthValidator(3)])),
+                ('iso_num', models.CharField(max_length=3, unique=True, help_text=b'ISO 3166-1 numeric', validators=[django.core.validators.RegexValidator(b'\\d\\d\\d')])),
+                ('uuid', uuidfield.fields.UUIDField(help_text='unique id', unique=True, editable=False, blank=True, default=b'', max_length=32)),
+                ('undp', models.CharField(validators=[django.core.validators.MinLengthValidator(3)], help_text=b'UNDP code', unique=True, blank=True, max_length=3, null=True)),
+                ('nato3', models.CharField(validators=[django.core.validators.MinLengthValidator(3)], help_text=b'NATO3 code', unique=True, blank=True, max_length=3, null=True)),
+                ('fips', models.CharField(blank=True, max_length=255, help_text=b'fips code', null=True)),
+                ('itu', models.CharField(blank=True, max_length=255, help_text=b'ITU code', null=True)),
+                ('icao', models.CharField(blank=True, max_length=255, help_text=b'ICAO code', null=True)),
+                ('name', models.CharField(max_length=100, db_index=True)),
+                ('fullname', models.CharField(max_length=100, db_index=True)),
+                ('continent', models.CharField(choices=[(b'AF', 'Africa'), (b'AN', 'Antartica'), (b'AS', 'Asia'), (b'EU', 'Europe'), (b'NA', 'North America'), (b'OC', 'Oceania'), (b'SA', 'South America')], max_length=2)),
+                ('tld', models.CharField(blank=True, max_length=5, help_text=b'Internet tld', null=True)),
+                ('phone_prefix', models.CharField(blank=True, max_length=20, help_text=b'Phone prefix number', null=True)),
+                ('timezone', timezone_field.fields.TimeZoneField(blank=True, default=None, max_length=63, choices=None, null=True)),
+                ('expired', models.DateField(blank=True, default=None, null=True)),
+                ('lat', models.DecimalField(blank=True, decimal_places=12, verbose_name=b'Latitude', max_digits=18, null=True)),
+                ('lng', models.DecimalField(blank=True, decimal_places=12, verbose_name=b'Longitude', max_digits=18, null=True)),
+                ('last_update', models.DateTimeField(auto_now=True)),
+            ],
+            options={
+                'ordering': [b'name'],
+                'verbose_name_plural': 'Countries',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='administrativeareatype',
+            name='country',
+            field=models.ForeignKey(to='geo.Country'),
+            preserve_default=True,
+        ),
+        migrations.AlterOrderWithRespectTo(
+            name='administrativeareatype',
+            order_with_respect_to=b'country',
+        ),
+        migrations.AlterUniqueTogether(
+            name='administrativeareatype',
+            unique_together=set([(b'country', b'name')]),
+        ),
+        migrations.AddField(
+            model_name='administrativearea',
+            name='country',
+            field=models.ForeignKey(to='geo.Country'),
+            preserve_default=True,
+        ),
+        migrations.AlterOrderWithRespectTo(
+            name='administrativearea',
+            order_with_respect_to=b'country',
+        ),
+        migrations.AlterUniqueTogether(
+            name='administrativearea',
+            unique_together=set([(b'name', b'country', b'type')]),
+        ),
+        migrations.CreateModel(
+            name='Currency',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
+                ('uuid', uuidfield.fields.UUIDField(help_text='unique id', unique=True, editable=False, blank=True, default=b'', max_length=32)),
+                ('iso_code', models.CharField(max_length=5, unique=True, help_text=b'ISO 4217 code', db_index=True)),
+                ('numeric_code', models.CharField(unique=True, help_text=b'ISO 4217 code', max_length=5)),
+                ('decimals', models.IntegerField(default=0)),
+                ('name', models.CharField(max_length=100)),
+                ('symbol', models.CharField(blank=True, max_length=5, null=True)),
+            ],
+            options={
+                'ordering': [b'iso_code'],
+                'verbose_name_plural': b'Currencies',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='country',
+            name='currency',
+            field=models.ForeignKey(to='geo.Currency', blank=True, null=True),
+            preserve_default=True,
+        ),
+        migrations.CreateModel(
+            name='Location',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
+                ('is_capital', models.BooleanField(default=False, help_text=b'True if is the capital of `country`')),
+                ('is_administrative', models.BooleanField(default=False, help_text=b'True if is administrative for `area`')),
+                ('uuid', uuidfield.fields.UUIDField(help_text='unique id', unique=True, editable=False, blank=True, default=b'', max_length=32)),
+                ('name', models.CharField(max_length=255, verbose_name='Name', db_index=True)),
+                ('loccode', models.CharField(blank=True, max_length=255, null=True, verbose_name='UN LOCODE', db_index=True)),
+                ('description', models.CharField(blank=True, max_length=100, null=True)),
+                ('lat', models.DecimalField(blank=True, decimal_places=12, max_digits=18, null=True)),
+                ('lng', models.DecimalField(blank=True, decimal_places=12, max_digits=18, null=True)),
+                ('acc', models.IntegerField(blank=True, default=0, choices=[(0, 'None'), (10, 'Country'), (20, 'Exact')], help_text=b'Define the level of accuracy of lat/lng infos', null=True)),
+                ('flags', bitfield.models.BitField(default=0, flags=[])),
+                ('status', models.CharField(blank=True, max_length=2, choices=[(b'AA', b'Approved by competent national government agency'), (b'AC', b'Approved by Customs Authority'), (b'AF', b'Approved by national facilitation body'), (b'AI', b'Code adopted by international organisation (IATA or ECLAC)'), (b'RL', b'Recognised location - Existence and representation of location name confirmed by check against nominated gazetteer or other reference work'), (b'RN', b'Request from credible national sources for locations in their own country'), (b'RQ', b'Request under consideration'), (b'RR', b'Request rejected'), (b'QQ', b'Original entry not verified since date indicated'), (b'XX', b'Entry that will be removed from the next issue of UN/LOCODE')], null=True)),
+                ('area', models.ForeignKey(to='geo.AdministrativeArea', blank=True, null=True)),
+                ('country', models.ForeignKey(to='geo.Country')),
+            ],
+            options={
+                'verbose_name_plural': 'Locations',
+                'ordering': (b'name', b'country'),
+                'verbose_name': 'Location',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AlterOrderWithRespectTo(
+            name='location',
+            order_with_respect_to=b'country',
+        ),
+        migrations.CreateModel(
+            name='LocationType',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
+                ('uuid', uuidfield.fields.UUIDField(help_text='unique id', unique=True, editable=False, blank=True, default=b'', max_length=32)),
+                ('description', models.CharField(unique=True, max_length=100)),
+            ],
+            options={
+                'verbose_name_plural': 'Location Types',
+                'verbose_name': 'Location Type',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='location',
+            name='type',
+            field=models.ForeignKey(to='geo.LocationType', blank=True, null=True),
+            preserve_default=True,
+        ),
+        migrations.AlterUniqueTogether(
+            name='location',
+            unique_together=set([(b'area', b'name')]),
+        ),
+        migrations.CreateModel(
+            name='UNRegion',
+            fields=[
+                ('id', models.AutoField(auto_created=True, verbose_name='ID', serialize=False, primary_key=True)),
+                ('code', models.CharField(max_length=5, unique=True, db_index=True)),
+                ('name', models.CharField(max_length=100)),
+                ('last_update', models.DateTimeField(auto_now=True)),
+            ],
+            options={
+                'ordering': [b'name'],
+                'verbose_name_plural': 'UN Regions',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='country',
+            name='region',
+            field=models.ForeignKey(to='geo.UNRegion', blank=True, default=None, null=True),
+            preserve_default=True,
+        ),
+    ]

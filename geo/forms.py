@@ -8,7 +8,6 @@ from geo.models import AdministrativeAreaType, AdministrativeArea, Country, Loca
 
 
 class IsoCode2Field(CharField):
-
     def __init__(self, max_length=None, min_length=None, *args, **kwargs):
         max_length = 2
         super(IsoCode2Field, self).__init__(max_length, min_length, *args, **kwargs)
@@ -18,8 +17,8 @@ class IsoCode2Field(CharField):
             value = value.strip().upper()
         return super(IsoCode2Field, self).clean(value)
 
-class IsoCode3Field(CharField):
 
+class IsoCode3Field(CharField):
     def __init__(self, max_length=None, min_length=None, *args, **kwargs):
         max_length = 3
         super(IsoCode3Field, self).__init__(max_length, min_length, *args, **kwargs)
@@ -29,8 +28,8 @@ class IsoCode3Field(CharField):
             value = value.strip().upper()
         return super(IsoCode3Field, self).clean(value)
 
-class IsoNumericField(CharField):
 
+class IsoNumericField(CharField):
     def __init__(self, max_length=None, min_length=None, *args, **kwargs):
         max_length = 3
         super(IsoNumericField, self).__init__(max_length, min_length, *args, **kwargs)
@@ -43,6 +42,7 @@ class IsoNumericField(CharField):
             raise ValidationError(e)
         return super(IsoNumericField, self).clean(value)
 
+
 class CountryForm(forms.ModelForm):
     iso_code = IsoCode2Field()
     iso_code3 = IsoCode3Field()
@@ -50,6 +50,7 @@ class CountryForm(forms.ModelForm):
 
     class Meta:
         model = Country
+        exclude = ('pk', )
         widgets = {
             'fullname': TextInput(attrs={'size': 100}),
             # 'iso_code': TextInput(attrs={'size': 2}),
@@ -62,6 +63,7 @@ class CountryForm(forms.ModelForm):
 class AreaForm(forms.ModelForm):
     class Meta:
         model = AdministrativeArea
+        exclude = ('pk', )
         widgets = {'name': TextInput(attrs={'size': 100}),
                    'code': TextInput(attrs={'size': 3})}
 
@@ -79,6 +81,7 @@ class AdministrativeAreaForm(forms.ModelForm):
 
     class Meta:
         model = AdministrativeArea
+        exclude = ('pk', )
         widgets = {
             'code': TextInput(attrs={'size': 10}),
         }
@@ -89,6 +92,9 @@ class LocationForm(forms.ModelForm):
 
     class Meta:
         model = Location
+        fields = ('area', 'country', 'type', 'is_capital',
+                  'is_administrative', 'name',
+                  'loccode', 'description', 'lat', 'lng', 'acc', 'flags', 'status')
         widgets = {
             'code': TextInput(attrs={'size': 10}),
 

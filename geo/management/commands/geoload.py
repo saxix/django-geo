@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from StringIO import StringIO
 from django.core.exceptions import ValidationError
 from django.core.management.base import BaseCommand, CommandError
 from optparse import make_option
@@ -28,8 +29,15 @@ class Command(BaseCommand):
     )
 
     def handle(self, *args, **options):
+        verbosity = options['verbosity']
         load_all = options.get('all')
         # reset = options.get('currency')
+        if verbosity==0:
+            stdout = StringIO()
+        else:
+            stdout  = self.stdout.write
+
+
         if load_all:
             region = tz = country = capital = currency = region = True
         else:
@@ -40,14 +48,14 @@ class Command(BaseCommand):
             currency = options.get('currency')
 
         if currency:
-            self.stdout.write("Loading currencies...")
-            load_currency(self.stdout)
+            stdout.write("Loading currencies...")
+            load_currency(stdout)
         if region:
             for code, name in Regions:
                 UNRegion.objects.get_or_create(name=name, code=code)
         if country:
-            self.stdout.write("Loading countries...")
-            load_country(self.stdout)
+            stdout.write("Loading countries...")
+            load_country(stdout)
         if tz:
-            self.stdout.write("Loading timezones...")
-            load_timezone(self.stdout)
+            stdout.write("Loading timezones...")
+            load_timezone(stdout)

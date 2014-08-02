@@ -1,4 +1,5 @@
 import warnings
+from django.conf import settings
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -13,18 +14,11 @@ def pytest_collection_modifyitems(items):
 def pytest_configure(config):
     here = os.path.dirname(__file__)
     sys.path.insert(0, here)
-    from django.conf import settings
 
     if not settings.configured:
         os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.settings'
 
-    try:
-        from django.apps import AppConfig
-        import django
 
-        django.setup()
-    except ImportError:
-        pass
 
 
 def runtests(args=None):
