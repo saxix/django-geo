@@ -20,5 +20,5 @@ before_script:
   - make init-db
 
 after_success:
-  - coveralls -c .coveragerc
+  - coveralls -c tests/.coveragerc
 

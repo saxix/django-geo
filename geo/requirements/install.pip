@@ -1,5 +1,4 @@
 django-bitfield
-django-modeltranslation
 django-mptt>=0.6.0
 django-separatedvaluesfield
 django-timezone-field>=1.0

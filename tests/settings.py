@@ -1,6 +1,6 @@
 import os
 from tempfile import mktemp
-# import django
+import django
 
 GEO_CACHE = '~build/cache'
 
@@ -26,15 +26,13 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    # 'django.contrib.sites',
-    #               'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    # 'south',
-    # 'modeltranslation',
+    'south',
     'geo']
 
-# INSTALLED_APPS.remove('south')
+if django.VERSION[:2] >= (1,7):
+    INSTALLED_APPS.remove('south')
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
