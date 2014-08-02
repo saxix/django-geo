@@ -150,7 +150,7 @@ class Country(models.Model):
     lat = models.DecimalField("Latitude", max_digits=18, decimal_places=12, blank=True, null=True)
     lng = models.DecimalField("Longitude", max_digits=18, decimal_places=12, blank=True, null=True)
 
-    last_update = models.DateTimeField(auto_now=True, default=datetime.now)
+    last_update = models.DateTimeField(auto_now=True)
 
     fullname.alphabetic_filter = True
     objects = CountryManager()
@@ -344,7 +344,7 @@ class Location(models.Model):
 
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     loccode = models.CharField(_('UN LOCODE'), max_length=255, db_index=True, blank=True, null=True)
-    # iata = models.CharField(_('IATA code (if exists)'), max_length=255, db_index=True, blank=True, null=True)
+    iata = models.CharField(_('IATA code (if exists)'), max_length=255, db_index=True, blank=True, null=True)
 
     description = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
@@ -380,27 +380,27 @@ class Location(models.Model):
     objects = LocationManager()
 
 
-class Meta:
-    verbose_name_plural = _('Locations')
-    verbose_name = _('Location')
-    app_label = 'geo'
-    ordering = ('name', 'country', )
-    order_with_respect_to = 'country'
-    unique_together = (('area', 'name'), )
+    class Meta:
+        verbose_name_plural = _('Locations')
+        verbose_name = _('Location')
+        app_label = 'geo'
+        ordering = ('name', 'country', )
+        order_with_respect_to = 'country'
+        unique_together = (('area', 'name'), )
 
 
-def __unicode__(self):
-    return unicode(self.name)
+    def __unicode__(self):
+        return unicode(self.name)
 
 
-def natural_key(self):
-    return (self.uuid.hex, )
+    def natural_key(self):
+        return (self.uuid.hex, )
 
 
-natural_key.dependencies = ['geo.administrativearea', 'geo.country', 'geo.locationtype']
+    natural_key.dependencies = ['geo.administrativearea', 'geo.country', 'geo.locationtype']
 
 
-def clean(self):
-    if self.area and self.area.country != self.country:
-        raise ValidationError('Selected area not in selected country')
-    super(Location, self).clean()
+    def clean(self):
+        if self.area and self.area.country != self.country:
+            raise ValidationError('Selected area not in selected country')
+        super(Location, self).clean()
