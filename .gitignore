@@ -13,5 +13,5 @@ OUT
 dist
 MANIFEST
 wheelhouse
-./manage.py
+manage.py
 
