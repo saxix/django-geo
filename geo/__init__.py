@@ -3,7 +3,7 @@ import datetime
 import os
 
 NAME = 'django-geo'
-VERSION = __version__ = (0, 8, 0, 'alpha', 0)
+VERSION = __version__ = (0, 8, 0, 'final', 0)
 __author__ = 'sax'
 default_app_config = 'geo.apps.AppConfig'
 
