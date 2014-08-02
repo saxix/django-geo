@@ -344,7 +344,7 @@ class Location(models.Model):
 
     name = models.CharField(_('Name'), max_length=255, db_index=True)
     loccode = models.CharField(_('UN LOCODE'), max_length=255, db_index=True, blank=True, null=True)
-    # iata = models.CharField(_('IATA code (if exists)'), max_length=255, db_index=True, blank=True, null=True)
+    iata = models.CharField(_('IATA code (if exists)'), max_length=255, db_index=True, blank=True, null=True)
 
     description = models.CharField(max_length=100, blank=True, null=True)
     lat = models.DecimalField(max_digits=18, decimal_places=12, blank=True, null=True)
