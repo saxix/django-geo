@@ -150,7 +150,7 @@ class Country(models.Model):
     lat = models.DecimalField("Latitude", max_digits=18, decimal_places=12, blank=True, null=True)
     lng = models.DecimalField("Longitude", max_digits=18, decimal_places=12, blank=True, null=True)
 
-    last_update = models.DateTimeField(auto_now=True, default=datetime.now)
+    last_update = models.DateTimeField(auto_now=True)
 
     fullname.alphabetic_filter = True
     objects = CountryManager()

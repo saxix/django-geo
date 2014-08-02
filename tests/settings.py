@@ -1,5 +1,6 @@
 import os
 from tempfile import mktemp
+# import django
 
 GEO_CACHE = '~build/cache'
 
@@ -9,40 +10,38 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 ROOT_URLCONF = 'tests.urls'
 SECRET_KEY = 'abc'
-STATIC_ROOT = mktemp('static')
-MEDIA_ROOT = mktemp('media')
+# STATIC_ROOT = mktemp('static')
+# MEDIA_ROOT = mktemp('media')
 
 gettext = lambda s: s
 LANGUAGES = (
     ('de', gettext('German')),
     ('en', gettext('English')),
 )
-# MIGRATION_MODULES = {'geo': 'migrations'}
-# SOUTH_MIGRATION_MODULES = {
-#     'geo': 'geo.south_migrations',
-# }
+
+SOUTH_MIGRATION_MODULES = {
+    'geo': 'geo.south_migrations',
+}
 INSTALLED_APPS = [
     'django.contrib.auth',
-                  'django.contrib.contenttypes',
-                  'django.contrib.sessions',
-    #               'django.contrib.sites',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    # 'django.contrib.sites',
     #               'django.contrib.messages',
-    #               'django.contrib.staticfiles',
-                  'django.contrib.admin',
-                  # 'south',
-                  'modeltranslation',
-                  'geo']
+    'django.contrib.staticfiles',
+    'django.contrib.admin',
+    # 'south',
+    # 'modeltranslation',
+    'geo']
 
+# INSTALLED_APPS.remove('south')
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
 
 TEMPLATE_DIRS = ['tests/templates']
 
@@ -89,8 +88,8 @@ LOGGING = {
 }
 
 DBNAME = os.environ.get('DBNAME', 'geo')
-db = os.environ.get('DBENGINE', None)
-if db == 'pg':
+db = os.environ.get('DBENGINE', 'postgres')
+if db == 'postgres':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',

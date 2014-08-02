@@ -56,7 +56,7 @@ def country_factory(**kwargs):
     kwargs.setdefault('nato3', lambda x: "{:03}".format(next(counter))[:3])
     kwargs.setdefault('iso_num', lambda x: "{:03}".format(next(counter))[:3])
 
-    kwargs.setdefault('name_en', lambda x: country_name('Country'))
+    kwargs.setdefault('name', lambda x: country_name('Country'))
     kwargs.setdefault('currency', None)
 
     country = G(Country, **kwargs)

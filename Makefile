@@ -5,6 +5,7 @@ DJANGO_16:='django>=1.6,<1.7'
 DJANGO_17=https://www.djangoproject.com/download/1.7c1/tarball/
 DJANGO_DEV=git+git://github.com/django/django.git
 DBNAME=geo
+DBENGINE?=postgres
 
 mkbuilddir:
 	mkdir -p ${BUILDDIR}/cache
@@ -29,15 +30,18 @@ clean:
 coverage: mkbuilddir
 	py.test --cov=geo --cov-report=html --cov-report=term --cov-config=tests/.coveragerc -vvv
 
+demo:
+	django-admin.py syncdb --settings=tests.settings
+	django-admin.py runserver --settings=tests.settings
 
 init-db:
 	@sh -c "if [ '${DBENGINE}' = 'mysql' ]; then mysql -e 'DROP DATABASE IF EXISTS ${DBNAME};'; fi"
 	@sh -c "if [ '${DBENGINE}' = 'mysql' ]; then pip install  MySQL-python; fi"
 	@sh -c "if [ '${DBENGINE}' = 'mysql' ]; then mysql -e 'CREATE DATABASE IF NOT EXISTS ${DBNAME};'; fi"
 
-	@sh -c "if [ '${DBENGINE}' = 'pg' ]; then psql -c 'DROP DATABASE IF EXISTS ${DBNAME};' -U postgres; fi"
-	@sh -c "if [ '${DBENGINE}' = 'pg' ]; then psql -c 'CREATE DATABASE ${DBNAME};' -U postgres; fi"
-	@sh -c "if [ '${DBENGINE}' = 'pg' ]; then pip install -q psycopg2; fi"
+	@sh -c "if [ '${DBENGINE}' = 'postgres' ]; then psql -c 'DROP DATABASE IF EXISTS ${DBNAME};' -U postgres; fi"
+	@sh -c "if [ '${DBENGINE}' = 'postgres' ]; then psql -c 'CREATE DATABASE ${DBNAME};' -U postgres; fi"
+	@sh -c "if [ '${DBENGINE}' = 'postgres' ]; then pip install -q psycopg2; fi"
 
 ci: init-db install-deps
 	@sh -c "if [ '${DJANGO}' = '1.4.x' ]; then pip install ${DJANGO_14}; fi"

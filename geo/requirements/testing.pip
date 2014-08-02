@@ -1,9 +1,11 @@
+coverage>=3.7.1
 django-dynamic-fixture>=1.6.5
 django-webtest>=1.7.5
+fake-factory
+pytest-django
+pytest-cache
 pytest-cov>=1.6
 pytest>=2.5.1
-
-coverage>=3.7.1
-WebTest>=2.0.11
-fake-factory
 sample-data-utils
+WebTest>=2.0.11
+tox
