@@ -35,7 +35,7 @@ class Command(BaseCommand):
         if verbosity==0:
             stdout = StringIO()
         else:
-            stdout  = self.stdout.write
+            stdout = self.stdout
 
 
         if load_all:
