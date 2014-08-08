@@ -50,22 +50,24 @@ def load_timezone(overwrite=False, stdout=None):
         except KeyError:
             pass
 
+    op = 'Updating'
     filters1 = filters2 = filters3 = {}
-    if overwrite:
+    if not overwrite:
+        op = 'Setting'
         filters1 = {'timezone__isnull': True}
         filters2 = {'country__timezone__isnull': True}
 
-    for country in Country.objects.filter(**filters1):
+    for country in Country.objects.filter(**filters1).order_by('name'):
         _update(country, country.iso_code)
-        stdout.write("Updated timezone for `%s` \n" % unicode(country))
+        stdout.write("%s timezone for Country `%s` \n" % (op, unicode(country)))
 
-    for aa in AdministrativeArea.objects.filter(**filters2):
+    for aa in AdministrativeArea.objects.filter(**filters2).order_by('name'):
         _update(aa, aa.country.iso_code)
-        stdout.write("Updated timezone for `%s` \n" % unicode(aa))
+        stdout.write("%s timezone for Area `%s` \n" % (op, unicode(aa)))
 
-    for location in Location.objects.filter(**filters3):
+    for location in Location.objects.filter(**filters3).order_by('name'):
         _update(location, location.country.iso_code)
-        stdout.write("Updated timezone for `%s` \n" % unicode(location))
+        stdout.write("%s timezone for Location `%s` \n" % (op, unicode(location)))
 
 
 def load_fullnames(stdout=None):
