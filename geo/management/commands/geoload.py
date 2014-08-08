@@ -34,6 +34,8 @@ class Command(BaseCommand):
         # reset = options.get('currency')
         if verbosity==0:
             stdout = StringIO()
+        elif 'stdout' in options:
+            stdout = options['stdout']
         else:
             stdout = self.stdout
 
@@ -58,4 +60,4 @@ class Command(BaseCommand):
             load_country(stdout)
         if tz:
             stdout.write("Loading timezones...")
-            load_timezone(stdout)
+            load_timezone(stdout=stdout)
