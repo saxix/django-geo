@@ -335,7 +335,7 @@ class Location(models.Model):
         (EXACT, _('Exact')))
 
     country = models.ForeignKey(Country, db_index=True)
-    area = models.ForeignKey(AdministrativeArea, db_index=True, blank=True, null=True)
+    area = models.ForeignKey(AdministrativeArea, db_index=True, blank=True, null=True, related_name="locations")
     type = models.ForeignKey(LocationType, blank=True, null=True)
 
     is_capital = models.BooleanField(default=False, help_text="True if is the capital of `country`")
